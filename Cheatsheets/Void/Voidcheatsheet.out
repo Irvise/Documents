@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section*.1}{Notes}{}% 1
+\BOOKMARK [1][-]{section*.2}{The X Binary Package System}{}% 2
+\BOOKMARK [2][-]{section*.3}{Configuration files}{section*.2}% 3
+\BOOKMARK [2][-]{section*.4}{Global flags}{section*.2}% 4
+\BOOKMARK [2][-]{section*.5}{xbps-install}{section*.2}% 5
+\BOOKMARK [2][-]{section*.6}{xbps-query}{section*.2}% 6
+\BOOKMARK [2][-]{section*.7}{xbps-remove}{section*.2}% 7
+\BOOKMARK [2][-]{section*.8}{xbps-reconfigure}{section*.2}% 8
+\BOOKMARK [2][-]{section*.9}{xbps-pkgdb}{section*.2}% 9
+\BOOKMARK [2][-]{section*.10}{xbps-rindex}{section*.2}% 10
+\BOOKMARK [1][-]{section*.11}{./xbps-src}{}% 11
+\BOOKMARK [2][-]{section*.12}{Installation and Upgrade}{section*.11}% 12
+\BOOKMARK [1][-]{section*.13}{Usage}{}% 13
+\BOOKMARK [1][-]{section*.14}{Mklive? Should it be here?}{}% 14
+\BOOKMARK [1][-]{section*.15}{Runit}{}% 15
+\BOOKMARK [1][-]{section*.16}{Resources}{}% 16

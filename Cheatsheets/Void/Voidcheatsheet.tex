@@ -1,0 +1,223 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% writeLaTeX Example: A quick guide to LaTeX
+%
+% Source: Dave Richeson (divisbyzero.com), Dickinson College
+% 
+% A one-size-fits-all LaTeX cheat sheet. Kept to two pages, so it 
+% can be printed (double-sided) on one piece of paper
+% 
+% Feel free to distribute this example, but please keep the referral
+% to divisbyzero.com
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,landscape]{article}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{multicol,multirow}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[english]{babel}
+\usepackage[landscape]{geometry}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+
+
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+    }
+\pagestyle{empty}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+\def\cm#1#2{{\tt#1}\dotfill#2\par}
+% -----------------------------------------------------------------------
+
+\title{Quick Guide to Void Linux}
+
+\begin{document}
+
+\raggedright
+\footnotesize
+
+\begin{center}
+     \Large{\textbf{Void Linux Cheat sheet}} \\
+\end{center}
+\begin{multicols}{3}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\section{Notes}
+\begin{itemize}
+	
+	\item \textit{pkg:} will indicate any package.
+	\item \textit{dir:} indicates a directory.
+	\item \textbf{\#} may be: $<, >, >=, <=, -$; $-$ means exact version.
+	\item Subsections of XBPS indicate a command, the content of these are flags that can be passed to that command. Some may present two flags in an entry, they are separated by comas, this means they are equivalent and therefore interchangeable.
+	\item When an entry is between brackets [...] it means it is optional but recommended.
+	\item Flags can be combined. More than one flag may be used at a time, and in a single argument. \\ \textbf{Example:} \texttt{xbps-query -R -x == xbps-query -Rx}
+	
+\end{itemize}
+
+\section{The X Binary Package System}
+In case of doubt or need, throw a help flag \textit{-h} to the command. \texttt{Man pages} are always a great resource!
+\subsection{Configuration files}
+
+	\cm{/etc/xbps.d}{Default configuration directory}
+	\cm{/usr/share/xbps.d}{Default system configuration directory}
+	\cm{/var/db/xbps/.pkg-files.plist}{\textit{Pkg} files metadata}
+	\cm{/var/db/xbps/pkgdb-0.38.plist}{Default package database. Keeps track of installed packages and properties}
+	\cm{/var/cache/xbps}{Default directory to store downloaded packages}
+	
+\subsection{Global flags}
+Flags that will most likely appear in many different commands with the same effect:
+
+	\cm{-v, --verbose}{Verbose messages}
+	\cm{-C, --config dir}{Specifies configuration directory}
+	\cm{-R}{Forces repository mode, do not look into target}
+	\cm{-r, --rootdir dir}{Specifies target's root \textit{dir}}
+	\cm{-n, --dry-run}{Simulates an actual operation}
+	\cm{-i}{Ignores configuration repositories, only explicit ones are used (\texttt{--repository})}
+
+\subsection{xbps-install}
+
+	\cm{-S, --sync}{Syncs repositories}
+	\cm{-Su}{Syncs and updates the system}
+	\cm{-f, --force}{Forces an action}
+	\cm{pkg}{Install a package}
+	\cm{-Sf pkg\#ver}{Forces an specific version of \textit{pkg}} 
+	\cm{--repository=url}{Specifies a repository}
+	\cm{-y, --yes}{Assume yes to all prompts}
+	\cm{-d, --debug}{Shows extra information}
+	\cm{-U, --unpack-only}{Unpacks packages but does not configure them}
+	
+
+\subsection{xbps-query}
+
+	\cm{-R, --repository}{Activates repository mode}
+	\cm{-L}{Lists registered repositories}
+	\cm{-l, --list-packages}{Lists installed packages}
+		\begin{itemize}
+			\item \textbf{ii:} package is installed
+			\item \textbf{uu:} package is unpacked but requires configuration
+			\item \textbf{hr:} package is half remove
+			\item \textbf{??:} package's state is unknown
+		\end{itemize}
+	\cm{[-R] pkg}{Shows information of \textit{pkg}}
+	\cm{[-R] -f, --files pkg}{Prints the files of \textit{pkg}}
+	\cm{[-R] -x pkg}{Shows the dependencies of \textit{pkg}}
+	\begin{itemize}
+		\item \cm{--fulldeptree}{Show full dependency tree}
+	\end{itemize}
+	\cm{[-R] -X pkg}{Lists packages that depend on \textit{pkg}}
+	\cm{-H, --list-hold-pkgs}{List packages on hold}
+	\cm{-m, --list-manual-pkgs}{List manually installed packages}
+	\cm{-O, --list-orphans}{List orphaned packages}
+	\cm{[-R] -s pattern}{Searches for any match with \textit{pattern}}
+	\cm{[-R] -o '*/filename'}{Searches for packages matching \textit{filename}}
+	\cm{-p, --property}{Matches packages with the given property, more than one can be specified by delimiting them with commas}
+
+\subsection{xbps-remove}
+
+	\cm{pkg}{Remove \textit{pkg}}
+	\cm{-O, --clean-cache}{Cleans cache from obsolete packages}
+	\cm{-o, --remove-orphans}{Removes orphaned packages}
+	\cm{-R, --recursive pkg}{Recursively deleted packages that aren't needed anymore}
+
+\subsection{xbps-reconfigure}
+	
+	\cm{pkg}{Configures \textit{pkg}}
+	\cm{-a, --all}{Reconfigures all packages}
+	\cm{-i, --ignore pkg}{Ignore \textit{pkg} when reconfiguring all}
+
+\subsection{xbps-pkgdb}
+
+	\cm{pkg}{Checks for errors in \textit{pkg}}
+	\cm{-a, --all}{Check for errors in all installed packages}
+
+\subsection{xbps-rindex}
+	
+	\cm{-a, -add /dir/*.xbps}{Creates a local repository in \textit{dir}}
+	\cm{-r, --remove-obsoletes /dir}{Removes obsolete packages in \textit{dir}}
+	\cm{-c, --clean /dir}{Removes obsolete entries}
+
+\section{./xbps-src}
+
+\subsection{Installation and Upgrade}
+	
+	\cm{git clone}{Installs}
+	\cm{./xbps-src binary-bootstrap}{Installs basic build enviroment}
+	\cm{git pull}{Update truck}
+	
+\section{Usage}
+
+	\cm{./xbps-src -h}{Shows help}
+	\cm{./xbps-src bootstrap-update}{Updates bootstrap}
+	\cm{./xbps-src pkg <pkgname>}{Builds pkgname}
+	\cm{./xbps-src -N}{Disable the use of remote repositories to solve dependencies}
+	\cm{./xbps-src -f }{Forces an action}
+	\cm{./xbps-src -I}{Ignore reinstallation of dependencies}
+	\cm{./xbps-src -j <numb>}{Number of parallel jobs}
+	\cm{./xbps-src -a <arch>}{Specifies architecture}
+	\cm{./xbps-src install <pkgname>}{Install pkgname into the build enviroment}
+	\cm{./xbps-src remove-autodeps}{Removes installed dependencies}
+	\cm{./xbps-src update-bulk}{Rebuilds outdated packages in your system}
+	\cm{./xbps-src update-sys}{Rebuilds all packages in your system and updates them}
+	\cm{./xbps-src update-check <pkgname>}{Check upstream for updates}
+	\cm{./xbps-src show-options <pkgname>}{Shows build options for pkgname}
+	\cm{./xbps-src -o option, option1 pkg <pkgname>}{Builds pkgname with selected options}
+	\cm{./xbps-src -o $\sim$option pkg <pkgname>}{Disables build option}
+	\cm{xbps-install --repository=hostdir/binpkgs <pkgname>}{Installs built pkgname}
+
+\section{Mklive? Should it be here?}
+
+\section{Runit}
+
+$\bullet$ Location of services and their activation:
+	\cm{/etc/sv/}{Default location for services}
+	\cm{/var/services/}{Activated services}
+	In order to \textbf{activate} a service: \\ \texttt{\# ln -s /etc/sv/service\_name /var/service/} \\
+	To \textbf{de-activate} it, remove the symlink: \\ \texttt{\# rm /var/service/service\_name}
+	To have a service that is activated but \textbf{should not start at boot}: \\
+	\texttt{\# touch /etc/sv/service\_name/down} \\
+
+$\bullet$ Basic service management: \\
+	\cm{\# sv up service}{Start activated service}
+	\cm{\# sv down service}{Kill running service}
+	\cm{\# sv restart service}{Restart service}
+	\cm{\# sv status service}{Get current status of a service}
+	
+
+
+\section{Resources}
+Void Linux \href{https://www.voidlinux.eu}{website} \\
+Void \href{https://github.com/voidlinux}{github repository} \\
+Void Linux \href{https://wiki.voidlinux.eu/Main_Page}{Wiki} \\
+Runit official \href{http://smarden.org/runit/}{website} \\
+Xbps-src \href{https://github.com/voidlinux/void-packages}{page} \\
+Void discussions \href{https://forum.voidlinux.eu/}{forums}
+
+\vfill
+\hrule
+~\\
+Fernando Oleo Blanco. Creative Commons 4.0-BY
+\end{multicols}
+
+\end{document}
