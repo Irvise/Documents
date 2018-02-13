@@ -1,0 +1,6 @@
+# Negate everything
+*
+
+# Except for selected files
+!*.pdf
+!*.tex
