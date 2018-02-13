@@ -1,6 +1,9 @@
-# Negate everything
-*
+# Negate unneeded output files
+**/*.aux
+**/*.log
+**/*.out
 
-# Except for selected files
-!*.pdf
-!*.tex
+# # Except for selected files
+# !.gitignore
+# !*.pdf
+# !*.tex
