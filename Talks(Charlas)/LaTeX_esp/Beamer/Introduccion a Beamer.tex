@@ -1,0 +1,397 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[\LaTeXe]{Beamer, entorno de presentaciones en \LaTeX} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Fernando Oleo Blanco} % Your name
+\institute[ICAI] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Universidad ICAI Comillas \\ % Your institution for the title page
+Asociación de LinuxEC \\
+\medskip
+\textit{201507027@alu.comillas.edu} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Requerimientos}
+Lo dado en la charla anterior de \textbf{Introducción básica a \LaTeX} \\
+Muchas ganas
+\end{frame}
+
+\begin{frame}
+	Duración: una horilla o así
+	%\tableofcontents
+\end{frame}
+
+\begin{frame}
+	\tableofcontents[pausesections]
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Introducción} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\begin{frame}[c]
+	\frametitle{Introducción}
+	\begin{enumerate}
+		\item Introducción
+		\begin{itemize}
+			\item Creación de presentaciones de manera similar a la creación de documentos en \LaTeX
+			\item Todas las ventajas de \LaTeX\ (automatización, estructura, limpieza y formalidad...)
+			\item Todas las desventajas e inconvenientes de \LaTeX\ (No suporta Bib\LaTeX)
+		\end{itemize}
+		\item Herramientas a nuestra disposición
+		\begin{itemize}
+			\item Fácil creación de índices (además de \texttt{hiperlinks})
+			\item Montón de temas predefinidos
+			\item Automatización de herramientas en PDF (esquina inferior derecha)
+			\item Creación de bloques de manera sencilla
+		\end{itemize}
+	\end{enumerate}
+	\textbf{Resumen:} Control absoluto dentro del orden y claridad 
+\end{frame}
+
+
+\section{Documento básico de Beamer}
+
+\begin{frame}[fragile]
+	\begin{columns}[T]
+		\column{.4\textwidth}
+		\vspace{-12px}
+		\begin{verbatim}
+			\documentclass[]{beamer}
+			
+			\mode<presentation>{
+				\usetheme{tema}
+			}
+			
+			\begin{document}
+			
+			\section{}
+			
+			\begin{frame}
+				\begin{block}{}
+				\end{block}
+			%\end{frame}
+			
+			\end{document}
+		\end{verbatim}
+		\column{.6\textwidth}
+		Ha de estar siempre, define el modo presentación \\
+		\vspace{13px}
+		Formato, tema a usar \\
+		\vspace{27px}
+		Aquí comienza nuestro documento \\
+		\vspace{13px}
+		Nos permitirá hacer un índice \\
+		\vspace{13px}
+		Iniciamos una diapositiva \\
+		Bloque de contenidos
+	\end{columns}
+\end{frame}
+
+\section{Estilos y colores}
+
+\begin{frame}[fragile]
+	\frametitle{Estilos}
+	Beamer tiene unos estilos y temas ya predefinidos que están disponibles con el cambio de un solo comando \verb|\usetheme{theme}|. Ha de usarse como se indicó al principio
+	\begin{block}{Temas}
+		\begin{columns}[c]
+			\column{0.3\textwidth}
+			\textbf{default} \\
+			\textbf{Madrid} \\
+			\textbf{Berkley} \\
+			\textbf{Berlin} \\
+			\textbf{Malmoe} \\
+			\column[]{0.3\textwidth}
+			CambridgeUS \\
+			Copenhagen \\
+			Hannover \\
+			Singapore \\
+			Warsaw
+		\end{columns}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Más estilos}
+	\begin{enumerate}
+		\item Base
+		\begin{itemize}
+			\item \verb|\usefonttheme{name}| nos permitirá seleccionar el tipo de letra que usaremos en la presentación
+			\item \verb|\usecolortheme{name list}| nos permitirá seleccionar el estilo de colores que se usará en la presentación (más notablemente en los bloques)
+		\end{itemize}
+		\item Extra
+		\begin{itemize}
+			\item \verb|\setbeamertemplate{footline}| nos permite quitar la barra a pie de página (diferentes argumentos dan diferentes resultados)
+		\end{itemize}
+	\end{enumerate}
+\end{frame}
+
+\section{Comenzamos la presentación}
+
+\subsection{Frames}
+
+\begin{frame}[fragile]
+	\frametitle{Frames}
+	\verb|\begin{frame}[]{title}| Creará nuestra diapositiva. Tiene unas opciones la mar de útiles
+	\begin{itemize}
+		\item \verb|\frametitle{title}| nos permite poner nuestro título, se pone dentro del cuerpo
+		\item \verb|[c]|, [t], [b] son las opciones de alineación de nuestro contenido
+		\item \verb|[plain]| Nos dejará la diapositiva completamente en blanco
+		\item \verb|[fragile]| es necesaria si queremos usar un entorno verbatim
+	\end{itemize}
+\end{frame}
+
+\subsection{Título}
+
+\begin{frame}[fragile]
+	\frametitle{Portada}
+	\verb|\titlepage| Nos generará una portada con los datos que hemos introducido antes en \verb|\author{text}, \date{text}, \title{text}, \subtitle{subtitle}| \\
+	\verb| e \institute[short institute]{institute}|
+\end{frame}
+
+\subsection{Índice}
+
+\begin{frame}[fragile]
+	\frametitle{Índice}
+	\begin{block}{Generamos un índice}
+		\verb|\begin{frame}| \\
+		\verb|\tableofcontents|	\\
+		\verb|\end{frame}| \\
+	\end{block}
+	\begin{block}{}
+		\verb|\tableofcontents| toma las \verb|\section{text}| y \verb|\subsection{title}| generando automáticamente un índice de contenidos. Además hace \texttt{hyperlinks}, lo que facilita bastante el manejo de presentaciones largas. Permite la opción [pausesections], que va presentando las secciones una a una (utilizado en esta presentación)
+	\end{block}
+\end{frame}
+
+\subsection{Pause y Overlays}
+
+\begin{frame}[fragile]
+	\frametitle{Pause}
+	\pause
+	\begin{block}{Comando pause}
+		\verb|\pause| nos permitirá generar pausas dentro de nuestra presentación. Como el efecto de aparecer en PowerPoint. Genera una diapositiva nueva por cada \verb|\pause| que nosotros introduzcamos sin necesidad de copia-pega o modificación
+	\end{block}
+	\pause
+	\begin{block}{Magia}
+		Esta hoja de la diapositiva es la misma que las anteriores. No hemos escrito nada extra
+	\end{block}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Overlays}
+	Los overlays son la herramienta que posee Beamer para generar apariciones y modificaciones en la diapositiva. \textbf{Ya conocéis uno:} \verb|\pause|
+	
+	\begin{block}{Nota}
+		Pensad que son opciones extra para el control de los contenidos. Funcionan prácticamente con cualquier comando, sin embargo usad el sentido común y usadlos con cuidado
+	\end{block}
+
+	Se introducen de la siguiente manera \verb|\comando<...>|. Como ocurre con los argumentos y con las opciones, las opciones de overlay van pegadas a nuestra acción
+\end{frame}
+
+\begin{frame}[fragile]{Opciones de overlays}
+	Siguiendo la filosofía de \LaTeX, los overlays no son demasiado intuitivos. Son simples pero poderosos, hay que jugar con las opciones que nos da.
+
+	A continuación vienen las opciones que podemos indicar en un overlay \verb|<...>|
+	\begin{itemize}
+		\item<1-> Números ($1 \rightarrow \infty$) Indica en qué diapositiva del frame aparece. Se pueden especificar diapositivas discretas, para ello se usarán comas (\verb|<1,3>|)
+		\item<2-> Guiones (-) con números, permite dar rangos. \textbf{Ejemplos:} \verb|<1->| significa que aparezca en la primera diapositiva en adelante. \verb|<-3>|, aparecerá hasta la tercera diapositiva del frame. \verb|¿<1-3>?|
+		\item<3-> En entornos especiales, como este, el \texttt{itemize}, permiten overlays globales en sus opciones, haciendo que los elementos aparezcan en orden \verb|[<+->]|, así no se especifica elemento a elemento
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Finalizando}
+	$\bullet$ Hay un número de comandos útiles diseñados para usar overlays:
+	\begin{itemize}[<+->]
+		\item \verb|\only<>{}| El comando \verb|\only| se usa para enseñar bloques de texto en las diapositivas indicadas, pudiendo ser reemplazados los mismos. El texto escrito no ocupa espacio
+		\item \verb|\visible<>{}| Igual que \verb|\only| pero el texto, aunque no mostrado, ocupa espacio
+		\item \verb|\alert<>{}| Sirve para llamar la atención a una zona; el texto se pone de color rojo. Muy útil para dirigir el flujo de la presentación
+
+	\end{itemize}
+\end{frame}
+
+\section{Entornos}
+
+\subsection{Bloques (block)}
+
+\begin{frame}[fragile]
+	\frametitle{Entorno block}
+	Esto es un block básico
+	\begin{block}{Título}
+	\end{block}
+	\begin{block}{block}
+		\verb|\begin{block}[]{title}| Nos permite hacer bloques, cajas donde organizar nuestra información. \textbf{Es bien importante.} El título es obligatorio, pero se puede dejar vacío y no aparecerá
+	\end{block}
+
+\end{frame}
+
+\subsection{Description}
+
+\begin{frame}[fragile]
+	\frametitle{Description}
+	\verb|\begin{description}| funciona similar a un entorno itemize. Pero a la hora de dar presentaciones posee una ventaja, alinea títulos
+	\begin{block}{Description}
+		\begin{columns}
+			\column{.45\textwidth}
+			\begin{description}
+				\item[Primero] Texto cualquiera
+				\item[Segundo] Mola
+				\item[3] Pues eso
+			\end{description}
+			\column{.6\textwidth}
+			\begin{verbatim}
+				\begin{description}
+				\item[Primero] Texto cualquiera
+				\item[Segundo] Mola
+				\item[3] Pues eso
+				\end{description}
+			\end{verbatim}
+		\end{columns}
+	\end{block}
+\end{frame}
+
+\subsection{Verbatim}
+
+\begin{frame}[fragile]
+	\frametitle{Verbatim}
+	Volviendo a la opción de [fragile] de los frames
+	\begin{block}{Verbatim}
+		Verbatim es el entorno para poner comandos de \LaTeX, que aparezcan como texto sin ser procesados. El método estándar es \verb|\begin{verbatim}...\end{verbatim}|, todo lo que caiga dentro será escrito explícitamente en formato \verb|\texttt{text}| \\~
+		
+		Beamer nos da una opción mucho más cómoda y de resultado idéntico \verb|\verb|$\mid$text$\mid$. Sin embargo solo afecta a una única línea 
+	\end{block}
+	Recomiendo que busquéis los efectos del entorno semiverbatim, presente unicamente en Beamer
+\end{frame}
+
+\subsection{Columns}
+
+\begin{frame}[fragile]
+	\frametitle{Columnas}
+	Hay un entorno muy útil en Beamer, y solo en Beamer, que nos permite hacer columnas de manera sencilla e indolora
+	\begin{block}{Columns}
+		\verb|\begin{columns}| nos permitirá dividir la diapositiva, bloque o sucedáneo en distintas columnas. Para ello iniciamos primero el entorno con el comando de arriba. \textbf{!Cuidado con la S!} Y a continuación con \verb|\column[]{column width}| vamos indicando nuestras columnas.
+	\end{block} \vspace{12pt}
+
+	\verb|\column[]{column width}| \textbf{Column width} \textit{siempre} lo pondremos de la siguiente manera, haciendo un poco de aritmética: \verb|0.x\textwidth|. 0.x es la fracción numérica que tomará la columna del espacio dado (\verb|\textwidth|)
+\end{frame}
+
+\begin{frame}
+	\frametitle{Temas no tratados}
+	\begin{itemize}
+		\item Cambiar temas en mitad de la presentación (dato: se hace de manera manual, nada cómodo)
+		\item Boxes
+		\item Más modos
+		\item Animaciones en transiciones
+	\end{itemize}
+\end{frame}
+
+\section{Fin}
+
+\begin{frame}[plain, c]
+	\centering \Huge FIN \\
+	Preguntas y sugerencias \\~
+	
+	\large \href{https://www.uncg.edu/cmp/reu/presentations/Charles Batts - Beamer Tutorial.pdf}{Mil gracias a la presentación de la universidad de North Carolina}
+\end{frame}
+
+\end{document} 

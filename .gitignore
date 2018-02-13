@@ -2,6 +2,11 @@
 **/*.aux
 **/*.log
 **/*.out
+**/*.nav
+**/*.snm
+**/*.synctex.gz
+**/*.toc
+**/*.vrb
 
 # # Except for selected files
 # !.gitignore
