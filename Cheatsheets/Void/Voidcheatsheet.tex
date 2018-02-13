@@ -19,7 +19,10 @@
 \usepackage[english]{babel}
 \usepackage[landscape]{geometry}
 \usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+\usepackage{enumitem} 
+\usepackage[compact]{titlesec}
 
+\setlist[itemize]{noitemsep, topsep=0pt}
 
 \ifthenelse{\lengthtest { \paperwidth = 11in}}
     { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
@@ -45,7 +48,7 @@
 \setcounter{secnumdepth}{0}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt plus 0.5ex}
-\def\cm#1#2{{\tt#1}\dotfill#2\par}
+\def\cm#1#2{{\tt#1} \dotfill#2\par}
 % -----------------------------------------------------------------------
 
 \title{Quick Guide to Void Linux}
@@ -69,7 +72,7 @@
 	
 	\item \textit{pkg:} will indicate any package.
 	\item \textit{dir:} indicates a directory.
-	\item \textbf{\#} may be: $<, >, >=, <=, -$; $-$ means exact version.
+	\item \textbf{\#} may be: $<, >, >=, <=, -$; means exact version.
 	\item Subsections of XBPS indicate a command, the content of these are flags that can be passed to that command. Some may present two flags in an entry, they are separated by comas, this means they are equivalent and therefore interchangeable.
 	\item When an entry is between brackets [...] it means it is optional but recommended.
 	\item Flags can be combined. More than one flag may be used at a time, and in a single argument. \\ \textbf{Example:} \texttt{xbps-query -R -x == xbps-query -Rx}
@@ -83,7 +86,7 @@ In case of doubt or need, throw a help flag \textit{-h} to the command. \texttt{
 	\cm{/etc/xbps.d}{Default configuration directory}
 	\cm{/usr/share/xbps.d}{Default system configuration directory}
 	\cm{/var/db/xbps/.pkg-files.plist}{\textit{Pkg} files metadata}
-	\cm{/var/db/xbps/pkgdb-0.38.plist}{Default package database. Keeps track of installed packages and properties}
+	\cm{/var/db/xbps/pkgdb-0.XX.plist}{Default package database. Keeps track of installed packages and properties}
 	\cm{/var/cache/xbps}{Default directory to store downloaded packages}
 	
 \subsection{Global flags}
@@ -91,7 +94,7 @@ Flags that will most likely appear in many different commands with the same effe
 
 	\cm{-v, --verbose}{Verbose messages}
 	\cm{-C, --config dir}{Specifies configuration directory}
-	\cm{-R}{Forces repository mode, do not look into target}
+	\cm{-R}{Forces repository mode, do not look into other targets}
 	\cm{-r, --rootdir dir}{Specifies target's root \textit{dir}}
 	\cm{-n, --dry-run}{Simulates an actual operation}
 	\cm{-i}{Ignores configuration repositories, only explicit ones are used (\texttt{--repository})}
@@ -132,7 +135,7 @@ Flags that will most likely appear in many different commands with the same effe
 	\cm{-O, --list-orphans}{List orphaned packages}
 	\cm{[-R] -s pattern}{Searches for any match with \textit{pattern}}
 	\cm{[-R] -o '*/filename'}{Searches for packages matching \textit{filename}}
-	\cm{-p, --property}{Matches packages with the given property, more than one can be specified by delimiting them with commas}
+	\cm{-p, --property}{Matches packages with the given property, more than one may be specified by delimiting them with commas}
 
 \subsection{xbps-remove}
 
@@ -162,11 +165,15 @@ Flags that will most likely appear in many different commands with the same effe
 
 \subsection{Installation and Upgrade}
 	
-	\cm{git clone}{Installs}
-	\cm{./xbps-src binary-bootstrap}{Installs basic build enviroment}
+	\cm{git clone}{Clone the xbps-src repo}
+	\cm{./xbps-src binary-bootstrap}{Installs the basic build environment}
 	\cm{git pull}{Update truck}
 	
-\section{Usage}
+\subsection{Config files}
+
+TODO
+	
+\subsection{Usage}
 
 	\cm{./xbps-src -h}{Shows help}
 	\cm{./xbps-src bootstrap-update}{Updates bootstrap}
@@ -186,7 +193,13 @@ Flags that will most likely appear in many different commands with the same effe
 	\cm{./xbps-src -o $\sim$option pkg <pkgname>}{Disables build option}
 	\cm{xbps-install --repository=hostdir/binpkgs <pkgname>}{Installs built pkgname}
 
-\section{Mklive? Should it be here?}
+\section{Xtools}
+
+TODO
+
+\section{Mklive}
+
+TODO
 
 \section{Runit}
 
