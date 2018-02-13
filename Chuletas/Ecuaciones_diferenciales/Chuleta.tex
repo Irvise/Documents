@@ -1,0 +1,78 @@
+\documentclass[a4paper, landscape, 12pt]{article}
+\usepackage{pdflscape}
+\usepackage{amsmath,amsthm,verbatim,amssymb,amsfonts,amscd, graphicx}
+\usepackage{graphics}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=7mm,
+	top=3mm,
+	right=15mm,
+	bottom=7mm
+}
+\pagenumbering{gobble}
+
+
+
+\begin{document}
+	
+\textbf{E.D.O: variables separadas (VVSS):} se despejan las dos funciones, una 
+a cada lado $g(y)dy = f(x)dx$; se integra cada parte por separado y se 
+despeja como se pueda la función a hallar. \textbf{Recta tangente:} $y = f'(a)\cdot(x-a)+ f(a)$. Cuidado con la constante. \textbf{Truco,} se puede tomar la función inversa $(x(y))$; si en mitad de un procedimiento se quiere cambiar a la función inversa hay que tener en cuenta que $y(x) \rightarrow x(y)$; $y'(x) \rightarrow \dfrac{1}{x'(y)}$. \textbf{Homogéneas:} funciones que verifican que $f(\lambda x, \lambda y) = f(x,y)$, estas se resuelven haciendo el cambio de variable $u(x) = \dfrac{y(x)}{x} \rightarrow y'(x) = u(x) + x\cdot u'(x)$. \textbf{Lineales:} $y'(x) + a(x)\cdot y(x) = b(x)$, si $b(x) \equiv 0$ se llamará homogénea. Las homogéneas se resuelven como una VVSS, cambios de variables útiles son $y(x) = u(x) \cdot x$ o $x + y = u$. Para las completas lo que se hace es multiplicar una solución de la homogénea (ej: $f_1(x))$ por una función general $u$, obteniendo $f_1(x) \cdot u(x)$, teniendo que despejar ahora $u$, quedando el resultado final $sol = Cf_1 + f_1 \cdot u$, que es el resultado de la homogénea por una constante más la suma de una particular. La fórmula general es: $$y' +g(t)y = h(t) \rightarrow y(t) = e^{-\int g(t)dt} \left(\int h(t) \cdot e^{\int g(t)dt} dt + C \right)$$\textbf{Bernoulli:} $y' + a(x)y = b(x)y^\alpha$, se resuelve haciendo el cambio $z = y^{1 - \alpha}$. \textbf{Exactas:} con $P(x,y) = \dfrac{dF}{dx} \text{ y } Q(x,y) = \dfrac{dF}{dy}$, su edo exacta es: $P(x,y)dx + Q(x,y)dy = 0$. La condición de existencia de función potencial ($F$) es: $\dfrac{\delta P}{\delta y}(x,y) = \dfrac{\delta Q}{\delta x}(x,y)$. Su solución es hallar la función potencial (F). \textbf{¡Hay que tener cuidado y ojo!} Aparecen en la mayoría de fracciones raras. \textbf{Familias de derivadas:} se deriva la familia $\dfrac{d}{dx}(\Phi(x,y,C)) = 0$, la EDO no puede depender de C, por lo que se elimina con un sistema:
+\begin{equation*}
+	\left\{
+	\begin{array}{l}
+	\Phi(x,y,C) = 0 \\
+	\dfrac{d}{dx}(\Phi(x,y,C)) = 0
+	\end{array} 
+	\right.
+\end{equation*}
+\textbf{Curvas a un ángulo:} para un ángulo $\alpha$ se verifica que en un 
+punto de corte $y(x_0) = y_\alpha (x_0)$ $$tg(\alpha) = \frac{y_\alpha'(x_0) - 
+y'(x_0)}{1 + y_\alpha' (x_0)y'(x_0)} \rightarrow y'(x_0) = \frac{y_\alpha'(x_0) 
+- tg(\alpha)}{1 + tg(\alpha)y_\alpha'} \qquad \text{Perpendiculares: } y_\alpha'(x) = \frac{-1}{y'(x)}$$
+
+\textbf{Lineares:} en las lineares ($\lambda_n \cdot y^n + \ldots + \lambda_1 \cdot y' + \lambda_0 \cdot y = g(t)$) se resuelve su polinomio característico ($\lambda_n \cdot m^n + \ldots + \lambda_1 \cdot m^1 + \lambda_0 \cdot m^0 = 0$) y se sacan las soluciones m. La solución de la homogénea será entonces $e^{mt}$. Si la solución es compleja $(m = a \pm bi)$ entonces las dos soluciones son $y_1 = e^{at} cos(bt) \qquad y_2 = e^{at} sen(bt)$. Si la m aparece como solución n número de veces entonces tendrá n soluciones asociadas: $sol, \; t \cdot sol_1, \; ..., \; t^n\cdot sol_n$. Las soluciones de la homogénea van multiplicadas por constantes. \textbf{Nota:} las soluciones de la homogénea tienen forma de espacio vectorial. \textbf{Completas: Wronskiana:} $W = \left(
+\begin{array}{cccc} 
+	y_1 & y_2 & y_3 & \cdots \\
+	y'_1 & y'_2 & y'_3 & \cdots \\
+	\vdots & \vdots & \vdots & \ddots \\
+	
+\end{array}
+\right)$ Si $W \neq 0$ entonces se dice que son soluciones independientes. \text{Método de variación de las constantes:} $$ y^c_P(t) = \Phi(t) \int W^{-1}(t) \left(
+\begin{array}{c}
+	0 \\
+	\vdots \\
+	g(t)
+\end{array} \right) dt. \text{ Siendo } \Phi \text{ un vector fila con las soluciones de la homogénea y g(t) la función de la completa.}$$ \textbf{Método de coeficientes indeterminados:} 1) si el término no homogéneo es un polinomio $P_m$ de grado m: si 0 no es solución de la homogénea su solución es un polinomio $Q_m(t)$ de grado m. Si 0 es solución k número de veces, entonces su solución es $t^k \cdot Q_m(t)$. \\
+2) Si la completa tiene forma de $e^{at}P_m(t)$: si a no es raíz del polinomio característico entonces la solución es $e^{at}Q_m(t)$, siendo $Q_m$ un polinomio del mismo grado que P. Si 0 es solución del polinomio k veces, la solución tendrá forma de $t^ke^{at}Q_m(t)$. \\
+3) Si la completa es de forma $e^{at}(P_lcos(bt) + Q_msen(bt))$ con $P_l$ y $Q_m$ polinomios de grado l y m respectivamente: si $a \pm bi$ no es solución entonces el resultado es $y_P= (T_rcos(bt) + S_rsen(bt))e^{at}$ con $T_r$ y $S_r$ polinomios de grado r (siendo r el mayor grado entre l y m). Si $a \pm bt$ es solución k veces entonces la forma de la solución será la anterior multiplicada por $t^k$. \\
+
+\textbf{Lagrange:} $$F(s) = \mathfrak{L}[f(t)](s) = \int\limits_{0}^{\infty}f(t)e^{-st}dt. \text{ Ejemplo: } \mathfrak{L}[e^{at}cos(bt)] = \int\limits_{0}^{\infty} e^{at}cos(bt)e^{-st}dt + i\int\limits_{0}^{\infty} e^{at}sen(bt)e^{-st}dt = \int\limits_{0}^{\infty} e^{at}(cos(bt)+isen(bt)) e^{-st}dt = $$
+$$ \frac{1}{a-s+ib}\left[e^{(a-s+ib)t}\right]_{t=0}^{t=\infty} \rightarrow \text{ Nota, para que sea convergente s>a. Por lo tanto el coseno da: } \frac{s-a}{(s-a)^2+b^2} \text{ y seno:} \frac{b}{(s-a)^2+b^2}.$$
+
+\textbf{SEDO:} Las SEDO son sistemas de ecuaciones diferenciales de la forma 
+$4\left\{
+\begin{array}{l}
+x_1' = n_1x_1 + n_2x_2 + n_3x_3... \\
+x_2' = n_{1n}x_1 + n_{n2} x_2 + ...
+\end{array} 
+\right.$
+que expresado matricialmente se puede pones como $X' = AX$ siendo A la matriz de coeficientes, X' la matriz diferencial y X la de funciones. Si el sistema no fuera homogéneo quedaría $X' = AX + B$ siendo B la matriz con las funciones ''extra''. Su resolución se hace por Jordán: $|A- \lambda I|\bar{u} = 0$; se hallan los lambdas que hacen el determinante 0 y a continuación los vectores $\bar{u}$ que confirman la ecuación; por lo que quedaría $\Phi(t) = e^{At}P = Pe^{Jt}$, siendo J la matriz de Jordán y P la matriz de paso (vectores asociados a los autovalores). Para hallar la solución del sistema completo se hace $X_H + X_P$ para hallar la $X_P$ se hace el método de la variación de las constantes con B. Si $\Phi(t)$ es la matriz de la solución homogénea $$X_P = \Phi(t) \int \Phi^{-1}(t)B(t)dt$$
+\textbf{Sistemas autónomos, estabilidad:} un sistema autónomo es uno que no depende explícitamente de t. \textbf{Estabilidad:} son puntos críticos aquellos en los que el sistema vale cero. Su estabilidad se sacará por los autovalores de la matriz A: si $\mathfrak{Re}>0$ es inestable, si $\mathfrak{Re}\leq0$ es estable, si es un par de autovalores imaginarios puros es periódica. Puntos críticos en sistemas no lineales: se halla el punto crítico; se hace la Jacoviana del sistema y se sustituye el punto hallado en ella, se opera desde ahí de manera normal.
+
+\textbf{Series de Fourier:} $\circ \rightarrow \int f(x)g(x)dx$, $||f|| = \sqrt{\int f^2(x)dx}$. Un problema de autovalores es $(L[x] = y''(x) + a_1(x)y'(x) + a_2(x)y(x)) + \lambda y \quad + CC$; siendo CC las condiciones de contorno, habrá que distinguir casos y resolver cada uno por separado, hay que normalizar las autofunciones. Una función se desarrolla en una serie como $\sum\limits_{n = 1}^{\infty}\alpha_nX_n$, siendo $\alpha_n$ la proyección de la función sobre las autofunciones con el operador $\circ$. Serie de Fourier $CC = y(-a) = y(a); y'(-a) = y'(a) \rightarrow a_0\frac{1}{\sqrt{2a}}+ \frac{1}{\sqrt{a}}\sum\limits_{n=1}^\infty a_n\cos\left(\frac{n\pi x}{a}\right)+b_n\sin\left(\frac{n\pi x}{a}\right)$
+
+\textbf{Extras: Trigonometría:} $sen^{2}(\theta) + cos^{2}(\theta) = 1\qquad 
+sen2\theta = 2sen\theta cos\theta\qquad cos2\theta = cos^{2}\theta - 
+sen^{2}\theta\qquad cos^{2}\theta = \dfrac{1 + cos(2\theta)}{2} \qquad 
+sen^{2}\theta = \dfrac{1 - cos(2\theta)}{2}$ \\ $sen(\alpha \pm \beta) =
+sin\alpha \cdot cos\beta \pm cos\alpha \cdot sin\beta \qquad cos(\alpha \pm \beta) = cos\alpha \cdot cos\beta \mp sin\alpha sin\beta\qquad ch^{2} - sh^{2} = 1\qquad shx = \dfrac{e^x - e^{-x}}{2}\qquad chx = \dfrac{e^x + e^{-x}}{2}$. 
+
+
+ 
+\end{document}

@@ -1,0 +1,81 @@
+\documentclass[a4paper, landscape, 11pt]{article}
+\usepackage{pdflscape}
+\usepackage{amsmath,amsthm,verbatim,amssymb,amsfonts,amscd, graphicx}
+\usepackage{graphics}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=10mm,
+	top=3mm,
+	right=15mm,
+	bottom=3mm
+}
+\pagenumbering{gobble}
+
+
+
+\begin{document}
+
+\textbf{1. Continuidad:} $\lim\limits_{(x,y) \rightarrow (a,b)} f(x,y) = L$; subconjuntos: $\lim\limits_{\substack{y=mx^\alpha \\ x \rightarrow a}} = L$; polares cuando el denominador tenga grado menor que el numerador. \textbf{Infinitésimos equivalentes:} $A(x-x_{0})^{p}$ o $\frac{A}{x^{p}}$, el orden es p. Si $f(x,y) \rightarrow 0$ entonces: $sen(f) \approx tg(f) \approx arcsen(f) \approx arctg(f) \approx f(x,y)$; $1- cos(f) \approx \frac{[f]^2}{2}$; $ log(f - 1) \approx f(x,y)$, $ a^{f} - 1 \approx f \cdot log(a)$; si $f(x,y) \rightarrow 1 \Rightarrow log(f) \approx f - 1$, también pueden completarse cuadrados. \textbf{Asíndotas:} $\lim\limits_{x \rightarrow \infty} \frac{f(x)}{x} = m$; $\lim\limits_{x \rightarrow \infty} f(x) - mx = n$. \textbf{Indeterminaciones:} $\infty - \infty$ logaritmo o conjugado; $\infty^{0}, 1^{\infty}, 0^{0}$, logaritmo; $\frac{0}{0}, \frac{\infty}{\infty}, 0 \cdot \infty$ L'Hôpital. \textbf{Órdenes infinitos:} $(log_{b} x)^{m}<< x^{p} << a^{x} << n! << x^{kx}$. \textbf{Teoremas:} Bolzano: f corta a x si es continua y hay cambio de signo (Darboux es para cualquier valor intermedio). Weiestrass: máximo y mínimo en acotado. \textbf{Rolle:} $f(a) = f(c) \text{ entonces } \exists f'(b) = 0, a<b<c$ si f continua, se usa en escalera (max. raíces de f).
+\\
+
+\textbf{2. Derivadas:} Parcial $\frac{\partial f}{\partial x}(a,b) = f_{x}(a,b) = \lim\limits_{x \rightarrow a} \frac{f(x,b) - f(a,b)}{x - a} = \lim\limits_{h \rightarrow 0} \frac{f(a + h, b) - f(a,b)}{h}$. \textbf{Taylor:} $P_{n}(x) = f(x_{0}) + f'(x_{0})(x-x_{0}) + \frac{f''(x_{0})}{2!}(x-x_{0})^{2} + \cdots + \frac{f^{n}(x_0)}{n!}(x-x_{0})^{n}$. McLaurin: $sen(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} \cdots$; $cos(x) = 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!}- \cdots$; $(1 - x)^{-1} = 1 + x + x^{2} + x^{3} + \cdots$; $log(1 + x) = x - \frac{x^{2}}{2} + \frac{x^{3}}{3!}- \cdots$; $e^{x} = 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots$; $arctg(x)$ como sen pero sin factoriales, los hiperbólicos como sus gemelos pero sin cambio de signo. \textbf{Direccional:} $D_{\vec{v}} f(a,b) = \lim\limits_{\lambda \rightarrow 0} \frac{f(a + \lambda v_1, b + \lambda v_2) - f(a,b)}{\lambda}$, siendo v un vector unitario, generalmente $\vec{v} = (cos \theta, sen \theta)$; si es diferenciable, entonces se puede hacer como $\nabla f(a,b) \circ \vec{v}$. \textbf{Diferenciabilidad:} 1.$\exists f_{x}, f_{y}$ 2. $\lim\limits_{(x,y) \rightarrow (a,b)} \dfrac{f(x,y) - f(a,b) - f_{x}(a,b)(x-a) - f_{y}(a,b)(y-b)}{\sqrt{(x-a)^{2} + (y-b)^{2}}} = 0$. \textbf{Plano tangente:} $z - f(a,b) = f_{x}(a,b)(x-a) + f_{y}(a,b)(y-b)$. Aproximación: se halla el plano tangente al punto cercano y se sustituye lo dado. \textbf{Gradiente:} $\nabla f = (f_{x}, f_{y})$; nota si $D_{\vartheta}f(a,b) \neq \nabla f(a,v) \circ \vec{v}$, f no es diferenciable. \textbf{Jacobiana:}
+Matriz:
+$\left(\begin{array}{c}
+	\nabla f_{1} \\
+	\nabla f_{2} \\
+	\vdots
+\end{array}\right)_{(a,b)}$, el jacobiano es el determinante. \textbf{Derivadas útiles:} $tan(f(x)) \to f'(x)(1 + tg^{2}(f(x)))$, $arctg(f(x)) \to \frac{f'(x)}{1 + f^{2}(x)}$, $arcsen(f(x)) \to \frac{f'(x)}{\sqrt{1 + f^{2}(x)}}$, $arccos(f(x)) \sim - arcsen(f(x))$, $sh(f(X)) \to ch(f(x))f'(x)$, $ch(f(x)) \to sh(f(x))f'(x)$. \textbf{Matriz hessiana:} es la jacobiana de la jacobiana. \text{Extremos relativos:} Sean $H_n$ los menores de la hessiana en $x_0$: si $H_{p} > 0 \forall p \in N$ entonces existe un mínimo en $x_0$. Si $H_{p} > 0$ con p par y $H_{p} < 0$ con p impar, existe un máximo en $x_0$. \textbf{Lagrange:} generamos una nueva función con $\lambda$ veces la restricción, siendo $\lambda$ un nuevo parámetro. Se crea un sistema derivando todas las variables, se igualan a 0 y se ven los puntos críticos.
+\\
+
+\textbf{3. Integrales:} ${\displaystyle F(x) = \int_{g(x)}^{t(x)}u(t)dt \rightarrow F'(x) = u(g(x))g'(x) - u(t(x))t'(x)}$ \textbf{Euler:} Gamma $\Gamma(p) = {\displaystyle \int_{0}^{\infty} x^{p-1} e^{-x} dx}$; $\Gamma(p + 1) = p \Gamma(p)$, $\Gamma(1/2) = \sqrt{\pi}$, $\Gamma(p) \Gamma(1-p) = \dfrac{\pi}{sen(\pi p)} 0<p<1$. Beta: $\beta(p.q) = {\displaystyle \int_{0}^{1}x^{p-1} (1-x)^{q-1}dx = 2\int_{0}^{\frac{\pi}{2}}sen(x)^{2p-1} cos(x)^{2q-1} dx = \dfrac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)}}$. \textbf{Otras integrales:} Áreas: paramétricas $A = \int_{t_1}^{t_2}\mid y(t) x'(t) \mid dt$; polares $A = \frac{1}{2} \int_{\theta_1}^{\theta_2}[r(\theta)]^{2} d\theta$. Longitud de arco: paramétrica: $l = \int_{t_1}^{t_2} \sqrt{[x'(t)]^{2} + [y'(t)]^{2}}dt$; explícita: $l = \int_{a}^{b} \sqrt{1 + [f'(x)]^{2}}dx$; polar: $l = \int_{\theta_1}^{\theta_2} \sqrt{[r(\theta)]^{2} + [r'(\theta)]^{2}}d\theta$. Volúmenes: OX: $V = \pi \int_{a}^{b} [f(x)]^{2} dx$, su área lateral: $A = 2\pi \int_{a}^{b} f(x) \sqrt{1 + [f'(x)]^{2}} dx$. \textbf{Partes:} $\int u(x)v'(x) dx = u(x)v(x) - \int u'(x) v(x) dx$. \textbf{Dobles y triples:} fijarse siempre en simetrías. \textbf{Cambio de variable:} se sustituyen y se añade el jacobiano. Polares:
+$\left\{
+\begin{array}{ll}
+x = a\cdot r\cdot cos(\theta) \\
+y = b\cdot r\cdot sin(\theta)
+\end{array} \right. J = a \cdot b \cdot r$. Cilíndricas: $\left\{
+\begin{array}{ll}
+x = a\cdot r\cdot cos(\theta) \\
+y = b\cdot r\cdot sin(\theta) \\
+z = z
+\end{array} \right. J = a \cdot b \cdot r$. Esféricas: $\left\{
+\begin{array}{ll}
+x = a\cdot r\cdot cos(\theta) \cdot cos(\varphi)\\
+y = b\cdot r\cdot  sen(\theta) \cdot cos(\varphi)\\
+z = r \cdot sen(\varphi)
+\end{array} \right. J = a \cdot b \cdot r^{2} \cdot cos(\varphi)$. \textbf{Astroides:} $\left(\dfrac{x}{a}\right)^{\alpha} + \left(\dfrac{y}{b}\right)^{\beta} + \left(\dfrac{z}{c}\right)^{\gamma} \leq 1$; $u = \left(\dfrac{x}{a}\right)^{\alpha}, v = \left(\dfrac{y}{b}\right)^{\beta}, w = \left(\dfrac{z}{c}\right)^{\gamma} \Rightarrow J(u,v,w) = \dfrac{abc}{\alpha \beta \gamma}u^{\frac{1-\alpha}{\alpha}} \cdot v^{\frac{1 - \beta}{\beta}} \cdot w^{\frac{1 - \gamma}{\gamma}}$ quedando ${\displaystyle\int_{0}^{1}\int_{0}^{1-u}\int_{0}^{1-u-v}Jdudvdw}$ parecida a ${\displaystyle\int_{0}^{1}\int_{0}^{1-u}\int_{0}^{1-u-v}x^{p-1}y^{q-1}z^{r-1} = \dfrac{\Gamma(p)\Gamma(q)\Gamma(r)}{\Gamma(p+q+r+1)}}$. \textbf{Cambios de variable típicos:} $x = sen(t)$, $x = k\cdot t$, $x^{k} = t$, $x = tg(t)$, $x = (t - a)$, $x = e^{\pm z}$, multiplicar y dividir por lo mismo, ídem con suma y resta; fijarse en los límites de integración, pueden dar pistas. Si no se ven los límites de integración, se meten las coordenadas en el dominio y se ven las condiciones que aparecen.
+\\
+
+\textbf{4. Compuestas e implícitas:} Si $h = g \circ f$, entonces $Dh(a) = Dg(f(a)) \cdot Df(a)$; con jacobianos: $Jh_{(a,b)} = Jg_{f(a,b)} \cdot Jf_{(a,b)}$. \textbf{Implícitas:} si se cumple la condición en el punto, si las derivadas son continuas y $F_{u} \neq 0$ (con u siendo la implícita) entonces u está definida implícitamente. Si son un sistema de ecuaciones se hace $\left\| \frac{d(F, G, \ldots)}{d(u,v, \ldots)} \right\| \neq 0$. Se puede derivar teniendo en cuenta ahora que $u = u(x,...)$. \textbf{Recta tangente:} $F_{x}(x_{0}, y_{0}, z_{0})(x - x_{0}) + F_{y}(x_{0}, y_{0}, z_{0})(y - y_{0}) + F_{z}(x_{0}, y_{0}, z_{0})(z - z_{0}) = 0$.
+\\
+
+\textbf{5. Integral de línea:} $\int_{\gamma} \vec{F} \circ d\vec{l} = \int_{\gamma_{1}}^{\gamma_{2}}\vec{F}(\vec{\gamma}(t)) \circ \vec{\gamma '}(t)$, siendo $\vec{F}$ un campo vectorial y $\gamma$ la curva, con $\gamma_{1}$ y $\gamma_{2}$ los límites del parámetro t. Cuidado con la orientación de la curva, es positiva si es antihoraria, si se invierte el recorrido, se cambia el signo del resultado. Sea $\vec{F}(x,y,z) = P(x,y,z)\vec{i} + Q(x,y,z)\vec{j} + R(x,y,z)\vec{k}$ entonces: $\vec{F}$ es conservativo si su rotacional $Rot(\vec{F}) = \overline{\nabla F} \times \vec{F}$  es nulo (en $\mathbb{R}^{2} \to \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$). Si es conservativo y no hay polos (zona de no dominio), entonces toda curva cerrada da 0; la curva no importa mientras el punto inicial y final sean el mismo y/o se puede usar la \textbf{función potencial:} $\phi(x,y,z) \mid \nabla \phi = \vec{F}$; al integrar hay que tener en cuenta lo que no esté en función de la variable integrada, por lo que se añaden funciones e.j: $\varphi(y,z)$, se comparan y se integran según sea necesario. Si en una función potencial se coge un polo, se opera de manera normal, sin atajos. \textbf{Green:} $\oint_{\gamma} P(x,y)dx + Q(x,y)dy = \iint_{D} (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dxdy$, siendo D el recinto cerrado de $\gamma$, que obligatoriamente ha de ser cerrado. 
+\\
+
+\textbf{6. Integral de superficie:} Vectores normales: implícitas: $F(x,y,z) = 0 \to \vec{n} = \pm \frac{(F_x, F_y, F_z)}{\sqrt{F_{x}^{2} + F_{y}^{2} + F_{z}^{2}}}$; en paramétricas: $S \equiv \left\{
+\begin{array}{ll}
+	x \equiv x(u,v) \\
+	y \equiv y(u,v) \\
+	z \equiv z(u,v)
+\end{array} \right. \Bigg|
+\left\{
+\begin{array}{ll}
+S_u = (x,y,z) \\
+S_v = (x,y,z)
+\end{array} \right. \leftarrow$
+\text{ vectores tangentes;}
+\text{ vector normal: }
+$ \vec{n} = \pm \frac{S_u \times S_v}{\|S_u \times S_v \|}$. Sea $\sigma$ una superficie dada por $z = z(x,y)$ y $F(x,y,z)$ una función continua en $\sigma$, entonces la integral de superficie es: $\iint_{\sigma} F(x,y,z) d\sigma = \iint_{D} F(x,y,z(x,y)) \frac{dxdy}{\| cos \gamma \|} = \iint_{D} F(x,y,z(x,y)) \sqrt{z_{x}^{2} + z_{y}^2 + 1}$, siendo D la proyección de $\sigma$ en el plano XY (el plano opuesto a la función $\sigma$) y $cos \gamma$ la tercera (en el caso de la z) componente del vector normal de $\sigma$. Si $F(x,y,z) = 1$ se puede cambiar por 1 en la integral, quedando solo la raíz. Para cálculo de superficies no se incluye \textit{F} (como en volúmenes). Con $\sigma$ en paramétricas la integral es $\iint_{D} F(x(u,v), y(u,v), z(u,v)) \left\|\frac{\partial \vec{S}}{\partial u} \times \frac{\partial \vec{S}}{\partial v} \right\| du dv$; si $\vec{F} = 1$ se sustituye quedando solo el elemento diferencial.
+\\
+
+\textbf{7. Sucesiones y series:} Sandwich. \textbf{Stolz:} si $b_n$ es monótona divergente, entonces $\lim\limits_{n \to \infty}\frac{a_n}{b_n} = \lim\limits_{n \to \infty}\frac{a_n - a_{n-1}}{b_n - b_{n-1}}$. Se usa especialmente en puntos suspensivos, fracciones y factoriales. \textbf{Raíz:} $\lim\limits_{n \to \infty} \frac{a_{n + 1}}{a_n} = a = \lim\limits_{n\to \infty} \sqrt[n]{a_n}$. $1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} \approx log(n)$. \textbf{Series: armónicas:} $\sum\limits_{n=1}^{\infty}\frac{1}{n^{\alpha}}$ si $\alpha > 1$ la suma es convergente. \textbf{\underline{En Series:}} \textbf{criterio del cociente:} $\lim\limits_{n \to \infty} \frac{a_{n+1}}{a_n} = \lambda$ si $\lambda < 1$ es convergente, si $\lambda = 1$ usamos Raabe; \textbf{Raabe} $\lim\limits_{n \to \infty} n(1 - \frac{a_{n-1}}{a_n}) = \lambda$ si $\lambda < 1$ es convergente, $\lambda = 1$ ??. \textbf{Criterio de la raíz:} $\lim\limits_{n \to \infty} \sqrt[n]{a_{n}} = \lambda$ si $\lambda < 1$ es convergente, $\lambda = 1$ ??. \textbf{Geométricas:} $\sum\limits_{n = 1}^{\infty} r^n$ con $r$ siendo la razón, $\mathbf{S} = \dfrac{a_1}{1 - r}$, suma de los k-ésimos términos es $\dfrac{1 - r^{n+1}}{1 - r}$. \textbf{Telescópicas:} se van anulando los términos, hay que poner la expresión en forma de restas. \textbf{Aritmetico-geométricas:} $\sum\limits_{n = 1}^{\infty}P(n)r^{n}$, se solucionan haciendo la ''suma''; se le extrae la suma por la razón: $S - rS = (1 - r) S$, si se estabiliza, hayamos el valor de $(1 - r ) S$, despejándose S; repetir el proceso de resta a lo ''anterior'' hasta que se estabilice, pudiéndonos quedar algunos sumandos. \textbf{Truco:} muchas veces hay que descomponer las fracciones para que aparezca una resta.
+\\
+
+\textbf{Extras: Trigonometría:} $sen^{2}(\theta) + cos^{2}(\theta) = 1$; $sen2\theta = 2sen\theta cos\theta$; $cos2\theta = cos^{2}\theta - sen^{2}\theta$; $cos^{2}\theta = \frac{1 + cos(2\theta)}{2}$, $sen^{2}\theta = \frac{1 - cos(2\theta)}{2}$; $sen(\alpha \pm \beta) =
+sin\alpha cos\beta \pm cos\alpha sin\beta$, $cos(\alpha \pm \beta) = cos\alpha cos\beta \mp sin\alpha sin\beta$; $ch^{2} - sh^{2} = 1$; $shx \frac{e^x - e^{-x}}{2}$; $chx = \frac{e^x + e^{-x}}{2}$.
+
+\let\thefootnote\relax\footnotetext{Cálculo. Creado por Fernando Oleo Blanco.}
+\end{document}

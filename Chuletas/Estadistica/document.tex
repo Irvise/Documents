@@ -1,0 +1,338 @@
+\documentclass[a4paper, twocolumn, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,,amssymb}
+\usepackage{graphicx}
+\usepackage[]{geometry}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{gnuplottex}
+\usepackage{tikz}
+\usepackage{enumitem} %Reduce espacio de itemize
+\usepackage[compact]{titlesec} %Reduce el espaciado con las secciones
+\usepackage{faktor} %Para las probabilidades condicionadas
+
+\setlist[itemize]{noitemsep, topsep=0pt} %Reduce el espacio de los itemize
+\setlist[enumerate]{noitemsep, topsep=0pt} %Reduce el espacio de los enumerate
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Autor: Fernando Oleo Blanco}
+\chead{Chuleta}
+\lhead{\Huge\textbf{Estadística}}
+\fancyheadoffset{0.01\textwidth}
+
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=12mm,
+	right=12mm,
+	top=17mm,
+	bottom=15mm,
+}
+
+\begin{document}
+	
+\setlength{\belowdisplayskip}{0pt} \setlength{\belowdisplayshortskip}{0pt} 
+\setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt} %Reduce el espaciado generado por las ecuaciones
+	
+\section{Datos básicos}
+\begin{itemize}
+	\item \textbf{Frecuencias acumuladas:} la suma de todas las frecuencias hasta un valor dado. \textbf{No puede ser mayor que 1.}
+	\item \textbf{Moda (Mo):} valor más repetido, solo aplicable a distribuciones discretas.
+	\item \textbf{Cuantil:} división proporcional de todos los datos. Si son pares, se tendrá que hacer la media entre ambos y usar ese valor como separación. Ejemplo: la mediana es el cuartil 2 o el decil 5.
+	\item \textbf{Coeficiente de curtosis:} coeficiente que indica cómo de puntiaguda es una gráfica.
+\end{itemize}
+
+\section{Medidas a distribuciones}
+\subsection{Unidimensionales}
+
+\begin{itemize}
+	\item \textbf{Media:} $\bar{x} = \dfrac{\sum\limits_{i=1}^{N}\left[x_1\right]}{N}$
+	\item \textbf{Momentos de orden $r$ respecto del origen:} $a_r = \dfrac{\sum\limits_{i=1}^{N}\left[x_i^r\right]}{N}
+	\rightarrow \bar{x} = a_1$
+	\item \textbf{Mediana (Me):} valor de la muestra que deja un $50\%$ de datos por debajo del mismo. Si son pares se debe hacer la media de los dos valores colindantes y tomas ese valor como mediana, aunque sea relativamente ficticio.
+	\item \textbf{Varianza:} $s^2 = \dfrac{\sum\limits_{i=1}^{N}\left[\left(x_i - \bar{x}\right)^2\right]}{N} = a_2 - a_1^2$
+	\item \textbf{Momentos desde la media de grado $r$:} $m_r = \dfrac{\sum\limits_{i=1}^{N}\left[\left(x_i - \bar{x}\right)^r\right]}{N} \rightarrow s^2 = m_2$
+	\item \textbf{Coeficiente de variación de Pearson:} $g = \dfrac{s}{|\bar{X}|}$
+	\item \textbf{Desigualdad de Chebyshev:} \\ $k>1,\left[\bar{x} -k\cdot s,\bar{x} +k\cdot s \right] \text{ recoge al menos } 100\cdot\left(1-\dfrac{1}{k^2}\right)$ datos.
+	\item \textbf{Coeficiente de asimetría de Fisher:} $g_1 = \dfrac{m_3}{s^3}$. $g_1>0$ asimétría a la derecha. $g_1=0$ simétrica. $g_1<0$ asimetría a la izquierda.
+	\item \textbf{Cambio de variable:} $Y = a\cdot X + b$
+	\begin{enumerate}
+		\item $\bar{y} = a\bar{x} + b$
+		\item $s_Y^2 = a^2 \cdot s_X^2$
+		\item $s_Y = |a|\cdot s_X$
+		\item $Mo_Y = a\cdot Mo_X + b$
+		\item $|g_{1_Y}| = |g_{1_X}|$
+	\end{enumerate}
+	\item \textbf{\underline{Tipificación:}} muy importante para poder aplicar el teorema central del límite. $Y =  \dfrac{X-\bar{x}}{s_X}$. Esta transformación centra la media en cero y hace la desviación típica $1$.
+\end{itemize}
+
+\subsection{Bidimensionales}
+
+\begin{itemize}
+	\item \textbf{Frecuencias absolutas de la clase $z_i$:} \\ $n_{i\cdot} = \sum\limits_{j=1}^p\left[n_{ij}\right] \qquad n_{\cdot j} = \sum\limits_{i=1}^p\left[n_{ij}\right]$
+	\item \textbf{Momentos respecto del origen de orden $(r,s)$:} $a_{r,s} = \dfrac{\sum\limits_{i=1}^N\left[x_i^r\cdot y_i^s\right]}{N}$
+	\item \textbf{Momentos respecto de la media de orden $(r,s)$:} $m_{r,s} = \dfrac{\sum\limits_{i=1}^N\left[\left(x_i-\bar{x}\right)^r\cdot\left( y_i-\bar{y}\right)^s\right]}{N}$. \textbf{Covarianza:} $m_{1,1} = a_{1,1} - a_{1,0}\cdot a_{0,1}$
+	\item \textbf{Coeficiente de correlación de Pearson:} $\rho = r = \dfrac{m_{1,1}}{s_x\cdot s_y}$. Se usa para independizar de la escala de medida. Indica si hay relación \underline{lineal} entre las variables, dada si $|\rho| >0'5$. El signo indica si es directo o inverso.
+	\item \textbf{Dependencia lineal:} se ha de cumplir y es suficiente para que dos variables sean dependientes linealmente $f_{ij} = f_{i\cdot} \cdot f_{\cdot j}$
+\end{itemize}
+
+\section{Probabilidad}
+
+\begin{itemize}
+	\item \textbf{Operaciones:} con $A$ y $B$
+	\begin{enumerate}
+		\item Unión (ó): $A\cup B.$
+		\item Intersección (y): $A\cap B$. Si $A \cap B = \emptyset$ entonces son sucesos incompatibles.
+		\item Diferencia: $A-B.$
+		\item Complementario (o negado): $A \rightarrow \bar{A}.$
+		\item Contenido: $A$ contenido en $B \Rightarrow A\subset B.$
+	\end{enumerate}
+ 	\item \textbf{Propiedades:} $P[\quad]$ denota probabilidad
+ 	\begin{enumerate}
+ 		\item $A \cup B = B \cup A$ y $A \cap B = B\cap A$
+ 		\item $\overline{(A \cup B)} = \bar{A} \cap \bar{B}$ y $\overline{(A \cap B)} = \bar{A} \cup \bar{B}$
+ 		\item Si $A \cap B = \emptyset \rightarrow P[A \cup B] = P[A] + P[B]$
+ 		\item $P[A] = 1 - P[\bar{A}]$
+ 		\item $P[A\cup B] = P[A] + P[B] - P[A \cap B]$
+ 	\end{enumerate}
+ 	\item \textbf{Probabilidad:} $P[A] = \dfrac{\text{Resultados de } A}{\text{Resultados posibles}}$
+ 	\item \textbf{Combinaciones sin repetición:} $\dbinom{n}{k} = \dfrac{n!}{k!\cdot(n-k)!}$
+ 	\item \textbf{Probabilidad condicionada, $A$ cuando se cumple $B$:} $P\left[\faktor{A}{B}\right] = \dfrac{P\left[A\cap B\right]}{P[B]}$. Haciendo un poco de desarrollo: $P\left[A\cap B\right] = P[B] \cdot P\left[\faktor{A}{B}\right] = P[A]\cdot P\left[\faktor{B}{A}\right]$. También se cumple: $P\left[\faktor{A}{B}\right] = 1 - P\left[\faktor{\bar{A}}{B}\right]$. \textbf{Para sucesos independientes:} $P\left[\faktor{A}{B}\right] = P[A]$
+ 	\item \textbf{Teorema de la probabilidad total con condicionadas:} $P[B] = \sum\limits_{i=1}^{n}\left(P[A_i] \cdot P\left[\faktor{B}{A_i}\right]\right)$
+ 	\item \textbf{Teorema de Bayes:} $P\left[\faktor{A_k}{B}\right] = \dfrac{P\left[A_k\cap B\right]}{P[B]} = \dfrac{P[A_k]\cdot P\left[\faktor{B}{A_k}\right]}{P[B]} = \dfrac{P[A_k]\cdot P\left[\faktor{B}{A_k}\right]}{\sum\limits_{i=1}^{n}\left(P[A_i] \cdot P\left[\faktor{B}{A_i}\right]\right)}$ 
+\end{itemize}
+
+\section{Modelos para sistemas discretos}
+
+\begin{itemize}
+	\item \textbf{Función de cuantía o probabilidad:} $P_X(x_i) = P\left[X = x_i\right]$
+	\item \textbf{Función de distribución:} $F(x) = P\left[X\leq x\right] = \sum\limits_{x_i \leq x} P_X(x_i)$
+	\item \textbf{Esperanza (media):} $E(X) = \sum\limits_{i=1}^n\left[x_i \cdot P_X(x_i)\right] = \mu_x$. Para funciones: $E(g(X)) = \sum\limits_{i=1}^n\left[g(x_i) \cdot P_X(x_i)\right]$
+	\item \textbf{Varianza:} $Var(X) = \sum\limits_{i=1}^n\left[\left(x_i - E(X)\right)^2\cdot P_X(x_i)\right] = E(X^2) - (E(X))^2$
+	\item \underline{\textbf{Distribuciones importante:}}
+	\begin{enumerate}
+		\item \textit{Bernoulli:} dos posibilidades, éxito o fracaso. A la probabilidad del éxito se la nombrará $p$.
+		\begin{enumerate}
+			\item Función de cuantía: $P_X(0) = P\left[X=0\right] = 1 - p \qquad P_X(1) = P\left[X=1\right] = p$
+			\item Esperanza: $E(X) = \sum\limits_{i=0}^n\left[i\cdot P_X(i)\right] = p$
+			\item Varianza: $Var(X) = p(1-p)$
+		\end{enumerate}
+		\item \textit{Binomial:} experiencia de \textit{Bernoulli} repetida $n$ veces.
+		\begin{enumerate}
+			\item Función de cuantía: $P_X(i) = P\left[X=i\right] = \dbinom{n}{i}\cdot p^i\cdot (1-p)^{n-1}$
+			\item Esperanza: $E(X) = n\cdot p$
+			\item Varianza: $Var(X) = n\cdot p\cdot (1-p)$
+		\end{enumerate}
+		\item \textit{Poisson:} se modelan con un parámetro $\lambda$ que es la media en una \underline{constante de tiempo.} Usada en el caso de la binomial cuando $n > 30 \text{ y } p < 0'1$ siendo $\lambda = n\cdot p$.
+		\begin{enumerate}
+			\item Función de cuantía: $P_X(i) = P\left[X = i\right] = \dfrac{\lambda^i\cdot e^{-\lambda}}{i!}$
+			\item Esperanza: $E(X) = \lambda$
+			\item Varianza: $Var(X) = \lambda$
+		\end{enumerate}
+	\end{enumerate}
+\end{itemize}
+
+\section{Modelos para sistemas continuos}
+
+\begin{itemize}
+	\item \textbf{Función de densidad:} $\displaystyle P\left[a \leq X \leq b\right] = \int_{a}^{b}f_X(x)\cdot dx \quad \forall a\leq b \in \mathbb{R}$. Propiedad, al ser continua se cumple: $P\left[a \leq X \leq b\right] = P\left[a \leq X < b\right] = P\left[a < X \leq b\right] = P\left[a < X < b\right].$
+	\item \textbf{Función de distribución:} $F_X(x) = P\left[X \leq x\right] = \displaystyle \int_{-\infty}^{x}f_X(x)\cdot dx$. Para un intervalo dado $P\left[a \leq X \leq b\right] = F_X(b) - F_X(a)$
+	\item \textbf{Esperanza:} $E(X) = \displaystyle \int_{-\infty}^{\infty}x\cdot f_X(x)\cdot dx$. Generalizando: $E(g(X)) = \displaystyle \int_{-\infty}^{\infty}g(x)\cdot f_X(x)\cdot dx$
+	\item \textbf{Varianza:} $Var(X) = \displaystyle \int_{-\infty}^{\infty}\left(x - E(X)\right)^2 \cdot f_X(x) \cdot dx = E(X^2) -(E(X))^2$
+	\item \textbf{Distribuciones:} notación: $X\sim Y$ significa que $X$ es sigue una distribución $Y$
+	\begin{enumerate}
+		\item \textit{Uniforme $X\sim U(a,b)$:}
+		\begin{equation*}
+			f_X(x) = \left\lbrace
+			\begin{aligned}
+			&\frac{1}{b-a} & si \quad& a\leq x\leq b \\
+			& 0 & si \quad & x \notin\left[a,b\right]
+			\end{aligned} \right.
+		\end{equation*}
+		\begin{equation*}
+			F_X(x) = \left\lbrace
+			\begin{aligned}
+			& 0 & si \quad & x < a \\
+			&\frac{x-a}{b-a} & si \quad& a\leq x\leq b \\
+			& 0 & si \quad & x >b
+			\end{aligned} \right.
+		\end{equation*}
+		\begin{equation*}
+			E(X) = \frac{a + b}{2}
+		\end{equation*}
+		\begin{equation*}
+			Var(X) = \frac{(b-a)^2}{12}
+		\end{equation*}
+		\item \textit{Exponencial $T\sim E(\lambda)$:} suele usarse para el fallo de componentes electrónicos, usa el parámetro de escala $\lambda$. Solo vale para valores positivos, por ejemplo tiempo. Posee ausencia de memoria.
+		\begin{equation*}
+			f_T(t) = \left\lbrace
+			\begin{aligned}
+			& 0 & si \quad& t < 0 \\
+			& \lambda\cdot e^{-\lambda \cdot t} & si \quad & t \ge 0
+			\end{aligned} \right.
+		\end{equation*}
+		\begin{equation*}
+			F_T(t) = \left\lbrace
+			\begin{aligned}
+			& 0 & si \quad& t < 0 \\
+			& 1 - \lambda\cdot e^{-\lambda \cdot t} & si \quad & t \ge 0
+			\end{aligned} \right.
+		\end{equation*}
+		\begin{equation*}
+			E(T) = \frac{1}{\lambda}
+		\end{equation*}
+		\begin{equation*}
+			Var(T) = \frac{1}{\lambda^2}
+		\end{equation*}
+		\begin{enumerate}
+			\item Usando la función de distribución se cumple $P\left[T>t\right] = e^{-\lambda\cdot t}$
+			\item Por la ausencia de memoria se da $\displaystyle P\left[\faktor{T > t+s}{T>s}\right] = P\left[T>t\right] = e^{-\lambda\cdot t}$
+			\item Localización en parámetro $a$:
+			\begin{equation*}
+			f_T(t) = \left\lbrace
+			\begin{aligned}
+			& 0 & si \quad& t < 0 \\
+			& \lambda\cdot e^{-\lambda \cdot (t-a)} & si \quad & t \ge 0
+			\end{aligned} \right.
+			\end{equation*}
+		\end{enumerate}
+		\item \textit{Normal $X\sim N(\mu, \sigma^2)$:}
+		\begin{equation*}
+			f_X(x) = \frac{1}{\sigma\cdot\sqrt{2\pi}}\cdot e^{-\dfrac{1}{2}\left(\dfrac{x-\mu}{\sigma}\right)^2}
+		\end{equation*}
+		\begin{equation*}
+		F_X(x) = \int_{-\infty}^{x}\frac{1}{\sigma\cdot\sqrt{2\pi}}\cdot e^{-\dfrac{1}{2}\left(\dfrac{s-\mu}{\sigma}\right)^2}\cdot ds
+		\end{equation*}
+		\begin{equation*}
+			E(X) = \mu
+		\end{equation*}
+		\begin{equation*}
+			Var(X) = \sigma^2
+		\end{equation*}
+		\begin{eqnarray*}
+			& X\sim N(\mu, \sigma^2) \rightarrow Y = a\cdot X + b \Rightarrow \\ & Y \sim N(a\cdot\mu + b, a^2\sigma^2)
+		\end{eqnarray*}
+		\begin{eqnarray*}
+			& X_1\sim N(\mu_1, \sigma_1^2) \quad X_2\sim N(\mu_2, \sigma_2^2) \rightarrow \\ & Y = X_1 + X_2 \Rightarrow Y \sim N(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)
+		\end{eqnarray*}
+		\begin{enumerate}[leftmargin=-1.5em]
+			\item \underline{Distribución normal estándar $Z\sim N(0,1)$:} es con la que se trabaja normalmente y es la que sale en las tablas de probabilidades. Para tener una normal estándar de una distribución cualquiera se ha de tipificar. Necesaria para el teorema central del límite.
+			\item \underline{Cálculo de probabilidades:} $\Phi(z) = P\left[Z \leq z \right]$, esta definición acumulativa. Para hallar la probabilidad de las colas se haría $\Phi(-z) = 1 - \Phi(z)$. $P\left[a \leq Z \leq b\right] = \Phi(b) - \Phi(a)$ si $a,b\geq0$; $\Phi(-a) - \Phi(-b)$ si $a,b<0$
+			\item \underline{Aproximación normal de la distribución binomial:} para poder hacer esta aproximación se han de cumplir las siguientes condiciones: $X \sim B(n,p) \quad\&\quad n\geq 30 \quad\&\quad n\cdot p\geq 5 \quad\&\quad n\cdot(1-p) \geq 5$. Entonces $X$ se puede aproximar por $W\sim N(\mu, \sigma^2) \quad \mu= n\cdot p \quad\&\quad \sigma^2 = n\cdot p\cdot(1-p)$
+		\end{enumerate}
+		\item \textit{Log-normal $X\sim LN(\mu, \sigma^2)$:} son datos que al ser transformados por un neperiano se transforma en una distribución normal pura.
+		\begin{equation*}
+			E(X) = e^{\mu+\dfrac{1}{2}\sigma^2}
+		\end{equation*}
+		\begin{equation*}
+			Var(X) = e^{2\cdot \mu + \sigma^2}\cdot (e^{\sigma^2}-1)
+		\end{equation*}
+		\begin{equation*}
+			Me(X) = e^\mu \qquad Mo(X) = e^{\mu - \sigma^2}
+		\end{equation*}
+		\begin{equation*}
+			P\left[a \leq X \leq b\right] = \Phi\left(\dfrac{ln(b)-\mu}{\sigma}\right)-\Phi\left(\dfrac{ln(a)-\mu}{\sigma}\right)
+		\end{equation*}
+	\end{enumerate}
+\end{itemize}
+
+\section{Fiabilidad}
+
+$T$ indicará el tiempo hasta el fallo de un objeto.
+
+\begin{itemize}
+	\item \textbf{Función de infiabilidad (función de distribución):} da la probabilidad de que el sistema haya fallado en el tiempo $t$. $F_T(t) = P\left[T\leq t\right] \quad \forall t\ge 0$
+	\item \textbf{Función de supervivencia:} es la función complementaria a la de infiabilidad. Suele indicarse como $S_T(t) = R_T(t) = P\left[T > t \right]$
+	\item \textbf{Función de densidad:} se la suele denominar \textit{densidad de fallos} y a su complementaria (esperanza) \textit{duración media.}
+	\item \textbf{Función de riesgo o tasa de fallos:} $h(t) = \lambda(t) = \lim\limits_{\Delta\rightarrow0}\dfrac{P\left[\faktor{t\leq T \leq \Delta t}{T>t}\right]}{\Delta t} \quad \forall t\ge 0$
+	\item \textbf{Relaciones entre las funciones y los tipos más comunes:}
+	\begin{enumerate}
+		\item $R_T(t) = 1 - F_T(t)$
+		\item $R_t(t) = \displaystyle \int_{t}^{\infty}f(s)\cdot ds$
+		\item $f_T(t) = -R'(t) = -\dfrac{dR(t)}{dt}$
+		\item $R_T(t) = e^{\displaystyle -\int_{0}^{t}h(s)\cdot ds}$
+		\item $h_T(t) = -\dfrac{R'(t)}{R(t)} = -\dfrac{d}{dt}\left[ln(R(t))\right]$
+		\item $f_T(t) = h(t)\cdot e^{\displaystyle -\int_{0}^{t}h(s)\cdot ds}$
+		\item $h_T(t) = \dfrac{f(t)}{\displaystyle \int_{t}^{\infty}f(s)\cdot ds}$
+		\item \textit{Distribución exponencial:}
+		\begin{equation*}
+			T\sim E(\lambda) \Leftrightarrow h_T(t) = \lambda \quad ;\quad t\ge 0
+		\end{equation*}
+		\item \textit{Distibución log-normal:}
+		\begin{eqnarray*}
+			&T\sim LN(\mu, \sigma^2) \Leftrightarrow \\ &h_T(t) = \dfrac{e^{ -\dfrac{1}{2}\left(\dfrac{ln(t)-\mu}{\sigma}\right)^2}}{t\cdot \displaystyle \int_{t}^{\infty}\dfrac{1}{s}\cdot e^{-\dfrac{1}{2}\left(\dfrac{ln(s)-\mu}{\sigma}\right)^2}\cdot ds} \\ & t>0
+		\end{eqnarray*}
+	\end{enumerate}
+\end{itemize}
+
+\subsection{Sistemas}
+
+Se tratan de diagramas de cajas que indican la probabilidad de éxito de un evento. Las \textbf{cajas en serie} indican intersección, se han de cumplir todas, por lo tanto, la probabilidad será la intersección de todas ellas (multiplicación de probabilidades). Las \textbf{cajas en paralelo} indican que con un solo éxito se pasa al siguiente bloque. Por lo tanto, la probabilidad será la unión de todas ellas, \underline{\textbf{pero cuidado,}} hay que restarles la intersección entre todas ellas. 
+
+\section{Muestreo}
+
+\begin{itemize}
+	\item \textbf{Muestras observada:} $x_1, x_2, \ldots, x_n$ son los distintos valores observados de una variable $X.$
+	\item \textbf{Muestra aleatoria simple (m.a.s):} conjunto de $n$ variables aleatorias: $X_1, X_2, \ldots, X_n.$
+	\item \textbf{Distribución de probabilidad de una m.a.s:} $F(x_1, x_2, \ldots, x_n) = P\left[X_1\leq x_1 \cap X_2 \leq x_2 \cap \ldots \cap X_n \leq x_n\right] = F_X(x_1)\cdot F_X(x_2) \cdot \ldots F_X(x_n) = \displaystyle \prod\limits_{i=1}^{n}F_X(x_i).$ Siendo $F_X$ la función de distribución de nuestra población $X.$ $f(x_1, x_2, \ldots, x_n) = P\left[X_1= x_1 \cap X_2 = x_2 \cap \ldots \cap X_n = x_n\right] =  \displaystyle \prod\limits_{i=1}^{n}f_X(x_i, \theta).$ Siendo $\theta$ los parámetros de la distribución.
+	\item \textbf{Función de distribución empírica:} $F_n^\ast(X) = \displaystyle \frac{\sum\limits_{x_i \leq X} 1}{n}.$ Se trata de una función escalonada con saltos de altura $\dfrac{1}{n}.$
+	\item \textbf{Estadísticos:}
+	\begin{enumerate}
+		\item \textbf{Media muestral:} $\displaystyle \bar{X} = \frac{\sum\limits_{i=1}^{n}X_i}{n}.$
+		\item \textbf{Cuasivarianza muestral:} $s^2_X = \dfrac{\sum\limits_{i=1}^{n}\left(X_i - \bar{X}\right)^2}{n - 1}.$
+	\end{enumerate}
+	\item \textbf{Estimadores}
+	\begin{enumerate}
+		\item \textbf{Criterio de analogía:} se tomas las medidas muestrales como si fueran poblacionales.
+		\item \textbf{Método de los momentos:} toma como momentos poblacionales los momentos muestrales. De ahí se tendrá que deducir los valores que definen la población.
+		\item \textbf{Máxima verosimilitud:} obtiene los parámetros que hacen máxima la función que obtiene la probabilidad de la muestra obtenida. $P(x_1, x_2, \ldots, x_n) = \displaystyle \prod\limits_{i=1}^{n}P_X(x_i, \theta).$ Dada la función de verosimilitud $L(X;\theta)$ siendo esta la función de probabilidad se extrae su neperiano $l(X;\theta) = ln\left[L(X;\theta)\right]$ siendo esta la función a maximizar. \textbf{Los estimadores para las distintas distribuciones son:}
+		\begin{enumerate}
+			\item \textit{Distribución normal:} $\mu = \bar{X}, \; \sigma^2 = s_X^2$
+			\item \textit{Bernoulli:} $\hat{p}$, la $p$ de la muestra. 
+			\item \textit{Distribución Binomial:}
+			\item \textit{Distribución de Poisson:} $E(X) = \hat{\lambda} = \bar{x}, \; V(\hat{\lambda}) = \dfrac{\lambda}{n} \rightarrow V(X) = \lambda\cdot n$.
+		\end{enumerate}
+		\item \textbf{Sesgo:} diferencia, en valor absoluto, de la media de nuestra muestra respecto a la media poblacional, viene dado por $b(\theta^\ast) = E(\theta^\ast) - \theta$, siendo $\theta^\ast$ la media muestra y $\theta$ la media poblacional.
+		\item \textbf{Eficiencia:} un estimador con poco sesgo (insesgado) que además tenga poca varianza. También se suele referir como error estándar $ e= \faktor{\sigma}{\sqrt{n}}$. $V(\bar{X}) = e^2$
+		\item \textbf{Error Medio Cuadrático (EMC):} $\left(E(\theta^\ast)-\theta\right)^2 + V(\theta^\ast).$
+	\end{enumerate}
+\end{itemize}
+
+\subsection{Estimación por intervalos}
+
+\begin{itemize}
+	\item \textbf{Estimación:} se estima un parámetro $\xi$ para una muestra $X^0$ con unos límites inferiores y superiores con una confianza $\gamma$. Esto se expresa como $\xi \in \left[t_I(X^0); t_S(X^0)\right]_\gamma$. Esto es la probabilidad talque $P\left[t_I(X)\leq \xi \leq t_S(X)\right] = \gamma$. $\gamma$ expresa la precisión del modelo a usar, y los $t$ indican los valores entre los que se encuentra $\xi$. Se puede expresar más explícitamente como $P\left[k_1\leq t(X;\theta)\leq k_2\right] = \gamma$, siendo los $k$ los límites del modelo. El estimador a usar se ha de sacar de las hojas.
+	\item \textbf{Amplitud y radio:} $Amplitud = t_S(X) -t_I(X) = 2\cdot \varepsilon$. $Radio = \varepsilon$.
+\end{itemize}
+
+\section{Inferencia estadística}
+
+\begin{itemize}
+	\item \textbf{Hipótesis:} es una suposición que haremos respecto a nuestro estudio. Suele haber dos, $H_0$ y $H_1$, esto se debe a que si $H_0$ no es verdadera se pasará a la(s) siguiente(s), siendo común haber solo una alternativa. Si $H_0$ resulta ser muy poco probable se pasará a la siguiente hipótesis. Hay hipótesis de igualdad, comparativas, etc.
+	\item \textbf{Errores:} en todo análisis habrá cierta precisión, por lo que es posible cometer una imprudencia. Se distinguen dos errores: \textit{Tipo I ($\alpha$):} cuando se rechaza $H_0$ cuando es verdadera, $\alpha = 1-\gamma$; \textit{Tipo II ($\beta$):} cuando se acepta $H_0$ cuando esta es falsa. La más grave es el \textit{Tipo I.}
+	\item \textbf{P-Valor:} es el valor que nos indica la probabilidad de que en una muestra nos salga cierta medición (media, varianza, probabilidad, etc), respecto cierta suposición. Su cálculo se tendrá que hacer con los modelos en las tablas. Igualando la suposición con el valor a hallar.
+	\item \textbf{\underline{Notas importantes:}} si la inferencia se realiza mediante intervalos y la hipótesis es de comparación, hay que ver si la hipótesis pudiera entrar o no en el intervalo, importante.
+	\item \textbf{Contrastes no paramétricos:} nos permiten comprobar si una muestra sigue un modelo conocido mediante hipótesis:
+	\begin{enumerate}
+		\item \textit{Chi-cuadrado:} discrimina en un número finito $r$ de clases cuantitativas o categóricas.
+		\begin{enumerate}
+			\item Se ordenan los datos y se agrupan en categorías.
+			\item Se plantea la hipótesis, modelo y su(s) variable(s).
+			\item Tabla que contenga por columnas las clases, los intervalos, los valores y sus frecuencias absolutas.
+			\item Se crea con el modelo teórico las frecuencias esperadas. Para ello multiplicamos la probabilidad esperada por la $H_0$ y la multiplicamos por $n$, nuestro tamaño muestral.
+			\item Se crea el estadístico de contraste con las diferencias obtenidas teóricas y empíricas.
+		\end{enumerate}
+		\item \textit{Kolmogorov:} \textbf{no puede aplicarse a variables discretas.}
+		\begin{enumerate}
+			\item Se ordenan los datos de forma ascendente. Se crea la \textbf{función de distribución} empírica $F_n(x)$, que es la frecuencia acumulada entre el número $n$ de datos.
+			\item Se elabora la hipótesis.
+			\item Construcción del estadístico de contraste: $Id = max \left(\left|F_n(u_i) - F_0(u_i)\right|,\left|F_n(u_{i-1}) - F_0(u_i)\right|\right)$
+			\item Crear la región crítica.
+		\end{enumerate}
+	\end{enumerate}
+\end{itemize}
+
+\end{document}

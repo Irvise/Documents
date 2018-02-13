@@ -1,0 +1,138 @@
+\documentclass[a4paper, twocolumn, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,,amssymb}
+\usepackage{graphicx}
+\usepackage[]{geometry}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{gnuplottex}
+\usepackage{enumitem} %Reduce espacio de itemize
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Fernando Oleo Blanco}
+\chead{Chuleta}
+\lhead{\Huge\textbf{Electrotecnia}}
+\fancyheadoffset{0.01\textwidth}
+
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=15mm,
+	right=15mm,
+	top=20mm,
+	bottom=15mm,
+}
+
+\begin{document}
+
+\Large\textbf{Conceptos básicos} \normalsize
+
+\begin{itemize}
+	\item \textbf{Diferencia de potencial:} $U_{AB} = U_A - U_B$
+	\item \textbf{Ley de Ohm:} $\bar{U} = \bar{I} \cdot \bar{Z}$. El inverso de la impedancia es la admitancia: $\bar{G} = \dfrac{1}{\bar{Z}}$.
+	\item \textbf{Kirchhoff:}
+	\begin{enumerate}
+		\item En un nudo $I_{ent} = I_{sal}$.
+		\item  $\Delta U$ entre dos puntos no depende del camino escogido.
+	\end{enumerate}
+	\item \textbf{Teorema de equivalencia}: Una fuente de tensión con una impedancia en serie es equivalente a una fuente de intensidad con otra impedancia en paralelo según esta relación: $\bar{Z}_S = \bar{Z}_P; \quad \bar{U} = \bar{I} \cdot \bar{Z}_\text{S o P}$.
+	\item \textbf{Thevenin:} todo circuito se puede simplificar a una fuente de tensión con una resistencia en serie: $(\bar{E}_{th}, \bar{Z}_{th})$. \\
+	\textbf{Resolución:} $\bar{E}_{th}$ se puede obtener como la tensión en vacío entre los dos puntos seleccionados. \textbf{Sin fuentes dependientes:} $\bar{Z}_{th}$ como la resistencia que se ve entre los dos terminales (dipolos).
+	\item \textbf{Norton:} por el teorema de equivalencia, \textit{Thevenin} también se puede expresar en una fuente de intensidad ($I$ de Norton) y la misma resistencia. La $\mathbf{I_{N}}$ es la intensidad de cortocircuito, es la intensidad que circula por un cable si se conecta entre los dos dipolos.
+	\item \textbf{Thevenin y Norton general, método de la rama externa:} 
+	\begin{enumerate}
+		\item \textbf{Fuente de intensidad:} se dibuja el esquema de \textit{Thevenin} y se le coloca la fuente de intensidad de valor indeterminado $(I)$ en el mismo sentido que $\bar{E}_{th}$, por lo que la tensión entre los terminales (A y B) quedaría: $U_{AB} = \bar{E}_{th} - \bar{Z}_{th} * \bar{I}$. Recomendable cuando hay muchas fuentes de tensión.
+		\item \textbf{Fuente de tensión:} similar al anterior. En el circuito de \textit{Norton} colocamos una fuente de tensión de valor indeterminado $(V)$ en el mismo sentido que la $(I_N)$. Hallamos la ecuación del nudo \textit{superior:} $ I_V =I_N - \dfrac{V}{R_{th}}$.
+	\end{enumerate}
+	
+	\item \textbf{Desfase:\footnote{La dificultad de este examen}} diferencia entre los ángulos de la tensión y de la intensidad. Se dice que es el adelanto que tiene la tensión sobre la intensidad: $\varphi = \varphi_U - \varphi_I$. Si $\varphi$ es positivo se dice que es inductivo; si es negativo, capacitivo. Se expresa en \textbf{radianes,} desgraciado.
+	\item \textbf{Ley de Joule:} $\bar{S} = \bar{U} \cdot \bar{I}^* = \dfrac{\bar{U}^2}{\bar{Z}} = \bar{Z} \cdot \bar{I} \cdot \bar{I}^*$. $\bar{S}$ es un número complejo de la forma $\bar{S} = \underbrace{UI \cdot \cos\varphi}_P + \underbrace{jUI\cdot\sin\varphi}_Q$. $\bar{S}$ es la potencia aparente, medida en $VA$; $P$ es la potencia activa, medida en $W$; y $Q$ es la reactiva, medida en $Var$. \textbf{Nota:} cuidado si se usan módulos o fasores, las cosas cambian mucho, en especial en unitarias. \textbf{Factor de potencia:} $\cos\varphi$.
+	\item \textbf{Rendimiento:} $\eta = \dfrac{P_{salida}}{P_{entrada}}$.
+	\item \textbf{Regulación:} $\nu = \dfrac{|\bar{U}_{entrada}| - |\bar{U}_{salida}|}{|\bar{U}_{salida}|}$.
+	\item \textbf{Mejora del factor de potencia:} es equivalente a decir menos gasto de potencia reactiva (el sistema produce la misma cantidad de activa consumiendo menos intensidad). Se colocan baterías de condensadores, por lo que sale la ecuación $U^2C\omega = Q - Q'$.
+	\item \textbf{Máxima transferencia de potencia:} $\bar{Z}_{\text{circuito o Thevenin}} = \bar{Z}_L$.
+	\item \textbf{Unitarias:} se trabajarán siempre en módulo. Las potencias serán iguales para todo el sistema; \textbf{cuidado:} $P^2 + Q^2  = S^2$. Las impedancias se desarrollaran de la potencia y tensión nominal: $\dfrac{U^2}{S}$; \textbf{atención:} la tensión a usar ha de ser la transformada de esa sección. Se recomienda hacer una tabla con todas las unidades base. \textbf{Importante:} hay que ver si las medidas en unitarias de un elemento son distintas de las que vamos a usar, en cuyo caso hay que hacer una doble transformación.
+\end{itemize}
+
+\Large\textbf{Cálculos} \normalsize
+
+\begin{itemize}
+	\item \textbf{Método de mallas:} se indica un mismo sentido de intensidades en todas las mallas (caminos cerrados) y se numeran. Por la ley de Ohm la suma de tensiones en una misma malla ha de ser igual a las impedancias de la malla por las intensidades que las atraviesan, por lo que queda la el sistema matricial: \[
+	\begin{pmatrix}
+		\bar{U}_1 \\
+		\bar{U}_2 \\
+		\vdots
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		\bar{Z}_{11}  & - \bar{Z}_{12} & -\dots \\
+		-\bar{Z}_{21} & \bar{Z}_{22}   & -\dots \\
+		-\vdots       & -\vdots        & \ddots
+	\end{pmatrix}
+	\begin{vmatrix}
+	\bar{I}_1 \\
+	\bar{I}_2 \\
+	\vdots
+	\end{vmatrix}
+	\]
+	donde las $[\bar{I}]$ son la incógnita, se resuelve haciendo la inversa\footnote{Hágase manualmente si se desea suspender}. Solo se puede hacer cuando no hay fuentes de intensidad presentes.
+	\item \textbf{Método de nudos:} similar al de mallas. Solo se puede utilizar cuando no hay fuentes de tensión. La matriz $[\bar{I}]$ son las intensidades que entran a un nudo por las fuentes (si salen, son negativas, duh). \[
+	\begin{pmatrix}
+	\bar{I}_1 \\
+	\bar{I}_2 \\
+	\vdots
+	\end{pmatrix} = 
+	\begin{pmatrix}
+	\bar{G}_{11} & - \bar{G}_{12} & -\dots \\
+	-\bar{G}_{21} & \bar{G}_{22} & -\dots \\
+	-\vdots & -\vdots & \ddots
+	\end{pmatrix}
+	\begin{pmatrix}
+	\bar{U}_1 \\
+	\bar{U}_2 \\
+	\vdots
+	\end{pmatrix}
+	\]
+	la matriz $[\bar{U}]$ son las tensiones de nudo respecto de $V0$, que nosotros escogemos. \textbf{¿Te has dado cuenta de que se usan las admitancias, no?}
+	\item \textbf{Nudos y mallas con fuentes dependientes:} su resolución sigue el mismo proceso, sin embargo, tendremos que despejar manualmente la ecuación de la fuente dependiente para que esta pase al \textit{cuerpo} de la matriz.
+	\item \textbf{Superposición:} Se pasivan las fuentes \textbf{no dependientes} y se resuelve el circuito de manera normal con cada fuente que tengamos, al final se suman resultados. Método recomendado para circuitos complejos con pocas fuentes. Para pasivar las fuentes: las de tensión se vuelven un cortocircuito $(\Delta V = 0)$ y las de intensidad, circuito abierto $(I = 0)$.
+\end{itemize}
+
+\Large\textbf{Elementos eléctricos} \normalsize
+
+\begin{itemize}
+	\item \textbf{Resistencia:} $\bar{Z} = R + j0 \rightarrow \varphi = 0$.
+	\item \textbf{Bobinas:} $\bar{Z} = 0 + jL\omega \rightarrow \varphi = \dfrac{\pi}{2}$. Consumen potencia reactiva. \textbf{Reales:} por lo general presentan una resistencia en serie (la del cobre). \textbf{Factor de calidad (QF):} $\tan\varphi$.
+	\item \textbf{Condensadores:} $\bar{Z} = 0 - \dfrac{j}{C\omega} \rightarrow \varphi = -\dfrac{\pi}{2}$. Generan reactiva. \textbf{Reales:} presentan una resistencia en paralelo (normalmente despreciable). \textbf{Factor de pérdidas (D):} $\cos\left(\dfrac{\pi}{2} - \varphi\right) = \cos(\delta)$.
+	\item \textbf{Transformadores:} en un condensador se cumple $\bar{S}_1 = \bar{S}_2; \quad \dfrac{E_1}{E_2} = \dfrac{I_2}{I_1} = \tau$. $\tau$ es la relación de transformación que tiene el transformador, se puede sacar de su número de espiras o de la relación de tensiones. \\ \textbf{Paso de elementos de un lado a otro:} $\bar{Z}_1 = \tau^2\bar{Z}_2; \quad \bar{U}_1 = \tau\bar{U}_2; \quad \bar{I}_1 = \tau^{-1}\bar{I}_2$. \\
+	\textbf{Real:} presenta tanto resistencia e inductancia en el lado de alta $\bar{Z}_1$ como en el de baja $\bar{Z}_2$, estas se ponen en serie. También presentan pérdidas en el hierro y reactancia del mismo $\bar{Z}_m$, estas pérdidas se ponen en paralelo, solo en un lado; han de indicar a cual se refieren. \textbf{Ensayos:}
+	\begin{enumerate}
+		\item \textbf{En vacío:} se alimenta un lado y se ve la tensión que aparece en el otro en vacío, por lo que no circula intensidad. Esto provoca que la caída de tensión en el lado alimentado sea generada por las pérdidas de $\bar{Z}_m$ (las pérdidas de $\bar{Z}_1$ se obvian al ser muy pequeñas) en régimen permanente. $\bar{Z}_m$ por lo tanto se calcularía con la intensidad que circula y la caída de tensión.
+		\item \textbf{Corto:} con esta se consigue que no haya caída en el transformador, por lo tanto la que se mide es la caída generada en $\bar{Z}_1 + \bar{Z}_2$ referidas al lado alimentado. Se resuelven de la manera anterior.
+	\end{enumerate}  
+\end{itemize}
+\textbf{¡Mucho cuidado con los valores nominales!} Si no coinciden con nuestro problema hay que sacar la impedancia sí o sí. \\
+
+\Large\textbf{Transitorios} \normalsize
+
+\begin{itemize}
+	\item \textbf{Tiempos de carga:} hay que ver la $R_{tot}$ que verán tanto las bobinas como los condensadores, que a partir de ahora se nombrará como $R$. \textbf{Bobinas:} su constante de tiempo es $\tau = \dfrac{L}{R}$; \textbf{condensadores:} $\tau = RC$.
+	\item \textbf{Ecuación de carga:} forma genérica: $\chi(t) = \chi_\infty - (\chi_\infty - \chi_{0^+})e^{\dfrac{-1}{\tau}}$; donde $\chi(t)$ es nuestra función. Los subíndices indican los valores en el tiempo. Para el \textbf{condensador} la función indica su diferencia de potencial, si está descargado, en $t = 0, \; V=0$ y generalmente para $t = \infty\; V=U$ si se está cargando; en la descarga de un condensador, este se comporta como una fuente de tensión. Para una \textbf{bobina} la función indica la intensidad que atraviesa la misma; cuando esta se descarga se comporta como una fuente de intensidad.
+\end{itemize}
+
+\Large\textbf{Datos útiles} \normalsize
+
+\begin{itemize}
+	\item \textbf{Números complejos:} $j = \sqrt{-1}$. En coordenadas rectangulares: $\bar{A} = a + jb$. Polares: $A\angle\alpha = A(\cos\alpha +j\sin\alpha)$. Exponencial: $Ae^{j\alpha}$, de donde $tan(\alpha) = \dfrac{Img(\bar{A})}{Re(\bar{A})}$. El conjugado: $\bar{A} = a + jb \rightarrow a - jb = \bar{A}^*$.
+	\item \textbf{Alterna:} senoidal: $A_psin(\omega t + \varphi), \; \omega = 2\pi f = \dfrac{2\pi}{T}$; RMS: $I = \sqrt{\dfrac{1}{T}\displaystyle\int_{x}^{x + T} i^2(t) dt}$, que en senoidales: $I = \dfrac{I_P}{\sqrt{2}}$.
+	\item \textbf{Asociación de impedancias:} en serie $\bar{Z}_{eq} = \bar{Z}_1 +\bar{Z}_2 + \ldots$. En paralelo $\bar{Z}_{eq} = \left(\dfrac{1}{\bar{Z}_1} + \dfrac{1}{\bar{Z}_2}+ \ldots\right)^{-1}$.
+	\item \textbf{Notas:} la $\Delta U$ en un paralelo tiene que ser la misma.
+\end{itemize}
+
+\Large\textbf{Alterna/Trifásica} \normalsize
+
+Por hacer.
+
+\end{document}

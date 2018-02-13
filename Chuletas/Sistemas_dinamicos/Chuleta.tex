@@ -1,0 +1,1001 @@
+\documentclass[a4paper, twocolumn, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,,amssymb}
+\usepackage{graphicx}
+\usepackage[]{geometry}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{gnuplottex}
+\usepackage{tikz}
+\usepackage{textcomp}
+\usepackage{enumitem} %Reduce espacio de itemize
+\usepackage[compact]{titlesec} %Reduce el espaciado con las secciones
+
+\setlist[itemize]{noitemsep, topsep=0pt} %Reduce el espacio de los itemize
+\setlist[enumerate]{noitemsep, topsep=0pt} %Reduce el espacio de los enumerate
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Autor: Fernando Oleo Blanco}
+\chead{Chuleta}
+\lhead{\Large\textbf{Sistemas dinámicos}}
+\fancyheadoffset{0.01\textwidth}
+
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=7mm,
+	right=7mm,
+	top=13mm,
+	bottom=5mm,
+}
+
+
+%Para los gráficos
+\ifx\du\undefined
+\newlength{\du}
+\fi
+\setlength{\du}{10\unitlength}
+
+
+\begin{document}
+	
+\setlength{\belowdisplayskip}{0pt} \setlength{\belowdisplayshortskip}{0pt} 
+\setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt} %Reduce el espaciado generado por las ecuaciones
+	
+\section{Conceptos básicos}
+
+\begin{itemize}
+	\item \textbf{Modelo LTI:} \[\sum_{i=0}^{n}a_i\dfrac{d^iy(t)}{dt^i} a_0y(t) = \sum_{i=0}^{m}b_i\dfrac{d^iu(t)}{dt^i} b_0u(t)\]
+	\item \textbf{Condición inicial:} $x(0^-) = \lim\limits_{t\rightarrow0^-}x(t)$
+	\item \textbf{Valor inicial:} $x(0^+) = \lim\limits_{t\rightarrow0^+}x(t)$
+	\item \textbf{Factor de amortiguamiento:} $\zeta = \dfrac{a}{\sqrt{a^2+w^2}}$
+	\item \textbf{Descomposición en fracciones simples:} se sacan las raíces, si hay alguna doble, esta se escribe tantas veces como se repita, aumentando su grado.
+\end{itemize}
+
+\section{Laplace}
+
+\begin{itemize}
+	\item \textbf{Definición:} \[X(s) = \mathfrak{L}\{x(t)\} = \int_{0^-}^{\infty}x(t)e^{-st}dt\]
+	\item \textbf{Propiedades:} 
+	\begin{enumerate}
+		\item \textit{Linealidad:} $\mathfrak{L}\{Ax_1(t) +Bx_2(t)\} = AX_1(s) + BX_2(s)$
+		\item \textit{Derivada:} $\mathfrak{L}\left\{\dfrac{dx(t)}{dt}\right\} = sX(s) - x(0^-)$
+		\item \textit{Integración:} $\mathfrak{L}\left\{\int_{0^-}^{\infty}x(t)dt\right\} = \dfrac{X(s)}{s}$
+		\item \textit{Retardo:} $\mathfrak{L} = \left\{x(t-t_0)\right\} = e^{-t_0s}X(s)$. Solo válido para $x(t)$ causal.
+		\item \textit{Multiplicación por el tiempo (polos repetidos):} $\mathfrak{L}\left\{tx(t)\right\} = -\dfrac{dX(s)}{ds}$
+	\end{enumerate}
+	\item \textbf{Teorema del Valor Inicial (TVI):} \[x(0^+) = \lim\limits_{s\rightarrow\infty}\left\{sX(s)\right\}\]
+	\item \textbf{Teorema del Valor Final (TVF):} \[x(\infty) = \lim\limits_{s\rightarrow0}\left\{sX(s)\right\}\]
+\end{itemize}
+
+\subsection{(Anti)Transformadas}
+
+\begin{itemize}
+	\item \textbf{Escalón $\gamma(t)$:} $\mathfrak{L}\left\{\gamma(t)\right\} = \dfrac{1}{s}$
+	\item \textbf{Pulso:} se puede obtener como la combinación de dos escalones, teniendo uno un retraso $= T \Rightarrow \dfrac{1}{s} - \dfrac{1}{s}e^{-Ts} = \dfrac{1-e^{-Ts}}{s}$
+	\item \textbf{Impulso, delta de Dirac:} $\mathfrak{L}\left\{\delta(t)\right\} = 1$
+	\item \textbf{Rampa:} $x(t) = t\gamma(t) \rightarrow X(s) = \dfrac{1}{s^2}$
+	\item \textbf{Exponencial:} $x(t) = e^{-at}\gamma(t) \Rightarrow \mathfrak{L}\left\{x(t)\right\} = \dfrac{1}{s + a}$. Siendo $a > 0$. La constante de tiempo es $\tau = \dfrac{1}{a}$. \textbf{Multiplicada por el tiempo:} $\Rightarrow X(s) = \dfrac{1}{(s + a)^2}$
+	\item \textbf{Sinusoidales multiplicadas por una exponencial:} \textbf{Importante,} si es sinusoidal pura hacer la $a$ cero y dividir por $e$. $x(t) = Ae^{-at}cos(\omega t + \varphi) \rightarrow \mathfrak{L}\left\{x(t)\right\} = \dfrac{\frac{A}{2}e^{j\varphi}}{s + a + j\omega} + \dfrac{\frac{A}{2}e^{j\varphi}}{s + a - j\omega}$. \textbf{Nota importante:} $\sin(\varphi) = \cos\left(\varphi - \dfrac{\pi}{2}\right)$
+\end{itemize}
+
+\section{Función de transferencia}
+
+\begin{itemize}
+	\item \textbf{Forma completa:} \[Y(s) = U(s)\frac{B(s)}{A(s)} + \frac{C(s)}{A(s)} = G(s)U(s) + \frac{C(s)}{A(s)}\] $A(s)$ es la transformada del sistema. $B(s)$ es la transformada de la entrada. $C(s)$ es $a(s) - b(s)$ siendo $a(s)$ y $b(s)$ las condiciones iniciales del sistema y de la entrada respectivamente. Y $G(s)$ es la función de transferencia.
+	\item \textbf{Respuesta forzada/libre:} forzada $U(s)\dfrac{B(s)}{A(s)} = G(s)U(s)$; libre $\dfrac{C(s)}{A(s)}$
+	\item \textbf{Estabilidad:}
+	\begin{enumerate}
+		\item \textit{BIBO:} es estable siempre que la entrada sea acotada. \textit{Puede} que en algún caso no estable dé salida acotada.
+		\item \textit{Asintótico:} es siempre estable .Todos sus polos tienen la parte real negativa (0 no es válido). Se puede ver rápidamente si los coeficientes de la $G(s)$ son todos del mismo signo. Para $n = 3$ se ha de cumplir también $a_0a_3<a_1a_2$.
+	\end{enumerate}
+	\item \textbf{Ganancia estática:} $G(0)$
+	\item \textbf{Respuesta en frecuencia:} $G(j\omega)$
+\end{itemize}
+
+\section{Diagramas de bloques}
+
+\begin{itemize}
+	\item \textbf{Serie:}% Graphic for TeX using PGF
+	% Title: /home/fernando/Diagram1.dia
+	% Creator: Dia v0.97.3
+	% CreationDate: Sun Oct 15 19:46:50 2017
+	% For: fernando
+	% \usepackage{tikz}
+	% The following commands are not supported in PSTricks at present
+	% We define them conditionally, so when they are implemented,
+	% this pgf file will use them.
+
+	\begin{tikzpicture}[scale=0.6]
+	\pgftransformxscale{1.000000}
+	\pgftransformyscale{-1.000000}
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (33.050000\du,11.200000\du)--(33.050000\du,13.250000\du)--(36.850000\du,13.250000\du)--(36.850000\du,11.200000\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (33.050000\du,11.200000\du)--(33.050000\du,13.250000\du)--(36.850000\du,13.250000\du)--(36.850000\du,11.200000\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (34.950000\du,12.420000\du){F};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.097398\du,12.223873\du)--(33.050000\du,12.225000\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (36.850000\du,12.225000\du)--(40.090012\du,12.205847\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (40.138281\du,11.243545\du)--(40.138281\du,13.143545\du)--(44.204131\du,13.143545\du)--(44.204131\du,11.243545\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (40.138281\du,11.243545\du)--(40.138281\du,13.143545\du)--(44.204131\du,13.143545\du)--(44.204131\du,11.243545\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (42.171206\du,12.388545\du){G};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (44.204131\du,12.193545\du)--(47.244680\du,12.188518\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (36.920956\du,13.612345\du)--(36.920956\du,15.512345\du)--(40.067570\du,15.512345\du)--(40.067570\du,13.612345\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (36.920956\du,13.612345\du)--(36.920956\du,15.512345\du)--(40.067570\du,15.512345\du)--(40.067570\du,13.612345\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (38.494263\du,14.757345\du){F·G};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (34.693577\du,14.557318\du)--(36.920956\du,14.562345\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (40.067570\du,14.562345\du)--(42.825278\du,14.557318\du);
+	}
+	\end{tikzpicture}
+	\item \textbf{Paralelo:}
+	
+	\begin{tikzpicture}[scale=0.6]
+	\pgftransformxscale{1.000000}
+	\pgftransformyscale{-1.000000}
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (33.050000\du,11.200000\du)--(33.050000\du,13.250000\du)--(36.850000\du,13.250000\du)--(36.850000\du,11.200000\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (33.050000\du,11.200000\du)--(33.050000\du,13.250000\du)--(36.850000\du,13.250000\du)--(36.850000\du,11.200000\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (34.950000\du,12.420000\du){F};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.097398\du,12.223873\du)--(33.050000\du,12.225000\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (36.956311\du,12.225000\du)--(40.102926\du,12.223873\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (32.713684\du,14.832100\du)--(32.713684\du,16.732100\du)--(36.779535\du,16.732100\du)--(36.779535\du,14.832100\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (32.713684\du,14.832100\du)--(32.713684\du,16.732100\du)--(36.779535\du,16.732100\du)--(36.779535\du,14.832100\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (34.746610\du,15.977100\du){G};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (36.779535\du,15.782100\du)--(38.688717\du,15.777073\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (38.600329\du,15.794751\du)--(38.600329\du,12.135485\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.530720\du,12.224437\du)--(30.539338\du,15.953849\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.645404\du,15.777073\du)--(32.713684\du,15.782100\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (33.067237\du,17.218577\du)--(33.067237\du,19.118577\du)--(36.973988\du,19.118577\du)--(36.973988\du,17.218577\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (33.067237\du,17.218577\du)--(33.067237\du,19.118577\du)--(36.973988\du,19.118577\du)--(36.973988\du,17.218577\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (35.020613\du,18.363577\du){F+G};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (36.973988\du,18.168577\du)--(39.484209\du,18.163550\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.698437\du,18.163550\du)--(33.067237\du,18.168577\du);
+	}
+	\end{tikzpicture}
+	
+	\item \textbf{Realimentación negativa:} ¡Cuidado con el signo!
+	
+	\begin{tikzpicture}[]
+	\pgftransformxscale{1.000000}
+	\pgftransformyscale{-1.000000}
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (33.050000\du,11.200000\du)--(33.050000\du,13.250000\du)--(36.850000\du,13.250000\du)--(36.850000\du,11.200000\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (33.050000\du,11.200000\du)--(33.050000\du,13.250000\du)--(36.850000\du,13.250000\du)--(36.850000\du,11.200000\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (34.950000\du,12.420000\du){G};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.097398\du,12.223873\du)--(33.050000\du,12.225000\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (36.956311\du,12.225000\du)--(40.102926\du,12.223873\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (32.713684\du,14.832100\du)--(32.713684\du,16.732100\du)--(36.779535\du,16.732100\du)--(36.779535\du,14.832100\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (32.713684\du,14.832100\du)--(32.713684\du,16.732100\du)--(36.779535\du,16.732100\du)--(36.779535\du,14.832100\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (34.746610\du,15.977100\du){H};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (39.112979\du,15.812428\du)--(36.850245\du,15.812428\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.680759\du,15.847783\du)--(30.680759\du,12.188518\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (39.069006\du,12.259792\du)--(39.077624\du,15.989204\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (32.713684\du,15.782100\du)--(30.698437\du,15.782100\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (33.067237\du,17.218577\du)--(33.067237\du,19.118577\du)--(36.973988\du,19.118577\du)--(36.973988\du,17.218577\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (33.067237\du,17.218577\du)--(33.067237\du,19.118577\du)--(36.973988\du,19.118577\du)--(36.973988\du,17.218577\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (35.020613\du,18.363577\du){\footnotesize $\dfrac{G}{1+GH}$};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (36.973988\du,18.168577\du)--(39.484209\du,18.163550\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.698437\du,18.163550\du)--(33.067237\du,18.168577\du);
+	}
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node[anchor=west] at (39.554920\du,13.284530\du){Y};
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node[anchor=west] at (29.320103\du,11.100130\du){U};
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node[anchor=west] at (38.441230\du,17.686255\du){Y};
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node[anchor=west] at (31.051989\du,17.633222\du){U};
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\pgfpathellipse{\pgfpoint{30.698437\du}{12.188518\du}}{\pgfpoint{0.388907\du}{0\du}}{\pgfpoint{0\du}{0.406585\du}}
+	\pgfusepath{fill}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\pgfpathellipse{\pgfpoint{30.698437\du}{12.188518\du}}{\pgfpoint{0.388907\du}{0\du}}{\pgfpoint{0\du}{0.406585\du}}
+	\pgfusepath{stroke}
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node[anchor=west] at (31.105022\du,12.913300\du){-};
+	\end{tikzpicture}
+
+	\item \textbf{Traslación de suma:} 
+	
+	\begin{tikzpicture}[scale=0.6]
+	\pgftransformxscale{1.000000}
+	\pgftransformyscale{-1.000000}
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (33.050000\du,11.200000\du)--(33.050000\du,13.250000\du)--(36.850000\du,13.250000\du)--(36.850000\du,11.200000\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (33.050000\du,11.200000\du)--(33.050000\du,13.250000\du)--(36.850000\du,13.250000\du)--(36.850000\du,11.200000\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (34.950000\du,12.420000\du){G};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.097398\du,12.223873\du)--(33.050000\du,12.225000\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (36.956311\du,12.225000\du)--(40.102926\du,12.223873\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\pgfpathellipse{\pgfpoint{38.476585\du}{12.329939\du}}{\pgfpoint{0.388907\du}{0\du}}{\pgfpoint{0\du}{0.406585\du}}
+	\pgfusepath{fill}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\pgfpathellipse{\pgfpoint{38.476585\du}{12.329939\du}}{\pgfpoint{0.388907\du}{0\du}}{\pgfpoint{0\du}{0.406585\du}}
+	\pgfusepath{stroke}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (38.476585\du,14.716416\du)--(38.476585\du,12.736524\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (33.256828\du,15.528321\du)--(33.256828\du,17.578321\du)--(37.056828\du,17.578321\du)--(37.056828\du,15.528321\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (33.256828\du,15.528321\du)--(33.256828\du,17.578321\du)--(37.056828\du,17.578321\du)--(37.056828\du,15.528321\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (35.156828\du,16.748321\du){G};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.304226\du,16.552195\du)--(33.256828\du,16.553321\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (37.163139\du,16.553321\du)--(40.309754\du,16.552195\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\pgfpathellipse{\pgfpoint{31.665402\du}{16.587550\du}}{\pgfpoint{0.388907\du}{0\du}}{\pgfpoint{0\du}{0.406585\du}}
+	\pgfusepath{fill}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\pgfpathellipse{\pgfpoint{31.665402\du}{16.587550\du}}{\pgfpoint{0.388907\du}{0\du}}{\pgfpoint{0\du}{0.406585\du}}
+	\pgfusepath{stroke}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (31.670705\du,19.044738\du)--(31.665402\du,16.994135\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (33.403111\du,18.049425\du)--(33.403111\du,19.949425\du)--(37.133087\du,19.949425\du)--(37.133087\du,18.049425\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (33.403111\du,18.049425\du)--(33.403111\du,19.949425\du)--(37.133087\du,19.949425\du)--(37.133087\du,18.049425\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (35.268099\du,19.194425\du){$G^{-1}$};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (33.403111\du,18.999425\du)--(31.670705\du,18.994398\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (39.042269\du,18.994398\du)--(37.133087\du,18.999425\du);
+	}
+	\end{tikzpicture}
+	
+	\item \textbf{Traslación de punto de distribución:}
+	
+	\begin{tikzpicture}[scale=0.6]
+	\pgftransformxscale{1.000000}
+	\pgftransformyscale{-1.000000}
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (33.050000\du,11.200000\du)--(33.050000\du,13.250000\du)--(36.850000\du,13.250000\du)--(36.850000\du,11.200000\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (33.050000\du,11.200000\du)--(33.050000\du,13.250000\du)--(36.850000\du,13.250000\du)--(36.850000\du,11.200000\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (34.950000\du,12.420000\du){G};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.097398\du,12.223873\du)--(33.050000\du,12.225000\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (36.956311\du,12.225000\du)--(40.102926\du,12.223873\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.998956\du,15.335133\du)--(33.845051\du,15.335133\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (31.051989\du,12.276906\du)--(31.051989\du,15.423521\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (33.059361\du,16.200071\du)--(33.059361\du,18.250071\du)--(36.859361\du,18.250071\du)--(36.859361\du,16.200071\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (33.059361\du,16.200071\du)--(33.059361\du,18.250071\du)--(36.859361\du,18.250071\du)--(36.859361\du,16.200071\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (34.959361\du,17.420071\du){G};
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (30.106759\du,17.223944\du)--(33.059361\du,17.225071\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (36.965671\du,17.225071\du)--(40.112286\du,17.223944\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (39.198439\du,19.863624\du)--(41.340358\du,19.860601\du);
+	}
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetbuttcap
+	{
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetfillcolor{dialinecolor}
+		% was here!!!
+		\pgfsetarrowsend{stealth}
+		\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+		\pgfsetstrokecolor{dialinecolor}
+		\draw (37.778842\du,17.188588\du)--(37.778842\du,18.994398\du);
+	}
+	\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+	\pgfsetfillcolor{dialinecolor}
+	\fill (36.408305\du,18.915628\du)--(36.408305\du,20.815628\du)--(39.148335\du,20.815628\du)--(39.148335\du,18.915628\du)--cycle;
+	\pgfsetlinewidth{0.100000\du}
+	\pgfsetdash{}{0pt}
+	\pgfsetdash{}{0pt}
+	\pgfsetmiterjoin
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\draw (36.408305\du,18.915628\du)--(36.408305\du,20.815628\du)--(39.148335\du,20.815628\du)--(39.148335\du,18.915628\du)--cycle;
+	% setfont left to latex
+	\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+	\pgfsetstrokecolor{dialinecolor}
+	\node at (37.778320\du,20.060628\du){$G^{-1}$};
+	\end{tikzpicture}
+	
+	\item \textbf{Notas importantes:} muchas de estas operaciones se pueden realizar repetidamente de una sola vez (simplificar varios paralelos). Por lo que a veces será mucho mas rápido no simplificar del todo el diagrama, sino modificarlo para poder aplicar una misma operación a varios elementos a la vez.
+	
+	\item \textbf{Diseño de diagramas:} una vez tengamos hecha la(s) ecuación(es) de nuestro sistema, lo único que queda es dibujar la(s) fórmula(s) que tenemos. Hay que tener especial cuidado con la entrada, salida de nuestro sistema y, sobre todo, \textbf{con lo que nos piden,} pudiendo ser esto combinación de las variables del sistema.
+	
+\end{itemize}
+
+\section{Impedancias operacionales}
+
+\begin{itemize}
+	\item \textbf{Eléctricas:}
+	\begin{enumerate}
+		\item \textit{Resistencia $(R)$:} $Z(s) = R$
+		\item \textit{Condensador $\left(I(t) = C\dfrac{dV(t)}{dt}\right)$:} $Z(s) = \dfrac{1}{Cs}$
+		\item \textit{Bobina $\left(V(t) = L\dfrac{dI(t)}{dt}\right)$:} $Z(s) = Ls$
+		\item \textit{Operacionales estables:} $V_0$ es el voltaje de salida; $V_I$ es el voltaje de entrada. $Z_1$ es la impedancia de la entrada al operacional y $Z_2$ es la impedancia de retroalimentación. 
+		\begin{enumerate}
+			\item \textit{Inversor:} $G(s) = \dfrac{V_0(s)}{V_I(s)} = -\dfrac{Z_2(s)}{Z_1(s)}$
+			\item \textit{No inversor:} $G(s) = \dfrac{V_0(s)}{V_I(s)} = 1 + \dfrac{Z_2(s)}{Z_1(s)}$
+		\end{enumerate}
+	\end{enumerate}
+	\item \textbf{Sistemas eléctricos métodos de resolución:} simplificación por Thevenin. Mallas, siendo el método más mecánico; su resolución se hará por Kramer.
+	\item \textbf{Mecánicos:}
+	\begin{enumerate}
+		\item \textit{Masa $\left(F(t) = M\dfrac{d^2x(t)}{dt^2}\right)$:} $Z(s) = Ms^2$
+		\item \textit{Muelle $(F(t) = Kx(t))$:} $Z(s) = K$
+		\item \textit{Fricción viscosa $\left(F(t) = D\dfrac{dx(t)}{dt}\right)$:} $Z(s) = Ds$
+		\item \textit{Rotativos:} sus impedancias son iguales, teniendo en cuenta que la masa en este caso es la matriz de inercia y que la relaciones no son lineales sino angulares.
+		\item \textit{Térmicos:} almacenamiento de energía: $P_a = C\dfrac{dT}{dt} = Cs$; transmisión de calor: $P_t = \dfrac{T_1-T_2}{R}$. Cuidado con la temperatura externa.
+		\item \textbf{Nota:} cuidado al ver los grados de libertad de nuestro sistema, cualquier movimiento o temperatura independiente es un grado de libertad.
+	\end{enumerate}
+	 
+\end{itemize}
+
+\section{Sistemas de primer orden}
+
+\begin{itemize}
+	\item \textbf{Tipos:} $\tau > 0$ y $K \neq 0$
+	\begin{enumerate}
+		\item \textit{Sin cero:} $G(s) = \dfrac{K}{1 + \tau s}$ Ganancia estática $= K$
+		\item \textit{Con cero nulo:} $G(s) = \dfrac{Ks}{1 + \tau s}$ Ganancia estática $= 0$
+		\item \textit{Con cero no nulo:} $G(s) = \dfrac{K(1 + Ts)}{1 + \tau s}$ Ganancia estática $= K$
+	\end{enumerate}
+	\item \textbf{Sistema unificado:} $G(s) = \dfrac{b_1s + b_0}{a_1s + 1}$. Polo igual a $-\dfrac{1}{a_1} < 0$, $\tau = a_1 > 0$, ganancia estática $G(0) = b_0$ y en alta frecuencia $G(\infty) = \dfrac{b_1}{a_1}$
+	\item \textbf{Particularización de cada sistema según viene anteriormente:} $a_1 = \tau$
+	\begin{enumerate}
+		\item $b_0 = K$, $b_1 = 0$. No tiene salto inicial.
+		\item $b_0 = 0$, $b_1 = K$. Tiene salto inicial y siempre tiende a cero.
+		\item $b_0 = K$, $b_1 = KT$. Tiene salto inicial, no tiende a cero.
+	\end{enumerate}
+	\item \textbf{Transformada inversa de Laplace, dominio temporal:} $y(t) = b_0u(\infty) + \left(y(0^-) + \dfrac{b_1}{a_1}\left(u(0^+) - u(0^-)\right) -b_0u(\infty)\right)e^{-\dfrac{t}{\tau}} = \left(y(\infty) + \left(y(0^+) - y(\infty)\right)e^{-\dfrac{t}{\tau}}\right)\gamma(t)$
+	\item \textbf{Valor final de la salida:} $y(\infty) = G(0)u(\infty)$
+	\item \textbf{Incremento inicial en la salida:} $y(0^+) - y(0^-) = G(\infty)(u(0^+)- u(0^-))$
+	\item \textbf{Respuesta en frecuencia:} para cosenoidales no necesitaremos hacer la transformación a Laplace. Se puede aplicar directamente por la definición. Para $u(t) = A\cos(wt + \phi) \rightarrow y(t) = A|G(j\omega)|\cos(wt + \phi + \angle G(j\omega))$. $G(j\omega) = |G(j\omega)|e^{j\angle G(jw)}$
+\end{itemize}
+
+\section{Bodes}
+
+Introducción general, aplicar la lógica en cada caso. La función a analizar es $G(j\omega)$. Hay que recuperar la operación de multiplicación y división de números complejos, cómo funcionan los módulos y los ángulos. La mejor forma de trabajar con una función es $G(s) = \dfrac{K}{1 + \dfrac{s}{wn}}$, ya que la frecuencia de corte $(wn)$ sale explícita. \textit{Cuidado por si hay signos negativos al operar el ángulo.}
+
+\begin{itemize}
+	\item \textbf{Módulo:} al ser la escala logarítmica las distintas partes de $G(j\omega)$ se suman en el bode. Mirar cómo varía el módulo de cada sección dependiendo de la frecuencia. Cada función cambia su \textit{efecto} en su $\omega$ de corte.
+	\begin{enumerate}
+		\item \textbf{Ceros y polos simples:} generan pendientes de $+-20dB$ respectivamente.
+		\item \textbf{Ceros y polos dobles:} generan pendientes de $+-40dB$ respectivamente.
+	\end{enumerate}
+	\item \textbf{Ángulo:} el ángulo de una función de transferencia es el ángulo del complejo a una frecuencia dada. Polos simples: $+-90$\textdegree; polos dobles $+-180$\textdegree. El esquema de bode simplificado puede ser de dos tipos:
+	\begin{enumerate}
+		\item \textbf{Sistema suave:} generalmente solo se usa para funciones de primer grado muy sencillas. El cambio de ángulo tiene su mitad en la frecuencia de corte y empieza y termina una década antes y después.
+		\item \textbf{Sistema duro:} el más usado. Hace todo el cambio de ángulo en la frecuencia de corte con una línea vertical.
+	\end{enumerate}
+\end{itemize}
+
+\section{Sistemas de segundo orden}
+
+\begin{itemize}
+	\item \textbf{Forma canónica:} $G(s) = \dfrac{K}{1 + \dfrac{2\xi}{\omega_n}s + \dfrac{1}{\omega^2_n}s^2} = \dfrac{K\omega^2_n}{s^2 + 2\xi\omega_ns + \omega^2_n}$
+	\item \textbf{Solución de polos:} $s = \omega_n\left(-\xi \pm \sqrt{\xi^2 -1}\right)$
+	\item \textbf{Diferentes tipos:}
+	\begin{enumerate}
+		\item $\xi > 1$ \textit{Sistema sobreamortiguado,} presenta dos polos reales, se trabaja como primer orden.
+		\item $\xi = 1$ \textit{Sistema con amortiguamiento crítico,} presenta polo doble.
+		\item $\xi < 1$ \textit{Sistema subamortiguado,} $s = -a \pm bj = \omega_n\left(-\xi \pm \sqrt{1 - \xi^2}j\right)$. $\xi = sen\alpha$ siendo $\alpha$ el ángulo que forman los polos con el eje imaginario; $\omega_n = \sqrt{a^2 + b^2}$.
+	\end{enumerate}
+	\item \textbf{Puntos y valores importantes:}
+	\begin{enumerate}
+		\item \textit{Sobrepaso $(M_p)$:} grado relativo de pico: $M_p = \dfrac{y_{max}-y(\infty)}{y(\infty)-y(0)} = e^{-\pi\tan\alpha}$. Depende solo de $\xi$.
+		\item \textit{Tiempo de alcance $(t_a)$:} cruce con el valor final por primera vez. En sistemas subamortiguados: $\omega_nt_a = \dfrac{\pi/2 +\alpha}{\cos\alpha}$.
+		\item \textit{Tiempo de pico $(t_p)$:} tiempo en alcanzar el pico máximo. Para sistemas subamortiguados: $\omega_nt_p = \dfrac{\pi}{\cos\alpha}$.
+		\item \textit{Tiempo de establecimiento $(t_e)$:} tiempo en el que la salida no se \textit{despega} más de un $5\%$ del valor final. En subamortiguados se ve en la tabla.
+		\item \textit{Resonancia, máximo A en frecuencia $(\omega_r)$:} frecuencia en la que se encuentra el máximo (solo para valores de $\xi > 1/\sqrt{2}$). Pico $M_r = \dfrac{A_{max}}{G(0)} = \dfrac{1}{2\xi\sqrt{1-\xi^2}} = \dfrac{1}{\sin\alpha}$.
+	\end{enumerate}
+\end{itemize}
+
+\end{document}

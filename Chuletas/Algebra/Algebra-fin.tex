@@ -1,0 +1,94 @@
+\documentclass[a4paper, landscape, 11pt]{article}
+\usepackage{pdflscape}
+\usepackage{amsmath,amsthm,verbatim,amssymb,amsfonts,amscd, graphicx}
+\usepackage{graphics}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=10mm,
+	top=3mm,
+	right=10mm,
+	bottom=3mm
+}
+\pagenumbering{gobble}
+
+
+
+\begin{document}
+	
+\textbf{1. Subespacios: Teorema de caracterización: }Han de contener al \={0}, y el teorema de caracterización: $\forall \lambda, \mu \in \mathbb{R},\, \forall \vec{x},\vec{y} \in V \Longrightarrow \lambda\vec{x} + \mu\vec{y} \in V$. $Dim(E) = Dim(V) + \mathbb{\text{ nº ecs.implicitas independientes de V}}$. Suma de subespacios: unión de sus bases, se retiran los generadores dependientes. Intersección: $V_1 \cap V_2$ si esta es $\vec{0}$ entonces se dice que son subespacios disjuntos; para hallarla se juntan las implícitas o se igualan paramétricas. Dimensiones: $dim(V_1) + dim(V_2) = dim(V_1 + V_2) + dim(V_1 \cap V_2)$; si $ V_1 \text{ y } V_2$ son disjuntos su suma es directa y se denota como $V_1 \oplus V_2$; si su suma es directa e igual al espacio E entonces se llamas complementarios o suplementarios. \textbf{Cambio de base: } matriz cuyas columnas son la base de \={X} en \={Y}, quedando el sistema \={Y}$= B$\={X}.
+\newline
+
+\textbf{2. Aplicaciones lineales: Propiedades: }$f(\bar{x}+\bar{y})= f(\bar{x}) + f(\bar{y})\;  y\; f(\lambda\bar{x}) = \lambda f(\bar{x}); \; f(\bar{0}) = \bar{0}$. Sea $f: E \mapsto F$ una aplicación lineal, entonces si $E = F$ se denomina \textbf{endomorfismo}; si f es \textbf{inyectiva o ''monomorfismo''} entonces $x_1 \neq x_2 \Rightarrow f(\bar{x_1}) \neq f(\bar{x_2})$; si f es \textbf{sobreyectiva o ''epimorfismo''} entonces $\forall \bar{y} \in F, \exists \bar{x} \in E / f(\bar{x}) = \bar{y}$; si f es \textbf{inyectiva y sobreyectiva}, es biyectiva y se llama isomorfismo y entonces $\exists f^{-1}$; un endomorfismo biyectivo se llama automorfismo. \textbf{Kernel: } $ker f = f(\bar{x}) = 0$; propiedades: si $ker f = \bar{0}$ entonces f es un homomorfismo inyectivo. \textbf{Rango de la aplicación:} $dim\; E = dim\; ker\; f + rang\; f = dim\; ker\; f + dim\; Im\; f$. \textbf{Matriz:} la matriz de la aplicación se crea poniendo los transformados de la base por columnas de manera que $\bar{Y} = A\bar{X}$, siendo $\bar{x}$ las coordenadas del vector a transformar. Notación M(f, $B_e$, $B_f$), M es la aplicación f que va de la base $B_e$ a $B_f$. Composición: $g\circ f(\bar{x}) = g(f(\bar{x}))$.
+\newline
+
+\textbf{3. Jordan: Matriz semejante:} $B = P^{-1}AP$, siendo P la matriz de paso (la de cambio de base). \textbf{Propiedades:} 1. $|A|=|B|$; 2. $A^n = PB^nP^{-1}$. \textbf{Autovalores y autovectores:} si $f(\bar{x}) = \lambda \bar{x}$ se dice que $\lambda$ es un autovalor y $\bar{x}$ es un autovector. \textbf{Polinomio característico:} $P(\lambda) = |A - \lambda I|$, sus soluciones de $\lambda$ cuando se iguala a 0 son los autovalores, si $\lambda$ es raíz de multiplicidad \textit{n} se indica como $\dot{\Gamma}_{\lambda = x_1} = n$. Si se tiene una matriz con una fila o columna de un mismo valor ese valor es autovalor. \textbf{Taza y determinante: } $|J| = |A|;\; traza(J) = traza(A) = suma(\lambda)$. \textbf{Subespacios invariantes:} dado un $\lambda$ su subespacio invariante (familia de autovectores) $N_{1,\lambda} = ker(A - \lambda I) = \bar{u}\; /\; A\bar{u} = \lambda \bar{u}$; $A^t$ tiene los mismos autovalores que A, $kA\bar{u} = k\lambda \bar{u}$, $\lambda$ autovalor de A, entonces $\lambda^{n}\; es\; de\; A^n$. \textbf{Cayley-Hamilton:} toda matriz A es solución de su polinomio característico. \textbf{Jordan:} $A = PJP^{-1}$. \textbf{Exponencial de una matriz:} $e^{At} = Pe^{Jt}P^{-1}$ suponiendo que estamos en una caja diagonal: $e^{J_i t} = \left(\begin{array}{ccc}
+e^{\lambda_it} \\
+& \ddots \\
+& & e^{\lambda_it}
+\end{array}\right)$. Si no es diagonal: $e^{J_i t} = \left(\begin{array}{ccc}
+e^{\lambda_it} \\
+& \ddots \\
+& & e^{\lambda_it}
+\end{array}\right)*
+\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+ \frac{t}{1!} & \ddots & 0 \\
+\dfrac{t^{r_i-1}}{(r_i-1)!} & \frac{t}{1!} & 1
+\end{array}\right)$. \textbf{Potencia de una matriz:} $A^n = PJ^nP^{-1}$, si la caja es diagonal $J_i^n = \left(\begin{array}{ccc}
+\lambda_i^{n} \\
+& \ddots \\
+& & \lambda_i^{n}
+\end{array}\right)$ 
+si no
+$J_{i}^k=\left(\begin{array}{ccccc}\lambda_i^k & 0 & 0 & \cdots & 0 \\
+{k \choose 1}\lambda_i^{k-1} & \lambda_i^k & 0 & \cdots & 0 \\
+{k \choose 2}\lambda_i^{k-2} & {k \choose 1}\lambda_i^{k-1} & \ddots & \ddots & \vdots \\
+\vdots & \vdots & \cdots & \lambda_i^k & 0 \\
+{k \choose m_i-1}\lambda_i^{k-m_i+1} & {k \choose m_i-2}\lambda_i^{k-m_i+2} & \cdots & {k \choose 1}\lambda_i^{k-1} & \lambda_i^k\end{array}\right)$. \textbf{Encadenados:} si $\dot{\Gamma}_{\lambda} > \text{ vectores  en } N_{1,\lambda} = ker(A -\lambda I)$ entonces tenemos que ampliar $ker(A-\lambda I)$, así que hacemos tantas potencias como sean necesarias para llegar a la multiplicidad ($ker(A-\lambda I)^h$). Se calcula un vector $\bar{u_1} \in ker(A-\lambda I)^h$ no existente en las anteriores potencias, y a partir de ahí, se sacan los encadenados: con $u_1$ el inicial: $\bar{u_2} = (A-\lambda I)\bar{u_1},\; \bar{u_3} = (A-\lambda I)\bar{u_2} \ldots$ \textbf{Trucos:} siempre se puede sacar A si se tienen suficientes transformados. Si se tiene el transformado de un vector, comprobar que si es un encadenado descomponiendo su imagen: $f(\vec{u}) = \vec{x} \rightarrow A\vec{u} = \lambda \cdot \vec{u} + \vec{w} : (A - \lambda I)\vec{u} = \vec{w}$. Si $\vec{w}$ es autovector, $\vec{u}$ sería su encadenado. Aunque cambien los autovectores de una misma aplicación, sus subespacios no varían. !Si hay parámetros hay que mirar si nos varían el número de implícitas!
+
+\textbf{4. Euclídeo:} propiedades, simetría, positividad y bilinelidad. \textbf{Matriz:} $G = \left(\begin{array}{ccc}
+\bar{e_1} \circ \bar{e_1} & \bar{e_1} \circ \bar{e_2} & \cdots\\
+\bar{e_2} \circ \bar{e_1} & \bar{e_2} \circ \bar{e_2} & \cdots \\
+\bar{e_3} \circ \bar{e_1} & \bar{e_3} \circ \bar{e_2} & \ddots
+\end{array}\right)$, por lo tanto la matriz tiene que ser simétrica y definida positiva. Si la base es ortonormal entonces la matriz es la identidad. \textbf{Matriz congruente:} si el producto es $\bar{x} \circ \bar{y} = \bar{X^t}G\bar{Y}$, en un cambio de base $\bar{X} = P \bar{X^*}, \bar{Y} = P \bar{Y^*}$ es $\bar{X^{*^t}}P^tGP\bar{Y^*}$. \textbf{Vectores ortogonales:} $\bar{u} \circ \bar{u} = 0$. \textbf{Módulo:} $|\bar{u}| = \sqrt{\bar{u} \circ \bar{u}}$; vector unitario: $\dfrac{\bar{u}}{|\bar{u}|}$. \textbf{Ángulo entre vectores:} $cos(\alpha) = \dfrac{\bar{u}\circ\bar{u}}{|\bar{u}||\bar{u}|}$. \textbf{Bases ortonormales:} la matriz en estas bases es la identidad. \textbf{Gram-Schmidt:} $\bar{e_1}' = \bar{e_1}; \; \bar{e_2}' = \bar{e_2} - \dfrac{\bar{e_1}\circ \bar{e_2}}{\bar{e_1}\circ\bar{e_1}}\bar{e_1}'; \; \bar{e_3}' = \bar{e_3} - \dfrac{\bar{e_1}\circ \bar{e_3}}{\bar{e_1}\circ\bar{e_1}}\bar{e_1}' - \dfrac{\bar{e_2}\circ \bar{e_3}}{\bar{e_2}\circ\bar{e_2}}\bar{e_2}'$.
+Lo que nos daría una base ortogonal, se divide por su módulo, haciendo normal. Alternativa, coges un vector, hallas su genérico $\perp$ coges el que quieras, repites el proceso con este, y para sacar el tercero se unen las condiciones del primero y segundo. \textbf{Proyecciones:} la proyección de $\bar{u} \text{ sobre } \bar{v} \Rightarrow\bar{u} = a\bar{v} + \bar{w}$, siendo $\bar{w} \perp  \bar{v} \; y\; a\bar{v}$ la proyección; siendo $a=\dfrac{\bar{u}\circ\bar{v}}{\bar{v}\circ\bar{v}}$. Proyección de $\bar{u}$ sobre un subspacio: siguiendo lo anterior $\bar{w} \perp L(S)$ y la proyección es combinación de los generadores de S. Expresión matricial: sea $A\bar{X}$ la proyección y A la matriz generada con los generadores de S por columnas dando $A\bar{X} = A(A^tA)^{-1}A^t\bar{u}$. Propiedades de la matriz proyección: $P^2 = P$, es idempotente; $P^t = P$ es simétrica. \textbf{En bases ortonormales:} $AA^t = I \rightarrow A^{-1} = A^t$.
+
+\textbf{5. Afín: referencia:} $R=\{O;\bar{e_1}, \bar{e_2}, \cdots, \bar{e_n}\}$, siendo O el origen afín. \textbf{Cambio de base afín:} $B'= PB$ siendo $P = \left(\begin{array}{c|ccc}
+1 & 0 & 0 & \cdots \\ \hline
+b_1 & a_{11} & a_{12} & \cdots\\
+b_2 & a_{21} & a_{22} & \ddots
+\end{array}\right)$; con a y b los transformados de la base. \textbf{Bachiller:} Interseción de rectas y planos, se sustituyen las rectas en las implícitas y se despeja el parámetro. \textbf{Perpendicular común:} se hace una recta general (punto general de una menos la otra) y se condiciona que sea $\perp$ a ambas. \textbf{Haz de planos:} la suma de dos planos que generen la recta, uno de ellos por un parámetro. \textbf{Simetría:} (Punto P + su simétrico) entre dos = punto medio. \textbf{Hiperplano:} subespacio con dimensión $R^{n-1}$. \textbf{Áreas y volumenes:} Área: $|\bar{AB} \times \bar{AC}|$, de un triángulo entre dos; Volumen: $|\bar{AB} \times \bar{AC} \times \bar{AD}|$, la de un tetraedro entre 6.
+
+\textbf{Transformaciones afines:} una transformación ortogonal si $f(\bar{x}) \circ f(\bar{y}) = \bar{x} \circ \bar{y}$ y su matriz en una base ortonormal es ortogonal, además de mantener los módulos. \textbf{Clasificación, transformaciones vectoriales: 2 dimensiones:} $|A| = 1 \Rightarrow \left(\begin{array}{cc}
+cos\gamma & -sen\gamma  \ \\ 
+sen\gamma & cos\gamma  
+\end{array}\right)$ giro respecto al origen. $|A| = -1 \Rightarrow \left(\begin{array}{cc}
+cos\gamma & sen\gamma  \ \\ 
+sen\gamma & -cos\gamma  
+\end{array}\right)$ simetría respecto a $N_{1,1}$. \textbf{Dimensión 3:} $|A| = 1$. Si $\lambda = 1$ triple, entonces es la identidad e indica desplazamiento. Si $\lambda = 1$ simple y -1 doble, se tiene una simetría axial respecto de $\lambda = 1$. Si se tiene dos complejos conjugados entonces $A = \left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & cos\gamma & -sen\gamma \\ 
+0 & sen\gamma & cos\gamma  
+\end{array}\right)$ y es un giro de ángulo $\gamma$ respecto a $\lambda = 1$. $|A| = -1$. Si $\lambda = -1$ triple, entonces es una simetría central. Con $\lambda = -1$ simple y 1 doble es una simetría planar con vector normal $\lambda = -1$. Si $A = \left(\begin{array}{ccc}
+-1 & 0 & 0 \\
+0 & cos\gamma & -sen\gamma \\ 
+0 & sen\gamma & cos\gamma  
+\end{array}\right)$ es un giro respecto la recta $\lambda = -1$ y simetría respecto al plano con el vector normal = director de la recta. \textbf{Matriz de transformaciones afines:} $f = \left(\begin{array}{c|ccc}
+1 & 0 & 0 & \cdots \\ \hline
+b_1 & a_{11} & a_{12} & \cdots\\
+b_2 & a_{21} & a_{22} & \cdots \\
+\vdots & \vdots & \vdots & \ddots
+\end{array}\right)$, quedando $f(x) = y$. \textbf{Homotecia:} $f = \left(\begin{array}{c|ccc}
+1 & 0 & 0 & 0 \\ \hline
+(1-k)P_1 & k & 0 & 0\\
+(1-k)P_2 & 0 & k & 0 \\
+(1-k)P_3 & 0 & 0 & k
+\end{array}\right)$, siendo P el centro, si $k=1$ se tiene la identidad, si $k = -1$ es una simetría respecto de P. \textbf{Movimientos:} f es un movimiento si M (matriz transformadora de vectores) es ortogonal; \textbf{habrá que estudiar si hay puntos fijos.} Si $|M-I| \neq 0$ es determinado y habrá un punto fijo. Sino hay puntos fijos hay que añadir una traslación. La traslación se hallará transformando un punto $\in N_{1,1}$, y la resta entre él y su transformado será la traslación. Para hallar el $N_{1,1}$ en una simetría se puede hacer el punto medio entre un punto y su transformado. \textbf{Trucos:} un vector y su transformado ''afín'' mantienen el módulo. Si solo se tienen transformados de puntos, sus restas darán vectores. Cuando se halla el $N_{1,1}$ en simetría de plano, quedará una implícita, el $\vec{v}^{\perp}$ de esa implícita es el $N_{1,-1}$. Si la matriz es simétrica, entonces es estrictamente 
+diagonalizable con autovalores reales. $\vec{e_1} \circ \vec{e_2} = f(\vec{e_1}) \circ f(\vec{e_2})$. Si nos piden un giro en una recta y no podemos encontrarlo fácil (comparando con la matriz) podemos coger $\vec{v} \perp N_{1,1}$, hallar su transformado y calcular el ángulo entre ellos. Conmutar: $A\cdot B = B \cdot A$.
+
+\let\thefootnote\relax\footnotetext{Álgebra. Creado por Fernando Oleo Blanco.}
+\end{document}
