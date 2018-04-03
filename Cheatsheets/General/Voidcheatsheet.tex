@@ -1,0 +1,525 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% writeLaTeX Example: A quick guide to LaTeX
+%
+% Source: Dave Richeson (divisbyzero.com), Dickinson College
+% 
+% A one-size-fits-all LaTeX cheat sheet. Kept to two pages, so it 
+% can be printed (double-sided) on one piece of paper
+% 
+% Feel free to distribute this example, but please keep the referral
+% to divisbyzero.com
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,landscape]{article}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{multicol,multirow}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[english]{babel}
+\usepackage[landscape]{geometry}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+
+
+\geometry{top=1cm,left=0.75cm,right=1cm,bottom=0.75cm}
+    
+\pagestyle{empty}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+\def\cm#1#2{{\tt#1}\dotfill#2\par}
+\def\cr#1#2{{#1}\dotfill{\tt#2}\par}
+% -----------------------------------------------------------------------
+
+\title{Little personal cheatsheet}
+
+\begin{document}
+
+\raggedright
+\footnotesize
+
+\vspace*{-5.75em}
+\begin{center}
+     \Large{\textbf{Personal Cheatsheet}}
+\end{center}
+\vspace*{-2em}
+\begin{multicols}{3}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\section{General software}
+
+\cr{WMs}{Cwm, Spectrm, Stumpwm, Awesomewm, LxQt}
+
+\cr{Web Browser}{Firefox, QuteBrowser, W3m, Links}
+
+\cr{Music player}{Audacious (WinAmp), Cmus}
+
+\cr{Media player}{Mpv + Youtube-dl}
+
+\cr{Spreadsheets}{Gnumeric, Sc-im}
+
+\cr{Accountant}{Money Manager Ex}
+
+\cr{Documents}{\LaTeX, Scribus, Pandoc; Full-feature: Onlyoffice, Abiword, LO), Wordgrinder; Markdown: Ghostwriter (Qt), Marker (Gtk)}
+
+\cr{Mobile connectivity}{KDE Connect}
+
+\cr{Password manager}{KeepassXC, Pass}
+
+\cr{Email}{Thunderbird, Mutt}
+
+\cr{Video recording}{OBS, Ffmpeg}
+
+\cr{Audio editor}{Audacity, Fre:ac (transcoder)}
+
+\cr{Image editor}{Krita, Grafx2, Inkscape, Gimp}
+
+\cr{Video editor}{Kdenlive, Natron, Handbrake and MKVToolNix (transcoders), Aegisub (subtitles)}
+
+\cr{3D Animation}{Blender (+Appleseed, +Luxrender)}
+
+\cr{2D Animation}{OpenToonz, Pencil2D}
+
+\cr{Music production}{LMMS, Ardour, Trackers}
+
+\cr{Emulator(s)}{Mednafen + Mednaffe, Dolphin, Mupen64plus, Mgba, Pcsx2, Yaze}
+
+\cr{Games}{Xonotic, 0ad, ToMe4, Wesnoth, Angband, Nethack, Dungeon Crawl Stone Soup, CDDA, CotD, Moria, Solarus, FlightGear, FreeCiv, GNUChess}
+
+\section{Advance utilities}
+
+\cr{Terminal}{Xterm/St}
+
+\cr{Text editor(s)}{Vis, Emacs, Joe, Nano}
+
+\cr{Version Control}{Git}
+
+\cr{Encryption}{GnuPG, Hashcat}
+
+\cr{Networking}{Nmap, Wireshark, Vsftpd, Curl, Rsync}
+
+\cr{Maths}{Octave, Maxima, Singular, GAP, Pari/GP}
+
+\cr{Programming Langs}{C11, C++(17,2x), Rust, Go, Julia, Lua, Haskell, Lisp, Prolog, Python, R, Fortran, Mono (C\#, F\#), Shell (Mksh, Sed), SQL (Lite, Postgre), AVR, 6502, RISC-V}
+
+\cr{RE, Debugging}{GDB (cgdb), Radare2 (Cutter), Valgrind}
+
+\cr{Virtualization}{Qemu, DosBox, SimH, Wla\_dx, Simavr}
+
+\cr{Electronics}{KiCad, Geda, Qucs, KTechLab, Xcircuit, GtkWave, Ngspice, Iverilog, GHDL}
+
+\cr{Engineering}{Cura, FreeCAD (+Netgen, +Calculix), LibreCAD, HeeksCAD, OpenScad, OpenModelica, Salome, OpenFoam, BrlCAD, LinuxCNC, Umbrello}
+
+\cr{Laptop}{Acpid, TLP, Powertop, Lm\_sensors, Ncdu}
+
+\section{Abduco (Session manager)}
+
+\cm{abduco}{List active sessions}
+
+\cm{-c session-name command}{Create new session (defaults to \texttt{dvtm})}
+
+\cm{-n session-name}{Create but do not attach}
+
+\cm{-e key-seq}{Change detaching key binding, eg \texttt{\textasciicircum q}}
+
+\cm{-a session-name}{Reattach}
+
+\cm{-r}{Attach as read-only}
+
+\cm{-f session-name}{Force creation of terminated session}
+
+\section{Dvtm (Terminal multiplexer)}
+
+\cm{-m key-seq}{Set MOD key to \texttt{key-seq}}
+
+\cm{Mod-Mod}{Send MOD key}
+
+\cm{Mod-c}{Create a new shell window}
+
+\cm{Mod-C}{Same, but in the current working directory}
+
+\cm{Mod-x-x}{Close focused window}
+
+\cm{Mod-l}{Increase master area width by 5\%}
+
+\cm{Mod-h}{Decrease by 5\%}
+
+\cm{Mod-i}{Increase number of windows in master}
+
+\cm{Mod-d}{Decrease number of windows in master}
+
+\cm{Mod-j}{Focus next window}
+
+\cm{Mod-J}{Focus next non-minimized window}
+
+\cm{Mod-k}{Focus previous window}
+
+\cm{Mod-Tab}{Focus previously selected window}
+
+\cm{Mod-.}{Toggle minimization of current window}
+
+\cm{Mod-m}{Maximize (fullscreen) focused window}
+
+\cm{Shift/Mod-PUp/PDown}{Scroll buffer}
+
+\cm{Mod-Space}{Toggle between defined layouts}
+
+\cm{Mod-f}{Change to vertical tiling}
+
+\cm{Mod-b}{Change to bottom tiling}
+
+\cm{Mod-g}{Change to grid layout}
+
+\cm{Mod-s}{Toggle status bar}
+
+\cm{Mod-S}{Togge position of status bar (top, bottom)}
+
+\cm{Mod-r}{Redraw screen}
+
+\cm{Mod-a}{Toggle keyboard multiplexing to all visible windows}
+
+\cm{Mod-M}{Toggle \texttt{dvtm} mouse grabbing. \textit{Important for copying}}
+
+\cm{Mod-e}{Enter copy mode}
+
+\cm{Mod-p}{Paste copied text}
+
+\cm{Mod-q-q}{Quit \texttt{dvtm}}
+
+\section{Ranger (File manager, or \texttt{nnn})}
+
+\textbf{Vi-like keybindings. Not everything will be explained} Enable video and image preview in \texttt{scope.sh} with \texttt{w3m-img \& ffmpegthumbnailer}
+
+\cm{?}{Open manual, keybindings, commands and settings}
+
+\cm{z}{Show settings dialog. See \texttt{h, P, I}}
+
+\cm{g n}{Open new tab}
+
+\cm{\%f}{Base name of current file}
+
+\cm{\%d}{Path of current directory}
+
+\cm{\%s}{String of names of selected files}
+
+\cm{\%t}{All tagged files in current directory}
+
+\cm{\%c}{Full paths of currently copied/cut files}
+
+\cm{\%p}{Full paths of selected files}
+
+\cm{m\textit{<key>}}{Bookmark current directory to \textit{key}}
+
+\cm{'\textit{<key>}}{Enter bookmarked directory of with <key>}
+
+\cm{S}{Open shell in \texttt{cwd}}
+
+\cm{H, L}{Move back, fordwars in the history}
+
+\cm{\textasciicircum R}{Reload everything}
+
+\cm{[, ]}{Move up, down in parent directory}
+
+\cm{E}{Edit current file}
+
+\cm{yy, ya, yr, yt}{Yank selected files. \texttt{a} add; \texttt{r} remove; \texttt{t} toggle current selection}
+
+\cm{dd}{Cut selection; extra options as \texttt{yy}}
+
+\cm{pp, po}{Paste files, overwriting existing files}
+
+\cm{oX}{Change sort method}
+
+\cm{u(q, t, d, V, v)}{Undoes: closed tabs, remove tags, clears copy/cut buffer, reversed visual mode, clears selection}
+
+\cm{f}{Quickly navigate by entering part of filename}
+
+\cm{r}{Open console to select program to open file}
+
+\section{Zathura (Pdf viewer)}
+
+Syntax: \texttt{set <option> <new value>}
+
+Plugins: \texttt{-ps, -djvu, -cb}
+
+Notes: \texttt{vi}-like keybindings
+
+\cm{J, K}{PgDn, PgUp}
+
+\cm{gg, G, nG}{Goto first, last or nth page}
+
+\cm{a, s}{Adjust window in best-fit or width mode}
+
+\cm{o, O}{Open document}
+
+\cm{f}{Follow link}
+
+\cm{F}{Display link target}
+
+\cm{r}{rotate by 90 degrees}
+
+\cm{\textasciicircum r}{Recolor}
+
+\cm{R}{Reload}
+
+\cm{Tab}{Show index and switch to Index Mode}
+
+\cm{d}{Dual page}
+
+\cm{F5}{Toggle presentation mode}
+
+\cm{F11}{Toggle fullscreen mode}
+
+\cm{\textasciicircum m, \textasciicircum n}{Toggle input-, status-bar}
+
+\cm{+, -, =}{Zoom in, out, original size}
+
+Index Mode
+
+\cm{l, L}{Expand entry, all entries}
+
+\cm{h, H}{Collapse entry, all entries}
+
+\cm{space, Returs}{Select and open entry}
+
+\section{Feh (Image viewer)}
+
+\cm{A}{Toggle aliasing}
+
+\cm{g}{Toggle automatic window resizing}
+
+\cm{h}{Pause/Continue slideshow}
+
+\cm{i}{Toggle display info}
+
+\cm{k}{Keep viewing info when switching images}
+
+\cm{w}{Fit image size}
+
+\cm{m}{Toggle menu}
+
+\cm{n, p}{Show next, previous image}
+
+\cm{v}{Toggle fullscreen}
+
+\cm{z}{Jump to random selection}
+
+\cm{Z}{Toggle auto-zoom}
+
+\cm{/}{Zoom to fill window size}
+
+\cm{\_}{Flip image vertically}
+
+\cm{r}{Reload image}
+
+\section{Sc-im (Spreadsheets)}
+
+Notes: \texttt{vi}-like keybindings. \texttt{libxlsxwriter} needed to export to \texttt{.xlsx}. \texttt{--xlsx\_readformulas} will try to import formulas instead of their values
+
+
+\cm{\textasciicircum}{Cursor to row 0 of current column}
+
+\cm{0}{Cursor to column A of current row}
+
+\cm{\$}{Cursor to last valid column of current row}
+
+\cm{g(0, \$, M; H, L; g)}{Cursor to first, last, middle visible column; first last visible row; first cell}
+
+\cm{m\textit{x}}{Mark current cell}
+
+\cm{'\textit{x}}{Jump to marked cell}
+
+\cm{=}{Enter numeric constant or expression}
+
+\cm{<}{Enter string. Right aligned}
+
+\cm{>}{Enter string. Left aligned}
+
+\cm{\{,\}}{Left, right justify cell}
+
+\cm{|}{Center current string}
+
+\cm{e}{Edit numeric cell (does not overwrite old values)}
+
+\cm{E}{Like \texttt{e} but for strings}
+
+\cm{:}{Command mode, eg \texttt{:help}}
+
+\section{Weechat (IRC)}
+
+\cm{\textasciicircum p, \textasciicircum n}{Switch buffer left, right}
+
+\cm{Alt-a}{Next buffer with activity}
+
+\cm{/window splith, splitv}{Split horizontally, vertically}
+
+\cm{/window zoom}{Zoom}
+
+\cm{Alt-w}{Switch windows}
+
+\cm{Alt-b}{Balance windows}
+
+\cm{\textasciicircum r, RET}{Search, stop search}
+
+\cm{F9-F10}{Scroll buffer title}
+
+\cm{F11-F12}{Scroll nick list}
+
+\cm{/part message}{Leave channel and keep buffer}
+
+\cm{/close}{Leave channel and close buffer}
+
+\section{Rtorrent + pyros (Torrenting)}
+
+\cm{Ctrl-q}{Initiate shutdown}
+
+\cm{1-7}{Change views}
+
+\cm{Right, Left}{Switch to download view, back to main}
+
+\cm{Ctrl-S}{Start download}
+
+\cm{Ctrl-k}{Stop an close the torrent}
+
+\cm{Ctrl-o}{Set new download directory}
+
+\cm{+, -}{Change torrent priority}
+
+\cm{I}{Toggle ignore ratio settings}
+
+\cm{Ctrl-d}{Stop active, remove stopped}
+
+\cm{Ctrl-r}{Hask check torrent}
+
+\cm{Ctrl-x}{Command or change settings}
+
+\cm{U}{Delete contents of torrent}
+
+\cm{BS, RET}{Add torrent, add inactive}
+
+At download view:
+
+\cm{u}{Display trackers}
+
+\cm{o}{Display torrent info}
+
+\cm{T}{Force tracker request}
+
+\cm{i}{Display file list}
+
+\cm{SPC, *}{Change file property, all}
+
+\cm{/}{Collapse directories, open with right}
+
+\cm{p}{Display peer list}
+
+\section{Joe (Text editor)}
+
+\cm{Ctrl-K H}{Toggle help window}
+
+\cm{Esc-(. ,)}{Navigate help}
+
+\cm{Ctrl-K X}{Exit}
+
+\cm{Ctrl-K D}{Save file}
+
+\cm{Ctrl-K E}{Edit file}
+
+\cm{Ctrl-T}{Open menu}
+
+\cm{Ctrl-K R}{Include external file}
+
+\cm{Ctrl-K [ 0-9}{Record macro}
+
+\cm{Ctrl-K ]}{End macro}
+
+\cm{Ctrl-(F,B,P,N)}{Move forward, backwards, previous, next}
+
+\cm{Ctrl-(A,E)}{Move to beginning, end of line}
+
+\cm{Ctrl-(U,V)}{Scroll cursor half page up, down}
+
+\cm{Ctrl-K (U,V)}{Move to top, bottom of document}
+
+\cm{Ctrl-K (-,=)}{Navigate cursor's history}
+
+\cm{Ctrl-(\_,\textasciicircum)}{Undo, redo}
+
+\cm{Ctrl-K B}{Begin region selection}
+
+\cm{Ctrl-K K}{End region selection}
+
+\cm{Ctrl-K /}{Pipe selection through command}
+
+\cm{Ctrl-T X}{Toggle block selection mode}
+
+\cm{Ctrl-C}{Cancel selection}
+
+\cm{Ctrl-Arrow}{Select text}
+
+\cm{Ctrl-K C/M}{Copy, move}
+
+\cm{Ctrl-K F}{Find}
+
+\cm{Ctrl-L}{Next match}
+
+\cm{Ctrl-D}{Delete current character}
+
+\cm{Ctrl-(Y,J)}{Delete line, until end}
+
+\cm{Ctrl-K A}{Center line}
+
+\cm{Ctrl-K J}{Join paragraph into line}
+
+\cm{Ctrl-T T}{Toggle insertion mode}
+
+\cm{Esc-X}{Command prompt}
+
+\cm{Esc-L}{Spell file}
+
+\cm{Ctrl-R}{Refresh screen}
+
+\section{Emacs (Text Editor)}
+
+\textbf{Packages:} \texttt{use-package, org-mode, \{ox-*, ob-*\}, which-key, AucTeX, LaTeX-preview, \{csv, lua, rust, python, haskell, julia, go\}-mode, slime, *hugo, ESS, magit, evil*, ido-mode, ivy (+counsel, +swiper), avy, treemacs, ace-window, flycheck(+-*), company(+-*), projectile, ggtags, eshell, yasnippet, flyspell, telephone-line, diffview, rainbow, muse, picture-mode, artist-mode, interleave.}
+
+\section{Extras}
+
+\cm{Vis}{See \textit{Vim,} \href{http://tnerual.eriogerg.free.fr/vimqrc.pdf}{cheatsheet}}
+
+\cm{Mutt}{See cheatsheets \href{https://github.com/JoshuaEstes/CheatSheets/blob/master/mutt.md}{1}, \href{https://www.ucolick.org/~lharden/muttchart.html}{2}}
+
+\cm{\href{https://github.com/zxgio/r2-cheatsheet/blob/master/r2-cheatsheet.pdf}{Radare2}, \href{https://github.com/zxgio/gdb-cheatsheet/blob/master/gdb-cheatsheet.pdf}{GDB}}{See cheatsheets}
+
+\cm{Git}{See cheatsheet \href{http://www.cheat-sheets.org/saved-copy/git-cheat-sheet.pdf}{1}, \href{https://wikileaks.org/ciav7p1/cms/files/atlassian_git_cheatsheet.pdf}{2}, \href{http://ebixio.com/blog/wp-content/uploads/2011/09/git-qrc.pdf}{3}}
+
+\cm{Gnupg}{See \href{http://stuff.imeos.org/persistent/gpg-cheatsheet.pdf}{cheatsheet}}
+
+\cm{Emacs}{See \href{https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf}{cheatsheet}, and \href{https://orgmode.org/orgcard.pdf}{org-mode}}
+
+\cm{Services/Social}{\href{https://github.com/wireapp}{Wire}, \href{https://github.com/tootsuite/mastodon}{Mastodon}/\href{https://gnu.io/}{GNUSocial}, \href{https://neocities.org/}{Neocities}, \href{https://nyaa.pantsu.cat/}{Nyaa}, \href{https://github.com/}{Github}, \href{https://gitea.io/en-US/}{Gitea}, \href{https://gohugo.io/}{Hugo}, \href{https://www.borgbackup.org/}{Borg}, \href{http://www.httrack.com/}{Httrack}, \href{https://newsboat.org/}{Newsboat}, \href{https://jupyter.org/}{Jupiter}, \href{http://cdrtools.sourceforge.net/private/cdrecord.html}{Cdrtools}/\href{http://iat.berlios.de/}{Iat},}
+
+\vfill
+\hrule
+~\\
+Fernando Oleo Blanco. Creative Commons 4.0-BY
+\end{multicols}
+
+\end{document}
