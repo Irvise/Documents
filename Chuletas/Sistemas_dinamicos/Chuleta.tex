@@ -74,12 +74,11 @@
 \subsection{(Anti)Transformadas}
 
 \begin{itemize}
-	\item \textbf{Escalón $\gamma(t)$:} $\mathfrak{L}\left\{\gamma(t)\right\} = \dfrac{1}{s}$
+	\item \textbf{Escalón $\gamma(t)$:} $\mathfrak{L}\left\{\gamma(t)\right\} = \dfrac{1}{s}$. \textbf{Rampa:} $t\gamma(t) \rightarrow X(s) = \dfrac{1}{s^2}$
 	\item \textbf{Pulso:} se puede obtener como la combinación de dos escalones, teniendo uno un retraso $= T \Rightarrow \dfrac{1}{s} - \dfrac{1}{s}e^{-Ts} = \dfrac{1-e^{-Ts}}{s}$
 	\item \textbf{Impulso, delta de Dirac:} $\mathfrak{L}\left\{\delta(t)\right\} = 1$
-	\item \textbf{Rampa:} $x(t) = t\gamma(t) \rightarrow X(s) = \dfrac{1}{s^2}$
-	\item \textbf{Exponencial:} $x(t) = e^{-at}\gamma(t) \Rightarrow \mathfrak{L}\left\{x(t)\right\} = \dfrac{1}{s + a}$. Siendo $a > 0$. La constante de tiempo es $\tau = \dfrac{1}{a}$. \textbf{Multiplicada por el tiempo:} $\Rightarrow X(s) = \dfrac{1}{(s + a)^2}$
-	\item \textbf{Sinusoidales multiplicadas por una exponencial:} \textbf{Importante,} si es sinusoidal pura hacer la $a$ cero y dividir por $e$. $x(t) = Ae^{-at}cos(\omega t + \varphi) \rightarrow \mathfrak{L}\left\{x(t)\right\} = \dfrac{\frac{A}{2}e^{j\varphi}}{s + a + j\omega} + \dfrac{\frac{A}{2}e^{j\varphi}}{s + a - j\omega}$. \textbf{Nota importante:} $\sin(\varphi) = \cos\left(\varphi - \dfrac{\pi}{2}\right)$
+	\item \textbf{Exponencial:} $x(t) = e^{-at}\gamma(t) \Rightarrow \mathfrak{L}\left\{x(t)\right\} = \dfrac{1}{s + a}$. Siendo $a > 0$. La constante de tiempo es $\tau = \dfrac{1}{a}$. \textbf{Multiplicada por el tiempo:} $\Rightarrow X(s) = \dfrac{1}{(s + a)^2} \rightarrow t\cdot e^{-a\cdot t}\gamma(t)$
+	\item \textbf{Sinusoidales:} $\mathfrak{L}(cos(\omega t)) = \dfrac{s}{s^2 + \omega^2}$ y $\mathfrak{L}(sin(\omega t))$ $= \dfrac{\omega}{s^2 + \omega^2}$. Genéricamente: $x(t) = \cos(\omega t + \varphi)\gamma(t) \equiv \dfrac{1}{2}\left(e^{j(\omega t + \varphi)} + e^{-j(\omega t + \varphi)}\right)\gamma(t) \rightarrow X(s) = \dfrac{\frac{1}{2}e^{j\varphi}}{s - j\omega} + \dfrac{\frac{1}{2}e^{-j\varphi}}{s + j\omega}$. Amortiguada: $Ae^{-at}cos(\omega t + \varphi) = \dfrac{\frac{A}{2}e^{j\varphi}}{s + a - j\omega} + \dfrac{\frac{A}{2}e^{-j\varphi}}{s + a + j\omega}$
 \end{itemize}
 
 \section{Función de transferencia}
