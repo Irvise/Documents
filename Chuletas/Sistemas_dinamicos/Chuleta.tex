@@ -29,7 +29,10 @@
 	left=7mm,
 	right=7mm,
 	top=13mm,
-	bottom=5mm,
+	bottom=0mm,
+	headsep=3mm,
+	voffset=-6mm,
+	footskip=0mm,
 }
 
 
@@ -960,10 +963,10 @@
 
 \section{Bodes}
 
-Introducción general, aplicar la lógica en cada caso. La función a analizar es $G(j\omega)$. Hay que recuperar la operación de multiplicación y división de números complejos, cómo funcionan los módulos y los ángulos. La mejor forma de trabajar con una función es $G(s) = \dfrac{K}{1 + \dfrac{s}{wn}}$, ya que la frecuencia de corte $(wn)$ sale explícita. \textit{Cuidado por si hay signos negativos al operar el ángulo.}
+Introducción general, aplicar la lógica en cada caso. La función a analizar es $G(j\omega)$. La mejor forma de trabajar con una función es $G(s) = \dfrac{K}{1 + \dfrac{s}{wn}}$, ya que la frecuencia de corte $(wn)$ sale explícita. Se trata de analizar el módulo y ángulo de nuestro sistema. \textit{Cuidado por si hay signos negativos al operar el ángulo.}
 
 \begin{itemize}
-	\item \textbf{Módulo:} al ser la escala logarítmica las distintas partes de $G(j\omega)$ se suman en el bode. Mirar cómo varía el módulo de cada sección dependiendo de la frecuencia. Cada función cambia su \textit{efecto} en su $\omega$ de corte.
+	\item \textbf{Módulo:} al ser la escala logarítmica las distintas partes de $G(j\omega)$ se suman en el bode. Mirar cómo varía el módulo de cada sección dependiendo de la frecuencia. Cada función tiene \textit{efecto} en su $\omega_c$.
 	\begin{enumerate}
 		\item \textbf{Ceros y polos simples:} generan pendientes de $\pm20dB$ respectivamente.
 		\item \textbf{Ceros y polos dobles:} generan pendientes de $\pm40dB$ respectivamente.
@@ -992,8 +995,11 @@ Introducción general, aplicar la lógica en cada caso. La función a analizar e
 		\item \textit{Tiempo de alcance $(t_a)$:} cruce con el valor final por primera vez. En sistemas subamortiguados: $\omega_nt_a = \dfrac{\pi/2 +\alpha}{\cos\alpha}$.
 		\item \textit{Tiempo de pico $(t_p)$:} tiempo en alcanzar el pico máximo. Para sistemas subamortiguados: $\omega_nt_p = \dfrac{\pi}{\cos\alpha}$.
 		\item \textit{Tiempo de establecimiento $(t_e)$:} tiempo en el que la salida no se \textit{despega} más de un $5\%$ del valor final. En subamortiguados se ve en la tabla.
-		\item \textit{Resonancia, máximo A en frecuencia $(\omega_r)$:} frecuencia en la que se encuentra el máximo (solo para valores de $\xi < 1/\sqrt{2}$). Pico $M_r = \dfrac{A_{max}}{G(0)} = \dfrac{1}{2\xi\sqrt{1-\xi^2}} = \dfrac{1}{\sin\alpha}$.
+		\item \textit{Resonancia, máxima amplitud, en frecuencia $(\omega_r)$:} frecuencia en la que se encuentra el máximo (solo para valores de $\xi < 1/\sqrt{2}$). Pico $M_r = \dfrac{A_{max}}{G(0)} = AdB - G(0)dB = \dfrac{1}{2\xi\sqrt{1-\xi^2}} = \dfrac{1}{\sin\alpha}$.
+		\item \textit{Frecuencia de corte ($\omega_c$):} frecuencia en la que el módulo es $-3dB$.
+		\item \textit{Frecuencia natural ($\omega_n$):} frecuencia en la que el cambio de fase pasa por la mitad.
 	\end{enumerate}
+	\item \textbf{Importante:} se puede ver desde un Bode si el sistema es estable, tanto por el módulo como por la fase (nos dan información sobre su grado y si el signo de los polos).
 \end{itemize}
 
 \end{document}
