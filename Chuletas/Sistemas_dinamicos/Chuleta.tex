@@ -48,11 +48,10 @@
 \section{Conceptos básicos}
 
 \begin{itemize}
-	\item \textbf{Modelo LTI:} \[\sum_{i=0}^{n}a_i\dfrac{d^iy(t)}{dt^i} a_0y(t) = \sum_{i=0}^{m}b_i\dfrac{d^iu(t)}{dt^i} b_0u(t)\]
+	\item \textbf{Modelo LTI:} \[\sum_{i=0}^{n}a_i\dfrac{d^iy(t)}{dt^i} + a_0y(t) = \sum_{i=0}^{m}b_i\dfrac{d^iu(t)}{dt^i} + b_0u(t)\]
 	\item \textbf{Condición inicial:} $x(0^-) = \lim\limits_{t\rightarrow0^-}x(t)$
 	\item \textbf{Valor inicial:} $x(0^+) = \lim\limits_{t\rightarrow0^+}x(t)$
-	\item \textbf{Factor de amortiguamiento:} $\zeta = \dfrac{a}{\sqrt{a^2+w^2}}$
-	\item \textbf{Descomposición en fracciones simples:} se sacan las raíces, si hay alguna doble, esta se escribe tantas veces como se repita, aumentando su grado.
+	\item \textbf{Descomposición en fracciones simples:} se sacan los polos, si hay alguno doble, este se escribe tantas veces como se repita, aumentando su grado. Las raíces se obtienen multiplicando el sistema por su polo de mayor grado y sustituyendo por su valor. 
 \end{itemize}
 
 \section{Laplace}
@@ -84,12 +83,12 @@
 \section{Función de transferencia}
 
 \begin{itemize}
-	\item \textbf{Forma completa:} \[Y(s) = U(s)\frac{B(s)}{A(s)} + \frac{C(s)}{A(s)} = G(s)U(s) + \frac{C(s)}{A(s)}\] $A(s)$ es la transformada del sistema. $B(s)$ es la transformada de la entrada. $C(s)$ es $a(s) - b(s)$ siendo $a(s)$ y $b(s)$ las condiciones iniciales del sistema y de la entrada respectivamente. Y $G(s)$ es la función de transferencia.
-	\item \textbf{Respuesta forzada/libre:} forzada $U(s)\dfrac{B(s)}{A(s)} = G(s)U(s)$; libre $\dfrac{C(s)}{A(s)}$
+	\item \textbf{Forma completa:} \[Y(s) = U(s)\frac{B(s)}{A(s)} + \frac{C(s)}{A(s)} = G(s)U(s) + \frac{C(s)}{A(s)}\] $A(s)$ es la transformada del sistema. $B(s)$ es la transformada de la entrada. $C(s)$ es $a(s) - b(s)$ siendo $a(s)$ y $b(s)$ las condiciones iniciales desarrolladas del sistema y de la entrada respectivamente. Y $G(s)$ es la función de transferencia.
+	\item \textbf{Respuesta forzada/libre:} forzada $U(s)\dfrac{B(s)}{A(s)} = G(s)U(s)$. Libre $\dfrac{C(s)}{A(s)}$. Completa = Forzada + Libre.
 	\item \textbf{Estabilidad:}
 	\begin{enumerate}
-		\item \textit{BIBO:} es estable siempre que la entrada sea acotada. \textit{Puede} que en algún caso no estable dé salida acotada.
-		\item \textit{Asintótico:} es siempre estable .Todos sus polos tienen la parte real negativa (0 no es válido). Se puede ver rápidamente si los coeficientes de la $G(s)$ son todos del mismo signo. Para $n = 3$ se ha de cumplir también $a_0a_3<a_1a_2$.
+		\item \textit{BIBO:} es estable siempre que la entrada sea acotada. \textit{Puede} que en algún caso no acotado dé salida acotada.
+		\item \textit{Asintótico:} es siempre estable .Todos sus polos tienen la parte real negativa (0 no es válido). Se puede ver rápidamente si los coeficientes de la $G(s)$ son todos del mismo signo. Para grado = 3 se ha de cumplir también $a_0a_3<a_1a_2$.
 	\end{enumerate}
 	\item \textbf{Ganancia estática:} $G(0)$
 	\item \textbf{Respuesta en frecuencia:} $G(j\omega)$
