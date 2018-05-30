@@ -41,8 +41,7 @@
 \begin{itemize}
 	\item \textbf{Frecuencias acumuladas:} la suma de todas las frecuencias hasta un valor dado. \textbf{No puede ser mayor que 1.}
 	\item \textbf{Moda (Mo):} valor más repetido, solo aplicable a distribuciones discretas.
-	\item \textbf{Cuantil:} división proporcional de todos los datos. Si son pares, se tendrá que hacer la media entre ambos y usar ese valor como separación. Ejemplo: la mediana es el cuartil 2 o el decil 5.
-	\item \textbf{Coeficiente de curtosis:} coeficiente que indica cómo de puntiaguda es una gráfica.
+	\item \textbf{Cuantil:} división proporcional de todos los datos. Si son pares, se tendrá que hacer la media entre ambos valores y usar el resultado como separación. Ejemplo: la mediana es el cuartil 2 o el decil 5. 
 \end{itemize}
 
 \section{Medidas a distribuciones}
@@ -55,9 +54,10 @@
 	\item \textbf{Mediana (Me):} valor de la muestra que deja un $50\%$ de datos por debajo del mismo. Si son pares se debe hacer la media de los dos valores colindantes y tomas ese valor como mediana, aunque sea relativamente ficticio.
 	\item \textbf{Varianza:} $s^2 = \dfrac{\sum\limits_{i=1}^{N}\left[\left(x_i - \bar{x}\right)^2\right]}{N} = a_2 - a_1^2$
 	\item \textbf{Momentos desde la media de grado $r$:} $m_r = \dfrac{\sum\limits_{i=1}^{N}\left[\left(x_i - \bar{x}\right)^r\right]}{N} \rightarrow s^2 = m_2$
-	\item \textbf{Coeficiente de variación de Pearson:} $g = \dfrac{s}{|\bar{X}|}$
+	\item \textbf{Coeficiente de variación de Pearson:} $g = \dfrac{s}{|\bar{x}|}$. Indica cómo de relevante es la media, si $g \leq 1$ la media es representativa.
 	\item \textbf{Desigualdad de Chebyshev:} \\ $k>1,\left[\bar{x} -k\cdot s,\bar{x} +k\cdot s \right] \text{ recoge al menos } 100\cdot\left(1-\dfrac{1}{k^2}\right)$ datos.
 	\item \textbf{Coeficiente de asimetría de Fisher:} $g_1 = \dfrac{m_3}{s^3}$. $g_1>0$ asimétría a la derecha. $g_1=0$ simétrica. $g_1<0$ asimetría a la izquierda.
+	\item \textbf{Coeficiente de curtosis:} coeficiente que indica cómo de puntiaguda es una gráfica $g_2 = \dfrac{m_4}{s^4} - 3$. $g_2 > 0$ leptocúrtica, $g_2 = 0$ mesocúrtica, $g_2 < 0$ platicúrtica.
 	\item \textbf{Cambio de variable:} $Y = a\cdot X + b$
 	\begin{enumerate}
 		\item $\bar{y} = a\bar{x} + b$
@@ -72,11 +72,13 @@
 \subsection{Bidimensionales}
 
 \begin{itemize}
+	\item \textbf{Número de valores:} $\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{p}[n_{ij}] = N = \sum\limits_{i=1}^{k}[n_{i\cdot}] = \sum\limits_{j=1}^{p}[n_{\cdot j}]$
 	\item \textbf{Frecuencias absolutas de la clase $z_i$:} \\ $n_{i\cdot} = \sum\limits_{j=1}^p\left[n_{ij}\right] \qquad n_{\cdot j} = \sum\limits_{i=1}^p\left[n_{ij}\right]$
-	\item \textbf{Momentos respecto del origen de orden $(r,s)$:} $a_{r,s} = \dfrac{\sum\limits_{i=1}^N\left[x_i^r\cdot y_i^s\right]}{N}$
+	\item \textbf{Frecuencias marginales:} $f_{i\cdot} = \dfrac{n_{i\cdot}}{N} \leq 1$. Se puede entender como la frecuencia de una característica de valores respecto del total. 
+	\item \textbf{Momentos respecto del origen de orden $(r,s)$:} $a_{r,s} = \dfrac{\sum\limits_{i=1}^N\left[x_i^r\cdot y_i^s\right]}{N}$. El más importante es el $m_{1,1}$.
 	\item \textbf{Momentos respecto de la media de orden $(r,s)$:} $m_{r,s} = \dfrac{\sum\limits_{i=1}^N\left[\left(x_i-\bar{x}\right)^r\cdot\left( y_i-\bar{y}\right)^s\right]}{N}$. \textbf{Covarianza:} $m_{1,1} = a_{1,1} - a_{1,0}\cdot a_{0,1}$
-	\item \textbf{Coeficiente de correlación de Pearson:} $\rho = r = \dfrac{m_{1,1}}{s_x\cdot s_y}$. Se usa para independizar de la escala de medida. Indica si hay relación \underline{lineal} entre las variables, dada si $|\rho| >0'5$. El signo indica si es directo o inverso.
-	\item \textbf{Dependencia lineal:} se ha de cumplir y es suficiente para que dos variables sean dependientes linealmente $f_{ij} = f_{i\cdot} \cdot f_{\cdot j}$
+	\item \textbf{Coeficiente de correlación de Pearson:} $\rho = r = \dfrac{m_{1,1}}{s_x\cdot s_y}$. Se usa para independizar de la escala de medida. Indica si hay relación \underline{lineal} entre las variables. El signo indica si es directa o inversa. Se entiende que hay relación lineal notable si $|\rho| \geq 0.8$.
+	\item \textbf{Dependencia:} se ha de cumplir y es suficiente para que dos variables sean independientes $f_{ij} = f_{i\cdot} \cdot f_{\cdot j}$
 \end{itemize}
 
 \section{Probabilidad}
@@ -99,9 +101,9 @@
  		\item $P[A\cup B] = P[A] + P[B] - P[A \cap B]$
  	\end{enumerate}
  	\item \textbf{Probabilidad:} $P[A] = \dfrac{\text{Resultados de } A}{\text{Resultados posibles}}$
- 	\item \textbf{Combinaciones sin repetición:} $\dbinom{n}{k} = \dfrac{n!}{k!\cdot(n-k)!}$
- 	\item \textbf{Probabilidad condicionada, $A$ cuando se cumple $B$:} $P\left[\faktor{A}{B}\right] = \dfrac{P\left[A\cap B\right]}{P[B]}$. Haciendo un poco de desarrollo: $P\left[A\cap B\right] = P[B] \cdot P\left[\faktor{A}{B}\right] = P[A]\cdot P\left[\faktor{B}{A}\right]$. También se cumple: $P\left[\faktor{A}{B}\right] = 1 - P\left[\faktor{\bar{A}}{B}\right]$. \textbf{Para sucesos independientes:} $P\left[\faktor{A}{B}\right] = P[A]$
- 	\item \textbf{Teorema de la probabilidad total con condicionadas:} $P[B] = \sum\limits_{i=1}^{n}\left(P[A_i] \cdot P\left[\faktor{B}{A_i}\right]\right)$
+ 	\item \textbf{Combinaciones:} $\dbinom{n}{k} = \dfrac{n!}{k!\cdot(n-k)!}$. Seleccionar $k$ elementos de un total de $n$ sin importar el orden.
+ 	\item \textbf{Probabilidad condicionada, $A$ cuando se cumple $B$:} $P\left[\faktor{A}{B}\right] = \dfrac{P\left[A\cap B\right]}{P[B]}$. Haciendo un poco de desarrollo: $P\left[A\cap B\right] = P[B] \cdot P\left[\faktor{A}{B}\right] = P[A]\cdot P\left[\faktor{B}{A}\right]$. También se cumple: $P\left[\faktor{A}{B}\right] = 1 - P\left[\faktor{\bar{A}}{B}\right]$. \\ \textbf{Para sucesos independientes:} $P\left[\faktor{A}{B}\right] = P[A]$
+ 	\item \textbf{Teorema de la probabilidad total con condicionadas:} $P[B] = \sum\limits_{i=1}^{n}\left(P[A_i] \cdot P\left[\faktor{B}{A_i}\right]\right)$. Se tiene que cumplir que los $A_i$ compongan todo el espacio y su intersección sea nula. 
  	\item \textbf{Teorema de Bayes:} $P\left[\faktor{A_k}{B}\right] = \dfrac{P\left[A_k\cap B\right]}{P[B]} = \dfrac{P[A_k]\cdot P\left[\faktor{B}{A_k}\right]}{P[B]} = \dfrac{P[A_k]\cdot P\left[\faktor{B}{A_k}\right]}{\sum\limits_{i=1}^{n}\left(P[A_i] \cdot P\left[\faktor{B}{A_i}\right]\right)}$ 
 \end{itemize}
 
@@ -111,35 +113,38 @@
 	\item \textbf{Función de cuantía o probabilidad:} $P_X(x_i) = P\left[X = x_i\right]$
 	\item \textbf{Función de distribución:} $F(x) = P\left[X\leq x\right] = \sum\limits_{x_i \leq x} P_X(x_i)$
 	\item \textbf{Esperanza (media):} $E(X) = \sum\limits_{i=1}^n\left[x_i \cdot P_X(x_i)\right] = \mu_x$. Para funciones: $E(g(X)) = \sum\limits_{i=1}^n\left[g(x_i) \cdot P_X(x_i)\right]$
-	\item \textbf{Varianza:} $Var(X) = \sum\limits_{i=1}^n\left[\left(x_i - E(X)\right)^2\cdot P_X(x_i)\right] = E(X^2) - (E(X))^2$
-	\item \underline{\textbf{Distribuciones importante:}}
+	\item \textbf{Varianza:} $Var(X) = \sum\limits_{i=1}^n\left[\left(x_i - E(X)\right)^2\cdot P_X(x_i)\right] = E(X^2) - (E(X))^2 = \sum\limits_{i=1}^n\left[x_i^2\cdot P_X(x_i)\right] - (E(X))^2$
+\end{itemize}
+	\underline{\textbf{Distribuciones importante:}}
 	\begin{enumerate}
 		\item \textit{Bernoulli:} dos posibilidades, éxito o fracaso. A la probabilidad del éxito se la nombrará $p$.
 		\begin{enumerate}
-			\item Función de cuantía: $P_X(0) = P\left[X=0\right] = 1 - p \qquad P_X(1) = P\left[X=1\right] = p$
-			\item Esperanza: $E(X) = \sum\limits_{i=0}^n\left[i\cdot P_X(i)\right] = p$
+			\item Función de cuantía: $P_X(1) = P\left[X=1\right] = p$
+			\item Esperanza: $E(X) = \sum\limits_{i=0}^1\left[i\cdot P_X(i)\right] = p$
 			\item Varianza: $Var(X) = p(1-p)$
 		\end{enumerate}
-		\item \textit{Binomial:} experiencia de \textit{Bernoulli} repetida $n$ veces.
+		\item \textit{Binomial:} experiencia de \textit{Bernoulli} repetida $n$ veces. Se denota por $\sim B(n, p)$, siendo $n$ el número de repeticiones y $p$ la probabilidad de éxito.
 		\begin{enumerate}
-			\item Función de cuantía: $P_X(i) = P\left[X=i\right] = \dbinom{n}{i}\cdot p^i\cdot (1-p)^{n-1}$
+			\item Función de cuantía: $P_X(i) = P\left[X=i\right] = \dbinom{n}{i}\cdot p^i\cdot (1-p)^{n-1}$. $i$ denota la cantidad de éxitos.
 			\item Esperanza: $E(X) = n\cdot p$
 			\item Varianza: $Var(X) = n\cdot p\cdot (1-p)$
 		\end{enumerate}
-		\item \textit{Poisson:} se modelan con un parámetro $\lambda$ que es la media en una \underline{constante de tiempo.} Usada en el caso de la binomial cuando $n > 30 \text{ y } p < 0'1$ siendo $\lambda = n\cdot p$.
+		\item \textit{Poisson:} se modelan con un parámetro $\lambda$ que es la media en una \underline{constante de tiempo.} Usada en el caso de la binomial cuando $n > 30 \text{ y } p < 0.1$ siendo $\lambda = n\cdot p$.
 		\begin{enumerate}
 			\item Función de cuantía: $P_X(i) = P\left[X = i\right] = \dfrac{\lambda^i\cdot e^{-\lambda}}{i!}$
 			\item Esperanza: $E(X) = \lambda$
 			\item Varianza: $Var(X) = \lambda$
 		\end{enumerate}
 	\end{enumerate}
-\end{itemize}
+Prestar especial atención a los límites de probabilidades indicado y a sus cambios (complementarios, siguiente, etc.) ya que los $\leq, \geq$ hay que respetarlos.
+
 
 \section{Modelos para sistemas continuos}
 
 \begin{itemize}
+	\item \textbf{Función de probabilidad:} $f_X(x)$ es la función que define la probabilidad.
 	\item \textbf{Función de densidad:} $\displaystyle P\left[a \leq X \leq b\right] = \int_{a}^{b}f_X(x)\cdot dx \quad \forall a\leq b \in \mathbb{R}$. Propiedad, al ser continua se cumple: $P\left[a \leq X \leq b\right] = P\left[a \leq X < b\right] = P\left[a < X \leq b\right] = P\left[a < X < b\right].$
-	\item \textbf{Función de distribución:} $F_X(x) = P\left[X \leq x\right] = \displaystyle \int_{-\infty}^{x}f_X(x)\cdot dx$. Para un intervalo dado $P\left[a \leq X \leq b\right] = F_X(b) - F_X(a)$
+	\item \textbf{Función de distribución:} $F_X(x) = P\left[X \leq x\right] = \displaystyle \int_{-\infty}^{x}f_X(x)\cdot dx$.
 	\item \textbf{Esperanza:} $E(X) = \displaystyle \int_{-\infty}^{\infty}x\cdot f_X(x)\cdot dx$. Generalizando: $E(g(X)) = \displaystyle \int_{-\infty}^{\infty}g(x)\cdot f_X(x)\cdot dx$
 	\item \textbf{Varianza:} $Var(X) = \displaystyle \int_{-\infty}^{\infty}\left(x - E(X)\right)^2 \cdot f_X(x) \cdot dx = E(X^2) -(E(X))^2$
 	\item \textbf{Distribuciones:} notación: $X\sim Y$ significa que $X$ es sigue una distribución $Y$
@@ -166,7 +171,7 @@
 		\begin{equation*}
 			Var(X) = \frac{(b-a)^2}{12}
 		\end{equation*}
-		\item \textit{Exponencial $T\sim E(\lambda)$:} suele usarse para el fallo de componentes electrónicos, usa el parámetro de escala $\lambda$. Solo vale para valores positivos, por ejemplo tiempo. Posee ausencia de memoria.
+		\item \textit{Exponencial $T\sim E(\lambda)$:} suele usarse para el fallo de componentes electrónicos, usa el parámetro de escala $\lambda$. Solo vale para valores positivos, por ejemplo, tiempo. Posee ausencia de memoria.
 		\begin{equation*}
 			f_T(t) = \left\lbrace
 			\begin{aligned}
