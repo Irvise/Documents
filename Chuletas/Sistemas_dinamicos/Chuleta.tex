@@ -952,7 +952,7 @@
 	\item \textbf{Particularización de cada sistema según viene anteriormente:} $a_1 = \tau$
 	\begin{enumerate}
 		\item $b_0 = K$, $b_1 = 0$. No tiene salto inicial.
-		\item $b_0 = 0$, $b_1 = K$. Tiene salto inicial y siempre tiende a cero.
+		\item $b_0 = 0$, $b_1 = K$. Tiene salto inicial; y siempre tenderá a cero.
 		\item $b_0 = K$, $b_1 = KT$. Tiene salto inicial, no tiende a cero.
 	\end{enumerate}
 	\item \textbf{Transformada inversa de Laplace, dominio temporal:} $y(t) = b_0u(\infty) + \left(y(0^-) + \dfrac{b_1}{a_1}\left(u(0^+) - u(0^-)\right) -b_0u(\infty)\right)e^{-\dfrac{t}{\tau}} = \left(y(\infty) + \left(y(0^+) - y(\infty)\right)e^{-\dfrac{t}{\tau}}\right)\gamma(t)$
@@ -960,9 +960,9 @@
 	\item \textbf{Incremento inicial en la salida:} $y(0^+) - y(0^-) = G(\infty)(u(0^+)- u(0^-))$
 	\item \textbf{Respuesta en frecuencia:} $G(j\omega) = |G(j\omega)|e^{j\angle G(jw)}$. Para sinusoidales no necesitaremos hacer la transformación a Laplace. Se puede aplicar directamente por la definición: $u(t) = A\cos(wt + \phi) \rightarrow y(t) = A|G(j\omega)|\cos(wt + \phi + \angle G(j\omega))$.
 \end{itemize}
-
+\vspace*{-1em}
 \section{Bodes}
-
+\vspace*{-1em}
 Introducción general, aplicar la lógica en cada caso. La función a analizar es $G(j\omega)$. La mejor forma de trabajar con una función es $G(s) = \dfrac{K}{1 + \dfrac{s}{wn}}$, ya que la frecuencia de corte $(wn)$ sale explícita. Se trata de analizar el módulo y ángulo de nuestro sistema. \textit{Cuidado por si hay signos negativos al operar el ángulo.}
 
 \begin{itemize}
@@ -998,6 +998,7 @@ Introducción general, aplicar la lógica en cada caso. La función a analizar e
 		\item \textit{Resonancia, máxima amplitud, en frecuencia $(\omega_r)$:} frecuencia en la que se encuentra el máximo (solo para valores de $\xi < 1/\sqrt{2}$). Pico $M_r = \dfrac{A_{max}}{G(0)} = AdB - G(0)dB = \dfrac{1}{2\xi\sqrt{1-\xi^2}} = \dfrac{1}{\sin\alpha}$.
 		\item \textit{Frecuencia de corte ($\omega_c$):} frecuencia en la que el módulo es $|G(0)| - 3dB$.
 		\item \textit{Frecuencia natural ($\omega_n$):} frecuencia en la que el cambio de fase pasa por la mitad.
+		\item \textit{Oscilación de la respuesta:} $\omega_d$.
 	\end{enumerate}
 	\item \textbf{Importante:} se puede ver desde un Bode si el sistema es estable, tanto por el módulo como por la fase (nos dan información sobre su grado y si el signo de los polos).
 \end{itemize}
