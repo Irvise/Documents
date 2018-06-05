@@ -142,9 +142,9 @@ Prestar especial atención a los límites de probabilidades indicado y a sus cam
 \section{Modelos para sistemas continuos}
 
 \begin{itemize}
-	\item \textbf{Función de probabilidad:} $f_X(x)$ es la función que define la probabilidad.
-	\item \textbf{Función de densidad:} $\displaystyle P\left[a \leq X \leq b\right] = \int_{a}^{b}f_X(x)\cdot dx \quad \forall a\leq b \in \mathbb{R}$. Propiedad, al ser continua se cumple: $P\left[a \leq X \leq b\right] = P\left[a \leq X < b\right] = P\left[a < X \leq b\right] = P\left[a < X < b\right].$
-	\item \textbf{Función de distribución:} $F_X(x) = P\left[X \leq x\right] = \displaystyle \int_{-\infty}^{x}f_X(x)\cdot dx$.
+	\item \textbf{Función de densidad:} $f_X(x)$ es la función que define la probabilidad.
+	\item \textbf{Función de densidad 2:} $\displaystyle P\left[a \leq X \leq b\right] = \int_{a}^{b}f_X(x)\cdot dx \quad \forall a\leq b \in \mathbb{R}$. Propiedad, al ser continua se cumple: $P\left[a \leq X \leq b\right] = P\left[a \leq X < b\right] = P\left[a < X \leq b\right] = P\left[a < X < b\right].$
+	\item \textbf{Función de distribución:} $F_X(x) = P\left[X \leq x\right] = \displaystyle \int_{-\infty}^{x}f_X(x)\cdot dx$. Define la probabilidad acumulada hasta el valor dado.
 	\item \textbf{Esperanza:} $E(X) = \displaystyle \int_{-\infty}^{\infty}x\cdot f_X(x)\cdot dx$. Generalizando: $E(g(X)) = \displaystyle \int_{-\infty}^{\infty}g(x)\cdot f_X(x)\cdot dx$
 	\item \textbf{Varianza:} $Var(X) = \displaystyle \int_{-\infty}^{\infty}\left(x - E(X)\right)^2 \cdot f_X(x) \cdot dx = E(X^2) -(E(X))^2$
 	\item \textbf{Distribuciones:} notación: $X\sim Y$ significa que $X$ es sigue una distribución $Y$
@@ -221,11 +221,11 @@ Prestar especial atención a los límites de probabilidades indicado y a sus cam
 			& X\sim N(\mu, \sigma^2) \rightarrow Y = a\cdot X + b \Rightarrow \\ & Y \sim N(a\cdot\mu + b, a^2\sigma^2)
 		\end{eqnarray*}
 		\begin{eqnarray*}
-			& X_1\sim N(\mu_1, \sigma_1^2) \quad X_2\sim N(\mu_2, \sigma_2^2) \rightarrow \\ & Y = X_1 + X_2 \Rightarrow Y \sim N(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)
+			& X_1\sim N(\mu_1, \sigma_1^2) \quad X_2\sim N(\mu_2, \sigma_2^2) \rightarrow \\ & Y = X_1 \pm X_2 \Rightarrow Y \sim N(\mu_1 \pm \mu_2, \sigma_1^2 + \sigma_2^2)
 		\end{eqnarray*}
 		\begin{enumerate}[leftmargin=-1.5em]
 			\item \underline{Distribución normal estándar $Z\sim N(0,1)$:} es con la que se trabaja normalmente y es la que sale en las tablas de probabilidades. Para tener una normal estándar de una distribución cualquiera se ha de tipificar. Necesaria para el teorema central del límite.
-			\item \underline{Cálculo de probabilidades:} $\Phi(z) = P\left[Z \leq z \right]$, esta definición acumulativa. Para hallar la probabilidad de las colas se haría $\Phi(-z) = 1 - \Phi(z)$. $P\left[a \leq Z \leq b\right] = \Phi(b) - \Phi(a)$ si $a,b\geq0$; $\Phi(-a) - \Phi(-b)$ si $a,b<0$
+			\item \underline{Cálculo de probabilidades:} $\Phi(z) = P\left[Z \leq z \right]$, esta definición acumulativa. Para hallar la probabilidad de las colas se haría $\Phi(-z) = 1 - \Phi(z)$. $P\left[a \leq Z \leq b\right] = \Phi(b) - \Phi(a)$ si $a,b\geq0$; $\Phi(-a) - \Phi(-b)$ si $a,b<0$.
 			\item \underline{Aproximación normal de la distribución binomial:} para poder hacer esta aproximación se han de cumplir las siguientes condiciones: $X \sim B(n,p) \quad\&\quad n\geq 30 \quad\&\quad n\cdot p\geq 5 \quad\&\quad n\cdot(1-p) \geq 5$. Entonces $X$ se puede aproximar por $W\sim N(\mu, \sigma^2) \quad \mu= n\cdot p \quad\&\quad \sigma^2 = n\cdot p\cdot(1-p)$
 		\end{enumerate}
 		\item \textit{Log-normal $X\sim LN(\mu, \sigma^2)$:} son datos que al ser transformados por un neperiano se transforma en una distribución normal pura.
@@ -241,7 +241,22 @@ Prestar especial atención a los límites de probabilidades indicado y a sus cam
 		\begin{equation*}
 			P\left[a \leq X \leq b\right] = \Phi\left(\dfrac{ln(b)-\mu}{\sigma}\right)-\Phi\left(\dfrac{ln(a)-\mu}{\sigma}\right)
 		\end{equation*}
+		\item \textit{Weibull $X \sim W(\beta, \eta, \gamma)$:} flexibiliza la distribución exponencial. Da probabilidad para valores superiores al parámetro $\gamma$; $\beta >0, \eta >0$ son parámetros de forma y escala respectivamente.
+		\begin{equation*}
+			f_X(x) = \frac{\beta}{\eta^\beta}(x-\gamma)^{\beta-1}\cdot e^{-\left(\dfrac{x-\gamma}{\eta}\right)^\beta}
+		\end{equation*}
+		\begin{equation*}
+			F_X(x) = 1 - e^{-\left(\dfrac{x-\gamma}{\eta}\right)^\beta}
+		\end{equation*}
+		\begin{equation*}
+			E(X) = \gamma + \eta \cdot \Gamma\left(1 + \dfrac{1}{\beta}\right)		
+		\end{equation*}
+		\begin{equation*}
+			Var(X) = \eta^2 \cdot \Gamma\left(1 + \dfrac{2}{\beta}\right)- \left(\eta\cdot \Gamma\left(1+ \dfrac{1}{\beta}\right)\right)^2
+		\end{equation*}
 	\end{enumerate}
+\textbf{\underline{Teorema central del límite:}} este teorema nos indica que una suma numerosa ($>$30) de datos, sus mendias, se distribuyen como una normal $\sim N\left(\dfrac{\sum \mu}{n}, \dfrac{\sum\sigma^2}{n^2}\right)$. Si todos los datos provienen de una misma distribución entonces el TCL se simplifica a $\sim N\left(\mu, \dfrac{\sigma^2}{n}\right)$. \\
+\textbf{Funciones de distribución:} las más importantes son la Chi-cuadrado $\chi^2_n$ de $n$ grados de libertad, la T de Student $t_n$ de $n$ grados de libertad; y la F de Snedecor $F_{n,m}$ de $n,m$ grados de libertad $\left(F_a(m,n) = \dfrac{1}{F_{1-\alpha}(n,m)}\right)$
 \end{itemize}
 
 \section{Fiabilidad}
@@ -297,12 +312,12 @@ Se tratan de diagramas de cajas que indican la probabilidad de éxito de un even
 		\begin{enumerate}
 			\item \textit{Distribución normal:} $\mu = \bar{X}, \; \sigma^2 = s_X^2$
 			\item \textit{Bernoulli:} $\hat{p}$, la $p$ de la muestra. 
-			\item \textit{Distribución Binomial:}
+			\item \textit{Distribución Binomial:} $n\cdot p$. 
 			\item \textit{Distribución de Poisson:} $E(X) = \hat{\lambda} = \bar{x}, \; V(\hat{\lambda}) = \dfrac{\lambda}{n} \rightarrow V(X) = \lambda\cdot n$.
 		\end{enumerate}
-		\item \textbf{Sesgo:} diferencia, en valor absoluto, de la media de nuestra muestra respecto a la media poblacional, viene dado por $b(\theta^\ast) = E(\theta^\ast) - \theta$, siendo $\theta^\ast$ la media muestra y $\theta$ la media poblacional.
-		\item \textbf{Eficiencia:} un estimador con poco sesgo (insesgado) que además tenga poca varianza. También se suele referir como error estándar $ e= \faktor{\sigma}{\sqrt{n}}$. $V(\bar{X}) = e^2$
-		\item \textbf{Error Medio Cuadrático (EMC):} $\left(E(\theta^\ast)-\theta\right)^2 + V(\theta^\ast).$
+		\item \textbf{Sesgo:} diferencia, en valor absoluto, de la media de nuestra muestra respecto a la media poblacional, viene dado por $b(\theta^\ast) = E(\theta^\ast) - \theta$, siendo $\theta^\ast$ la media muestral y $\theta$ la media poblacional.
+		\item \textbf{Eficiencia:} un estimador con poco sesgo (insesgado) que además tenga poca varianza. También se suele referir como error estándar $ e= \faktor{\sigma}{\sqrt{n}}$ $V(\bar{X}) = e^2$
+		\item \textbf{Error Cuadrático Medio (ECM):} $\left(E(\theta^\ast)-\theta\right)^2 + V(\theta^\ast).$ Mejor ECM, mejor estimador (si no es muy sesgado).
 	\end{enumerate}
 \end{itemize}
 
