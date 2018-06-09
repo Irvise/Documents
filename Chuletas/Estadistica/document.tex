@@ -256,7 +256,7 @@ Prestar especial atención a los límites de probabilidades indicado y a sus cam
 		\end{equation*}
 	\end{enumerate}
 \textbf{\underline{Teorema central del límite:}} este teorema nos indica que una suma numerosa ($>$30) de datos, sus mendias, se distribuyen como una normal $\sim N\left(\dfrac{\sum \mu}{n}, \dfrac{\sum\sigma^2}{n^2}\right)$. Si todos los datos provienen de una misma distribución entonces el TCL se simplifica a $\sim N\left(\mu, \dfrac{\sigma^2}{n}\right)$. \\
-\textbf{Funciones de distribución:} las más importantes son la Chi-cuadrado $\chi^2_n$ de $n$ grados de libertad, la T de Student $t_n$ de $n$ grados de libertad; y la F de Snedecor $F_{n,m}$ de $n,m$ grados de libertad $\left(F_a(m,n) = \dfrac{1}{F_{1-\alpha}(n,m)}\right)$
+\underline{\textbf{Funciones de distribución:}} las más importantes son la Chi-cuadrado $\chi^2_n$ de $n$ grados de libertad, la T de Student $t_n$ de $n$ grados de libertad; y la F de Snedecor $F_{n,m}$ de $n,m$ grados de libertad $\left(F_a(m,n) = \dfrac{1}{F_{1-\alpha}(n,m)}\right)$. Si la T de Student $(t_n)$ es de una $n$ muy grande, se la puede aproximar por una normal normalizada.
 \end{itemize}
 
 \section{Fiabilidad}
@@ -302,7 +302,7 @@ Se tratan de diagramas de cajas que indican la probabilidad de éxito de un even
 	\item \textbf{Estadísticos:}
 	\begin{enumerate}
 		\item \textbf{Media muestral:} $\displaystyle \bar{X} = \frac{\sum\limits_{i=1}^{n}X_i}{n}.$
-		\item \textbf{Cuasivarianza muestral:} $s^2_X = \dfrac{\sum\limits_{i=1}^{n}\left(X_i - \bar{X}\right)^2}{n - 1}.$
+		\item \textbf{Cuasivarianza muestral:} $S^2_X = \dfrac{\sum\limits_{i=1}^{n}\left(X_i - \bar{X}\right)^2}{n - 1}.$
 	\end{enumerate}
 	\item \textbf{Estimadores}
 	\begin{enumerate}
@@ -317,7 +317,7 @@ Se tratan de diagramas de cajas que indican la probabilidad de éxito de un even
 		\end{enumerate}
 		\item \textbf{Sesgo:} diferencia, en valor absoluto, de la media de nuestra muestra respecto a la media poblacional, viene dado por $b(\theta^\ast) = E(\theta^\ast) - \theta$, siendo $\theta^\ast$ la media muestral y $\theta$ la media poblacional.
 		\item \textbf{Eficiencia:} un estimador con poco sesgo (insesgado) que además tenga poca varianza. También se suele referir como error estándar $ e= \faktor{\sigma}{\sqrt{n}}$ $V(\bar{X}) = e^2$
-		\item \textbf{Error Cuadrático Medio (ECM):} $\left(E(\theta^\ast)-\theta\right)^2 + V(\theta^\ast).$ Mejor ECM, mejor estimador (si no es muy sesgado).
+		\item \textbf{Error Cuadrático Medio (ECM):} $\left(E(\theta^\ast)-\theta\right)^2 + V(\theta^\ast).$ Mejor ECM, mejor estimador (si no es muy sesgado). 
 	\end{enumerate}
 \end{itemize}
 
@@ -331,26 +331,34 @@ Se tratan de diagramas de cajas que indican la probabilidad de éxito de un even
 \section{Inferencia estadística}
 
 \begin{itemize}
-	\item \textbf{Hipótesis:} es una suposición que haremos respecto a nuestro estudio. Suele haber dos, $H_0$ y $H_1$, esto se debe a que si $H_0$ no es verdadera se pasará a la(s) siguiente(s), siendo común haber solo una alternativa. Si $H_0$ resulta ser muy poco probable se pasará a la siguiente hipótesis. Hay hipótesis de igualdad, comparativas, etc.
-	\item \textbf{Errores:} en todo análisis habrá cierta precisión, por lo que es posible cometer una imprudencia. Se distinguen dos errores: \textit{Tipo I ($\alpha$):} cuando se rechaza $H_0$ cuando es verdadera, $\alpha = 1-\gamma$; \textit{Tipo II ($\beta$):} cuando se acepta $H_0$ cuando esta es falsa. La más grave es el \textit{Tipo I.}
-	\item \textbf{P-Valor:} es el valor que nos indica la probabilidad de que en una muestra nos salga cierta medición (media, varianza, probabilidad, etc), respecto cierta suposición. Su cálculo se tendrá que hacer con los modelos en las tablas. Igualando la suposición con el valor a hallar.
-	\item \textbf{\underline{Notas importantes:}} si la inferencia se realiza mediante intervalos y la hipótesis es de comparación, hay que ver si la hipótesis pudiera entrar o no en el intervalo, importante.
-	\item \textbf{Contrastes no paramétricos:} nos permiten comprobar si una muestra sigue un modelo conocido mediante hipótesis:
+	\item \textbf{Hipótesis:} es una suposición que haremos respecto a nuestro estudio. Suele haber dos, $H_0$ y $H_1$. Si $H_0$ resulta ser muy poco probable se pasará a la hipótesis alternativa $H_1$. La $H_0$ ha de ser una hipótesis de igualdad, $H_1$ no tiene porqué. Hay hipótesis de igualdad, comparativas, etc.
+	\item \textbf{Errores:} en todo análisis habrá cierta precisión, por lo que es posible cometer una imprudencia. Se distinguen dos errores: \textit{Tipo I ($\alpha$):} cuando se rechaza $H_0$ cuando es verdadera, $\alpha = 1-\gamma$ (a $\alpha$ se le denomina significación de contraste); \textit{Tipo II ($\beta$):} cuando se acepta $H_0$ cuando esta es falsa. La más grave es el \textit{Tipo I.}
+	\item \textbf{P-Valor:} es el valor que nos indica la probabilidad de que en una muestra nos salga cierta medición (media, varianza, probabilidad, etc), respecto cierta suposición. Su cálculo se tendrá que hacer con los modelos en las tablas. Igualando la suposición con el valor a hallar y haciendo el contraste con la distribución en cuestión (sacada de las hojas). \underline{\textbf{Cuidado:}} el p-valor es el $\alpha$ que tendríamos con la ``medición'' realizada, hay que mirar cómo es el $\alpha$ para cada caso. \textbf{RC:} región de rechazo.
+	\item \textbf{Contrastes no paramétricos:} nos permiten comprobar si una muestra sigue un modelo conocido mediante hipótesis. \textbf{\underline{IMPORTANTÍSIMO:}} las hipótesis de contraste se presuponen completamente dadas (se dan todos los parámetros), si esto no fuera así, se tendrían que ``inferir" mediante método de los momentos o similar.
 	\begin{enumerate}
-		\item \textit{Chi-cuadrado:} discrimina en un número finito $r$ de clases cuantitativas o categóricas.
+		\item \textit{Chi-cuadrado:} discrimina en un número finito $r$ de clases cuantitativas, categóricas o intervalos. \textbf{Es un modelo discreto.} Se realizará mediante una tabla.
 		\begin{enumerate}
-			\item Se ordenan los datos y se agrupan en categorías.
-			\item Se plantea la hipótesis, modelo y su(s) variable(s).
-			\item Tabla que contenga por columnas las clases, los intervalos, los valores y sus frecuencias absolutas.
-			\item Se crea con el modelo teórico las frecuencias esperadas. Para ello multiplicamos la probabilidad esperada por la $H_0$ y la multiplicamos por $n$, nuestro tamaño muestral.
-			\item Se crea el estadístico de contraste con las diferencias obtenidas teóricas y empíricas.
+			\item Primera columna: clases o intervalos en orden creciente.
+			\item Segunda: frecuencia absoluta para cada clase o intervalo.
+			\item Tercera: probabilidades de tales clases o intervalos bajo el contraste $H_0$, la hipótesis. Para intervalos, la probabilidad es $P\left[min<X<max\right]$.
+			\item Cuarta: frecuencias teóricas para cada intervalo o clase según $H_0$. Esto es, la probabilidad de la columna anterior c) por la frecuencia absoluta de la columna b). \textbf{\underline{IMPORTANTE:}} si la frecuencia teórica de esta columna es menor que 5, se tienen que reagrupar los intervalos o las clases de tal manera que todas las frecuencias sean mayores que 5.
+			\item[] \hrulefill
+			\item $Id_0$, que será nuestro valor de contraste. $Id_0 = \sum\limits_{i=0}^{k} \dfrac{\left(n_i - E_i\right)^2}{E_i}$. $E_i$ es la frecuencia teórica (última columna) de cada valor; $n_i$ es la frecuencia absoluta, columna b).
+			\item $Id_0$ se distribuye como una $\chi^2_{k-r-1}$. Siendo $k$ el número de intervalos o clases, $r$ el número de parámetros estimados en la hipótesis nula.
+			\item El p-valor de nuestra hipótesis es por lo tanto: $P[\chi^2\geq\chi^2_{k-r-1}]$
 		\end{enumerate}
-		\item \textit{Kolmogorov:} \textbf{no puede aplicarse a variables discretas.}
+		\item \textit{Kolmogorov-Smirnov:} \textbf{no puede aplicarse a variables discretas.} A continuación se hace una tabla con las siguientes columnas:
 		\begin{enumerate}
-			\item Se ordenan los datos de forma ascendente. Se crea la \textbf{función de distribución} empírica $F_n(x)$, que es la frecuencia acumulada entre el número $n$ de datos.
-			\item Se elabora la hipótesis.
-			\item Construcción del estadístico de contraste: $Id = max \left(\left|F_n(u_i) - F_0(u_i)\right|,\left|F_n(u_{i-1}) - F_0(u_i)\right|\right)$
-			\item Crear la región crítica.
+			\item Se ordenan los datos de forma ascendente.
+			\item Se crea la \textbf{función de distribución} empírica $F_n(x)$, que es la frecuencia acumulada entre el número $n$ de datos (es la escalonada).
+			\item Función de distribución para cada valor usando la función del contraste.
+			\item Resta de las dos columnas anteriores en valor absoluto.
+			\item La función de distribución de la segunda columna de un valor anterior (empieza con 0 y asciende igual que la segunda columna).
+			\item Resta de la columna anterior con la tercera columna (función de distribución del contraste).
+			\item[] \hrulefill
+			\item Se halla el valor máximo de las columnas de valores absolutos, d) y f). Este valor será el valor de $Id$.
+			\item Buscamos en las tablas para una $\alpha$ dada y el número $n$ de muestras recoginas.
+			\item Si $Id$ es mayor que el valor de la tabla para el valor de significación dado ($\alpha$), la hipótesis nula ha de rechazarse.
 		\end{enumerate}
 	\end{enumerate}
 \end{itemize}
