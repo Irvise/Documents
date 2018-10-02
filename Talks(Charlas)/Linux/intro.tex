@@ -8,9 +8,17 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{hyperref}
-%\usetheme{Boadilla}
+\usepackage{etoolbox} % to reduce spacing in bearmers toc
 \usetheme[block=fill]{metropolis}
-\useoutertheme[]{}
+
+% to reduce spacing in bearmers toc
+\makeatletter
+\patchcmd{\beamer@sectionintoc}
+{\vfill}
+{\vskip\itemsep}
+{}
+{}
+\makeatother
 
 \begin{document}
 	\author{Fernando Oleo Blanco \\ fernando.oleo@alu.comillas.edu \hfill 	\href{https://github.com/Irvise/Documents}{github.com/Irvise/Documents}}
@@ -37,7 +45,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Índice}
+\begin{frame}{Índice}
 	\tableofcontents
 \end{frame}
 
@@ -237,6 +245,7 @@
 \end{frame}
 
 \section{Uso}
+\subsection{Instalación de software}
 \begin{frame}[allowframebreaks]{Herramientas a tener en cuenta}
 	\begin{block}{Package Manager. En Ubuntu: \texttt{apt}}
 		Administra \textbf{TODO} nuestro software, obtiene el software desde \textit{repositorios} tanto predeterminados como añadidos. Nos centraremos en la instalación, eliminación y búsqueda de software en Ubuntu:
@@ -261,6 +270,50 @@
 			\item \textbf{Synaptic:} control más fino de todo el software.
 		\end{itemize}
 	\end{block}
+	\begin{block}{Instalación manual}
+		\begin{itemize}
+			\item \textbf{Incluyendo el repositorio:} seguir las instrucciones dadas.
+			\item \textbf{Instalador manual:} se realiza desde la terminal (\texttt{\# o \$}). Suelen ser archivos del tipo \texttt{driver.run, install, etc.} Se ejecutan escribiendo en la terminal \texttt{./install.sh}
+		\end{itemize}
+	\end{block}
+	Si cualquier archivo no tiene permisos de ejecución, pero los necesita, se los damos con  \texttt{chmod +x archivo}
+\end{frame}
+
+\subsection{Software disponible en Linux}
+
+\begin{frame}{Hay bastante más del que os imagináis}
+	\begin{block}{Programación}
+		Cualquier lenguaje de programación y entornos (IDEs, Debuggers, etc) están disponibles en Linux. Con la excepción de Visual Studio, Xcode y sus compiladores
+	\end{block}
+	\begin{block}{Software comercial}
+		\begin{itemize}
+			\item \textbf{Día a día:} Chrome, Skype, Spotify, Discord, Steam*
+			\item \textbf{Científicos:} \underline{Matlab,} Wolfram, Quartus II, GAMS 
+			\item \textbf{CA*, FE*:} Ansys*, Siemens NX*, BricsCAD, Dymola
+		\end{itemize}		 		
+	\end{block}
+	¡Office y Whatsapp se pueden usar desde la web!
+\end{frame}
+
+\begin{frame}{Alternativas libres}
+	\begin{center}
+		Seamos sinceros, muchas de ellas no se comparan... Otras son simplemente geniales o suficientes.
+	\end{center}
+\end{frame}
+
+\subsection{Anexo}
+\begin{frame}{Otras nociones importantes para su uso}
+	Como todo es libre...
+	\begin{block}{DE ó, \texttt{Desktop Environments}}
+		¡No todos los escritorios son iguales!
+		\begin{itemize}
+			\item \textbf{GNOME:}  moderno, e intuitivo, simple en el uso. Predeterminado de Ubuntu.
+			\item \textbf{Plasman:} similar a Windows. Tremendamente personalizable.
+			\item \textbf{Xfce:} estabilidad ante todo.
+			\item \textbf{Otros:} LxQt, Mate, Cinnamon, OpenBox, etc.
+			\item \textbf{WM:} control de las ventanas desde el teclado. Eficiencia máxima.
+		\end{itemize}
+	\end{block}
 \end{frame}
 
 \subsection{Continuará}
@@ -281,6 +334,7 @@
 			\item \textbf{Cualquier motor de búsqueda}
 		\end{itemize}
 	\end{block}
+	Hay gente que se ha dedicado toda su vida a escribir blogs muy buenos de carácter técnico. Aprovechad los contenidos que ahí se encuentran.
 \end{frame}
 
 \begin{frame}{Temas que aprender}
@@ -294,7 +348,7 @@
 \end{frame}
 
 \begin{frame}{Fin}
-	\centering{\Huge ¿Preguntas?\normalsize \vfill LINUXEC te necesita \\ fernando.oleo@alu.comillas.edu \\ \vfill \small Recuerdo que daré una charla de \LaTeXe, atentos a las pantallas}
+	\centering{\Huge ¿Preguntas?\normalsize \vfill LINUXEC te necesita \\ fernando.oleo@alu.comillas.edu \\ \vfill \small Recuerdo que daré una charla de \LaTeXe, atentos a las pantallas.}
 	
 \end{frame}
 
