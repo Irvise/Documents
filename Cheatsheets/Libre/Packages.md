@@ -82,6 +82,12 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Valgrind](http://valgrind.org/): a wonderful analysis tool.
 
+* [SimAVR](https://github.com/buserror/simavr): simulates AVRs. With the help of GDB it may be used as an advance debugger.
+
+* [Meson](https://mesonbuild.com/): complete, easy and modern build system. [Autotools](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html): for simpler projects and compatibility, read [this guide/book](https://autotools.io/index.html) as a great introduction.
+
+* [Docker](https://www.docker.com/): container technology (OS-level virtualization), only available for Linux.
+
 * [QtCreator](https://wiki.qt.io/Qt_Creator): one of the most powerful IDEs out there. It aims for C/C++, QML/Javascript and Python support. Embeds Qt and Qt Quick very nicely, but its use is secondary.
 
 * [Kdevelop](https://www.kdevelop.org/): a more traditional IDE than QtCreator, smaller, yet it targets the same languages as QtCreator + PHP. It does not, however, offer as much as QtCreator does.
@@ -91,8 +97,6 @@ No "low level" utilities will be listed below, just the programs that you will f
 * [ZeroBrane](https://studio.zerobrane.com/): everything Lua IDE.
 
 * [Leksah](http://leksah.org/): Haskell IDE.
-
-* [SimAVR](https://github.com/buserror/simavr): simulates AVRs. With the help of GDB it may be used as an advance debugger.
 
 * [Ht](http://hte.sourceforge.net/): hex editor in your terminal. It has support for disassembly.
 
@@ -146,7 +150,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Zynaddsubfx](http://zynaddsubfx.sourceforge.net/): really nice audio synthesizer.
 
-* [Milkytracker](http://milkytracker.titandemo.org/), [Schismtracker](http://schismtracker.org/), [Klystrack](https://kometbomb.github.io/klystrack/) and [Protrcker & Fasttracker II clone](https://16-bits.org/index.php): precious pieces of computing history, the beloved trackers.
+* [Milkytracker](http://milkytracker.titandemo.org/), [Schismtracker](http://schismtracker.org/), [Klystrack](https://kometbomb.github.io/klystrack/) and [Protracker & Fasttracker II clone](https://16-bits.org/index.php): precious pieces of computing history, the beloved trackers.
 
 * [GNU Radio](https://www.gnuradio.org/): software defined radio.
 
@@ -258,6 +262,8 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 ## Engineering - Science
 
+* [COIN-OR](https://www.coin-or.org/): complete suite for optimization and general operational research.
+
 * [Jupyter](https://jupyter.org/): notebook.
 
 * [Octave](https://www.gnu.org/software/octave/): Matlab compatible scientific programming language.
@@ -302,6 +308,14 @@ The Salome Platform
 
 * [Paraview](https://www.paraview.org/): THE data visualization program, it is a wonderful piece of software.
 
+* [Dakota](https://dakota.sandia.gov/): advance optimizer.
+
+* [Code Saturn](https://www.code-saturne.org/cms/): CFD solver.
+
+* [OpenFoam](https://openfoam.org/): THE open source CFD.
+
+* **Not Open Source** [Simscale](https://www.simscale.com/): online web application, complete simulation solution which only uses libre software (mentioned above). Completely free for students.
+
 ---
 
 * [FreeCAD](https://www.freecadweb.org/): complete 3D design solution and provides FEM and CFD modules.
@@ -326,15 +340,9 @@ The Salome Platform
 
 * [GetDP](http://getdp.info/): general environment for the treatment of discrete problems.
 
-* [OpenFoam](https://openfoam.org/): THE open source CFD.
-
 * [Agros 2D](http://www.agros2d.org/): simulator of physical problems based on the Hermes library.
 
 * [Vislt](https://wci.llnl.gov/simulation/computer-codes/visit/): visualization software.
-
-* [Dakota](https://dakota.sandia.gov/): optimizer.
-
-* [Code Saturn](https://www.code-saturne.org/cms/): CFD solver.
 
 ### Electronics
 
@@ -354,7 +362,7 @@ The Salome Platform
 
 ## Games
 
-* [GNU Chess](https://www.gnu.org/software/chess/): play chess.
+#### Rogue like
 
 * [Angband](http://rephial.org/): a terminal roge-like game based on Tolkien's work.
 
@@ -368,29 +376,46 @@ The Salome Platform
 
 * [ToME4](https://te4.org/): a roge-like based on Tolkien's work.
 
-* [0ad](https://play0ad.com/): an Imperium, Age of Empires clone.
+#### Shooters
 
 * [Urban Terror](https://www.urbanterror.info/home/): an old school shooter (yet fun and enjoyable as ever).
 
 * [Xonotic](http://xonotic.org/): a Quake-like game, get ready to get killed and have fun.
 
+* [Taisei](https://taisei-project.org/): fangame recreating the queen of bullet hell games, Tohou.
+
+#### Adventure
+
 * [Minetest](https://www.minetest.net/): a Minecraft clone that is just as good.
+
+#### RPGs
 
 * [Flare](http://flarerpg.org/): an old school RPG like Diablo.
 
-* [Wesnoth](https://wesnoth.org/): a fantasy turn-based strategy game, great fun.
+* [ManaPlus](http://manaplus.org/start): a client for the MMO _The Mana World._
 
-* [FlighGear](http://home.flightgear.org/): professional flight simulator.
+#### RTS/Strategy
+
+* [0ad](https://play0ad.com/): an Imperium, Age of Empires clone.
+
+* [Wesnoth](https://wesnoth.org/): a fantasy turn-based strategy game, great fun.
 
 * [Freeciv](http://freeciv.org/): game inspired by the history of human civilization.
 
 * [MegaGlest](https://megaglest.org/): an old looking 3D fantasy strategy game.
 
-* [ManaPlus](http://manaplus.org/start): a client for the MMO _The Mana World._
+* [Warzone 2100](http://wz2100.net/): an old school RTS.
+
+#### Simulation
+
+* [FlighGear](http://home.flightgear.org/): professional flight simulator.
 
 * [OpenTTD](https://www.openttd.org/en/): game based on Transport Tycoon Deluxe.
 
-* [Warzone 2100](http://wz2100.net/): an old school RTS.
+#### Misc
+
+* [GNU Chess](https://www.gnu.org/software/chess/): play chess.
+
 
 ### Emulators
 
@@ -450,9 +475,13 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 ### Programming languages
 
-* **C** [GCC](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): the low level language. The grandfather of the modern world. A wonder in itself, by it's simplicity and flexibility.
+* **C** [GCC](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): the low level language. The grandfather of the modern world. A wonder in itself, by it's simplicity and flexibility. If an in-depth analysis of the code is required, there is [Frama-C](https://frama-c.com) and 
 
-* **Modern C++** [Gcc](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): please, use the modern features the language gives you! Low level language, though several times more complete (*and dificult*) than C.
+* **Modern C++** [GCC](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): please, use the modern features the language gives you! Low level language, though several times more complete (*and dificult* when it comes to learning it) than C.
+
+* **Fortran** [GNU Fortran](https://gcc.gnu.org/fortran/): though it may seem outdated, it is still widely used in HPC and older software for its unmatched speed.
+
+* [Ada/Spark](https://www.adacore.com/community): high-performance security critical programming language. It is not widely used in the *libre* software world, but it definitely has owned its place in the industry.
 
 * [Rust](https://www.rust-lang.org/en-US/): a higher level language that C/C++ yet it targets low level systems. It's main focus is on memory security.
 
@@ -464,29 +493,39 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 * [Lua](https://www.lua.org/) and [LuaJIT](http://luajit.org/): a wonderful little language geared specially towards embedding.
 
+* [Elixir](https://elixir-lang.org/): functional language built on top of the ErlangVM (BEAM). It is mostly targeted to fault tolerance systems and web services. Much recommended. [Credo](https://github.com/rrrene/credo) is a static analyzer for it.
+
 * **Prolog** [Gprolog](http://gprolog.org/) or [SWI Prolog](http://www.swi-prolog.org/): the greatest logical language out there.
 
 * [Haskell](https://www.haskell.org/): _the_ functional language.
 
 * [SuperCollider](https://supercollider.github.io/): a platform for audio synthesis and algorithmic composition.
 
-* [R](https://www.r-project.org/): a language mainly aimed at statistics. [Rkward](https://rkward.kde.org/Main_Page) is a small and lightweight, yet complete IDE for it.
+* [R](https://www.r-project.org/): a language mainly aimed at statistics. [Rkward](https://rkward.kde.org/Main_Page) is a small and lightweight, IDE for it. [Rstudio](https://www.rstudio.com/): is the most complete and well-known IDE for R.
 
 * [Mono](http://www.mono-project.com/): open source C# implementation with support for the .NET framework.
 
 * [F#](https://fsharp.org/): functional meets .NET.
 
-* [GHDL](http://ghdl.free.fr/): VHDL compiler.
+* **Hardware description languages:** [GHDL](http://ghdl.free.fr/): VHDL compiler. [Iverilog](http://iverilog.icarus.com/): Verilog compiler.
 
-* [Iverilog](http://iverilog.icarus.com/): Verilog compiler.
+* **Others worth looking at:** [Python](https://www.python.org/) quick scriptable and widely used language (specially in science), [Nuitka](https://nuitka.net/) is a compiler for it. [Coq](https://coq.inria.fr/): language for formal verification.
+
+* **General tools:** [Crucible](https://github.com/GaloisInc/crucible): library for symbolic simulation of imperative programs. [SAW-Script](https://github.com/GaloisInc/saw-script): scripting language for SAW (Software Analysis Workbench).
 
 #### Web
 
 * [TypeScript](http://www.typescriptlang.org/): make yourself a favour and use it instead of JavaScript. There is also [PureScript](http://www.purescript.org/) if you prefer the Haskell way.
 
-* **Transpilers to JavaScript:** [Rust Yew](https://github.com/DenisKolodin/yew), the goodness of Rust with all its power (WASM). [Go GopherJS](https://github.com/gopherjs/gopherjs): compiler form Go to JavaScript.
+* **Transpilers to JavaScript:** [Rust Yew](https://github.com/DenisKolodin/yew), the goodness of Rust in all of its glory (targets WASM). [Go GopherJS](https://github.com/gopherjs/gopherjs): compiler form Go to JavaScript. [Elm](https://elm-lang.org/): modern language to create reliable webapps.
+
+* [Phoenix](https://phoenixframework.org/): there are quite a few frameworks out there, but Phoenix, written in Elixir, is definitely the best one out there; and it allows you to use Node.js seamlessly.
+
+* [Kubernetes](https://kubernetes.io/): system for automating deployment, scaling, and management of containerized applications.
 
 * **Static Builders:** [Hugo](https://gohugo.io/): great(est) static pages generator, Go based. [Hakyll](https://jaspervdj.be/hakyll/): an alternative based on Haskell. [Gutenberg](https://www.getgutenberg.io/): same, but with Rust.
+
+* **Extra bits, none Open Source** [DNSimple](https://dnsimple.com/): as its name implies, simple, yet complete domain acquisition service with Let's Encrypt certificates; and they fully support open source. [Digital Ocean](https://www.digitalocean.com/): complete hosting solution, not the cheapest, but one of the easiest and complete ones. [UpCloud](https://www.upcloud.com/): another nice hosting solution.
 
 ### Databases
 
@@ -500,7 +539,7 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 ### Networks - Social Media
 
-* [Gitea](https://gitea.io/en-US/): self-hosted Git. Similar to Github; and much lighter than [GitLab](https://about.gitlab.com/), which is also pretty good.
+* [Gitea](https://gitea.io/en-US/): self-hosted Git. Similar to Github; and much lighter than [GitLab](https://about.gitlab.com/), which is a more complete solution, and it is used by major companies and projects.
 
 * **Project management:** [Tuleap](https://www.tuleap.org/), complete software solution for any project. [Phabricator](https://phacility.com/) is a _down to the code_ alternative.
 
