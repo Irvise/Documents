@@ -542,12 +542,22 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 		Para citar una obra simplemente se hace \verb|\cite{bibid}| donde se quiera la referencia. El \texttt{bibid} es el identificador de nuestra referencia.
 	\end{block}
 
+	\begin{block}{Uso inclusión en el documento y estilos}
+		\begin{verbatim}
+		\section{Bibliografía}
+		\bibliographystyle{style} % plain, abbrv, alpha...
+		\bibliography{bib1,bib2,bib...} % Añadimos
+		%  archivo(s), sin espacios ni extensión
+		\end{document} % si queremos terminar
+		\end{verbatim}
+	\end{block}
+
 	\begin{block}{Estructura del archivo \texttt{.bib}}
 		Todas las entradas empiezan con una @ y su identificador (\texttt{article, journal, book, etc}); esto sirve para darles formato. A continuación se abren llaves. \\
 		Entre las llaves se escribirá la información separada por comas. Lo \underline{más importante} es la primera palabra que pondremos, esa será la identificación para el comando \verb|\cite{bibid}|. A continuación rellenaremos tantos campos como necesitemos \texttt{año, título, autor, url, editor, etc}, tal y como está indicado en el ejemplo.
 	\end{block}
 	\vfill
-
+	
 	\small
 	\begin{block}{El archivo \texttt{.bib}}
 		El archivo \texttt{.bib,} que se recomienda que esté junto con el documento \texttt{.tex} principal, es nuestra \textit{base de datos} con las referencias. Un ejemplo sería:
@@ -568,18 +578,72 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	\end{block}
 	\vspace{-1.4em}
 	\normalsize
-	
 \end{frame}
 
 \section{Escritura científica}
 
-\begin{frame}[fragile]{Comenzamos}
-\small
-Notas importantes en la lógica de la escritura científica en \LaTeX:
-\begin{block}{Desarrollo}
-	$\bullet$ \LaTeX\ se creó para permitir una fácil y rápida creación de textos, aunque parezca poco intuitivo al principio. \\
-	\textbf{Regla de la mano derecha:} si algo es muy utilizado y básico en el mundo de las matemáticas y de las ciencias, está acortado, simplificado. El resto son los nombres descriptivos. \textbf{Ejemplo:} la integral cerrada se usa mucho $\rightarrow$ está simplificada: $$\oint = \verb|$\oint$|$$ La doble integral cerrada sigue su desarrollo, pero no viene en Amsmath: \verb|$\oiint$|. La flecha a la derecha no es un símbolo matemático muy querido $\rightarrow$ no se abrevia \verb|$\rightarrow$|
-\end{block}
+\begin{frame}[fragile]{Lógica de la escritura científica en \LaTeX}
+
+	\begin{block}{Desarrollo}
+		$\bullet$ \LaTeX\ se creó para permitir una fácil y rápida creación de textos, aunque parezca poco intuitivo al principio. \\
+		\textbf{Regla de la mano derecha:} si algo es muy utilizado y básico en el mundo de las matemáticas y de las ciencias, está acortado, simplificado. El resto son los nombres descriptivos. \textbf{Ejemplo:} la integral cerrada se usa mucho $\rightarrow$ está simplificada: $$\oint = \verb|$\oint$|$$ La doble integral cerrada sigue su desarrollo, pero no viene en Amsmath: \verb|$\oiint$|. La flecha a la derecha no es un símbolo matemático muy querido $\rightarrow$ no se abrevia \verb|$\rightarrow$|
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Ejemplos de lógica}
+\vspace*{0.75em}
+\begin{columns}
+	\begin{column}{0.4\textwidth}
+		\textbf{Expresivos}
+	\begin{itemize}
+			\item $\phi$ \verb|$\phi$|
+			\item $\varphi$ \verb|$\varphi$|
+			\item $\Phi$ \verb|$\Phi$|
+			\item $\downarrow$ \verb|$\downarrow$|
+			\item $\Downarrow$ \verb|$\Downarrow$|
+		\end{itemize}
+		\textbf{Abreviados}
+		\begin{itemize}
+			\item $\prod$ \verb|$\prod$|
+			\item $\neq$ \verb|$\neq$|
+			\item $\in$ \verb|$\in$|
+			\item $\ni$ \verb|$\ni$|
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.6\textwidth}
+		\textbf{Ejercicio, adivinad los símbolos}
+		\begin{itemize}
+			\item $\sim$
+			\item $\Pi$
+			\item $\pm$
+			\item $\mp$
+			\item $\rightarrow$
+		\end{itemize}
+		\pause
+		\textbf{Respuestas}
+		\begin{itemize}
+			\item \verb|$\sim$|
+			\item \verb|$\Pi$|
+			\item \verb|$\pm$|
+			\item \verb|$\mp$|
+			\item \verb|$\rightarrow$|
+		\end{itemize}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{Un par de fórmulas para que os familiaricéis}
+\textbf{Ecuación de Bernoulli}
+		\[ \left(\frac{p}{\rho g} + \frac{\alpha}{2g}V^2 + z\right)_{ent} = \left(\frac{p}{\rho g} + \frac{\alpha}{2g}V^2 + z\right)_{sal} + h_{tur} + h_{fr} - h_{bom} \]
+		
+	\hspace*{-1em}	\footnotesize \verb|\[ \left(\frac{p}{\rho g} + \frac{\alpha}{2g}V^2 + z\right)_{ent}| \\ \verb| = \left(\frac{p}{\rho g} \frac{\alpha}{2g}V^2 + z\right)_{sal}| \\ \verb|+  + h_{tur} + h_{fr} - h_{bom} \]| \normalsize
+
+\textbf{Hermosas mates}
+		\[ \zeta(s) = \sum\limits_{n=1}^{\infty}\frac{1}{n^s} \qquad \Gamma(z) = \int_{0}^{\infty} t^{z-1} e^{-t} dt\]
+		\hspace*{-1em} \verb|\[ \zeta(s) = \sum\limits_{n=1}^{\infty}\frac{1}{n^s}|
+		\verb|\Gamma(z) = \int_{0}^{\infty} t^{z-1} e^{-t} dt\]|
+
 \end{frame}
 
 \section{Resumen y otros recursos}
