@@ -4,7 +4,57 @@ The aim of this simple "guide" is to present most of the (best) software I have 
 
 Also note that some programs may fit several categories listed below. I will list it were I feel it suites best.
 
-## Terminal
+## Table of Contents
+
+* [Terminal applications](#terminal-applications)
+* [Text editors](#text-editors)
+* [Programming](#programming)
+* [Web](#browsers---web)
+* [Multimedia](#multimedia)
+* [Document creation](#document-creation)
+* [Office](#office-software)
+* [Engineering, Science](#engineering---science)
+* [Games](#games)
+* [Other utilities](#miscellaneous)
+* [Extra](#extra)
+    * [Programming languages](#programming-languages)
+    * [Networks and social media](#networks---social-media)
+
+## Linux/BSD/Illumos distributions
+
+### Stability wise
+
+These distributions are mostly based on the premise of delivering a stable experience. However, this does not mean you are bounded to use only _stable_ software. Some distributions allow you to use newer software, such as Alpine (community repo), OpenSUSE (Tumbleweed), MX Linux (debian backports and testing), NetBSD (current branch), FreeBSD (current branch).
+
+* [Alpine Linux](https://alpinelinux.org/):
+
+* [MX Linux](https://mxlinux.org/):
+
+* [CentOS Linux](https://www.centos.org/):
+
+* [OpenSUSE Linux](https://www.opensuse.org/): . [GeckoLinux](https://geckolinux.github.io/):
+
+* [OpenIndiana Illumos](https://www.openindiana.org/):
+
+* [NetBSD](http://netbsd.org/):
+
+* [FreeBSD](https://www.freebsd.org/):
+
+---
+
+### More dynamic targeting descktops
+
+* [Void Linux](https://voidlinux.org/):
+
+* [KDE Neon Linux](https://neon.kde.org/download):
+
+* [Solus](https://getsol.us/home/):
+
+* [Fedora Linux](https://getfedora.org/):
+
+* 
+
+## Terminal applications
 
 No "low level" utilities will be listed below, just the programs that you will find yourself dealing directly, this means no mention to tar, grep, awk, sed, cups, gvfs, ntfs-3g, etc. However, they are all wonderful programs.
 
@@ -72,7 +122,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Joe](https://joe-editor.sourceforge.io/): it is a minimal, yet severely overlooked editor that resembles the way editors used to be. It is more feature packed than what it seems.
 
-* [Microsoft Visual Studio Code](https://code.visualstudio.com/): a modern text editor with everything you may need. While not as small than the rest, it is beautiful, fast, and the best for embedded development with the combination of [PlatformIO](https://platformio.org/).
+* [Microsoft Visual Studio Code](https://code.visualstudio.com/): a modern text editor with everything you may need. While not as small as the rest, it is beautiful, fast, and the best for embedded development with the combination of [PlatformIO](https://platformio.org/). Note that the binaries distibuted directly from the web page are not under a libre licence.
 
 ## Programming
 
@@ -196,7 +246,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Handbrake](https://handbrake.fr/): video transcoder. For .mkv there is a better tool [MKVToolsNix](https://mkvtoolnix.download/).
 
-## Document editing
+## Document creation
 
 For office utilities, please, refer to the next section. Use [Hunspell](https://hunspell.github.io/) or [Aspell](http://aspell.net/) for spelling.
 
@@ -262,7 +312,7 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 ## Engineering - Science
 
-* [COIN-OR](https://www.coin-or.org/): complete suite for optimization and general operational research.
+* [COIN-OR](https://www.coin-or.org/): complete suite for optimization and general operational research. CMPL is their own mathematical programming language. Coliop is a basic GUI to write CMPL.
 
 * [Jupyter](https://jupyter.org/): notebook.
 

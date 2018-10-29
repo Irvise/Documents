@@ -10,6 +10,7 @@
 \usepackage{hyperref}
 \usepackage{multicol}
 \usepackage{dirtree}
+\usepackage{listings}
 \usepackage{etoolbox} % to reduce spacing in bearmers toc
 \usetheme[block=fill]{metropolis}
 
@@ -28,10 +29,23 @@
 	\maketitle
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Índice}
+\begin{frame}{Índice}
 %\vfill
 \tableofcontents
 %\clearpage
+\end{frame}
+
+\begin{frame}{Resumen}
+\begin{enumerate}
+	\item Diseño del documento
+	\item Configuración del documento
+	\item Estructuración del texto
+	\item Herramientas para el trabajo de texto
+	\item Entornos útiles
+	\item Referencias y bibliografía
+	\item Escritura científica
+	\item Recursos extra
+\end{enumerate}
 \end{frame}
 
 \section{Historia}
@@ -39,7 +53,6 @@
 \begin{frame}[plain]
 	\begin{figure}
 		\centering
-		\vspace*{10px}
 		\includegraphics[height=0.75\linewidth]{Donald-Knuth-Stanford-Computer-Science}
 		\caption{Donald Ervin Knuth. Creador de \TeX}
 		\label{fig:donald-knuth-stanford-computer-science}
@@ -134,7 +147,7 @@
 			\dirtree{%
 				.1 /. 
 				.2 main.tex. 
-				.2 bliblio.bib. 
+				.2 biblio.bib. 
 				.2 \dots. 
 				.2 Cap1. 
 				.3 cap1.tex. 
@@ -151,6 +164,18 @@
 	\end{columns}
 \end{frame}
 
+\begin{frame}{Buenas prácticas generales}
+\large
+	\begin{enumerate}
+		\item Cuando algo falla, leed el mensaje de error
+		\item Nunca, nunca, nunca empecéis desde cero. \textbf{¡Usad plantillas!}
+		\item Sed organizados
+		\item Haced las cosas sencillas, si no es obvio, no lo hagas
+		\item Buscad ayuda (en mi o en los recursos mencionados)
+		\item ¡Comentad lo que hacéis! \% Comentario
+	\end{enumerate}
+\end{frame}
+
 \subsection{\texttt{\ documentclass y preámbulo}}
 
 \begin{frame}[fragile]{Estructura general de los comandos}
@@ -159,28 +184,440 @@
 		\verb|\hrulefill| $\rightarrow$ \hrulefill \\
 		\verb|\textit{Hola}| $\rightarrow$ \textit{Hola} \\
 		\verb|\textcolor{blue}{azul}| $\rightarrow$ \textcolor{blue}{azul}
-	\end{block}
+	\end{block} \pause
 	\begin{block}{Entornos}
-		Como comandos normales, pero cuya función es más extensa y compleja; tienen la estructura \verb|\begin{entorno}[opciones]{argumento}| \verb| content... | 
-	\verb|\end{frame}|
+		Como comandos normales, pero cuya función es más extensa y compleja; tienen la estructura: \verb|\begin{entorno}[opciones]{argumento}| \verb| content... | 
+	\verb|\end{frame}|. En IDE \texttt{Crtl + e}
 	\end{block}
 \end{frame}
 
-\begin{frame}{Comienzo de nuestro documento}
-	$\bullet$ \textbf{\texttt{\ documentclass}}
-	\begin{block}{}
-		\textbf{Nuestra primera línea.} Define la naturaleza de nuestro documento.
+\begin{frame}[fragile]{Comienzo de nuestro documento}
+	\begin{block}{\textbf{\texttt{$\textbackslash$documentclass}}}
+		\underline{\textbf{Nuestra primera línea.}} Define la naturaleza de nuestro documento. Ejemplo:  \verb|\documentclass[12pt, twoside, ...]{article}|
 	\end{block}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\textbf{Argumentos}
+			\begin{itemize}
+				\item \texttt{article}
+				\item \texttt{book}
+				\item \texttt{letter}
+				\item \texttt{beamer}
+				\item $\vdots$
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\textbf{Opciones}
+			\begin{itemize}
+				\item Tamaño letra: \texttt{10pt}
+				\item Orientación: \texttt{landscape}
+				\item Columnas: \texttt{twocolumn}
+				\item Centrado: \texttt{twoside}
+				\item $\vdots$ \texttt{draft, openright...}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Importación de herramientas, $\textbackslash$\texttt{usepackage\{\}}}
+	En \LaTeX\ se expande la funcionalidad mediante paquetes, algunos son \textbf{\underline{muy}} necesarios. Esta sección debería ir justo debajo del \texttt{documentclass}
+	\verb|\usepackage{geometry} % Ajusta geometrías| \\
+	\verb|\usepackage[spanish]{babel} % Formato en castellaño|
+	\verb|"{graphicx} % Imágenes, pdfs, etc|
+	\verb|"{hyperref} % Referencias como tienen que ser|
+	\verb|"[utf8]{inputenc} % Tíldes y otros caracteres|
+	\verb|"{amsmath, amssymb} % Escritura científica| \\
+	\hrulefill\\
+	\textbf{Ver también:} \texttt{makeidx (índices avanzados), fancyhdr (cabeceras y pie de página), multicol (columnas personalizadas), booktabs (para tablas preciosas)}
+\end{frame}
+
+\begin{frame}[fragile]{Datos previos al documento escrito, preámbulo}
+Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos generales en el preámbulo para que el los trate como deba.
+\begin{block}{Información del autor y texto}
+	\verb|\author{Fernando ... \and Miguel \thanks{...}}| \\
+	\verb|\title{Título}| \\
+	\verb|\date{\today} % O en blanco si no se quiere|
+\end{block}
+\begin{block}{Secuencias de diseño o configuración}
+	Si estuviéramos usando \texttt{fancyhrd, makeidx o similares} tendríamos que escribir en el preámbulo su diseño o configuración.
+\end{block}
+\end{frame}
+
+\begin{frame}{En resumen}
+	\textbf{Comienzo:} \texttt{documentclass}
+	\vfill
+	\textbf{Paquetes:} \texttt{usepackage}
+	\vfill
+	\textbf{Preámbulo:} \texttt{configuraciones generales}
 \end{frame}
 
 \subsection{Manejo del texto}
-asdf
+
+\begin{frame}[fragile]{Comienzo del texto}
+	\textbf{TODO} el documento se encontrará entre \begin{verbatim}
+	\begin{document}
+	\end{document}
+	\end{verbatim}
+	Comenzamos con:
+	\begin{verbatim}
+		\begin{document}
+		\begin{titlepage} % Portada
+		\maketitle % Generación de portada automática
+		\thispagestyle{empty} % Para que no salga numerada
+		\begin{abstract}
+		Resumen inicial (abstract). Formateo automático
+		\end{abstract}
+		\end{titlepage}
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Cont.}
+	\begin{verbatim}
+		Cont.
+		\cleardoublepage % Nueva página e inicio en derecha
+		\pagenumbering{Roman} % Numeración romana
+		\tableofcontents % Esta estructura es un ejemplo
+		\newpage
+		\listoffigures % Estos tres comandos también se 
+		\newpage
+		\listoftables % suelen poner en el apéndice
+		\newpage
+		\listoflistings % Para código
+		\pagenumbering{arabic} % Numeración arábica
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Cont.}
+	Recordemos que en \LaTeX\ se puede dividir el texto. Las partes se incluyen con: \verb|\include{file}|
+	\begin{verbatim}
+		Cont.
+		% Ahora podemos importar los distintos archivos
+		\include{Cap1/cap1} % Incluimos el archivo de la
+		% carpeta Cap1. El archivo va sin extensión .tex
+		\include{Cap2/cap2} 
+		% Etcétera
+		\appendix % Iniciamos apéndice
+		\include{lo_que_sea}
+		% Incluir bibliografía (se verá después el cómo)
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Seccionamiento del texto}
+	En la clase \texttt{article}, se tienen principalmente tres niveles:\\
+	\verb|\section[short title]{text}|\\
+	\verb|\subsection[short title]{text}|\\
+	\verb|\subsubsection[short title]{title}|\\
+	\texttt{[short title]} es lo que aparecería en el índice y en el encabezado. Si no se quiere numerado ni en el índice: \verb|\section*{title}|\\
+	\hrulefill\\
+	Para escribir párrafos, dejar una línea en blanco entre ellos. Para romper una línea usar \verb|\\|
+\end{frame}
+
+\begin{frame}[fragile]{Estilos de texto}
+	\texttt{C:} control, \texttt{S:} shift
+	\begin{block}{Los más comunes y recomendados}
+		\begin{description}
+			\item[Negrita/Boldface] \verb|\textbf{text}| \textbf{text}. En IDE \texttt{C + b}
+			\item[Cursiva/Énfasis] \verb|\emph{text}| \emph{text}. En IDE \texttt{C + S + e}
+			\item[Subrayado] \verb|\underline{text}| \underline{text}.
+			\item[SmallCaps] \verb|\textsc{text}| \textsc{text}. En IDE \texttt{C + S + c}
+			\item[Typewritter] \verb|\texttt{text}| \texttt{text}. En IDE \texttt{C + S + t}
+		\end{description}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile, allowframebreaks]{Otras herramientas útilies}
+	\begin{block}{Medidas y espaciados. No los deberíais necesitar}
+		\begin{itemize}
+			\item \verb|\hfill| rellena espacio horizontal.
+			\item \verb|\vfill| ídem, pero en vertical.
+			\item \verb|\hspace{text}| espaciado horizontal (usar \texttt{em como medida}). Tienen versiones forzadas.
+			\item \verb|\vspace{text}| ídem pero en vertical. Ambos permiten valores negativos.
+			\item \verb|\hrulefill|
+		\end{itemize}
+		\hrulefill
+	\end{block}
+	\begin{block}{Cont. medidas ``programáticas"}
+		\begin{itemize}
+			\item \verb|\textwidth| ancho del texto disponible (permite operaciones matemáticas). \verb|\columnwidth| es el ancho de la columna.
+			\item \verb|\textheight| altura de la zona de texto.
+			\item \verb|\linewidth| como \verb|\textwidth| pero relativo al entorno de trabajo
+		\end{itemize}
+	Estas son muy útiles para su uso con figuras o en tablas
+	\end{block}
+	\begin{block}{Notas a pie de página}
+		\verb|\footnote{text}|. Las notas a pie de página van integradas en el texto y su formato es automático. Por ejemplo\footnote{Damos una aclaración}. \\ \hrulefill \\
+		\verb|Por ejemplo\footnote{Damos una aclaración}.|
+	\end{block}
+\end{frame}
+
 \subsubsection{Entornos comunes}
+
+\begin{frame}[fragile, allowframebreaks]{Tablas}
+		\begin{block}{Entorno tabular/array básico}
+		Esto es una introducción básica, pero suficiente, cubrirá vuestras necesidades. El IDE tiene una herramienta para hacer tablas \textit{ala} Excel.
+		\verb|\begin{tabular}[opciones]{alineacion}|\\
+		\texttt{contenido}\\
+		\verb|\end{tabular}|\\
+		
+		\texttt{p, m, b} sirven para hacer párrafos (top, middle, bottom)
+	\end{block}
+	Ejemplo: 
+	\begin{tabular}{l||c|r}
+		11            &  12   &            13 \\
+		\hline\hline
+		hola          & hola  &          hola \\
+		\hline
+		adiós querida & adiós & Sayonara Baby
+	\end{tabular}
+	\begin{block}{Código anterior (el espaciado lo da el editor)}
+		\vspace*{-1em}\begin{verbatim}
+		\begin{tabular}{l||c|r}
+		11            &  12   &            13 \\
+		\hline \hline
+		hola          & hola  &          hola \\
+		\hline
+		adiós querida & adiós & Sayonara Baby
+		\end{tabular}
+		\end{verbatim}\vspace*{-1em}
+	\end{block}
+	El \texttt{\&} es bien importante, es el símbolo de separación y alineación. \\
+	\textbf{Nota:} ver \href{https://www.ctan.org/pkg/booktabs/}{\texttt{booktabs}}, \href{https://tex.stackexchange.com/questions/163061/help-with-a-booktabs-table}{(ejemplo)}
+\end{frame}
+
+\begin{frame}[fragile, allowframebreaks]{Items, enumeraciones y descripciones/listas}
+
+\begin{block}{Items}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Para \verb|\item| automático en IDE \texttt{C + S + i}
+				\item[Newww] Ejemplo bastante largo para que se vean las diferencias
+				\item Otro item
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.35\linewidth}
+			\begin{verbatim}
+				\begin{itemize}
+				\item Para ...
+				\item[Newww] E...
+				\item Otro item
+				\end{itemize}
+			\end{verbatim}
+		\end{column}
+	\end{columns}
+\end{block}
+
+\begin{block}{Enumeraciones}
+	\begin{columns}
+		\begin{column}{0.35\textwidth}
+			\begin{enumerate}
+				\item Ejemplo
+				\item Cont.
+				\begin{enumerate}
+					\item Anidados
+				\end{enumerate}
+			\end{enumerate}
+		\end{column}
+		\begin{column}{0.4\linewidth}
+			\begin{verbatim}
+			\begin{enumerate}
+			\item Para ...
+			\item Cont.
+			\begin{enumerate}
+			\item Anidados
+			\end{enumerate}
+			\end{enumerate}
+			\end{verbatim}
+		\end{column}
+	\end{columns}
+\end{block}
+
+\begin{block}{Descripciones/listas}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{description}
+				\item[label muy largo] Ejemplo de texto un tanto largo para que se vean las diferencias
+				\item[Nombre muy largo] Descripción del texto
+			\end{description}
+		\end{column}
+		\begin{column}{0.4\linewidth}
+			\begin{verbatim}
+			\begin{description}
+			\item[label] Ejem...
+			\item[Nombre] Cont.
+			\end{description}
+			\end{verbatim}
+		\end{column}
+	\end{columns}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Imágenes u otros elementos gráficos (pdfs)}
+	\begin{block}{La imagen al inicio de la presentación}
+		\vspace*{-1em}
+		\begin{verbatim}
+		\begin{figure}[h] % Opciones h, t, b, c
+		\centering
+		\includegraphics[height=0.75\linewidth]{Donald...}
+		\caption{Donald Ervin Knuth. Creador de \TeX}
+		\label{fig:donald-knuth-stanford-computer-science}
+		\end{figure}
+		\end{verbatim}\vspace*{-1em}
+	\end{block}
+	\texttt{includegraphics} nos da opciones para el control de la altura, ancho y escala. Sirve para un buen número de formatos, incluido \texttt{.pdf}. \verb|\caption[short title]{text}| es el texto que aparece debajo de la imagen y en la \texttt{tof.} Usad el \textit{wizard} que trae el IDE.
+\end{frame}
+
+\begin{frame}[fragile]{Programas y fragmentos de código}
+	Se usa \verb|\usepackage{listings}|. Es personalizable hasta el final, desde color del fondo, esquemas de color para el código, reconoce docenas de lenguajes, etc. \textbf{Por favor,} miraros la documentación y copiad ejemplos.
+	\begin{columns}
+		\small
+		\begin{column}{-\textwidth}
+			\begin{lstlisting}[language=Pascal]
+			for i:=maxint to 0 do
+			begin
+			{ do nothing }
+			end;
+			Write('Case insensitive ');
+			Write('Pascal keywords.');
+			\end{lstlisting}
+		\end{column}
+		\hspace*{-3em}\begin{column}{\textwidth}
+			\begin{verbatim}
+			\begin{lstlisting}[language=Pascal]
+			for i:=maxint to 0 do
+			begin
+			{ do nothing }
+			end;
+			Write('Case insensitive ');
+			Write('Pascal keywords.');
+			\end{lstlisting}
+			\end{verbatim}
+		\end{column}
+	\end{columns}
+	
+	
+\end{frame}
 
 \subsection{Referencias y bibliografía}
 
+\begin{frame}[fragile, allowframebreaks]{Referencias}
+	\vspace*{-0.5em}
+	\begin{block}{\texttt{Labels,} etiquetado}
+		\verb|\label{key}| nos permite etiquetar lo que deseemos referenciar (anterior o posteriormente). Ejemplos:
+		\begin{itemize} 
+			\item \verb|\label{eq:maxwell}| ecuación de Maxwell
+			\item \verb|\label{fig:imagen}| alguna imagen
+			\item \verb|\label{tab:tabla}| alguna tabla
+			\item \verb|\label{sec:appendixa}| apéndice A
+			\item Etcétera
+		\end{itemize}
+		Usadla/Indicádla a continuación de lo que queráis citar, dentro del entorno.
+	\end{block}
+
+	\begin{block}{Referencias, citas}
+		\verb|\autoref{key}| nos generará la referencia de manera automática, tendrá en cuenta el entorno usado, sección, etc. Es del paquete \texttt{hyperref}. Ver Figura~ \ref{fig:donald-knuth-stanford-computer-science}. Ver también el paquete \texttt{cleveref}.
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile, allowframebreaks]{Bibliografía, programas externos}
+	\small
+	No son necesarios para trabajar en \LaTeX\ como veremos. Pero son muy útiles para el manejo de bibliografías grandes y complicadas. Además de traer muchas herramientas de búsqueda y formato de gran ayuda. \\
+	\hrulefill \\
+	Recordad que hay servicios bibliográficos, como \href{https://scholar.google.com/}{\textbf{Google Scholar,}} donde podemos buscar la información de las referencias. Además, todos estos servicios sacan formato \textrm{Bib\TeX.} \\
+	\hrulefill \\
+	Nota, hay varios procesadores internos de bibliografía, nosotros usaremos el más sencillo, aunque se recomienda que les echéis un ojo a \textrm{Bib\LaTeX y Biber.}
+	
+	\begin{block}{Programas}
+	\begin{description}
+		\item[\href{https://www.zotero.org/}{Zotero}] Multiplataforma y exporta tanto a \LaTeX\ como a Word. Todas las herramientas necesarias están incluidas excepto un motor de búsqueda con texto (puede ISBNs, DOIs, etc), aunque tiene integración con Firefox y Safari.
+		\item[\href{http://www.jabref.org/}{JavRef}] Multiplataforma y también exporta a Word. Completo y avanzado. También tiene integración con Firefox.
+		\item[\href{https://userbase.kde.org/KBibTeX}{KBibTeX}] Solo Linux. Muy simple pero sencillo de usar y flexible, además de traer varios motores de búsqueda.
+	\end{description}	
+	\end{block}
+	\vspace*{-3em}
+\end{frame}
+
+\begin{frame}[fragile, allowframebreaks]{Bibliografía en \LaTeX\ uso en el documento}
+	\begin{block}{Citas}
+		Para citar una obra simplemente se hace \verb|\cite{bibid}| donde se quiera la referencia. El \texttt{bibid} es el identificador de nuestra referencia.
+	\end{block}
+
+	\begin{block}{Estructura del archivo \texttt{.bib}}
+		Todas las entradas empiezan con una @ y su identificador (\texttt{article, journal, book, etc}); esto sirve para darles formato. A continuación se abren llaves. \\
+		Entre las llaves se escribirá la información separada por comas. Lo \underline{más importante} es la primera palabra que pondremos, esa será la identificación para el comando \verb|\cite{bibid}|. A continuación rellenaremos tantos campos como necesitemos \texttt{año, título, autor, url, editor, etc}, tal y como está indicado en el ejemplo.
+	\end{block}
+	\vfill
+
+	\small
+	\begin{block}{El archivo \texttt{.bib}}
+		El archivo \texttt{.bib,} que se recomienda que esté junto con el documento \texttt{.tex} principal, es nuestra \textit{base de datos} con las referencias. Un ejemplo sería:
+		\vspace{-1.4em}
+		\begin{verbatim}
+		@BOOK{White201501,
+		title={Fluid Mechanics},
+		author={Frank M. White},
+		publisher={McGraw-Hill Education},
+		year={2015},
+		edition={8},
+		isbn={9780073398273},
+		totalpages={864},
+		timestamp={2018.10.29},
+		}
+		\end{verbatim}
+		\vspace{-1.4em}
+	\end{block}
+	\vspace{-1.4em}
+	\normalsize
+	
+\end{frame}
+
 \section{Escritura científica}
 
+\begin{frame}[fragile]{Comenzamos}
+\small
+Notas importantes en la lógica de la escritura científica en \LaTeX:
+\begin{block}{Desarrollo}
+	$\bullet$ \LaTeX\ se creó para permitir una fácil y rápida creación de textos, aunque parezca poco intuitivo al principio. \\
+	\textbf{Regla de la mano derecha:} si algo es muy utilizado y básico en el mundo de las matemáticas y de las ciencias, está acortado, simplificado. El resto son los nombres descriptivos. \textbf{Ejemplo:} la integral cerrada se usa mucho $\rightarrow$ está simplificada: $$\oint = \verb|$\oint$|$$ La doble integral cerrada sigue su desarrollo, pero no viene en Amsmath: \verb|$\oiint$|. La flecha a la derecha no es un símbolo matemático muy querido $\rightarrow$ no se abrevia \verb|$\rightarrow$|
+\end{block}
+\end{frame}
+
 \section{Resumen y otros recursos}
+
+\begin{frame}{Resumen}
+	\begin{enumerate}
+		\item Diseño del documento
+		\item Configuración del documento
+		\item Estructuración del texto
+		\item Herramientas para el trabajo de texto
+		\item Entornos útiles
+		\item Referencias y bibliografía
+		\item Escritura científica
+		\item Recursos extra
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Temas no tratados}
+	Recursos que no se han mencionado pero que son de gran ayuda (dentro o fuera de TF(G,M))
+	\begin{enumerate}
+		\item \texttt{MACROS:} permiten hacer comandos especializados. Muy útil cuando se tienen estructuras repetitivas.
+		\item \texttt{Beamer:} entorno de presentaciones más usado, por ejemplo esta misma.
+		\item \texttt{Lua\LaTeX, Xe\LaTeX:} procesadores más modernos y con más herramientas, automatización y programables.
+		\item Preprocesadores de bibliografía como \texttt{biber.}
+		\item Distintas tipografías (hay algunas preciosas).
+		\item Más paquetes que os sean de ayuda, pero tenéis los suficientes.\texttt{Scoping}
+		\item Aprended bien el editor (mi propuesta \TeX Studio).
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Fin}
+	\centering{\LARGE \textsc{¡Fin y gracias!}}
+	\begin{description}
+		\item[Contacto] \texttt{fernando.oleo@alu.comillas.edu}
+		\item[Plantillas] La de la universidad o la que tendréis en el mismo link que esta presentación
+		\item[Agradecimientos] \textsc{\mbox{Daniel Andrés Arcones}, \mbox{Pablo Frías Marín,} \mbox{Aurelio García Cerrada}}\\ y las asociaciones compañeras
+	\end{description}
+
+\end{frame}
 
 \end{document}
