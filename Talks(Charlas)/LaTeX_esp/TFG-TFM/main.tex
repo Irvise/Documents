@@ -344,6 +344,9 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 		\end{itemize}
 	Estas son muy útiles para su uso con figuras o en tablas
 	\end{block}
+	\begin{block}{Bloques \textit{(boxes)}}
+		Hay una buena ristra. El más importante, que puede que necesitéis, es \verb|\mbox{text}|. Este forma un bloque único inseparable (útil para, por ejemplo, nombres propios o números).
+	\end{block}
 	\begin{block}{Notas a pie de página}
 		\verb|\footnote{text}|. Las notas a pie de página van integradas en el texto y su formato es automático. Por ejemplo\footnote{Damos una aclaración}. \\ \hrulefill \\
 		\verb|Por ejemplo\footnote{Damos una aclaración}.|
@@ -494,8 +497,6 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 			\end{verbatim}
 		\end{column}
 	\end{columns}
-	
-	
 \end{frame}
 
 \subsection{Referencias y bibliografía}
@@ -644,6 +645,156 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 		\hspace*{-1em} \verb|\[ \zeta(s) = \sum\limits_{n=1}^{\infty}\frac{1}{n^s}|
 		\verb|\Gamma(z) = \int_{0}^{\infty} t^{z-1} e^{-t} dt\]|
 
+\end{frame}
+
+\begin{frame}[fragile]{Escritura científica, dos formas}
+	\small En \LaTeX\ existen dos formas de escribir fórmulas matemáticas. La razón es simple, estilo y formato.
+	\begin{block}{Inline}
+		Traducido al español: en línea. Se usa para meter símbolos y fórmulas \textbf{dentro del texto.} Este modo respetará el formato que posea el texto. Se accede con el signo del dólar. Ejemplo: $\frac{2^2}{4} = 1$ \verb|$\frac{2^2}{4} = 1$|, \verb|\(...\)| también se permite.
+	\end{block} \pause
+	\begin{block}{Display (En TF*, usad equation o similar)}
+		Se utiliza para la escritura a parte de la expresión matemática. Genera un espacio nuevo para la fórmula. Se accede con \verb|\[...\]|. \[\frac{2^{23}}{4} = 2^{21}\] \verb|\[\frac{2^{23}}{4} = 2^{21}\]|.
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Matrices}
+\small
+	\begin{block}{Arrays/Tablas}
+		Funciona igual que el entorno tabular pero se usa dentro del entorno de escritura matemática. Juntando esto con el \verb|\left(...\right)| o cualquier otro símbolo podemos hacer matrices.
+	\end{block} \pause
+	\begin{block}{Pero \LaTeX\ es bien eficiente}
+		Las matrices son una herramienta muy usada, por lo que hay una forma sencilla. \verb|\begin{*matrix}...\end{*matrix}|. No requiere de opciones de alineación. \textbf{*:} significa el tipo de puntuación a usar: \textbf{p:} paréntesis; \textbf{v:} vertical; \textbf{b:} corchetes; \textbf{B:} llaves. \textbf{Ejemplo:}
+		\[\begin{pmatrix}
+		1 & 2 \\
+		3 & 4
+		\end{pmatrix} \rightarrow 
+		\begin{vmatrix}
+		1 & 2 \\
+		3 & 4
+		\end{vmatrix} = -2 \Rightarrow 
+		\begin{bmatrix}
+		1 & 2 \\
+		3 & 4
+		\end{bmatrix}^2 = 
+		\begin{Bmatrix}
+		7 & 10 \\
+		15 & 22
+		\end{Bmatrix}\]
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{El ejemplo de las matrices}
+	\footnotesize \vspace*{-1em}
+	\begin{verbatim}
+	\[\begin{pmatrix}
+	1 & 2 \\
+	3 & 4
+	\end{pmatrix} \rightarrow 
+	\begin{vmatrix}
+	1 & 2 \\
+	3 & 4
+	\end{vmatrix} = -2 \Rightarrow 
+	\begin{bmatrix}
+	1 & 2 \\
+	3 & 4
+	\end{bmatrix}^2 = 
+	\begin{Bmatrix}
+	7 & 10 \\
+	15 & 22
+	\end{Bmatrix}\]
+	\end{verbatim} \normalsize
+\end{frame}
+
+\begin{frame}[fragile]{Entorno equation(*)}
+	\begin{block}{La base de la estructuración}
+		\verb|\begin{equation}...\end{equation}| tiene los mismos efectos que \verb|\[...\]| sin embargo, para ecuaciones formales, importantes y largas es preferido. Da mayor claridad al código, otros entornos se pueden usar dentro suyo y permite la \textbf{referencia y numeración.} Para evitar la numeración se le pone un * al final de su declaración.
+	\end{block} \pause\small
+	\begin{block}{Ejemplo}
+		\begin{equation} \label{ec:ejemplo1}
+		f(x)=(x+a)(x+b)
+		\end{equation}
+		Como se puede ver en la Ecuación \ref{ec:ejemplo1}, \LaTeX\ es bien sencillo.
+		\vspace*{-1.5em}
+		\begin{verbatim}
+		\begin{equation} \label{ec:ejemplo1}
+		f(x)=(x+a)(x+b)
+		\end{equation}
+		\end{verbatim}\vspace*{-1em} \normalsize
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Ecuaciones alineadas}
+	Existen varios entornos, todos con sus peculiaridades, pero prácticamente idénticos. Los más conocidos son \texttt{split, aligned \& align}.  \texttt{align} numera cada salto de línea por defecto.
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{equation}
+				\begin{split}
+				a & = c + d \\
+				& = e + f
+				\end{split}
+			\end{equation}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{verbatim}
+				\begin{equation}
+				\begin{split}
+				a & = c + d \\
+				& = e + f
+				\end{split}
+				\end{equation}
+			\end{verbatim}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Más flexibilidad en la escritura}
+	\LaTeX\ aporta una forma elegante de incluir anotaciones en nuestras fórmulas
+	\begin{block}{Anotaciones sobre fórmulas}
+		\begin{itemize}
+			\item \verb|\overset{}{} y \underset{}{}| Nos permiten poner unos símbolos encima de otros. Ejemplo:  $A \overset{!}{=} B; A \stackrel{!}{=} B \rightarrow$ \verb|$A \overset{!}{=} B; A \stackrel{!}{=} B$|. \pause
+			\item \verb|\overbrace{} y \underbrace{}| Nos permiten coger trozos de ecuaciones. Ejemplo: $z = \overbrace{ \underbrace{x}_\text{real} + \underbrace{iy}_\text{imaginario} }^\text{número complejo} \rightarrow$ \small \verb|$z = \overbrace{\underbrace{x}_\text{real} +| \verb|\underbrace{iy}_\text{imaginario}}|
+			\verb|^\text{número complejo}$| \normalsize
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Tipografía}
+	Para introducir texto normal se usa \verb|$\text{text}$| \Large
+	\begin{itemize}
+		\item \verb|\mathbb{}:| $\mathbb{SOLO \; MAY\acute{U}SCULAS}$
+		\item \verb|\mathbf{}| $\mathbf{1234 \quad text}$
+		\item \verb|\mathfrak{}| $\mathfrak{1234 \quad text \quad Re, Z, L, F, N}$
+		\item \verb|\mathrm{}| $\mathrm{1234 \quad text}$
+		\item \verb|\mathcal{}| $\mathcal{SOLO \; MAY\acute{U}SCULAS}$
+		\item \verb|\mathrm{}| $\mathsf{1234 \quad text}$
+		\normalsize
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Cuadros}
+	\small
+	\begin{block}{Solo ecuación}
+		\verb|\begin{equation}\boxed{f(x)=(x+a)(x+b)}\end{equation}|
+		\begin{equation}
+		\boxed{f(x)=(x+a)(x+b)}
+		\end{equation}
+	\end{block}	
+	\begin{block}{Toda la ecuación}
+		\begin{center}
+			\fbox{\begin{minipage}{0.9\textwidth}
+					\begin{equation}
+					f(x)=(x+a)(x+b)
+					\end{equation}
+			\end{minipage}}
+		\end{center}
+		\begin{verbatim}
+		\fbox{\begin{minipage}{0.9\textwidth}
+		\begin{equation}
+		f(x)=(x+a)(x+b)
+		\end{equation}
+		\end{minipage}}
+		\end{verbatim}
+	\end{block}
 \end{frame}
 
 \section{Resumen y otros recursos}
