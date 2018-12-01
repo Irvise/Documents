@@ -42,7 +42,7 @@ These distributions are mostly based on the premise of delivering a stable exper
 
 ---
 
-### More dynamic targeting descktops
+### More dynamic targeting desktops
 
 * [Void Linux](https://voidlinux.org/):
 
