@@ -9,7 +9,7 @@ spanish and some others in english, even german! Feel free to read them and use 
 They are mostly to help myself, but drop me a message if you found them useful.
 
 ## Chuletas
-Mostly written in Spanish, see its own README
+Written in Spanish, see its own README.
 
 ## Talks(Charlas)
 Resources of the talks I give. Mostly presentations.
