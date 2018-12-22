@@ -28,15 +28,15 @@ These distributions are mostly based on the premise of delivering a stable exper
 
 * [Alpine Linux](https://alpinelinux.org/):
 
-* [MX Linux](https://mxlinux.org/):
+* [Devuan](https://devuan.org/): Debian without systemd. A more userfriendly solution, geared towards the desktop, would be [MX Linux](https://mxlinux.org/).
 
 * [CentOS Linux](https://www.centos.org/):
 
-* [OpenSUSE Linux](https://www.opensuse.org/): . [GeckoLinux](https://geckolinux.github.io/):
+* [OpenSUSE Linux](https://www.opensuse.org/): usually forgotten, however, one of the best distributions out there. [GeckoLinux](https://geckolinux.github.io/): is a more user friendly solution based on OpenSUSE.
 
 * [OpenIndiana Illumos](https://www.openindiana.org/):
 
-* [NetBSD](http://netbsd.org/):
+* [NetBSD](http://netbsd.org/): targets embedded systems, yet it is a joy to use it, simple and _hacky._
 
 * [FreeBSD](https://www.freebsd.org/):
 
@@ -46,13 +46,17 @@ These distributions are mostly based on the premise of delivering a stable exper
 
 * [Void Linux](https://voidlinux.org/):
 
+* [Artix Linux](https://artixlinux.org/): Arch-based OpenRC distribution.
+
 * [KDE Neon Linux](https://neon.kde.org/download):
 
 * [Solus](https://getsol.us/home/):
 
 * [Fedora Linux](https://getfedora.org/):
 
-* 
+* See [OpenSUSE Tumbleweed](https://en.opensuse.org/Portal:Tumbleweed). See [Devuan](https://devuan.org/) with Ceres repositories.
+
+* [GuixSD](https://www.gnu.org/software/guix/): a fully libre distribution centered arround the Guix package/system manager.
 
 ## Terminal applications
 
@@ -82,7 +86,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Rsync](https://rsync.samba.org/): an outstanding file transfer utility. It is mainly targeted towards incremental transfers. It is mainly used for backup or complex copying.
 
-* [Borg](https://github.com/borgbackup/borg): as it says in it's description: Deduplicating archiver with compression and authenticated encryption. It works wonders for backups.
+* [Borg](https://github.com/borgbackup/borg): as it says in it's description: Deduplicating archiver with compression and authenticated encryption. It works wonders for backups. A similar tool would be [Restic](https://restic.net/).
 
 * [Atool](http://www.nongnu.org/atool/): a multi-format archiver and extractor.
 
@@ -94,7 +98,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 ### Networking
 
-* [Curl](https://curl.haxx.se/): the Swiss knife tool to transfer data with URLs.
+* [Curl](https://curl.haxx.se/): the Swiss knife tool to transfer data with URLs. A less flexible, yet simpler and useful is [wget](https://www.gnu.org/software/wget/).
 
 * [Rtorrent](https://github.com/rakshasa/rtorrent): powerful torrent management utility. I recommend using [Pyroscope's extended distribution](https://github.com/pyroscope/rtorrent-ps). If a GUI is needed then [Qbittorrent](https://www.qbittorrent.org/) or [Transmission](https://transmissionbt.com/) are available with optional terminal backends.
 
@@ -156,7 +160,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Iridium](https://iridiumbrowser.de/): de-googled Chromium.
 
-* [Falkon](https://www.falkon.org/): QtWebEngine based browser.
+* [Falkon](https://www.falkon.org/): QtWebEngine based browser; another WebEngine-based browser, targeted towards heavy keyboard use (vi keybindings) is [Qute Browser](https://qutebrowser.org/). [Otter Browser](https://otter-browser.org/) is also worth checking out.
 
 * [W3m](http://w3m.sourceforge.net/): terminal web browser with support for images.
 
@@ -164,7 +168,17 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [HTTrack](http://www.httrack.com/): page cloning utility. It has an official GUI HTTraQt.
 
-* [Mumble](https://wiki.mumble.info/wiki/Main_Page): VoIP.
+### Recommended Add-ons for Firefox (most are Chromium compatible)
+
+* [uMatrix](https://github.com/gorhill/uMatrix): request filter.
+
+* [uBlock Origin](https://github.com/gorhill/uBlock): ad and tracker blocker.
+
+* [Decentraleyes](https://decentraleyes.org/): local CDN network to serve the most requested packages.
+
+* [Cookie AutoDelete](https://github.com/Cookie-AutoDelete/Cookie-AutoDelete): easy-peasy cookie management.
+
+* [Violentmonkey](https://violentmonkey.github.io/): userscript manager. There is also [Greasemonkey](https://www.greasespot.net/).
 
 ## Multimedia
 
@@ -343,6 +357,8 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 * [ElmerFEM](https://www.csc.fi/web/elmer): fluid dynamics, structural mechanics, electromagnetics, heat transfer and acoustics FEM.
 
 * [LibreCAD](https://librecad.org/): 2D CAD drawing solution.
+  
+* [3DSlicer](https://www.slicer.org/): 3D visualization software specialized in volumetrics.
 
 ### Mechanical
 
@@ -583,7 +599,9 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 * [PostgreSQL](https://www.postgresql.org/): extremely powerful, and a tad complex ORDBMS.
 
-* [Redis](https://redis.io/): in-memory storage.
+* [MariaDB](https://mariadb.org/): MySQL compatible (forked) solution widely used in the industry.
+
+* [Redis](https://redis.io/): in-memory storage, there are interfaces for every language imaginable.
 
 * [MongoDB](https://www.mongodb.com/): a powerful and flexible NoSQL database.
 
@@ -591,13 +609,17 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 * [Gitea](https://gitea.io/en-US/): self-hosted Git. Similar to Github; and much lighter than [GitLab](https://about.gitlab.com/), which is a more complete solution, and it is used by major companies and projects.
 
-* **Project management:** [Tuleap](https://www.tuleap.org/), complete software solution for any project. [Phabricator](https://phacility.com/) is a _down to the code_ alternative.
+* **Project management:** [Odoo](https://www.odoo.com/): complete ERP and CRM solution, the open-source version does not have the most advance (and usually handy) tools. [ERPNext](https://erpnext.com/): complete ERP solution. [SuiteCRM](https://suitecrm.com/): complete CRM solution.
+
+* **Project management (code-based):** [Tuleap](https://www.tuleap.org/), complete software solution for any project. [Phabricator](https://phacility.com/) is a _down to the code_ alternative.
 
 * [LibrePay](https://liberapay.com/): similar to Patreon. One can donate to individuals, projects, companies or be given money for ones work.
 
 * [Mastodon](https://joinmastodon.org/): twitter like network, but decentralized and several times better (btw, you don't _tweet,_ you **toot**). Mastodon is based on [GNU Social](https://gnu.io/social/), which is also great, and it is compatible with it. Another alternative compatible with the OStatus systems (*Gnu Social and Mastodon*) is [Pleroma](https://pleroma.social), which is written in Elixir.
 
 * [GNU FM (Libre FM)](https://gnu.io/fm/): relative of GNU Social, but directed for music streaming.
+
+* [Mumble](https://wiki.mumble.info/wiki/Main_Page): VoIP.
 
 * [Wire](https://wire.com/en/): a _collaboration_ network, similar to Slack or Telegram, but much better. There is also [Mattermost](https://www.mattermost.org/), which is a lot more _enterprisesy,_ so up to you.
 
