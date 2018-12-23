@@ -17,8 +17,8 @@ Also note that some programs may fit several categories listed below. I will lis
 * [Games](#games)
 * [Other utilities](#miscellaneous)
 * [Extra](#extra)
-    * [Programming languages](#programming-languages)
-    * [Networks and social media](#networks---social-media)
+* [Programming languages](#programming-languages)
+* [Networks and social media](#networks---social-media)
 
 ## Linux/BSD/Illumos distributions
 
@@ -28,13 +28,13 @@ These distributions are mostly based on the premise of delivering a stable exper
 
 * [Alpine Linux](https://alpinelinux.org/):
 
-* [Devuan](https://devuan.org/): Debian without systemd. A more userfriendly solution, geared towards the desktop, would be [MX Linux](https://mxlinux.org/).
+* [Devuan Linux](https://devuan.org/): Debian without systemd. A more userfriendly solution, geared towards the desktop, would be [MX Linux](https://mxlinux.org/).
 
 * [CentOS Linux](https://www.centos.org/):
 
 * [OpenSUSE Linux](https://www.opensuse.org/): usually forgotten, however, one of the best distributions out there. [GeckoLinux](https://geckolinux.github.io/): is a more user friendly solution based on OpenSUSE.
 
-* [OpenIndiana Illumos](https://www.openindiana.org/):
+* [OpenIndiana Illumos](https://www.openindiana.org/): . There is also [OMNI OS](https://omniosce.org/).
 
 * [NetBSD](http://netbsd.org/): targets embedded systems, yet it is a joy to use it, simple and _hacky._
 
@@ -324,7 +324,7 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [Draw.io](https://www.draw.io/): wonderful diagraming tool. From basic drawings, to flowcharts and organization.
 
-## Engineering - Science
+## Engineering - Science/General
 
 * [COIN-OR](https://www.coin-or.org/): complete suite for optimization and general operational research. CMPL is their own mathematical programming language. Coliop is a basic GUI to write CMPL.
 
@@ -425,6 +425,10 @@ The Salome Platform
 * [GTKWave](http://gtkwave.sourceforge.net/): wave viewer.
 
 * [FlatCAM](http://flatcam.org/): PCB milling.
+
+### Networking
+
+* [GNS3](https://gns3.com/): network simulator/analyzer.
 
 ## Games
 
