@@ -1,0 +1,101 @@
+\documentclass[12pt, a4paper, twoside]{article} % General definition. In order to have the text completely centered, delete the twoside option, which is recommended for printing.
+
+% For general information and help, refer to https://www.overleaf.com/learn
+
+%% PACKAGES
+
+\usepackage[utf8]{inputenc} % Set the utf8 input encoding
+\usepackage[english]{babel} % Select your prefered language
+\usepackage{amsmath, amsfonts, amssymb} % Mathematical notation
+\usepackage{makeidx} % Index customization
+\usepackage{fancyhdr} % Header and footer customization
+\usepackage{titlesec} % Section printing customization
+\usepackage{graphicx} % Graphics import and tools
+\usepackage{svg} % To work with svg imports
+\usepackage{geometry} % To modify the geometry of pages
+\usepackage{booktabs} % To create beautiful tables
+\usepackage{multicol} % To output text in two or more columns
+\usepackage{hyperref} % Advance referencing
+\usepackage{listings} % To add and format code
+\usepackage[final]{pdfpages} % Includes pdfs directly, not as images
+\usepackage[backend=biber,
+			style=numeric,
+			citestyle=numeric,
+			sorting=none]{biblatex} % To use biblatex, which is more complex, but as customizable as it gets. Please, modify this to your liking
+\usepackage{watermark} % Water marks
+
+\usepackage{lipsum} % Dummy text to test the design
+
+%% PACKAGE CONFIGURATION
+
+% Bibliography resource
+\addbibresource{main.bib}
+
+% Header and footer customization
+\fancyhf{}
+\fancyhead[LE,RO]{\textsl{\rightmark}}
+\fancyhead[LO,RE]{\textsl{\leftmark}}
+\fancyfoot{}
+\fancyfoot[LE, RO]{\thepage}
+
+% Section formatting customization. For more information refer to https://www.overleaf.com/learn/latex/Sections_and_chapters
+\titleformat{\section}{\large\scshape\raggedright}{\thesection. }{0em}{}[\rule{.75\linewidth}{1pt}]
+
+%% GENERAL INFORMATION
+
+\author{Your Name}
+\title{The Title}
+\date{\today}
+
+%% DOCUMENT
+
+\begin{document}
+	\pagestyle{empty}
+	\pagenumbering{gobble}
+	\begin{titlepage}
+		\maketitle
+		\begin{abstract}
+			Abstract content
+		\end{abstract}
+	{\thiswatermark{\centering\put(268,-802){\includegraphics[scale=1.5]{ComillasWatermark.pdf}}}} % An example on how to add a watermark
+	\end{titlepage}
+
+	\cleardoublepage % This forces the next page to be odd-numbered, right hand page.
+
+	{\centering Thank yous\\}
+	\vfill
+	And other important information
+
+	\cleardoublepage
+
+	\pagenumbering{Roman} % Roman numerals until the body starts
+	
+	\tableofcontents % Create the index
+	\clearpage
+	\listoffigures % Create index of figures
+	\clearpage
+	\listoftables % Create index of tables
+	\clearpage
+	\lstlistoflistings % Create index of code sections
+	\cleardoublepage
+	
+	\pagenumbering{arabic}
+	\pagestyle{fancy}
+	
+	\include{Chapter1/chapter1} % This is the way we should import files and partition our document.
+	
+	\section{This is the second section}
+	\lipsum
+	\subsection{This is the second subsection}
+	\lipsum
+	\subsubsection{This is the second subsubsection}
+	\lipsum \cite{lovecraft2016el}. 
+	
+	\cleardoublepage
+	\appendix
+	
+	\section{This is the first appendix}
+	
+	\cleardoublepage
+	\printbibliography[heading=bibintoc] % We print the entire bibliography of the document. The author recommends that, if the document contains tremendous amounts of references, that they should be written at the end of each chapter. Refer to https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX for more information.
+\end{document}
