@@ -8,7 +8,12 @@
 **/*.toc
 **/*.vrb
 **/*.bbl
+**/*.bcf
 **/*.blg
+**/*.lof
+**/*.lol
+**/*.lot
+**/*.xml
 
 # # Except for selected files
 # !.gitignore
