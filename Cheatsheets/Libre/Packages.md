@@ -70,6 +70,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 ### System tools
 
+* [Git](https://git-scm.com/): most widely used version control system. [Tig](https://jonas.github.io/tig/): terminal interface for git.
 * [Neofetch](https://github.com/dylanaraps/neofetch): prints system information directly to the terminal with a nice logo. Use [Inxi](https://github.com/smxi/inxi) if you would like a richer output.
 
 * [Lm_sensors](https://github.com/groeck/lm-sensors): monitor temperatures, control fans, etc.
@@ -80,7 +81,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Udisks](https://github.com/storaged-project/udisks): mount and unmount drives or volumes with no difficulties.
 
-* [Ranger](https://ranger.github.io/): complete file manager in the terminal, even with fancy preview, columns, etc; and it is fully customizable! Another file manager would be [Midnight Commander (mc)](https://midnight-commander.org/). If a much lighter alternative is wanted [nnn](https://github.com/jarun/nnn#file-handling) is also wonderful. There is [ncdu](https://dev.yorhel.nl/ncdu) too, which is a disk usage analizer.
+* [Vifm](https://vifm.info/): vi-like file manager, simple yet complete with some nifty features. [Ranger](https://ranger.github.io/): complete file manager in the terminal, even with fancy columns, etc; and it is fully customizable! Another file manager would be [Midnight Commander (mc)](https://midnight-commander.org/). If a much lighter alternative is wanted [nnn](https://github.com/jarun/nnn#file-handling) is also wonderful. There is [ncdu](https://dev.yorhel.nl/ncdu) too, which is a disk usage analizer.
 
 * [Rsync](https://rsync.samba.org/): an outstanding file transfer utility. It is mainly targeted towards incremental transfers. It is mainly used for backup or complex copying.
 
@@ -112,15 +113,19 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 ### Misc
 
+* [Asciinema](https://asciinema.org/): terminal recorder.
+
 * [Clamav](https://www.clamav.net/): anti-virus.
 
 * [Toilet & Libcaca](http://caca.zoy.org/): colourful large text in the terminal and ascii art.
+
+* [Newsbeuter](https://newsbeuter.org/): Atom and RSS feeds in your terminal.
 
 ## Text editors
 
 * [Vis](https://github.com/martanne/vis): a vi-like editor based on Plan 9's structural regular expressions. Fuses the best of Vi(m) and Sam editors. Minimal and extensible by nature, runs on the terminal.
 
-* [GNU Emacs](https://www.gnu.org/software/emacs/): definitely the most powerful editor out there. Extensible as you wish, and even more powerful, though the learning curve is horrible. It has some of the most mesmerizing addons to have ever existed such as [org-mode](http://orgmode.org/), [magit](https://magit.vc/) or [evil](https://github.com/emacs-evil/evil).
+* [GNU Emacs](https://www.gnu.org/software/emacs/): definitely the most powerful editor out there. Extensible as you wish, and even more powerful, though the learning curve is horrible. It has some of the most mesmerizing addons to have ever existed such as [org-mode](http://orgmode.org/), [magit](https://magit.vc/), [evil](https://github.com/emacs-evil/evil) or [org-brain](https://github.com/Kungsgeten/org-brain).
 
 * [Joe](https://joe-editor.sourceforge.io/): it is a minimal, yet severely overlooked editor that resembles the way editors used to be. It is more feature packed than what it seems.
 
@@ -196,7 +201,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 #### Audio
 
-* [Audacity](https://www.audacityteam.org/): small, yet powerful audio editing software.
+* [Audacity](https://www.audacityteam.org/): small, yet powerful audio editing software. Works wonders when combined with a video-editing pipeline.
 
 * [Fre:ac](https://www.freac.org/): audio transcoder.
 
@@ -205,6 +210,8 @@ No "low level" utilities will be listed below, just the programs that you will f
 * [LMMS](https://lmms.io/): music production (music synthesither).
 
 * [MuseScore](https://musescore.org/en): professional music notation, while simple and fully flexible. [Denemo](http://www.denemo.org/): another great music notation program.
+  
+* [Sonic Visualiser](https://sonicvisualiser.org/): audio viewer and analyzer.
 
 * [Radium](http://users.notam02.no/%7Ekjetism/radium/index.php): amazing music editor.
 
@@ -320,7 +327,7 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 ### Diagraming
 
-* [Draw.io](https://www.draw.io/): wonderful diagraming tool. From basic drawings, to flowcharts and organization.
+* [Draw.io](https://www.draw.io/): wonderful diagraming tool. From basic drawings, to flowcharts and organization. A more complex but also more powerful system is [Graphviz](https://graphviz.org/), specially with the _dot_ language.
 
 ## Engineering - Science/General
 
@@ -377,6 +384,8 @@ The Salome Platform
 * [Code Saturn](https://www.code-saturne.org/cms/): CFD solver.
 
 * [OpenFoam](https://openfoam.org/): THE open source CFD.
+
+* [Open TELEMAC-MASCARET](http://opentelemac.org/): integrated suite of solvers for use in free-surface flows.
 
 * **Not Open Source** [Simscale](https://www.simscale.com/): online web application, complete simulation solution which only uses libre software (mentioned above). Completely free for students.
 
@@ -527,6 +536,8 @@ The Salome Platform
 
 * [KeePassXC](https://keepassxc.org/): password storage, compatible with KeePassX.
 
+* [Syncthing](https://syncthing.net/): synchronization by yourself for yourself. I has clients for all mayor platforms.
+
 * [Remmina](http://www.remmina.org/wp/): remote desktop.
 
 * [GParted](https://gparted.sourceforge.io/): graphical utility to manage partitions. There is also [KDE Partition Manager](https://www.kde.org/applications/system/kdepartitionmanager/).
@@ -543,7 +554,7 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 ### Programming languages
 
-* **C** [GCC](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): the low level language. The grandfather of the modern world. A wonder in itself, by it's simplicity and flexibility. If an in-depth analysis of the code is required, there is [Frama-C](https://frama-c.com) and 
+* **C** [GCC](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): the low level language. The grandfather of the modern world. A wonder in itself, by it's simplicity and flexibility. If an in-depth analysis of the code is required, there is [Frama-C](https://frama-c.com).
 
 * **Modern C++** [GCC](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): please, use the modern features the language gives you! Low level language, though several times more complete (*and dificult* when it comes to learning it) than C.
 
@@ -588,6 +599,10 @@ Here goes a little extra section regarding some of the technologies that I quite
 * **Transpilers to JavaScript:** [Rust Yew](https://github.com/DenisKolodin/yew), the goodness of Rust in all of its glory (targets WASM). [Go GopherJS](https://github.com/gopherjs/gopherjs): compiler form Go to JavaScript. [Elm](https://elm-lang.org/): modern language to create reliable webapps.
 
 * [Phoenix](https://phoenixframework.org/): there are quite a few frameworks out there, but Phoenix, written in Elixir, is definitely the best one out there; complete and flexible. Another framework that I personally like too is [Lapis](http://leafo.net/lapis/), for Lua and Moonscript.
+
+* [Terraform](https://www.terraform.io/): infraestructure management system.
+
+* [Saltstack](https://www.saltstack.com/): automation and configuration of any system.
 
 * [Kubernetes](https://kubernetes.io/): system for automating deployment, scaling, and management of containerized applications.
 
