@@ -26,33 +26,31 @@ Also note that some programs may fit several categories listed below. I will lis
 
 These distributions are mostly based on the premise of delivering a stable experience. However, this does not mean you are bounded to use only _stable_ software. Some distributions allow you to use newer software, such as Alpine (community repo), OpenSUSE (Tumbleweed), MX Linux (debian backports and testing), NetBSD (current branch), FreeBSD (current branch).
 
-* [Alpine Linux](https://alpinelinux.org/):
+* [Alpine Linux](https://alpinelinux.org/): a small muslc based distribution focused on embedded systems and servers. It has stable releases and a rolling model.
 
-* [Devuan Linux](https://devuan.org/): Debian without systemd. A more userfriendly solution, geared towards the desktop, would be [MX Linux](https://mxlinux.org/).
+* [Devuan Linux](https://devuan.org/): Debian without systemd, and it has extended support. A more userfriendly solution, geared towards the desktop, would be [MX Linux](https://mxlinux.org/).
 
-* [CentOS Linux](https://www.centos.org/):
+* [CentOS Linux](https://www.centos.org/): the community version of RHEL. It is the most stable distribution out there, also the one that ages the most. It is widely used at CERN and FERMI.
 
 * [OpenSUSE Linux](https://www.opensuse.org/): usually forgotten, however, one of the best distributions out there. [GeckoLinux](https://geckolinux.github.io/): is a more user friendly solution based on OpenSUSE.
 
-* [OpenIndiana Illumos](https://www.openindiana.org/): . There is also [OMNI OS](https://omniosce.org/).
+* [OpenIndiana Illumos](https://www.openindiana.org/): based on Illumos, the descendant of OpenSolaris; it targets workstations and server, and it is kept somewhat up to date. There is also [OMNI OS](https://omniosce.org/).
 
 * [NetBSD](http://netbsd.org/): targets embedded systems, yet it is a joy to use it, simple and _hacky._
 
-* [FreeBSD](https://www.freebsd.org/):
+* [FreeBSD](https://www.freebsd.org/) and [DragonflyBSD](https://www.dragonflybsd.org/).
 
 ---
 
 ### More dynamic targeting desktops
 
-* [Void Linux](https://voidlinux.org/):
+* [Void Linux](https://voidlinux.org/): a diy distribution: offers glibc and muslc libraries, systemd-free, yet powerful and follows a rolling release model.
 
 * [Artix Linux](https://artixlinux.org/): Arch-based OpenRC distribution.
 
-* [KDE Neon Linux](https://neon.kde.org/download):
+* [KDE Neon Linux](https://neon.kde.org/download): Ubuntu-based KDE focused distribution. It is officially developed by the KDE team.
 
-* [Solus](https://getsol.us/home/):
-
-* [Fedora Linux](https://getfedora.org/):
+* [Fedora Linux](https://getfedora.org/): RedHat backed distro which focuses on more up-to-date software.
 
 * See [OpenSUSE Tumbleweed](https://en.opensuse.org/Portal:Tumbleweed). See [Devuan](https://devuan.org/) with Ceres repositories.
 
