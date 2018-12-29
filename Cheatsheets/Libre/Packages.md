@@ -587,7 +587,7 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 * **Transpilers to JavaScript:** [Rust Yew](https://github.com/DenisKolodin/yew), the goodness of Rust in all of its glory (targets WASM). [Go GopherJS](https://github.com/gopherjs/gopherjs): compiler form Go to JavaScript. [Elm](https://elm-lang.org/): modern language to create reliable webapps.
 
-* [Phoenix](https://phoenixframework.org/): there are quite a few frameworks out there, but Phoenix, written in Elixir, is definitely the best one out there; and it allows you to use Node.js seamlessly.
+* [Phoenix](https://phoenixframework.org/): there are quite a few frameworks out there, but Phoenix, written in Elixir, is definitely the best one out there; complete and flexible. Another framework that I personally like too is [Lapis](http://leafo.net/lapis/), for Lua and Moonscript.
 
 * [Kubernetes](https://kubernetes.io/): system for automating deployment, scaling, and management of containerized applications.
 
