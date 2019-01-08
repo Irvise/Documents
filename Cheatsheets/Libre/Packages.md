@@ -333,15 +333,23 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [COIN-OR](https://www.coin-or.org/): complete suite for optimization and general operational research. CMPL is their own mathematical programming language. Coliop is a basic GUI to write CMPL.
 
-* [Jupyter](https://jupyter.org/): notebook.
+* [Jupyter](https://jupyter.org/): notebook. [Available kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels). Also worth checking out [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/).
 
-* [Octave](https://www.gnu.org/software/octave/): Matlab compatible scientific programming language.
+* [Octave](https://www.gnu.org/software/octave/): Matlab compatible scientific programming language. Extra functionality can be found at [Octave Forge](https://octave.sourceforge.io/).
 
 * [Scilab](http://www.scilab.org/): complete alternative to Matlab or Octare thereof.
+
+* [GNU Plot](http://gnuplot.info/): advance plotting tool.
+
+* [OpenModelica](https://www.openmodelica.org/): a complete Modelica solution. Models physical systems and controllers.
 
 * [SageMath](https://www.sagemath.org/): complete mathematical suite.
 
 * [Maxima (WxMaxima)](http://maxima.sourceforge.net/): algebra software.
+
+* [ElmerFEM](https://www.csc.fi/web/elmer): fluid dynamics, structural mechanics, electromagnetics, heat transfer and acoustics FEM.
+
+* [LibreCAD](https://librecad.org/): 2D CAD drawing solution.
 
 * [Gap](http://www.gap-system.org/):  computational discrete algebra, with emphasis on computational group theory.
 
@@ -353,15 +361,7 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [OpenTURNS](http://www.openturns.org/): uncertainty treatment and measurement.
 
-* [GNU Plot](http://gnuplot.info/): advance plotting tool.
-
-* [OpenModelica](https://www.openmodelica.org/): a complete Modelica solution. Models physical systems and controllers.
-
 * [Umbrello](https://umbrello.kde.org/): UML diagramming/modeller.
-
-* [ElmerFEM](https://www.csc.fi/web/elmer): fluid dynamics, structural mechanics, electromagnetics, heat transfer and acoustics FEM.
-
-* [LibreCAD](https://librecad.org/): 2D CAD drawing solution.
   
 * [3DSlicer](https://www.slicer.org/): 3D visualization software specialized in volumetrics.
 
