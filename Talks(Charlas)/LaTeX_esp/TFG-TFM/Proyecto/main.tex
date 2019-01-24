@@ -4,7 +4,7 @@
 % Thanks to all the people that helped my get to where I am.
 %%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt, a4paper, openright, notitlepage]{report} % General definition. In order to have the text completely centered, do not use the twoside option; however, twoside is recommended for printing.
+\documentclass[12pt, a4paper, twoside]{book} % General definition. In order to have the text completely centered, do not use the twoside option; however, twoside is recommended for printing.
 
 % For general information and help, refer to https://www.overleaf.com/learn
 
@@ -25,12 +25,12 @@
 \usepackage{listings} % To add and format code
 \usepackage[final]{pdfpages} % Includes pdfs directly, not as images
 \usepackage{watermark} % Watermarks
+\usepackage{lipsum} % Dummy text to test the design
 \usepackage[backend=biber,
 			style=numeric,
 			citestyle=numeric,
 			sorting=none]{biblatex} % To use biblatex, which is more complex, but as customizable as it gets. Please, modify this to your liking
-
-\usepackage{lipsum} % Dummy text to test the design
+			% IMPORTANT: this requires biber to be installed and run!!! If you are having issues with the bibliography, please, search for how to install and run biber!
 
 %% PACKAGE CONFIGURATION
 
@@ -39,13 +39,19 @@
 
 % Header and footer customization
 \fancyhf{}
-\fancyhead[LE,RO]{\textsl{\rightmark}}
-\fancyhead[LO,RE]{\textsl{\leftmark}}
-\fancyfoot{}
+\fancyhead[LE]{\slshape \leftmark}
+\fancyhead[RO]{\slshape \nouppercase \rightmark}
 \fancyfoot[LE, RO]{\thepage}
+% IMPORTANT! If your chapter/section names are too long to nicely fit on the header, use the shortened variant:
+% \chapter[short tile]{actual long title, title} or \section[short title]{actual long title, title}
 
-% Section formatting customization. For more information refer to https://www.overleaf.com/learn/latex/Sections_and_chapters
-\titleformat{\section}{\large\scshape\raggedright}{\thesection. }{0em}{}[\rule{.75\linewidth}{1pt}]
+%% CUSTOM COMMANDS
+
+% Add abstract to book style
+\newenvironment{abstract}%
+{\cleardoublepage \null \vfill \begin{center}%
+		\bfseries \abstractname \end{center}}%
+{\vfill\null}
 
 %% GENERAL INFORMATION
 
@@ -55,53 +61,55 @@
 
 %% DOCUMENT
 
+% An example on how to add a watermark
+{\thiswatermark{\centering\put(268,-802){\includegraphics[scale=1.5]{ComillasWatermark.pdf}}}}
+
 \begin{document}
-	\pagestyle{empty}
-	\pagenumbering{gobble}
+	
+	\frontmatter
+	
+	% This creates a basic title page
+	% It is recommended that if you want a more advance titlepage, that you define and create it completely from scratch.
 	\begin{titlepage}
 		\maketitle
-		\begin{abstract}
-			Abstract content
-		\end{abstract}
-	{\thiswatermark{\centering\put(268,-802){\includegraphics[scale=1.5]{ComillasWatermark.pdf}}}} % An example on how to add a watermark
 	\end{titlepage}
+	
+	\begin{abstract}
+		Abstract content
+	\end{abstract}
 
-	\cleardoublepage % This forces the next page to be odd-numbered, right hand page.
+	\clearpage\mbox{}\clearpage % This forces the next page to be odd-numbered, right hand page.
 
+	% Thanks and other information page
 	{\centering Thank yous\\}
 	\vfill
 	And other important information
 
-	\cleardoublepage
-
-	\pagenumbering{Roman} % Roman numerals until the body starts
+	\clearpage\mbox{}\clearpage % This forces the next page to be odd-numbered, right hand page.
 	
 	\tableofcontents % Create the index
-	\clearpage
 	\listoffigures % Create index of figures
-	\clearpage
 	\listoftables % Create index of tables
-	\clearpage
 	\lstlistoflistings % Create index of code sections
-	\cleardoublepage
 	
-	\pagenumbering{arabic}
+	\cleardoublepage % Open on right hand page (odd numbered)
+	
+	\mainmatter
+	
+	% Activate customized headers
 	\pagestyle{fancy}
 	
 	\include{Chapter1/chapter1} % This is the way we should import files and partition our document.
 	
-	\chapter{This is the second chapter}
-	\lipsum
-	\section{This is the second section}
-	\lipsum
-	\subsection{This is the second subsection}
-	\lipsum \cite{lovecraft2016el}. 
+	% Include more stuff
 	
-	\cleardoublepage
 	\appendix
 	
 	\chapter{This is the first appendix}
 	
 	\cleardoublepage
 	\printbibliography[heading=bibintoc] % We print the entire bibliography of the document. The author recommends that, if the document contains tremendous amounts of references, that they should be written at the end of each chapter. Refer to https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX for more information.
+	
+	\backmatter
+	
 \end{document}
