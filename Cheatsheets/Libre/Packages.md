@@ -371,8 +371,6 @@ The Salome Platform
 
 * [Salome Meca](http://www.salome-platform.org/): complete engineering platform, from design, to meshing, to problem description and boundary conditions, to simulation and visualization. It is composed of smaller pieces of software which are described below.
 
-* [Netgen/NGSolve](https://ngsolve.org/): extremely complete mesher.
-
 * [Code Aster](https://www.code-aster.org/): a mechanical and thermal solver.
 
 * [Gmsh](http://gmsh.info/): designer, mesh generator and post-processor.
@@ -384,6 +382,8 @@ The Salome Platform
 * [Code Saturn](https://www.code-saturne.org/cms/): CFD solver.
 
 * [OpenFoam](https://openfoam.org/): THE open source CFD.
+
+* [Netgen/NGSolve](https://ngsolve.org/): extremely complete mesher.
 
 * [Open TELEMAC-MASCARET](http://opentelemac.org/): integrated suite of solvers for use in free-surface flows.
 

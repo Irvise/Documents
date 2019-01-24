@@ -1,11 +1,17 @@
-\documentclass[12pt, a4paper, twoside]{article} % General definition. In order to have the text completely centered, delete the twoside option, which is recommended for printing.
+%%%%%%%%%%%%%%%%%%%%
+% Copyright: Fernando Oleo Blanco.
+%
+% Thanks to all the people that helped my get to where I am.
+%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt, a4paper, openright, notitlepage]{report} % General definition. In order to have the text completely centered, do not use the twoside option; however, twoside is recommended for printing.
 
 % For general information and help, refer to https://www.overleaf.com/learn
 
 %% PACKAGES
 
 \usepackage[utf8]{inputenc} % Set the utf8 input encoding
-\usepackage[english]{babel} % Select your prefered language
+\usepackage[english]{babel} % Select your prefered language. Example: \usepackage[activeacute,spanish]{babel}
 \usepackage{amsmath, amsfonts, amssymb} % Mathematical notation
 \usepackage{makeidx} % Index customization
 \usepackage{fancyhdr} % Header and footer customization
@@ -18,11 +24,11 @@
 \usepackage{hyperref} % Advance referencing
 \usepackage{listings} % To add and format code
 \usepackage[final]{pdfpages} % Includes pdfs directly, not as images
+\usepackage{watermark} % Watermarks
 \usepackage[backend=biber,
 			style=numeric,
 			citestyle=numeric,
 			sorting=none]{biblatex} % To use biblatex, which is more complex, but as customizable as it gets. Please, modify this to your liking
-\usepackage{watermark} % Water marks
 
 \usepackage{lipsum} % Dummy text to test the design
 
@@ -84,17 +90,17 @@
 	
 	\include{Chapter1/chapter1} % This is the way we should import files and partition our document.
 	
+	\chapter{This is the second chapter}
+	\lipsum
 	\section{This is the second section}
 	\lipsum
 	\subsection{This is the second subsection}
-	\lipsum
-	\subsubsection{This is the second subsubsection}
 	\lipsum \cite{lovecraft2016el}. 
 	
 	\cleardoublepage
 	\appendix
 	
-	\section{This is the first appendix}
+	\chapter{This is the first appendix}
 	
 	\cleardoublepage
 	\printbibliography[heading=bibintoc] % We print the entire bibliography of the document. The author recommends that, if the document contains tremendous amounts of references, that they should be written at the end of each chapter. Refer to https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX for more information.
