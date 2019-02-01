@@ -1,6 +1,6 @@
 # Introduction
 
-The aim of this simple "guide" is to present most of the (best) software I have found that works on Linux, though most of them also run on other platforms, oh, and they are all FSF approved (open source if you don't know what FSF is). Try the software and give it a spin to see if it suites your needs. Also, here goes a disclaimer, I am by no means an expert in most of the software listed below, however, the time I have used has proven to be more than pleasant and productive; the only requirement I ask from the program in question is for it to be great for power users.
+The aim of this simple "guide" is to present most of the (best) software I have found that works on Linux, though most of them also run on other platforms, oh, and they are all FSF approved (libre software if you don't know what FSF is). Try the software and give it a spin to see if it suites your needs. Also, here goes a disclaimer, I am by no means an expert in most of the software listed below, however, the time I have used has proven to be more than pleasant and productive; the only requirement I ask from the program in question is for it to be great for power users.
 
 Also note that some programs may fit several categories listed below. I will list it were I feel it suites best.
 
