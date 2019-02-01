@@ -97,7 +97,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 ### Networking
 
-* [Curl](https://curl.haxx.se/): the Swiss knife tool to transfer data with URLs. A less flexible, yet simpler and useful is [wget](https://www.gnu.org/software/wget/).
+* [Curl](https://curl.haxx.se/): the Swiss knife tool to transfer data with URLs. A less flexible, yet simpler and equally useful is [wget](https://www.gnu.org/software/wget/).
 
 * [Rtorrent](https://github.com/rakshasa/rtorrent): powerful torrent management utility. I recommend using [Pyroscope's extended distribution](https://github.com/pyroscope/rtorrent-ps). If a GUI is needed then [Qbittorrent](https://www.qbittorrent.org/) or [Transmission](https://transmissionbt.com/) are available with optional terminal backends.
 
@@ -123,11 +123,11 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 ## Text editors
 
-* [Vis](https://github.com/martanne/vis): a vi-like editor based on Plan 9's structural regular expressions. Fuses the best of Vi(m) and Sam editors. Minimal and extensible by nature, runs on the terminal.
+* [Vis](https://github.com/martanne/vis): a vi-like editor based on Plan 9's structural regular expressions. Fuses the best of Vi(m) and Sam editors. Minimal and extensible by nature using lua.
 
 * [GNU Emacs](https://www.gnu.org/software/emacs/): definitely the most powerful editor out there. Extensible as you wish, and even more powerful, though the learning curve is horrible. It has some of the most mesmerizing addons to have ever existed such as [org-mode](http://orgmode.org/), [magit](https://magit.vc/), [evil](https://github.com/emacs-evil/evil) or [org-brain](https://github.com/Kungsgeten/org-brain).
 
-* [Joe](https://joe-editor.sourceforge.io/): it is a minimal, yet severely overlooked editor that resembles the way editors used to be. It is more feature packed than what it seems.
+* [Joe](https://joe-editor.sourceforge.io/): it is a minimal, yet severely overlooked editor that resembles the way editors used to be. It is more feature packed than what it seems, and it supports emacs, wordstar and nano emulation.
 
 * [Microsoft Visual Studio Code](https://code.visualstudio.com/): a modern text editor with everything you may need. While not as small as the rest, it is beautiful, fast, and the best for embedded development with the combination of [PlatformIO](https://platformio.org/). Note that the binaries distibuted directly from the web page are not under a libre licence.
 
@@ -135,7 +135,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Gdb](https://www.gnu.org/software/gdb/) with [Cgdb](https://cgdb.github.io/): the most flexible debugger to have ever existed. Supports a plethora of languages.
 
-* [Radare2](https://www.radare.org/r/index.html): wonderful terminal disassembler. [Cutter](https://github.com/radareorg/cutter) is a GUI for it.
+* [Radare2](https://www.radare.org/r/index.html): wonderful TUI disassembler. [Cutter](https://github.com/radareorg/cutter) is a GUI for it.
 
 * [Valgrind](http://valgrind.org/): a wonderful analysis tool.
 
@@ -189,7 +189,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Cmus](https://cmus.github.io/): terminal audio player, small, fast and powerful. As an alternative there is also [Moc](http://moc.daper.net/).
 
-* [Feh](https://feh.finalrewind.org/): fast and light image viewer for X11.
+* [Feh](https://feh.finalrewind.org/): fast and light image viewer for X11. Another one would be [sxiv](https://github.com/muennich/sxiv).
 
 * [Gwenview](https://www.kde.org/applications/graphics/gwenview/): everything you would be expecting from an image viewer.
 
@@ -221,7 +221,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Milkytracker](http://milkytracker.titandemo.org/), [Schismtracker](http://schismtracker.org/), [Klystrack](https://kometbomb.github.io/klystrack/) and [Protracker & Fasttracker II clone](https://16-bits.org/index.php): precious pieces of computing history, the beloved trackers.
 
-* [GNU Radio](https://www.gnuradio.org/): software defined radio.
+* [GNU Radio](https://www.gnuradio.org/): software defined radio. [Gqrx SDR](http://gqrx.dk/): receiver based on GNU Radio. 
 
 #### Graphics (2D)
 
@@ -231,7 +231,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Grafx2](http://pulkomandy.tk/projects/GrafX2): an Amiga-era pixel art painting program.
 
-* [Azpainter](http://azsky2.html.xdomain.jp/): beautiful lightweight 16bit drawing application ([in english](https://osdn.net/projects/azpainter/)).
+* [Azpainter](http://azsky2.html.xdomain.jp/): beautiful lightweight 16bit drawing application; ([in english](https://osdn.net/projects/azpainter/)).
 
 * [Inkscape](https://inkscape.org/en/): vector painting software.
 
@@ -291,7 +291,7 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [Sylpheed](http://sylpheed.sraoss.jp/en/): very lightweight and simple e-mail client.
 
-* [Mutt](http://www.mutt.org/): terminal email client.
+* [Mutt](http://www.mutt.org/): TUI email client.
 
 ### Suites
 
@@ -339,7 +339,7 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [Scilab](http://www.scilab.org/): complete alternative to Matlab or Octare thereof.
 
-* [GNU Plot](http://gnuplot.info/): advance plotting tool.
+* **Plotting**: [GNU Plot](http://gnuplot.info/): advance plotting tool. [PLplot](http://plplot.org/). [MathGL](http://mathgl.sourceforge.net/doc_en/Main.html).
 
 * [OpenModelica](https://www.openmodelica.org/): a complete Modelica solution. Models physical systems and controllers.
 
@@ -387,10 +387,6 @@ The Salome Platform
 
 * [Open TELEMAC-MASCARET](http://opentelemac.org/): integrated suite of solvers for use in free-surface flows.
 
-* **Not Open Source** [Simscale](https://www.simscale.com/): online web application, complete simulation solution which only uses libre software (mentioned above). Completely free for students.
-
----
-
 * [FreeCAD](https://www.freecadweb.org/): complete 3D design solution and provides FEM and CFD modules.
 
 * [Solvespace](http://solvespace.com/index.pl): parametric 2D/3D CAD.
@@ -416,6 +412,10 @@ The Salome Platform
 * [Agros 2D](http://www.agros2d.org/): simulator of physical problems based on the Hermes library.
 
 * [Vislt](https://wci.llnl.gov/simulation/computer-codes/visit/): visualization software.
+
+* [ITOM](https://itom.bitbucket.io/): suite for operating measurement systems.
+
+* **Not Open Source** [Simscale](https://www.simscale.com/): online web application, complete simulation solution which only uses libre software (mentioned above). Completely free for students.
 
 ### Electronics
 
@@ -458,6 +458,8 @@ The Salome Platform
 * [Urban Terror](https://www.urbanterror.info/home/): an old school shooter (yet fun and enjoyable as ever).
 
 * [Xonotic](http://xonotic.org/): a Quake-like game, get ready to get killed and have fun.
+
+* [AssaultCube](https://assault.cubers.net/): old school and very lightweight shooter.
 
 * [Taisei](https://taisei-project.org/): fangame recreating the queen of bullet hell games, Tohou.
 
@@ -606,7 +608,7 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 * [Kubernetes](https://kubernetes.io/): system for automating deployment, scaling, and management of containerized applications.
 
-* **Static Builders:** [Hugo](https://gohugo.io/): great(est) static pages generator, Go based. [Hakyll](https://jaspervdj.be/hakyll/): an alternative based on Haskell. [Gutenberg](https://www.getgutenberg.io/): same, but with Rust.
+* **Static Builders:** [Hugo](https://gohugo.io/): great(est) static pages generator, Go based. [Hakyll](https://jaspervdj.be/hakyll/): an alternative based on Haskell. [Zola](https://www.getzola.org/): same, but with Rust, preferred by author.
 
 * **Extra bits, none Open Source** [DNSimple](https://dnsimple.com/): as its name implies, simple, yet complete domain acquisition service with Let's Encrypt certificates; and they fully support open source. [Digital Ocean](https://www.digitalocean.com/): complete hosting solution, not the cheapest, but one of the easiest and complete ones. [UpCloud](https://www.upcloud.com/): another nice hosting solution.
 
@@ -620,11 +622,9 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 * [Redis](https://redis.io/): in-memory storage, there are interfaces for every language imaginable.
 
-* [MongoDB](https://www.mongodb.com/): a powerful and flexible NoSQL database.
-
 ### Networks - Social Media
 
-* [Gitea](https://gitea.io/en-US/): self-hosted Git. Similar to Github; and much lighter than [GitLab](https://about.gitlab.com/), which is a more complete solution, and it is used by major companies and projects.
+* [Gitea](https://gitea.io/en-US/): self-hosted Git. Similar to Github; and much lighter than [GitLab](https://about.gitlab.com/), which is a more complete solution, and it is used by major companies and projects. If the solution has to be simple and responsive, there is [Cgit](https://git.zx2c4.com/cgit/) plus [Gitolite](http://gitolite.com/gitolite/).
 
 * **Project management:** [Odoo](https://www.odoo.com/): complete ERP and CRM solution, the open-source version does not have the most advance (and usually handy) tools. [ERPNext](https://erpnext.com/): complete ERP solution. [SuiteCRM](https://suitecrm.com/): complete CRM solution.
 
