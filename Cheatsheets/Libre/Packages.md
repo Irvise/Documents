@@ -640,6 +640,6 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 * [Wire](https://wire.com/en/): a _collaboration_ network, similar to Slack or Telegram, but much better. There is also [Mattermost](https://www.mattermost.org/), which is a lot more _enterprisesy,_ so up to you.
 
-* [Matrix](https://matrix.org/blog/home/): _An open network for secure, decentralized communication._ As clients I would recommend [Nheko](https://github.com/mujx/nheko) for pc, and [Riot](https://about.riot.im/) for the mobile. If the CLI is your thing, there is an extension for WeeChat.
+* [Matrix](https://matrix.org/blog/home/): _An open network for secure, decentralized communication._ [Diaspora*](https://diasporafoundation.org/) is another wonderful social network following the same principle.
 
-* **Not OpenSource:** [Vimeo](https://vimeo.com/): professional video streaming/uploading.
+* [PeerTube](https://joinpeertube.org/en/): decentralized video hosting network.
