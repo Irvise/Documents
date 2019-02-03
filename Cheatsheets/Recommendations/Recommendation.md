@@ -46,3 +46,10 @@ This list should be used by reading from top to bottom and selecting the first l
 
 ## Formats
 
+
+
+## Editors
+
+
+
+## CLI/TUI software
