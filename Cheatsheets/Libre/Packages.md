@@ -13,12 +13,13 @@ Also note that some programs may fit several categories listed below. I will lis
 * [Multimedia](#multimedia)
 * [Document creation](#document-creation)
 * [Office](#office-software)
-* [Engineering, Science](#engineering---science)
+* [Engineering, Science](#science---engineering)
 * [Games](#games)
 * [Other utilities](#miscellaneous)
-* [Extra](#extra)
+* [Extras](#extras)
 * [Programming languages](#programming-languages)
-* [Networks and social media](#networks---social-media)
+* [Social media](#social-media)
+* [Project management](#project-management)
 
 ## Linux/BSD/Illumos distributions
 
@@ -30,9 +31,9 @@ These distributions are mostly based on the premise of delivering a stable exper
 
 * [Devuan Linux](https://devuan.org/): Debian without systemd, and it has extended support. A more userfriendly solution, geared towards the desktop, would be [MX Linux](https://mxlinux.org/).
 
-* [CentOS Linux](https://www.centos.org/): the community version of RHEL. It is the most stable distribution out there, also the one that ages the most. It is widely used at CERN and FERMI.
-
 * [OpenSUSE Linux](https://www.opensuse.org/): usually forgotten, however, one of the best distributions out there. [GeckoLinux](https://geckolinux.github.io/): is a more user friendly solution based on OpenSUSE.
+
+* [CentOS Linux](https://www.centos.org/): the community version of RHEL. It is the most stable distribution out there, also the one that ages the most. It is widely used at CERN and FERMI.
 
 * [OpenIndiana Illumos](https://www.openindiana.org/): based on Illumos, the descendant of OpenSolaris; it targets workstations and server, and it is kept somewhat up to date. There is also [OMNI OS](https://omniosce.org/).
 
@@ -46,13 +47,13 @@ These distributions are mostly based on the premise of delivering a stable exper
 
 * [Void Linux](https://voidlinux.org/): a diy distribution: offers glibc and muslc libraries, systemd-free, yet powerful and follows a rolling release model.
 
+* See [OpenSUSE Tumbleweed](https://en.opensuse.org/Portal:Tumbleweed). See [Devuan](https://devuan.org/) with Ceres repositories.
+
 * [Artix Linux](https://artixlinux.org/): Arch-based OpenRC distribution.
 
 * [KDE Neon Linux](https://neon.kde.org/download): Ubuntu-based KDE focused distribution. It is officially developed by the KDE team.
 
 * [Fedora Linux](https://getfedora.org/): RedHat backed distro which focuses on more up-to-date software.
-
-* See [OpenSUSE Tumbleweed](https://en.opensuse.org/Portal:Tumbleweed). See [Devuan](https://devuan.org/) with Ceres repositories.
 
 * [GuixSD](https://www.gnu.org/software/guix/): a fully libre distribution centered arround the Guix package/system manager.
 
@@ -139,6 +140,8 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Valgrind](http://valgrind.org/): a wonderful analysis tool.
 
+* [Cppcheck](http://cppcheck.sourceforge.net/): static analysis tool for C/C++ code. MISRA standard is mostly complete.
+
 * [SimAVR](https://github.com/buserror/simavr): simulates AVRs. With the help of GDB it may be used as an advance debugger.
 
 * [Meson](https://mesonbuild.com/): complete, easy and modern build system. [Autotools](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html): for simpler projects and compatibility, read [this guide/book](https://autotools.io/index.html) as a great introduction.
@@ -221,6 +224,8 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Milkytracker](http://milkytracker.titandemo.org/), [Schismtracker](http://schismtracker.org/), [Klystrack](https://kometbomb.github.io/klystrack/) and [Protracker & Fasttracker II clone](https://16-bits.org/index.php): precious pieces of computing history, the beloved trackers.
 
+* [Bristol](http://bristol.sourceforge.net/): (ancient) synthesiser emulator, supports several models.
+
 * [GNU Radio](https://www.gnuradio.org/): software defined radio. [Gqrx SDR](http://gqrx.dk/): receiver based on GNU Radio. 
 
 #### Graphics (2D)
@@ -283,6 +288,12 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 ## Office Software
 
+### Suites
+
+* [Libreoffice](https://www.libreoffice.org/): a complete alternative to Microsoft Office, pretty much fully compatible.
+
+* [Onlyoffice](https://www.onlyoffice.com/): a simple yet complete office suite, compatible with Microsoft Office.
+
 ### Email
 
 * [Thunderbird](https://www.thunderbird.net/): complete email client with full GPG support.
@@ -292,12 +303,6 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 * [Sylpheed](http://sylpheed.sraoss.jp/en/): very lightweight and simple e-mail client.
 
 * [Mutt](http://www.mutt.org/): TUI email client.
-
-### Suites
-
-* [Libreoffice](https://www.libreoffice.org/): a complete alternative to Microsoft Office, pretty much fully compatible.
-
-* [Onlyoffice](https://www.onlyoffice.com/): a simple yet complete office suite, compatible with Microsoft Office.
 
 ### Word
 
@@ -329,9 +334,9 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [Draw.io](https://www.draw.io/): wonderful diagraming tool. From basic drawings, to flowcharts and organization. A more complex but also more powerful system is [Graphviz](https://graphviz.org/), specially with the _dot_ language.
 
-## Engineering - Science/General
+## Science - Engineering
 
-* [COIN-OR](https://www.coin-or.org/): complete suite for optimization and general operational research. CMPL is their own mathematical programming language. Coliop is a basic GUI to write CMPL.
+### General
 
 * [Jupyter](https://jupyter.org/): notebook. [Available kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels). Also worth checking out [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/).
 
@@ -339,17 +344,17 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [Scilab](http://www.scilab.org/): complete alternative to Matlab or Octare thereof.
 
+* [OpenModelica](https://www.openmodelica.org/): a complete Modelica solution. Models physical systems and controllers.
+
 * **Plotting**: [GNU Plot](http://gnuplot.info/): advance plotting tool. [PLplot](http://plplot.org/). [MathGL](http://mathgl.sourceforge.net/doc_en/Main.html).
 
-* [OpenModelica](https://www.openmodelica.org/): a complete Modelica solution. Models physical systems and controllers.
+### Mathematics
+
+* [COIN-OR](https://www.coin-or.org/): complete suite for optimization and general operational research. CMPL is their own mathematical programming language. Coliop is a basic GUI to write CMPL.
 
 * [SageMath](https://www.sagemath.org/): complete mathematical suite.
 
 * [Maxima (WxMaxima)](http://maxima.sourceforge.net/): algebra software.
-
-* [ElmerFEM](https://www.csc.fi/web/elmer): fluid dynamics, structural mechanics, electromagnetics, heat transfer and acoustics FEM.
-
-* [LibreCAD](https://librecad.org/): 2D CAD drawing solution.
 
 * [Gap](http://www.gap-system.org/):  computational discrete algebra, with emphasis on computational group theory.
 
@@ -361,31 +366,11 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [OpenTURNS](http://www.openturns.org/): uncertainty treatment and measurement.
 
-* [Umbrello](https://umbrello.kde.org/): UML diagramming/modeller.
-  
-* [3DSlicer](https://www.slicer.org/): 3D visualization software specialized in volumetrics.
-
-### Mechanical
-
-The Salome Platform
-
-* [Salome Meca](http://www.salome-platform.org/): complete engineering platform, from design, to meshing, to problem description and boundary conditions, to simulation and visualization. It is composed of smaller pieces of software which are described below.
-
-* [Code Aster](https://www.code-aster.org/): a mechanical and thermal solver.
+### Design - Mechanical - Simulation
 
 * [Gmsh](http://gmsh.info/): designer, mesh generator and post-processor.
 
-* [Paraview](https://www.paraview.org/): THE data visualization program, it is a wonderful piece of software.
-
-* [Dakota](https://dakota.sandia.gov/): advance optimizer.
-
-* [Code Saturn](https://www.code-saturne.org/cms/): CFD solver.
-
-* [OpenFoam](https://openfoam.org/): THE open source CFD.
-
-* [Netgen/NGSolve](https://ngsolve.org/): extremely complete mesher.
-
-* [Open TELEMAC-MASCARET](http://opentelemac.org/): integrated suite of solvers for use in free-surface flows.
+* [LibreCAD](https://librecad.org/): 2D CAD drawing solution.
 
 * [FreeCAD](https://www.freecadweb.org/): complete 3D design solution and provides FEM and CFD modules.
 
@@ -397,13 +382,29 @@ The Salome Platform
 
 * [gCAD3D](http://www.gcad3d.org/): wonderful 2D/3D CAD program, lacks plan design.
 
-* [Meshlab](http://www.meshlab.net/): advance remesher.
+* [HeeksCAD](https://github.com/Heeks/heekscnc): CNC tooling. There is also [PyCAM](http://pycam.sourceforge.net/).
 
 * [Cura](https://github.com/Ultimaker/Cura): 3D printing suite.
 
-* [HeeksCAD](https://github.com/Heeks/heekscnc): CNC tooling. There is also [PyCAM](http://pycam.sourceforge.net/).
-
 * [LinuxCNC](http://linuxcnc.org/): CNC controller. [CAMotics](https://github.com/CauldronDevelopmentLLC/CAMotics) is for 3-axis CNC GCode simulation.
+
+---
+
+* [Netgen/NGSolve](https://ngsolve.org/): extremely complete mesher.
+
+* [Meshlab](http://www.meshlab.net/): advance remesher.
+
+The Salome Platform
+
+* [Salome Meca](http://www.salome-platform.org/): complete engineering platform, from design, to meshing, to problem description and boundary conditions, to simulation and visualization. It is composed of smaller pieces of software which are described below.
+
+* [Code Aster](https://www.code-aster.org/): a mechanical and thermal solver.
+
+* [Code Saturne](https://www.code-saturne.org/cms/): CFD solver.
+
+* [OpenFoam](https://openfoam.org/): THE open source CFD.
+
+* [ElmerFEM](https://www.csc.fi/web/elmer): fluid dynamics, structural mechanics, electromagnetics, heat transfer and acoustics FEM.
 
 * [Calculix](http://www.calculix.de/): FEM for dynamic, static structures and thermal solutions.
 
@@ -411,11 +412,21 @@ The Salome Platform
 
 * [Agros 2D](http://www.agros2d.org/): simulator of physical problems based on the Hermes library.
 
+* [Open TELEMAC-MASCARET](http://opentelemac.org/): integrated suite of solvers for use in free-surface flows.
+
+* [Dakota](https://dakota.sandia.gov/): advance optimizer.
+
+* [Paraview](https://www.paraview.org/): THE data visualization program, it is a wonderful piece of software.
+
 * [Vislt](https://wci.llnl.gov/simulation/computer-codes/visit/): visualization software.
 
-* [ITOM](https://itom.bitbucket.io/): suite for operating measurement systems.
+* [3DSlicer](https://www.slicer.org/): 3D visualization software specialized in volumetrics.
 
 * **Not Open Source** [Simscale](https://www.simscale.com/): online web application, complete simulation solution which only uses libre software (mentioned above). Completely free for students.
+
+---
+
+* [ITOM](https://itom.bitbucket.io/): suite for operating measurement systems.
 
 ### Electronics
 
@@ -425,6 +436,10 @@ The Salome Platform
 
 * [XCircuit](http://opencircuitdesign.com/xcircuit/): circuite schematic design.
 
+* [Magic VLSI](http://opencircuitdesign.com/magic/): VLSI layout tool.
+
+* [IRSIM](http://opencircuitdesign.com/irsim/): switch-level simulator.
+
 * [Qucs](http://qucs.sourceforge.net/): as its name expresses _Quite Universal Circuit Simulator._
 
 * [KTechLab](https://github.com/ktechlab/ktechlab): IDE for microcontrollers and electronics, as well as a simulator.
@@ -432,6 +447,12 @@ The Salome Platform
 * [GTKWave](http://gtkwave.sourceforge.net/): wave viewer.
 
 * [FlatCAM](http://flatcam.org/): PCB milling.
+
+### Others
+
+* [LAMMPS](https://lammps.sandia.gov/): mulecular dynamics simulator.
+
+* [SUMO](https://www.dlr.de/ts/en/desktopdefault.aspx/tabid-9883/16931_read-41000/): Simulation of Urban MObility, simulates vehicles, pedestrians and public transport mobility.
 
 ### Networking
 
@@ -452,6 +473,8 @@ The Salome Platform
 * [CotD](https://github.com/gwathlobal/CotD): City of the Dammed. A terminal roge-like of a battle of Angels and Demons in the streets of a Human city.
 
 * [ToME4](https://te4.org/): a roge-like based on Tolkien's work.
+
+* [Keeprrl](https://keeperrl.com/): dungeon builder with a roge-like touch.
 
 #### Shooters
 
@@ -490,6 +513,8 @@ The Salome Platform
 * [FlighGear](http://home.flightgear.org/): professional flight simulator.
 
 * [OpenTTD](https://www.openttd.org/en/): game based on Transport Tycoon Deluxe.
+
+* [Simutrans](https://www.simutrans.com/en/): transport simulation.
 
 #### Misc
 
@@ -556,7 +581,7 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 ### Programming languages
 
-* **C** [GCC](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): the low level language. The grandfather of the modern world. A wonder in itself, by it's simplicity and flexibility. If an in-depth analysis of the code is required, there is [Frama-C](https://frama-c.com).
+* **C** [GCC](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): the low level language. The grandfather of the modern world. A wonder in itself, by it's simplicity and flexibility. If an in-depth analysis of the code is required, there is [Frama-C](https://frama-c.com). A C compiler targeted to more retro/microcontroller CPUs is [Small Device C Compiler](http://sdcc.sourceforge.net/).
 
 * **Modern C++** [GCC](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): please, use the modern features the language gives you! Low level language, though several times more complete (*and dificult* when it comes to learning it) than C.
 
@@ -566,39 +591,43 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 * [Rust](https://www.rust-lang.org/en-US/): a higher level language that C/C++ yet it targets low level systems. It's main focus is on memory security.
 
-* **Go** [Gcc-go](https://gcc.gnu.org/onlinedocs/gccgo/) or [Go](https://golang.org/): developed by Google, for the web, great for backends or anything related to web.
-
 * [Julia](https://julialang.org/): a language targeted towards high performant code, specially analisys and science.
 
 * **Lisp/Scheme** [Sbcl](http://www.sbcl.org/), [GNU Guile](https://www.gnu.org/software/guile/) or [Racket](https://racket-lang.org/): just learn it.
 
 * [Lua](https://www.lua.org/) and [LuaJIT](http://luajit.org/): a wonderful little language geared specially towards embedding.
 
-* [Elixir](https://elixir-lang.org/): functional language built on top of the ErlangVM (BEAM). It is mostly targeted to fault tolerance systems and web services. Much recommended. [Credo](https://github.com/rrrene/credo) is a static analyzer for it.
-
-* **Prolog** [Gprolog](http://gprolog.org/) or [SWI Prolog](http://www.swi-prolog.org/): the greatest logical language out there.
+* [Elixir](https://elixir-lang.org/): functional language built on top of the ErlangVM (BEAM). It is mostly targeted to fault tolerance systems and web services with scalability in mind. Much recommended. [Credo](https://github.com/rrrene/credo) is a static analyzer for it.
 
 * [Haskell](https://www.haskell.org/): _the_ functional language.
 
-* [SuperCollider](https://supercollider.github.io/): a platform for audio synthesis and algorithmic composition.
-
 * [R](https://www.r-project.org/): a language mainly aimed at statistics. [Rkward](https://rkward.kde.org/Main_Page) is a small and lightweight, IDE for it. [Rstudio](https://www.rstudio.com/): is the most complete and well-known IDE for R.
-
-* [Mono](http://www.mono-project.com/): open source C# implementation with support for the .NET framework.
 
 * [F#](https://fsharp.org/): functional meets .NET.
 
+* [UML Umbrello](https://umbrello.kde.org/): UML diagramming/modeller.
+
+* **Formal languages** [F*](https://www.fstar-lang.org/) and [Coq](https://coq.inria.fr/).
+
+* **Go** [Gcc-go](https://gcc.gnu.org/onlinedocs/gccgo/) or [Go](https://golang.org/): developed by Google, for the web, great for backends or anything related to web.
+
+* **Prolog** [Gprolog](http://gprolog.org/) or [SWI Prolog](http://www.swi-prolog.org/): the greatest logical language out there.
+
+* [SuperCollider](https://supercollider.github.io/): a platform for audio synthesis and algorithmic composition.
+
 * **Hardware description languages:** [GHDL](http://ghdl.free.fr/): VHDL compiler. [Iverilog](http://iverilog.icarus.com/): Verilog compiler.
 
-* **Others worth looking at:** [Python](https://www.python.org/) quick scriptable and widely used language (specially in science), [Nuitka](https://nuitka.net/) is a compiler for it. [Coq](https://coq.inria.fr/): language for formal verification.
+* **Others worth looking at:** [Coq](https://coq.inria.fr/): language for formal verification. [Python](https://www.python.org/) quick scriptable and widely used language (specially in science), [Nuitka](https://nuitka.net/) is a compiler for it.
 
 * **General tools:** [Crucible](https://github.com/GaloisInc/crucible): library for symbolic simulation of imperative programs. [SAW-Script](https://github.com/GaloisInc/saw-script): scripting language for SAW (Software Analysis Workbench).
 
 #### Web
 
+As a recommendation, use javascript only where necesary and sparsely.
+
 * [TypeScript](http://www.typescriptlang.org/): make yourself a favour and use it instead of JavaScript. There is also [PureScript](http://www.purescript.org/) if you prefer the Haskell way.
 
-* **Transpilers to JavaScript:** [Rust Yew](https://github.com/DenisKolodin/yew), the goodness of Rust in all of its glory (targets WASM). [Go GopherJS](https://github.com/gopherjs/gopherjs): compiler form Go to JavaScript. [Elm](https://elm-lang.org/): modern language to create reliable webapps.
+* **Transpilers to JavaScript:** [Rust Yew](https://github.com/DenisKolodin/yew), the goodness of Rust in all of its glory (targets WASM). [Elm](https://elm-lang.org/): modern language to create reliable webapps (front-end). [Go GopherJS](https://github.com/gopherjs/gopherjs): compiler form Go to JavaScript.
 
 * [Phoenix](https://phoenixframework.org/): there are quite a few frameworks out there, but Phoenix, written in Elixir, is definitely the best one out there; complete and flexible. Another framework that I personally like too is [Lapis](http://leafo.net/lapis/), for Lua and Moonscript.
 
@@ -608,7 +637,7 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 * [Kubernetes](https://kubernetes.io/): system for automating deployment, scaling, and management of containerized applications.
 
-* **Static Builders:** [Hugo](https://gohugo.io/): great(est) static pages generator, Go based. [Hakyll](https://jaspervdj.be/hakyll/): an alternative based on Haskell. [Zola](https://www.getzola.org/): same, but with Rust, preferred by author.
+* **Static Builders:** [Zola](https://www.getzola.org/): same, but with Rust, preferred by author. [Hugo](https://gohugo.io/): great(est) static pages generator, Go based. [Hakyll](https://jaspervdj.be/hakyll/): an alternative based on Haskell.
 
 * **Extra bits, none Open Source** [DNSimple](https://dnsimple.com/): as its name implies, simple, yet complete domain acquisition service with Let's Encrypt certificates; and they fully support open source. [Digital Ocean](https://www.digitalocean.com/): complete hosting solution, not the cheapest, but one of the easiest and complete ones. [UpCloud](https://www.upcloud.com/): another nice hosting solution.
 
@@ -622,24 +651,26 @@ Here goes a little extra section regarding some of the technologies that I quite
 
 * [Redis](https://redis.io/): in-memory storage, there are interfaces for every language imaginable.
 
-### Networks - Social Media
-
-* [Gitea](https://gitea.io/en-US/): self-hosted Git. Similar to Github; and much lighter than [GitLab](https://about.gitlab.com/), which is a more complete solution, and it is used by major companies and projects. If the solution has to be simple and responsive, there is [Cgit](https://git.zx2c4.com/cgit/) plus [Gitolite](http://gitolite.com/gitolite/).
-
-* **Project management:** [Odoo](https://www.odoo.com/): complete ERP and CRM solution, the open-source version does not have the most advance (and usually handy) tools. [ERPNext](https://erpnext.com/): complete ERP solution. [SuiteCRM](https://suitecrm.com/): complete CRM solution.
-
-* **Project management (code-based):** [Tuleap](https://www.tuleap.org/), complete software solution for any project. [Phabricator](https://phacility.com/) is a _down to the code_ alternative.
+### Social Media
 
 * [LibrePay](https://liberapay.com/): similar to Patreon. One can donate to individuals, projects, companies or be given money for ones work.
 
 * [Mastodon](https://joinmastodon.org/): twitter like network, but decentralized and several times better (btw, you don't _tweet,_ you **toot**). Mastodon is based on [GNU Social](https://gnu.io/social/), which is also great, and it is compatible with it. Another alternative compatible with the OStatus systems (*Gnu Social and Mastodon*) is [Pleroma](https://pleroma.social), which is written in Elixir.
 
-* [GNU FM (Libre FM)](https://gnu.io/fm/): relative of GNU Social, but directed for music streaming.
-
-* [Mumble](https://wiki.mumble.info/wiki/Main_Page): VoIP.
-
-* [Wire](https://wire.com/en/): a _collaboration_ network, similar to Slack or Telegram, but much better. There is also [Mattermost](https://www.mattermost.org/), which is a lot more _enterprisesy,_ so up to you.
+* [PeerTube](https://joinpeertube.org/en/): decentralized video hosting network.
 
 * [Matrix](https://matrix.org/blog/home/): _An open network for secure, decentralized communication._ [Diaspora*](https://diasporafoundation.org/) is another wonderful social network following the same principle.
 
-* [PeerTube](https://joinpeertube.org/en/): decentralized video hosting network.
+* [Wire](https://wire.com/en/): a _collaboration_ network, similar to Slack or Telegram, but much better. There is also [Mattermost](https://www.mattermost.org/), which is a lot more _enterprisy,_ so up to you.
+
+* [Mumble](https://wiki.mumble.info/wiki/Main_Page): VoIP.
+
+* [GNU FM (Libre FM)](https://gnu.io/fm/): relative of GNU Social, but directed for music streaming.
+
+### Project management
+
+* **Git**: [Gitea](https://gitea.io/en-US/): self-hosted Git. Similar to Github; and much lighter than [GitLab](https://about.gitlab.com/), which is a more complete solution, and it is used by major companies and projects. If the solution has to be simple and responsive, there is [Cgit](https://git.zx2c4.com/cgit/) plus [Gitolite](http://gitolite.com/gitolite/).
+
+* **Project management:** [Odoo](https://www.odoo.com/): complete ERP and CRM solution, the open-source version does not have the most advance (and usually handy) tools. [ERPNext](https://erpnext.com/): complete ERP solution. [SuiteCRM](https://suitecrm.com/): complete CRM solution.
+
+* **Project management (code-based):** [Tuleap](https://www.tuleap.org/), complete software solution for any project. [Phabricator](https://phacility.com/) is a _down to the code_ alternative.

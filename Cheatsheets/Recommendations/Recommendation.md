@@ -12,27 +12,31 @@ This list should be used by reading from top to bottom and selecting the first l
 
 * **Lua** use it as an scripting language and to extend software where the user is not expected to write performing code. It is easily embeddable in any language.
 
-* **Julia** as a quick way to interact whit programs and write performant systems (unless the languages below suit that requirement better). If python is good for that job (unless Lua suits it better), then you should use **Julia**. It should also be embedded as an user programming interface in more complex software where the user is expected to write quite some code.
+* **Julia** as a quick way to interact whit programs and write performant systems (unless the languages below suit that requirement better). If python is good for that job (unless Lua suits it better), then you should use Julia. It should also be embedded as an user programming interface in more complex software where the user is expected to write quite some code.
 
-* **Golang** for web related services where performance is important. By performance I mean that the backend will have to do some heavy lifting tasks and the user should not be left waiting.
+* **FORTRAN** if the program has to be as performant as possible, and it will mainly consist on (math/logic) operations, rather than memory management, use modern fortran. It is more flexible, clearer and has wonderfully simple yet powerful type system. Please, take a look into CoArrays, OpenMP and OpenMPI.
 
-* **Elixir/Erlang** for web services where stability and scalability need to be ensured. Efficiency nor performance should be the main characteristic for the project. Consider using the [Phoenix Framework](https://phoenixframework.org/) and [Drab](https://tg.pl/drab).
+* **C** for embedded devices or resource constrained systems; when performance is of great importance. Please, use C99 or newer. And take your time to learn it.
 
-* **Elm** for front end. However, consider if it is trully necessary to write one using something other than a static website generator and or through the backend.
+* **Ada/Spark** for critical software where not just the code but the logic HAS to be correct.
 
-* **FORTRAN** if the program has to be as performant as possible, and it will mainly consist on (math/logic) operations, rather than data management. Use modern fortran, it is more flexible, clearer and has wonderful types. Please, take a look into CoArrays, OpenMP and OpenMPI.
-
-* **C** for embedded devices or resource constrained systems; when performance is of paramount importance. Please, use C99 or newer. And take your time to learn it.
-
-* **Rust** when the program is of great complexity, requires to be correct (code-bug-free), and performant.
-
-* **Ada/Spark** for critical software where not just the code but the logic has to be correct.
+* **Rust** when the program is of great complexity, has to be correct (code-bug-free), performant and development speed is important.
 
 * **Prolog** when the problem faced is easier with a logical approach. Also, anything AI.
 
 * **LISP/SCHEME** when the complexity of the problem outgrows the necessity of performance. As an extra addition, it is a joy to write.
 
 * **Assembly** when there is nothing that will suit the performace. Or just to have access to all the functionallity that the hardware has to offer. It is also great fun writting it when done as a hobby, and you will learn more than what you would have imagined.
+
+* **Coq/F\*** for formally provable programs. If the program has to be compiled to machine code or other languages, F* is a great choice.
+
+### Systems/Web related
+
+* **Elixir/Erlang** for web services where stability and scalability need to be ensured. Efficiency nor performance should be the main characteristic for the project. Consider using the [Phoenix Framework](https://phoenixframework.org/) and [Drab](https://tg.pl/drab).
+
+* **Golang** for web related services where performance is important. By performance I mean that the backend will have to do some heavy lifting tasks and the user should not be left waiting.
+
+* **Elm** for front end. However, consider if it is trully necessary to write one using something other than a static website generator and or through the backend.
 
 ### Databases
 
@@ -46,7 +50,23 @@ This list should be used by reading from top to bottom and selecting the first l
 
 ## Formats
 
+### Text files
 
+If it has to be human readable, please, use plain text. Even if the file should, very rarely, be read by a person; still, make it a plain text.
+
+* **Org files** may be used to take advantage of most of the mentioned properties of the above formats. Use it as your hearts desire.
+
+* **TOML** for structured data and configuration.
+
+* **Markdown** for simple documentation texts.
+
+* **TeX** for scientific and formal documentation of projects. Try to keep it as simple and as barebones as possible, don't be fancy. If you need anything more flexible than the default classes, use KOMA. Also, partition your .tex files!
+
+* **ODF** (Open Document Format) for more complex texts and automated forms.
+
+* **PDF or PostScript** for printing or read-only copies.
+
+* **MusicXML** while XML is something that boggles my mind, if you have to exchange music between to programs (such as the wonderful MuseScore or Denemo), use MusicXML, since it is a standard understood by many and works well.
 
 ## Editors
 
