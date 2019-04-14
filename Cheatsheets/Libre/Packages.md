@@ -460,7 +460,7 @@ The Salome Platform
 
 ## Games
 
-#### Rogue like
+### Rogue like
 
 * [Angband](http://rephial.org/): a terminal roge-like game based on Tolkien's work.
 
@@ -476,7 +476,7 @@ The Salome Platform
 
 * [Keeprrl](https://keeperrl.com/): dungeon builder with a roge-like touch.
 
-#### Shooters
+### Shooters
 
 * [Urban Terror](https://www.urbanterror.info/home/): an old school shooter (yet fun and enjoyable as ever).
 
@@ -486,17 +486,17 @@ The Salome Platform
 
 * [Taisei](https://taisei-project.org/): fangame recreating the queen of bullet hell games, Tohou.
 
-#### Adventure
+### Adventure
 
 * [Minetest](https://www.minetest.net/): a Minecraft clone that is just as good.
 
-#### RPGs
+### RPGs
 
 * [Flare](http://flarerpg.org/): an old school RPG like Diablo.
 
 * [ManaPlus](http://manaplus.org/start): a client for the MMO _The Mana World._
 
-#### RTS/Strategy
+### RTS/Strategy
 
 * [0ad](https://play0ad.com/): an Imperium, Age of Empires clone.
 
@@ -508,7 +508,7 @@ The Salome Platform
 
 * [Warzone 2100](http://wz2100.net/): an old school RTS.
 
-#### Simulation
+### Simulation
 
 * [FlighGear](http://home.flightgear.org/): professional flight simulator.
 
@@ -516,10 +516,9 @@ The Salome Platform
 
 * [Simutrans](https://www.simutrans.com/en/): transport simulation.
 
-#### Misc
+### Misc
 
 * [GNU Chess](https://www.gnu.org/software/chess/): play chess.
-
 
 ### Emulators
 
