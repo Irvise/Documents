@@ -96,7 +96,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Powertop](https://01.org/powertop/): power monitoring with togglable options to further tweak your power consumption.
 
-### Networking
+### Network
 
 * [Curl](https://curl.haxx.se/): the Swiss knife tool to transfer data with URLs. A less flexible, yet simpler and equally useful is [wget](https://www.gnu.org/software/wget/).
 
@@ -212,13 +212,13 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [LMMS](https://lmms.io/): music production (music synthesither).
 
-* [MuseScore](https://musescore.org/en): professional music notation, while simple and fully flexible. [Denemo](http://www.denemo.org/): another great music notation program.
+* [MuseScore](https://musescore.org/en): professional music notation, while simple and fully flexible. [Denemo](http://www.denemo.org/): another great music notation program. [Rosegarden](https://www.rosegardenmusic.com/): a quite complete solution to music production, from notation to synthesis to MIDI playback.
   
 * [Sonic Visualiser](https://sonicvisualiser.org/): audio viewer and analyzer.
 
 * [Radium](http://users.notam02.no/%7Ekjetism/radium/index.php): amazing music editor.
 
-* [MuSe](http://www.muse-sequencer.org/index.html): old-looking yet complete MIDI/Audio sequencer.
+* [MuSe](http://www.muse-sequencer.org/index.html): complete MIDI/Audio sequencer.
 
 * [Zynaddsubfx](http://zynaddsubfx.sourceforge.net/): really nice audio synthesizer.
 
@@ -226,7 +226,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Bristol](http://bristol.sourceforge.net/): (ancient) synthesiser emulator, supports several models.
 
-* [GNU Radio](https://www.gnuradio.org/): software defined radio. [Gqrx SDR](http://gqrx.dk/): receiver based on GNU Radio. 
+* [GNU Radio](https://www.gnuradio.org/): software defined radio. [Gqrx SDR](http://gqrx.dk/): receiver based on GNU Radio.
 
 #### Graphics (2D)
 
@@ -388,9 +388,7 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [LinuxCNC](http://linuxcnc.org/): CNC controller. [CAMotics](https://github.com/CauldronDevelopmentLLC/CAMotics) is for 3-axis CNC GCode simulation.
 
----
-
-* [Netgen/NGSolve](https://ngsolve.org/): extremely complete mesher.
+* [Netgen/NGSolve](https://ngsolve.org/): complete mesher.
 
 * [Meshlab](http://www.meshlab.net/): advance remesher.
 
@@ -402,6 +400,8 @@ The Salome Platform
 
 * [Code Saturne](https://www.code-saturne.org/cms/): CFD solver.
 
+---
+
 * [OpenFoam](https://openfoam.org/): THE open source CFD.
 
 * [ElmerFEM](https://www.csc.fi/web/elmer): fluid dynamics, structural mechanics, electromagnetics, heat transfer and acoustics FEM.
@@ -410,9 +410,19 @@ The Salome Platform
 
 * [GetDP](http://getdp.info/): general environment for the treatment of discrete problems.
 
+* [AMITEX_FFTP](http://www.maisondelasimulation.fr/projects/amitex/html/index.html): solver based on FFTs for non-linear mechanical analysis on heterogeneous unit-cells.
+
 * [Agros 2D](http://www.agros2d.org/): simulator of physical problems based on the Hermes library.
 
+* [MFront/TFEL](http://tfel.sourceforge.net/): code generation tool dedicated to material knowledge and its design. Has interfaces to some most libre software listed here.
+
+* [LAMMPS](https://lammps.sandia.gov/): mulecular dynamics simulator.
+
 * [Open TELEMAC-MASCARET](http://opentelemac.org/): integrated suite of solvers for use in free-surface flows.
+
+* [Polyphemus](http://cerea.enpc.fr/polyphemus/): air dispersion and pollution.
+
+* [AERMOD](https://www.epa.gov/scram/air-quality-dispersion-modeling-preferred-and-recommended-models#caline): air dispersion and pollution simulator.
 
 * [Dakota](https://dakota.sandia.gov/): advance optimizer.
 
@@ -449,8 +459,6 @@ The Salome Platform
 * [FlatCAM](http://flatcam.org/): PCB milling.
 
 ### Others
-
-* [LAMMPS](https://lammps.sandia.gov/): mulecular dynamics simulator.
 
 * [SUMO](https://www.dlr.de/ts/en/desktopdefault.aspx/tabid-9883/16931_read-41000/): Simulation of Urban MObility, simulates vehicles, pedestrians and public transport mobility.
 
@@ -516,7 +524,7 @@ The Salome Platform
 
 * [Simutrans](https://www.simutrans.com/en/): transport simulation.
 
-### Misc
+### Miscelanea
 
 * [GNU Chess](https://www.gnu.org/software/chess/): play chess.
 
