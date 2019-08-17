@@ -1,0 +1,115 @@
+\documentclass[12pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{etoolbox} % to reduce spacing in bearmers toc
+\usetheme[block=fill]{metropolis}
+
+% to reduce spacing in bearmers toc
+\makeatletter
+\patchcmd{\beamer@sectionintoc}
+{\vfill}
+{\vskip\itemsep}
+{}
+{}
+\makeatother
+
+\begin{document}
+	\author{Fernando Oleo Blanco \\ fernando.oleo@alu.comillas.edu \hfill 	\href{https://github.com/Irvise/Documents}{github.com/Irvise/Documents}}
+	\title{Introducción a la Simulación}
+	%\subtitle{}
+	%\logo{}
+	%\institute{ICAI - LinuxEC}
+	\date{\today}
+	%\subject{}
+	%\setbeamercovered{transparent}
+	\setbeamertemplate{navigation symbols}{}
+	\setbeamertemplate{footline}[page number]
+\begin{frame}[plain]
+	\maketitle
+\end{frame}
+
+\begin{frame}{Información de la charla}
+	\textbf{Duración estimada:} 2h \\
+	\textbf{¡Haremos una simulación!} Así que por favor, celeridad
+	
+	\begin{block}{Esta charla no tratará}
+		\begin{itemize}
+			\item ANSYS \textregistered\ o ningún software en específico
+			\item Métodos numéricos ni principios de convergencia
+			\item Funcionamiento de los simuladores ni sus principios
+			\item Análisis de sensibilidad ni optimizaciones de ningún tipo
+			\item Mallado (meshing) de manera formal
+			\item Diseño 3D, esto ya lo deberíais traer
+			\item Caso práctico de post-procesado
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Índice}
+	\setcounter{tocdepth}{2}
+	\tableofcontents
+\end{frame}
+
+\section{Qué es la simulación y qué se requiere}
+
+\begin{frame}{Requisitos mínimos para simular}
+	\begin{block}{Entender muy, muy bien la física/ingeniería del problema}
+		Los ordenadores no son tan inteligentes. Es un requisito indispensable entender muy bien lo aprendido en las clases. Dadle valor a la ingeniería.
+	\end{block}
+	Otros:
+	\begin{itemize}
+		\item Ganas. Los errores son constantes
+		\item Leer la documentación. Hacer cursos/ver vídeos
+		\item Práctica
+	\end{itemize}
+\end{frame}
+
+\section{Software de simulación comercial}
+
+\subsection{Software de pago}
+
+\subsection{Software libre/gratuito}
+
+\section{Los cinco pasos de toda simulación}
+
+\begin{frame}{Las cinco fases para simular}
+	\begin{itemize}
+		\item Análisis del problema
+		\item Creación de la geometría y grupos
+		\item Mallado (meshing)
+		\item Configuración de la simulación y simulación
+		\item Post-procesado
+	\end{itemize}
+	\begin{block}{Todas son importantes}
+		No os saltéis ninguna jamás. Especialmente el análisis y el post-procesado.
+	\end{block}
+\end{frame}
+
+\section{Caso práctico}
+
+\subsection{Presentación y análisis}
+
+\subsection{Geometría y grupos}
+
+\subsection{Mallado}
+
+\subsection{Simulación}
+
+\subsubsection{Fases generales de la simulación}
+
+\subsubsection{Tipos de simulación}
+
+\subsection{Post-procesado}
+
+\begin{frame}{asd}
+	content...
+\end{frame}
+
+\end{document}
