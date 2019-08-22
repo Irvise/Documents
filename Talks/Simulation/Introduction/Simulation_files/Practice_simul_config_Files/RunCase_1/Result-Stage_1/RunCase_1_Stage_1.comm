@@ -1,0 +1,53 @@
+DEBUT(LANG='EN')
+
+
+Carga = -3000 / 0.2 / 0.4
+
+mesh = LIRE_MAILLAGE(identifier=u'1:1',
+                     FORMAT='MED',
+                     UNITE=20)
+
+model = AFFE_MODELE(identifier=u'2:1',
+                    AFFE=_F(MODELISATION=('3D', ),
+                            PHENOMENE='MECANIQUE',
+                            TOUT='OUI'),
+                    MAILLAGE=mesh)
+
+Steel = DEFI_MATERIAU(identifier=u'3:1',
+                      ELAS=_F(E=2.1e+11,
+                              NU=0.3))
+
+fieldmat = AFFE_MATERIAU(identifier=u'4:1',
+                         AFFE=_F(MATER=(Steel, ),
+                                 TOUT='OUI'),
+                         MAILLAGE=mesh)
+
+Empotra = AFFE_CHAR_MECA(identifier=u'5:1',
+                         DDL_IMPO=_F(DX=0.0,
+                                     DY=0.0,
+                                     DZ=0.0,
+                                     GROUP_MA=('Face_empotra', )),
+                         MODELE=model)
+
+load0 = AFFE_CHAR_MECA(identifier=u'6:1',
+                       FORCE_FACE=_F(FZ=Carga,
+                                     GROUP_MA=('Face_load', )),
+                       MODELE=model)
+
+reslin = MECA_STATIQUE(identifier=u'7:1',
+                       CHAM_MATER=fieldmat,
+                       EXCIT=(_F(CHARGE=Empotra),
+                              _F(CHARGE=load0)),
+                       MODELE=model)
+
+unnamed0 = CALC_CHAMP(identifier=u'8:1',
+                      CONTRAINTE=('SIGM_ELGA', 'SIGM_ELNO', 'SIGM_NOEU'),
+                      RESULTAT=reslin)
+
+IMPR_RESU(identifier=u'9:1',
+          FORMAT='MED',
+          RESU=(_F(RESULTAT=reslin),
+                _F(RESULTAT=unnamed0)),
+          UNITE=80)
+
+FIN()

@@ -1,2 +1,0 @@
-#!/bin/bash
-as_run --num_job=8121-0002-suse export 2> ./logs/stderr_command_salome.log
