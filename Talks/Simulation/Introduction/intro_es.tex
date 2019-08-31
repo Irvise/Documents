@@ -37,18 +37,18 @@
 \end{frame}
 
 \begin{frame}{Información de la charla}
-	\textbf{Duración estimada:} 2h \\
+	\textbf{Duración estimada:} 2:30h \\
 	\textbf{¡Haremos una simulación!} Así que por favor, celeridad
 	
 	\begin{block}{Esta charla no tratará}
 		\begin{itemize}
 			\item ANSYS \textregistered\ o ningún software en específico
 			\item Métodos numéricos ni principios de convergencia
-			\item Funcionamiento de los simuladores ni sus principios
+			\item Funcionamiento de los simuladores ni sus fundamentos
 			\item Análisis de sensibilidad ni optimizaciones de ningún tipo
 			\item Mallado (meshing) de manera formal
 			\item Diseño 3D, esto ya lo deberíais traer
-			\item Caso práctico de post-procesado
+			\item Puede que no de tiempo al caso práctico de post-procesado
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -62,7 +62,7 @@
 
 \begin{frame}{Requisitos mínimos para simular}
 	\begin{block}{Entender muy, muy bien la física/ingeniería del problema}
-		Los ordenadores no son tan inteligentes. Es un requisito indispensable entender muy bien lo aprendido en las clases. Dadle valor a la ingeniería.
+		Los ordenadores no son tan inteligentes. Es un requisito indispensable entender muy bien lo aprendido en las clases. \textbf{Dadle valor a la ingeniería.}
 	\end{block}
 	Otros:
 	\begin{itemize}
@@ -72,7 +72,15 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Escala de la simulación}
+\begin{frame}{¿Qué es la simulación?}
+	Una simulación como su nombre indica, no es la realidad. \\~
+	
+	\begin{block}{La simulación es una aproximación a la realidad}
+		La calidad de la aproximación depende de la persona que la realice y de su trabajo; los conocimientos sobre la materia, el simulador y, sobretodo, la precisión que nosotros queramos darle.
+	\end{block}	
+\end{frame}
+
+\begin{frame}{Escala dimensional ¡y temporal! de la simulación I}
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{ms11}
@@ -81,7 +89,7 @@
 	\end{figure}
 \end{frame}
 
-\begin{frame}{Escala de la simulación}
+\begin{frame}{Escala dimensional ¡y temporal! de la simulación II}
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{cea_simulation_scale}
@@ -156,7 +164,7 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
-				\item \href{https://code-aster.org/spip.php?rubrique2}{Code\_Aster.} Simulador termo-mecánico, una bestia donde se hayan visto.
+				\item \href{https://code-aster.org/spip.php?rubrique2}{Code\_Aster.} Simulador termo-mecánico, una bestia donde se hayan visto
 				\item \href{https://www.code-saturne.org/cms/}{Code\_Saturne.} CFD
 				\item \href{http://www.elmerfem.org/blog/}{ElmerFEM.} Multyphysics
 				\item $\vdots$
@@ -173,30 +181,23 @@
 	\end{block}
 \end{frame}
 
-\section{Simulación y los cinco pasos de toda simulación}
+\section{Los cinco principios de toda simulación}
 
-\begin{frame}{¿Qué es la simulación?}
-	Una simulación como su nombre indica, no es la realidad. \\~
-	
-	\begin{block}{La simulación es una aproximación a la realidad}
-		La calidad de la aproximación depende de la persona que la realice y de su trabajo; los conocimientos sobre la materia, el simulador y, sobretodo, la precisión que nosotros queramos darle.
-	\end{block}	
-\end{frame}
-
-\begin{frame}{Las cinco fases para simular}
+\begin{frame}{Los cinco principios de la simulación}
 	\begin{itemize}
-		\item Análisis del problema
+		\item Análisis (ingenieril) del problema
 		\item Creación de la geometría y grupos
-		\item Mallado (meshing)
+		\item Mallado, \textit{meshing} en inglés (FEA)
 		\item Configuración de la simulación. Simulación
 		\item Post-procesado
 	\end{itemize} \pause
 	\begin{block}{Todas son importantes}
 		No os saltéis ninguna jamás. Especialmente el análisis y el post-procesado, que son las más olvidadas e importantes.
 	\end{block}
+	Cada principio requiere del resto, no se realiza una sin tener claro el resto
 \end{frame}
 
-\section{Caso práctico}
+\section{Caso práctico, desarrollo de la teoría}
 
 \begin{frame}{Dinámica de la parte práctica}
 	A continuación haremos un caso práctico ``real''. Usaremos el software \href{https://code-aster.org/spip.php?article303}{SALOME-Meca} para la simulación, \href{https://code-aster-windows.com/download/}{\textit{link para Windows}}. \\~
@@ -204,7 +205,7 @@
 	El funcionamiento será el siguiente:
 	\begin{enumerate}
 		\item Se introduce la sección teórica
-		\item Se ven ejemplos y se comentan, si hay
+		\item Se ven ejemplos y se comentan. \textbf{¡Participación obligatoria!}
 		\item Vamos al programa y aplicamos lo visto
 	\end{enumerate}
 \end{frame}
@@ -217,9 +218,48 @@
 		\item Objetivo de la simulación
 		\item Elementos/fuerzas que intervienen
 		\item Análisis
-		\item Simplificación,equivalencias
+		\item Simplificación, equivalencias
 		\item Simulación efectiva
 	\end{itemize}
+	\begin{block}{En resumidas cuentas}
+		Ya deberíamos saber cómo serán los resultados antes de simularlo (en la gran mayoría de los casos).
+	\end{block}
+\end{frame}
+
+\begin{frame}{Caso práctico. El jefe pregunta: ¿Aguanta la viga?}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth,angle=90]{case}
+		\label{fig:case}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Ejecución del análisis}
+	\begin{itemize}[label=$\checkmark$]
+		\item Nunca puede romper por la soldadura
+		\item Los tornillos se sobredimensionan, su seguridad está asegurada
+		\item La pregunta solo se refiere a la viga, nos olvidamos de las planchas metálicas... ¿Aunque sean de 100kg?
+		\item La zona más crítica de la viga es en empotramiento
+		\item La parte superior tiene que estar a tracción, la inferior a compresión
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Sistema simplificado para la simulación}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.3\linewidth,angle=90]{simplifiedcase}
+		\caption{Caso simplificado.}
+		\label{fig:simplifiedcase}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{¿Qué nos hemos ahorrado?}
+	\begin{itemize}[label=$\checkmark$]
+		\item Condiciones de contacto en las planchas y los tornillos. No es necesario realizar un análisis \textbf{no lineal}
+		\item Mucha geometría. No modelamos las planchas ni la soldadura
+		\item Diferentes materiales tanto para los tornillos como para la soldadura
+	\end{itemize}
+	Además, nuestro caso tiene solución analítica, podemos comprobar los resultados
 \end{frame}
 
 \subsection{Geometría y grupos}
@@ -235,21 +275,55 @@
 	\end{block}
 \end{frame}
 
+\begin{frame}{Simplificaciones geométricas I}
+	\textit{Una image vale más que mil palabras.} \\~
+	
+	Todas las imágenes de las secciones de geometría y mallado están tomadas del libro ``Finite element applications A practical guide to the FEM process''	
+\end{frame}
+
+\begin{frame}{Simplificaciones geométricas II}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{real_idealised_mesh}
+		\caption{Simprlificación real en modelos idealizados}
+		\label{fig:realidealisedmesh}
+	\end{figure}
+\end{frame}
+
 \subsection{Mallado (meshing)}
 
 \begin{frame}{Información general}
-	En resumidas cuentas, el mallado, \textit{meshing} en inglés, es la discretización espacial del problema en nodos, aristas y/o volúmenes. \\~
-	
+	En resumidas cuentas, el mallado, \textit{meshing} en inglés, es la discretización espacial del problema en nodos, aristas y/o superficies/volúmenes. 
 	Es de los temas más complicados y extensos que hay en la simulación FEM, después de todo, es lo que le da el nombre.
 	
 	\begin{block}{Nociones generales básicas}
 		\begin{itemize}
+			\item Tiene que permitir modelar el fenómeno físico, ver caso de la capa límite/viscosa
 			\item Tiene que asegurar convergencia
 			\item Tiene que asegurar precisión
 			\item Tendría que ser sencillo
 			\item Tendría que ser eficiente
 		\end{itemize}
 	\end{block}
+\end{frame}
+
+\begin{frame}{Ejemplos de referencia}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{mesh_refinement}
+		\caption{Refinamiento por geometría}
+		\label{fig:meshrefinement}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Refinamiento del mallado}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{mesh_refinement_steps}
+		\caption{Evolución de la precisión por el refinamiento del mallado. Caso de concentración de tensiones}
+		\label{fig:meshrefinementsteps}
+	\end{figure}
+	
 \end{frame}
 
 \begin{frame}{Unos sencillos pasos}
@@ -263,10 +337,6 @@
 		\item (Re)hacer los grupos geométricos
 		\item \textbf{Comprobar que todo esté correcto.} Por ejemplo: en CFD que los cuerpos sumergidos estén sellados
 	\end{enumerate}
-\end{frame}
-
-\begin{frame}{Ejemplos}
-	
 \end{frame}
 
 \subsection{Simulación}
@@ -300,8 +370,52 @@
 	En cualquier momento puede ser necesario el uso de \textbf{funciones y listas de valores.} 
 \end{frame}
 
-\subsubsection{Tipos de simulación} % La dejo?
-
 \subsection{Post-procesado}
+
+\begin{frame}{Nociones generales}
+	El post-procesado es un sinónimo de \textbf{análisis.} ¿Qué se ha de hacer/suele hacer? 
+	\begin{itemize}
+		\item Analizar los resultados de la simulación
+		\begin{itemize}
+			\item ¿Son corréctos/esperados?
+			\item El \textit{output} puede requerir de procesamiento extra, por ejemplo, \textit{plots}
+		\end{itemize}
+		\item Utilizar herramientas de filtrado
+		\item Utilizar los resultados para derivar otros. Por ejemplo, con la presión que sufre un cuerpo en un fluido, se puede procesas su coeficiente aerodinámico
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Visualización geométrica de nuestra simulación}
+	\begin{figure}
+		\centering
+		\hspace*{-1em}\includegraphics[width=1.1\linewidth]{3dview}
+		\caption{Deformación vertical de la viga. Apliada 100 veces.}
+		\label{fig:3dview}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Visualización ``analítica'' de nuestra simulación}
+	\begin{figure}
+		\centering
+		\hspace*{-1em}\includegraphics[width=1\linewidth]{postprodefline}
+		\label{fig:lineresult}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Fin}
+	Recordad:
+	\begin{itemize}
+		\item Dad valor a la ingeniería
+		\item Los cinco ``principios'' de la simulación
+	\end{itemize}
+	Recordad que tenéis listas de software para comparar y usar \\
+	
+	\textbf{Resultado analítico:} $\delta = 1.14\text{ [mm]}$
+	
+	\vfill
+	\begin{center}
+		\LARGE \textbf{¿Preguntas?}
+	\end{center}
+\end{frame}
 
 \end{document}
