@@ -80,7 +80,7 @@
 \subsection{GNU/FSF}
 \begin{frame}{GNU}
 	\begin{block}{GNU}
-		Stallman, trabajando en el MIT anuncia ``\textit{the GNU Proyect}" en 1983, en el 84 empieza su desarrollo. El objetivo es tener un sistema completamente \textbf{libre}; ver \href{https://www.gnu.org/gnu/manifesto.html}{\textit{GNU's Manifesto}}. \textit{GNU is Not UNIX}. 
+		Stallman, trabajando en el MIT anuncia ``\textit{the GNU Proyect}'' en 1983, en el 84 empieza su desarrollo. El objetivo es tener un sistema completamente \textbf{libre}; ver \href{https://www.gnu.org/gnu/manifesto.html}{\textit{GNU's Manifesto}}. \textit{GNU is Not UNIX}. 
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
@@ -132,21 +132,21 @@
 \begin{frame}{Las cuatro libertades}
 	\begin{itemize}
 		\item[0] Libertad para usar el programa para lo que desees como lo desees.
-		\item[1] Libertad para el estudio y la modificación del programa y que sean aplicables.
+		\item[1] Libertad para el estudio y la modificación del programa a nivel de código. Los cambios se deben poder usar.
 		\item[2] Libertad para distribuir copias para ayudar a terceros.
 		\item[3] Libertad par distribuir copias modificadas a terceros.
 	\end{itemize}
 \vfill
-\centering{\Large ¡Software libre no significa \textit{no comercial}!}
+\centering{\Large ¡Software libre no significa \textit{no comercial}! \\ Se puede vender.}
 \vfill
 \href{https://www.gnu.org/licenses/license-list.html}{Link: Lista de licencias}
 \end{frame}
 
 \subsection{Linux}
 \begin{frame}{Linux}
-	1987, MINIX es lanzado con la intención de ser un OS para la enseñanza. De código abierto, pero no distribuible ni modificable. No hay sistemas operativos (buenos) disponible para i386.
+	1987, MINIX es lanzado con la intención de ser un OS para la enseñanza. De código abierto, pero no distribuible ni modificable. No hay sistemas operativos (buenos) disponibles para i386.
 	\begin{block}{Hace muchos años, en un lugar muy remoto... (Helsinki)}
-	Al no poder modificar MINIX para su nuevo ordenador AT, Linus Torvalds decide crear su propio OS en imagen a MINIX usando, por completo, software GNU. El 25 de Agosto 1991, se publica \textit{the "Linux" manifesto.} En 1992 se licencia oficialmente bajo la GPLv2.
+	Al no poder modificar MINIX para su nuevo ordenador AT, Linus Torvalds decide crear su propio OS en imagen a MINIX usando, por completo, software GNU. El 25 de Agosto 1991, se publica \textit{``The Linux manifesto''.} En 1992 se licencia oficialmente bajo la GPLv2.
 	\end{block}
 \end{frame}
 
@@ -182,7 +182,7 @@
 \begin{frame}{Distros, \textit{clasificación}}
 	Las \textit{distros} se crean siguiendo criterios de necesidad y objetivos:
 	\begin{itemize}
-		\item \textbf{Estabilidad:} servidores, ordenadores millonarios o PCs normales. La diferencia principal es cómo de moderno es el software.
+		\item \textbf{Estabilidad:} orientados a servidores, superordenadores o PCs normales. La diferencia principal es cómo de moderno es el software.
 		\item \textbf{Objetivo:} ser fácil de usar, flexible, que corra en dispositivos de potencia limitada, etc.
 		\item \textbf{Administración:} automatizada, simple, manual, profunda, declarativa, etc.
 		\item \textbf{\textit{Facilidad de uso:}} suits completas de software, compatibilidades, entornos gráficos, etc.
@@ -194,9 +194,9 @@
 \begin{figure}
 	\begin{tabular}{cccc}
 		Familias & RedHat \newline CentOS & OpenSUSE & Debian \\ \hline
-		& CentOS & Leap & Debian \\
+		& CentOS & Leap & Debian \\ 
 		\textit{Estables} &\includegraphics[scale=0.3]{centos_logo_blue} & \includegraphics[scale=0.16]{leap-500-500x500} & \includegraphics[scale=0.07]{Debian-Logo-Vector}\\
-		Diarias & \includegraphics[scale=0.01]{fedora-logo} & \includegraphics[scale=0.6]{opensuse-tumbleweed-logo} & \includegraphics[scale=0.07]{logo-ubuntu} \\ 
+		\small Uso diario \normalsize & \includegraphics[scale=0.01]{fedora-logo} & \includegraphics[scale=0.6]{opensuse-tumbleweed-logo} & \includegraphics[scale=0.07]{logo-ubuntu} \\ 
 		& Fedora & Tumbleweed & Ubuntu
 	\end{tabular}
 \end{figure}
@@ -221,8 +221,8 @@
 		\begin{itemize}
 			\item Si (U)EFI, tendremos que hacer una partición extra, formateada a FAT32 y \textit{label: boot}. Montada como \textit{/boot/efi}. Si Windows ya la creó, la seleccionamos. \textbf{¡Pero no la formateamos!}
 		\end{itemize}
-		\item Si el SSD/HDD usa la tabla de partición GPT, tenemos que dejar 2Mb libres en los primeros anillos. $\leftarrow$ \textbf{MUY ``raro''.}
-		\item Proceder con la instalación con calma y revisando todo. No vendría mal comprobar el disco con \texttt{gparted}.
+		\item Si el SSD/HDD usa la tabla de partición GPT, tenemos que dejar 2Mb libres en los primeros anillos (inicio del disco).
+		%\item Proceder con la instalación con calma y revisando todo. No vendría mal comprobar el disco con \texttt{gparted}.
 	\end{itemize}
 \end{frame}
 
@@ -273,7 +273,7 @@
 	\begin{block}{Instalación manual}
 		\begin{itemize}
 			\item \textbf{Incluyendo el repositorio:} seguir las instrucciones dadas.
-			\item \textbf{Instalador manual:} se realiza desde la terminal (\texttt{\# o \$}). Suelen ser archivos del tipo \texttt{driver.run, install, etc.} Se ejecutan escribiendo en la terminal \texttt{./install.sh}
+			\item \textbf{Instalador manual:} se realiza desde la terminal (\texttt{\# o \$}). Suelen ser archivos del tipo \texttt{driver.run, install, etc.} Se ejecutan escribiendo en la terminal \texttt{./install.sh}. Cada programa es distinto.
 		\end{itemize}
 	\end{block}
 	Si cualquier archivo no tiene permisos de ejecución, pero los necesita, se los damos con  \texttt{chmod +x archivo}
@@ -318,13 +318,13 @@
 \begin{frame}{Otras nociones importantes para su uso}
 	Como todo es libre...
 	\begin{block}{DE ó, \texttt{Desktop Environments}}
-		¡No todos los escritorios son iguales!
+		¡No todos los escritorios son iguales! En *NIX puedes elegir tu escritorio.
 		\begin{itemize}
 			\item \textbf{GNOME:}  moderno, e intuitivo, simple en el uso. Predeterminado de Ubuntu.
-			\item \textbf{Plasman:} similar a Windows. Tremendamente personalizable.
+			\item \textbf{Plasma:} similar a Windows. Tremendamente personalizable.
 			\item \textbf{Xfce:} estabilidad ante todo.
 			\item \textbf{Otros:} LxQt, Mate, Cinnamon, OpenBox, etc.
-			\item \textbf{WM:} control de las ventanas desde el teclado. Eficiencia máxima.
+			\item \textbf{WMs:} control de las ventanas desde el teclado. Eficiencia máxima.
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -336,7 +336,7 @@
 		\begin{itemize}
 			\item \textbf{Ubuntu:} \href{https://wiki.ubuntu.com/}{https://wiki.ubuntu.com/}
 			\item \textbf{Arch Linux:} \href{https://wiki.archlinux.org/}{https://wiki.archlinux.org/}, es la más completa, pero requiere experiencia.
-			\item El de la distribución que estéis usando.
+			\item La documentación de la distibución que uséis.
 			\item \textbf{Cualquier motor de búsqueda}
 		\end{itemize}
 	\end{block}
@@ -351,7 +351,7 @@
 	Hay gente que se ha dedicado toda su vida a escribir blogs muy buenos de carácter técnico. Aprovechad los contenidos que ahí se encuentran.
 \end{frame}
 
-\begin{frame}{Temas que aprender}
+\begin{frame}{Temas recomendados que aprender}
 	\begin{itemize}
 		\item \textbf{Text editors:} \texttt{vi(m), Emacs}
 		\item \textbf{Herramientas estándar:} \texttt{Shell, sed, patch, diff, make...}
