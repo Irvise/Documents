@@ -1,7 +1,7 @@
 
 # Introduction
 
-The aim of this simple "guide" is to present most of the (best) software I have found that works on Linux, though most of them also run on other platforms, oh, and they are all FSF approved (libre software if you don't know what FSF is). Try the software and give it a spin to see if it suites your needs. Also, here goes a disclaimer, I am by no means an expert in most of the software listed below, however, the time I have used has proven to be more than pleasant and productive; the only requirement I ask from the program in question is for it to be great for power users.
+The aim of this simple "guide" is to present most of the (best) software I have found that works on Linux, though most of them also run on other platforms. Oh, and they are all FSF approved (libre software if you don't know what FSF is). Try the software and give it a spin to see if it suites your needs. Also, here goes a disclaimer: I am by no means an expert in most of the software listed below, however, the time I have used has proven to be more than pleasant and productive; the only requirement I ask from the program in question is for it to be great for power users.
 
 Also note that some programs may fit several categories listed below. I will list it were I feel it suites best.
 
@@ -26,17 +26,17 @@ Also note that some programs may fit several categories listed below. I will lis
 
 ### Stability wise
 
-These distributions are mostly based on the premise of delivering a stable experience. However, this does not mean you are bounded to use only _stable_ software. Some distributions allow you to use newer software, such as Alpine (community repo), OpenSUSE (Tumbleweed), MX Linux (debian backports and testing), NetBSD (current branch), FreeBSD (current branch).
+These distributions are mostly based on the premise of delivering a stable experience. However, this does not mean you are bounded to use only _stable_ software. Some distributions allow you to use newer software, such as Alpine (community repo), OpenSUSE (Tumbleweed), MX Linux (Debian backports and testing), NetBSD (current branch), FreeBSD (current branch).
 
 * [Alpine Linux](https://alpinelinux.org/): a small muslc based distribution focused on embedded systems and servers. It has stable releases and a rolling model.
 
-* [Devuan Linux](https://devuan.org/): Debian without systemd, and it has extended support. A more userfriendly solution, geared towards the desktop, would be [MX Linux](https://mxlinux.org/).
+* [Devuan Linux](https://devuan.org/): Debian without systemd, and it has extended support. A more user friendly solution, geared towards the desktop, would be [MX Linux](https://mxlinux.org/).
 
 * [OpenSUSE Linux](https://www.opensuse.org/): usually forgotten, however, one of the best distributions out there. [GeckoLinux](https://geckolinux.github.io/): is a more user friendly solution based on OpenSUSE.
 
-* [CentOS Linux](https://www.centos.org/): the community version of RHEL. It is the most stable distribution out there, also the one that ages the most. It is widely used at CERN and FERMI.
+* [CentOS Linux](https://www.centos.org/): the community version of RHEL. It is the most stable distribution out there, also the one that ages the most. It is widely used at CERN and FERMI. With CentOS 8 release, there is a new way to get officially supported software faster, see CentOS Streams.
 
-* [OpenIndiana Illumos](https://www.openindiana.org/): based on Illumos, the descendant of OpenSolaris; it targets workstations and server, and it is kept somewhat up to date. There is also [OMNI OS](https://omniosce.org/).
+* [OpenIndiana Illumos](https://www.openindiana.org/): based on Illumos, the descendant of OpenSolaris; it targets workstations and servers, and it is kept somewhat up to date. There is also [OMNI OS](https://omniosce.org/), which is better suited for servers.
 
 * [NetBSD](http://netbsd.org/): targets embedded systems, yet it is a joy to use it, simple and _hacky._
 
@@ -44,13 +44,13 @@ These distributions are mostly based on the premise of delivering a stable exper
 
 ---
 
-### More dynamic targeting desktops
+### More dynamic distributions and OSs, mostly targeting desktops
 
-* [Void Linux](https://voidlinux.org/): a diy distribution: offers glibc and muslc libraries, systemd-free, yet powerful and follows a rolling release model.
+* [Void Linux](https://voidlinux.org/): a DIY distribution: offers glibc and muslc libraries, systemd-free, yet powerful and follows a rolling release model, supports various archs.
 
 * See [OpenSUSE Tumbleweed](https://en.opensuse.org/Portal:Tumbleweed). See [Devuan](https://devuan.org/) with Ceres repositories.
 
-* [Artix Linux](https://artixlinux.org/): Arch-based OpenRC distribution.
+* [Artix Linux](https://artixlinux.org/): Arch-based OpenRC/Runit distribution.
 
 * [KDE Neon Linux](https://neon.kde.org/download): Ubuntu-based KDE focused distribution. It is officially developed by the KDE team. It is however, based on Ubuntu-LTS.
 
@@ -60,7 +60,7 @@ These distributions are mostly based on the premise of delivering a stable exper
 
 ## Terminal applications
 
-No "low level" utilities will be listed below, just the programs that you will find yourself dealing directly, this means no mention to tar, grep, awk, sed, cups, gvfs, ntfs-3g, etc. However, they are all wonderful programs.
+No "low level" utilities will be listed below, just the programs that you will find yourself dealing directly, this means no mention to tar, grep, awk, sed, cups, gvfs, etc. However, they are all wonderful programs.
 
 ### Shell
 
@@ -68,11 +68,10 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 ### Helpers
 
-* [Abduco](https://github.com/martanne/abduco) and [dvtm](https://github.com/martanne/dvtm): created by the same person, [Marc Andrè Tanner](https://github.com/martanne). Abduco provides session management within the terminal. Dvtm is a terminal multiplexer. Combined, they provide the same functionality as [GNU Screen](https://www.gnu.org/software/screen/) or [Tmux](https://github.com/tmux/tmux) while being simpler (though not as flexible or customizable). GNU Screen or Tmux are also very nice multiplexers, and you are encouraged to try them.
+* [Abduco](https://github.com/martanne/abduco) and [dvtm](https://github.com/martanne/dvtm): created by the same person, [Marc Andrè Tanner](https://github.com/martanne). Abduco provides session management within the terminal. Dvtm is a terminal multiplexer. Combined, they provide the same functionality as [GNU Screen](https://www.gnu.org/software/screen/) or [Tmux](https://github.com/tmux/tmux), GNU Screen or Tmux are also very nice multiplexers, and you are encouraged to try them.
 
 ### System tools
 
-* [Git](https://git-scm.com/): most widely used version control system. [Tig](https://jonas.github.io/tig/): terminal interface for git.
 * [Neofetch](https://github.com/dylanaraps/neofetch): prints system information directly to the terminal with a nice logo. Use [Inxi](https://github.com/smxi/inxi) if you would like a richer output.
 
 * [Lm_sensors](https://github.com/groeck/lm-sensors): monitor temperatures, control fans, etc.
@@ -135,15 +134,15 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 ## Programming
 
+* [Git](https://git-scm.com/): most widely used version control system. [Tig](https://jonas.github.io/tig/): terminal interface for git. TODO: fossil.
+
 * [Gdb](https://www.gnu.org/software/gdb/) with [Cgdb](https://cgdb.github.io/): the most flexible debugger to have ever existed. Supports a plethora of languages.
 
 * [Radare2](https://www.radare.org/r/index.html): wonderful TUI disassembler. [Cutter](https://github.com/radareorg/cutter) is a GUI for it.
 
-* [Valgrind](http://valgrind.org/): a wonderful analysis tool.
+* [Valgrind](http://valgrind.org/): a wonderful runtime analysis tool, specially for memory inspection.
 
 * [Cppcheck](http://cppcheck.sourceforge.net/): static analysis tool for C/C++ code. MISRA standard is mostly complete.
-
-* [SimAVR](https://github.com/buserror/simavr): simulates AVRs. With the help of GDB it may be used as an advance debugger.
 
 * [Meson](https://mesonbuild.com/): complete, easy and modern build system. [Autotools](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html): for simpler projects and compatibility, read [this guide/book](https://autotools.io/index.html) as a great introduction.
 
@@ -161,6 +160,12 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Ht](http://hte.sourceforge.net/): hex editor in your terminal. It has support for disassembly.
 
+### Embedded systems
+
+* [SimAVR](https://github.com/buserror/simavr): simulates AVRs. With the help of GDB it may be used as an advance debugger.
+
+* TODO
+
 ## Browsers - Web
 
 * [Firefox](https://www.mozilla.org/en-US/firefox/new/): Firefox web browser.
@@ -177,11 +182,11 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 ### Recommended Add-ons for Firefox (most are Chromium compatible)
 
-* [uMatrix](https://github.com/gorhill/uMatrix): request filter.
+* [uMatrix](https://github.com/gorhill/uMatrix): content filtering (javascript, media, CSS, etc).
 
 * [uBlock Origin](https://github.com/gorhill/uBlock): ad and tracker blocker.
 
-* [Decentraleyes](https://decentraleyes.org/): local CDN network to serve the most requested packages.
+* [Decentraleyes](https://decentraleyes.org/): local CDN to serve the most commonly requested packages.
 
 * [Cookie AutoDelete](https://github.com/Cookie-AutoDelete/Cookie-AutoDelete): easy-peasy cookie management.
 
@@ -189,7 +194,9 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 ## Multimedia
 
-* [Audacious](https://audacious-media-player.org/): wonderful audio player. Supports pretty much everything someone could dream of, it offers a Winamp interface.
+### Players
+
+* [Audacious](https://audacious-media-player.org/): wonderful audio player. Supports pretty much everything someone could dream of, plus it offers a Winamp interface.
 
 * [Cmus](https://cmus.github.io/): terminal audio player, small, fast and powerful. As an alternative there is also [Moc](http://moc.daper.net/).
 
@@ -205,7 +212,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 #### Audio
 
-* [Audacity](https://www.audacityteam.org/): small, yet powerful audio editing software. Works wonders when combined with a video-editing pipeline.
+* [Audacity](https://www.audacityteam.org/): small, yet powerful audio editing software. Works wonders when combined in a video-editing pipeline.
 
 * [Fre:ac](https://www.freac.org/): audio transcoder.
 
@@ -213,15 +220,15 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [LMMS](https://lmms.io/): music production (music synthesither).
 
-* [MuseScore](https://musescore.org/en): professional music notation, while simple and fully flexible. [Denemo](http://www.denemo.org/): another great music notation program. [Rosegarden](https://www.rosegardenmusic.com/): a quite complete solution to music production, from notation to synthesis to MIDI playback.
+* [MuseScore](https://musescore.org/en): professional music notation, while simple and fully flexible. [Denemo](http://www.denemo.org/): another great music notation program, based on the great [LilyPond](http://lilypond.org/). [Rosegarden](https://www.rosegardenmusic.com/): a quite complete solution to music production, from notation to synthesis to MIDI playback.
   
 * [Sonic Visualiser](https://sonicvisualiser.org/): audio viewer and analyzer.
 
-* [Radium](http://users.notam02.no/%7Ekjetism/radium/index.php): amazing music editor.
+* [Radium](http://users.notam02.no/%7Ekjetism/radium/index.php): amazing music editor with a unique feel.
 
 * [MuSe](http://www.muse-sequencer.org/index.html): complete MIDI/Audio sequencer.
 
-* [Zynaddsubfx](http://zynaddsubfx.sourceforge.net/): really nice audio synthesizer.
+* [Zynaddsubfx](http://zynaddsubfx.sourceforge.net/): really nice audio synthesizer, the most complete out there.
 
 * [Milkytracker](http://milkytracker.titandemo.org/), [Schismtracker](http://schismtracker.org/), [Klystrack](https://kometbomb.github.io/klystrack/) and [Protracker & Fasttracker II clone](https://16-bits.org/index.php): precious pieces of computing history, the beloved trackers.
 
@@ -251,8 +258,6 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [Blender](https://www.blender.org/): a complete and professional 3D creation suite.
 
-* [OpenToonz](https://opentoonz.github.io/e/): 2D painting and animation suite.
-
 ##### Render Engines
 
 * [LuxCore](https://luxcorerender.org/): unbiased (physically accurate) render, supports OpenCL.
@@ -263,9 +268,11 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 ---
 
+* [OpenToonz](https://opentoonz.github.io/e/): 2D painting and animation suite.
+
 * [Natron](https://natrongithub.github.io/): compositor for visual effects and the graphics industry. Great for post-production.
 
-* [Kdenlive](https://kdenlive.org/en/): pretty much the best open source video editing software, with professional quality.
+* [Kdenlive](https://kdenlive.org/en/): pretty much the best open source video editing software, with professional quality. TODO: shotcut.
 
 * [Aegisub](http://www.aegisub.org/): for subtitle editing. There is also [Gaupol](https://otsaloma.io/gaupol/) if you prefer.
 
@@ -275,7 +282,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 For office utilities, please, refer to the next section. Use [Hunspell](https://hunspell.github.io/) or [Aspell](http://aspell.net/) for spelling.
 
-* [LaTeX](https://www.latex-project.org/): typesetting software, mainly aimed at scientific reports, though it suites everyone needs. A wonderful editor for LaTex is [TeXStudio](https://www.texstudio.org/).
+* [LaTeX](https://www.latex-project.org/): typesetting software, mainly aimed at high quality publications, though it suites everyone needs. A wonderful editor for LaTex is [TeXStudio](https://www.texstudio.org/).
 
 * [Scribus](https://www.scribus.net/): a publishing application. Works wonders for flyers and magazines as well as presentations. Supports LaTeX.
 
@@ -295,16 +302,6 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [Onlyoffice](https://www.onlyoffice.com/): a simple yet complete office suite, compatible with Microsoft Office.
 
-### Email
-
-* [Thunderbird](https://www.thunderbird.net/): complete email client with full GPG support.
-
-* [Kmail](https://www.kde.org/applications/internet/kmail/): simple, lightweight but feature-rich client.
-
-* [Sylpheed](http://sylpheed.sraoss.jp/en/): very lightweight and simple e-mail client.
-
-* [Mutt](http://www.mutt.org/): TUI email client.
-
 ### Word
 
 * [Abiword](https://www.abisource.com/): a small and simple word processing program, has nothing fancy in it.
@@ -318,6 +315,16 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 * [Sc-im](https://github.com/andmarti1424/sc-im): terminal based spreadsheet program.
 
 * [GNU PSPP](https://www.gnu.org/software/pspp/): it is more an alternative to SPSS than to Excel, however, it works wonders too.
+
+### Email
+
+* [Thunderbird](https://www.thunderbird.net/): complete email client with full GPG support.
+
+* [Kmail](https://www.kde.org/applications/internet/kmail/): simple, lightweight but feature-rich client.
+
+* [Sylpheed](http://sylpheed.sraoss.jp/en/): very lightweight and simple e-mail client.
+
+* [Mutt](http://www.mutt.org/): TUI email client.
 
 ### Money Management
 
@@ -347,7 +354,7 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [OpenModelica](https://www.openmodelica.org/): a complete Modelica solution. Models physical systems and controllers.
 
-* **Plotting**: [GNU Plot](http://gnuplot.info/): advance plotting tool. [PLplot](http://plplot.org/). [MathGL](http://mathgl.sourceforge.net/doc_en/Main.html).
+* **Plotting**: [GNU Plot](http://gnuplot.info/): advance and flexible plotting tool. [PLplot](http://plplot.org/). [MathGL](http://mathgl.sourceforge.net/doc_en/Main.html). TODO, pgfplots and pyplot
 
 ### Mathematics
 
@@ -411,7 +418,7 @@ The Salome Platform
 
 * [GetDP](http://getdp.info/): general environment for the treatment of discrete problems.
 
-* [AMITEX_FFTP](http://www.maisondelasimulation.fr/projects/amitex/html/index.html): solver based on FFTs for non-linear mechanical analysis on heterogeneous unit-cells.
+* Check license. [AMITEX_FFTP](http://www.maisondelasimulation.fr/projects/amitex/html/index.html): solver based on FFTs for non-linear mechanical analysis on heterogeneous unit-cells.
 
 * [Agros 2D](http://www.agros2d.org/): simulator of physical problems based on the Hermes library.
 
