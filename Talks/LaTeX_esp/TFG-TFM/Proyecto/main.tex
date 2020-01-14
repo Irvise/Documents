@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%
-% Copyright: Fernando Oleo Blanco.
+% Copyright and authorship: Fernando Oleo Blanco.
 %
-% Thanks to all the people that helped my get to where I am.
+% Thanks to all the people that helped me get to where I am.
 % Free use, just acknowledge the authors.
 %%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt, a4paper, twoside]{book} % General definition. In order to have the text completely centered, do not use the twoside option; however, twoside is recommended for printing.
+\documentclass[12pt, a4paper, twoside]{book} % General document definition. In order to have the text completely centered, do not use the twoside option; however, twoside is recommended for printing.
 
 % For general information and help, refer to https://www.overleaf.com/learn
 
@@ -14,24 +14,27 @@
 \usepackage[utf8]{inputenc} % Set the utf8 input encoding
 \usepackage[english]{babel} % Select your prefered language. Example: \usepackage[activeacute,spanish]{babel}
 \usepackage{amsmath, amsfonts, amssymb} % Mathematical notation
-\usepackage{makeidx} % Index customization
+\usepackage{makeidx} % Index customization. This shouldn't be necessary
 \usepackage{fancyhdr} % Header and footer customization
 \usepackage{titlesec} % Section printing customization
 \usepackage{graphicx} % Graphics import and tools
 \usepackage{svg} % To work with svg imports
-\usepackage{geometry} % To modify the geometry of pages
+\usepackage{geometry} % To modify the geometry of pages (margins and other lengths)
 \usepackage{booktabs} % To create beautiful tables
 \usepackage{multicol} % To output text in two or more columns
-\usepackage{hyperref} % Advance referencing
+\usepackage{hyperref} % "Advance" and easier referencing
 \usepackage{listings} % To add and format code
 \usepackage[final]{pdfpages} % Includes pdfs directly, not as images
 \usepackage{watermark} % Watermarks
 \usepackage{lipsum} % Dummy text to test the design
 \usepackage[backend=biber,
-			style=numeric,
-			citestyle=numeric,
-			sorting=none]{biblatex} % To use biblatex, which is more complex, but as customizable as it gets. Please, modify this to your liking
-			% IMPORTANT: this requires biber to be installed and run!!! If you are having issues with the bibliography, please, search for how to install and run biber!
+	style=numeric,
+	citestyle=numeric,
+	sorting=none]{biblatex} % Citation configuration. We use biblatex, which is more
+        % complex, but as customizable as it
+        % gets. Please, modify this to your liking
+        % IMPORTANT: this requires biber to be installed and run every time
+        % you change the .bib file!!! If you are having issues with the bibliography, please, search for how to install and run biber!
 
 %% PACKAGE CONFIGURATION
 
@@ -44,7 +47,7 @@
 \fancyhead[RO]{\slshape \nouppercase \rightmark}
 \fancyfoot[LE, RO]{\thepage}
 % IMPORTANT! If your chapter/section names are too long to nicely fit on the header, use the shortened variant:
-% \chapter[short tile]{actual long title, title} or \section[short title]{actual long title, title}
+% \chapter[short tile]{actual long title} or \section[short title]{actual long title, title}
 
 %% CUSTOM COMMANDS
 
@@ -58,11 +61,11 @@
 
 %% DOCUMENT
 
-% An example on how to add a watermark {\thiswatermark{\centering\put(268,-802){\includegraphics[scale=1.5]{ComillasWatermark.pdf}}}}
+% This is an example on how to add a watermark {\thiswatermark{\centering\put(268,-802){\includegraphics[scale=1.5]{ComillasWatermark.pdf}}}}
 
 \begin{document}
 	
-	\frontmatter
+	\frontmatter % First few pages
 	\pagestyle{empty} % We suppress the "fancy" hearders in the front matter
 	\pagenumbering{gobble} % Same with numbering
 	
@@ -75,15 +78,16 @@
 		\end{figure}
 		\centering
 		\Large Degree in Industrial Technologies \\ % Modify accordingly
-		\vspace*{2.5em}
+		\vspace*{2.5em} % This just adds some vertical spacing
 		\centering
-		Bachelor's final project \\ % Modify accordingly
+		Bachelor's or Master's final project \\ % Modify accordingly
 		\vspace*{1em}
-		This is the title % Write here the title of your study
-		\\ \normalsize
+		This is the title of your project % Write here the title of your study
+		\\ \large
 		\vspace*{3em}
-		Author:  Author's Name \\ % Your name
-		Supervised by: Supervisor's Name % Supervisor(s) name(s) 
+		Author \\ Author's Name \\ % Your name
+		\vspace*{1em}
+		Supervised by \\ Supervisors' Names % Supervisor(s) name(s) 
 		% {\vfill \vspace*{3em}{Author's signature:\hrulefill \hfill} \hfill \\ \vspace*{4em}Supervisors' signatures:\hrulefill \hfill} % Uncoment this line if you would like to add a signature space
 		\vfill
 		Madrid \\
@@ -94,30 +98,30 @@
 		Abstract content
 	\end{abstract}
 
-	\clearpage\mbox{}\clearpage % This forces the next page to be odd-numbered, right hand page.
+	\cleardoublepage % New page starts on the right hand side
 
 	% Thanks and other information page
 	{\centering Thank yous\\}
-	\vfill
+	\vfill % Fill the page with whitespace (this is just for aesthetical reasons)
 	And other important information
 
-	\clearpage\mbox{}\clearpage % This forces the next page to be odd-numbered, right hand page.
+	\cleardoublepage
 	
 	\tableofcontents % Create the index
 	\listoffigures % Create index of figures
 	\listoftables % Create index of tables
-	\lstlistoflistings % Create index of code sections
+	\lstlistoflistings % Create index for code sections
 	
 	\cleardoublepage % Open on right hand page (odd numbered)
 	
-	\mainmatter
+	\mainmatter 
 	
 	% Activate customized headers
 	\pagestyle{fancy}
 	
 	\include{Chapter1/chapter1} % This is the way we should import files and partition our document.
 	
-	% Include more stuff
+	% Include more chapters and or documents.
 	
 	\appendix
 	
