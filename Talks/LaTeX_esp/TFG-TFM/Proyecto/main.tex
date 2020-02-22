@@ -5,7 +5,7 @@
 % Free use, just acknowledge the authors.
 %%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt, a4paper, twoside]{book} % General document definition. In order to have the text completely centered, do not use the twoside option; however, twoside is recommended for printing.
+\documentclass[12pt, a4paper]{book} % General document definition. In order to have the text completely centered, do not use the twoside option; however, twoside is recommended for printing.
 
 % For general information and help, refer to https://www.overleaf.com/learn
 
@@ -14,27 +14,32 @@
 \usepackage[utf8]{inputenc} % Set the utf8 input encoding
 \usepackage[english]{babel} % Select your prefered language. Example: \usepackage[activeacute,spanish]{babel}
 \usepackage{amsmath, amsfonts, amssymb} % Mathematical notation
-\usepackage{makeidx} % Index customization. This shouldn't be necessary
 \usepackage{fancyhdr} % Header and footer customization
 \usepackage{titlesec} % Section printing customization
 \usepackage{graphicx} % Graphics import and tools
-\usepackage{svg} % To work with svg imports
 \usepackage{geometry} % To modify the geometry of pages (margins and other lengths)
 \usepackage{booktabs} % To create beautiful tables
-\usepackage{multicol} % To output text in two or more columns
 \usepackage{hyperref} % "Advance" and easier referencing
-\usepackage{listings} % To add and format code
+\usepackage{listings} % To add and format code. See 
+\usepackage{xcolor} % Adds more colors to the available list
 \usepackage[final]{pdfpages} % Includes pdfs directly, not as images
-\usepackage{watermark} % Watermarks
 \usepackage{lipsum} % Dummy text to test the design
-\usepackage[backend=biber,
-	style=numeric,
-	citestyle=numeric,
-	sorting=none]{biblatex} % Citation configuration. We use biblatex, which is more
+\usepackage[style=numeric,
+			citestyle=numeric,
+			sorting=none]{biblatex}
+		% Citation configuration. We use biblatex, which is more
         % complex, but as customizable as it
         % gets. Please, modify this to your liking
         % IMPORTANT: this requires biber to be installed and run every time
         % you change the .bib file!!! If you are having issues with the bibliography, please, search for how to install and run biber!
+        
+% Specialised packages
+
+\usepackage{algorithm2e} % To write beautiful algorithmic flows
+\usepackage{pgfplots} % Create native LaTeX looking plots (other backends are available)
+\usepackage{todonotes} % Graphically create TODO entries
+\usepackage{siunitx} % Write Units in accordance with the SI organization
+\usepackage{eurosym} % Official Euro symbol
 
 %% PACKAGE CONFIGURATION
 
@@ -57,20 +62,14 @@
 		\bfseries \abstractname \end{center}}%
 {\vfill\null}
 
-%% GENERAL INFORMATION
-
 %% DOCUMENT
-
-% This is an example on how to add a watermark {\thiswatermark{\centering\put(268,-802){\includegraphics[scale=1.5]{ComillasWatermark.pdf}}}}
 
 \begin{document}
 	
 	\frontmatter % First few pages
 	\pagestyle{empty} % We suppress the "fancy" hearders in the front matter
-	\pagenumbering{gobble} % Same with numbering
 	
 	% This creates a basic title page based on the one proposed by Comillas University.
-	% It is recommended that if you want a more advance titlepage, that you define and create it completely from scratch.
 	\begin{titlepage}
 		\begin{figure}
 			\centering
@@ -91,15 +90,17 @@
 		% {\vfill \vspace*{3em}{Author's signature:\hrulefill \hfill} \hfill \\ \vspace*{4em}Supervisors' signatures:\hrulefill \hfill} % Uncoment this line if you would like to add a signature space
 		\vfill
 		Madrid \\
-		Month of the year 2019 % Modify accordingly
+		May 2020 % Modify accordingly
 	\end{titlepage}
 	
+	% Write your abstract
 	\begin{abstract}
 		Abstract content
 	\end{abstract}
 
 	\cleardoublepage % New page starts on the right hand side
 
+	% Coment this block if you don't want a general information page
 	% Thanks and other information page
 	{\centering Thank yous\\}
 	\vfill % Fill the page with whitespace (this is just for aesthetical reasons)
@@ -121,11 +122,11 @@
 	
 	\include{Chapter1/chapter1} % This is the way we should import files and partition our document.
 	
-	% Include more chapters and or documents.
+	%% Include more chapters and or documents.
 	
 	\appendix
 	
-	\chapter{This is the first appendix}
+	%% Include appendixes
 	
 	\cleardoublepage
 	
