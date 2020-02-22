@@ -228,7 +228,7 @@ No "low level" utilities will be listed below, just the programs that you will f
 
 * [MuSe](http://www.muse-sequencer.org/index.html): complete MIDI/Audio sequencer.
 
-* [Zynaddsubfx](http://zynaddsubfx.sourceforge.net/): really nice audio synthesizer, the most complete out there.
+* [Zynaddsubfx](http://zynaddsubfx.sourceforge.net/): really nice audio synthesizer, the most complete out there. A fork of Zynaddsubfx is [Yoshimi](http://yoshimi.github.io/), which is just as nice.
 
 * [Milkytracker](http://milkytracker.titandemo.org/), [Schismtracker](http://schismtracker.org/), [Klystrack](https://kometbomb.github.io/klystrack/) and [Protracker & Fasttracker II clone](https://16-bits.org/index.php): precious pieces of computing history, the beloved trackers.
 
@@ -364,7 +364,7 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [Scilab](http://www.scilab.org/): complete alternative to Matlab or Octare thereof.
 
-* [OpenModelica](https://www.openmodelica.org/): a complete Modelica solution. Models physical systems and controllers.
+* [OpenModelica](https://www.openmodelica.org/): a complete Modelica solution. Models physical systems and controllers. Alternative to Simulink.
 
 * [QGIS](https://www.qgis.org/en/site/): collect and analize geospatial data.
 
@@ -372,11 +372,15 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 ### Mathematics
 
+* [Dakota](https://dakota.sandia.gov/): advance optimization framework targeted at simulations and coprocesing.
+
+* [OpenTURNS](http://www.openturns.org/): uncertainty treatment and measurement. Also generally used for optimization propurses.
+
 * [COIN-OR](https://www.coin-or.org/): complete suite for optimization and general operational research. CMPL is their own mathematical programming language. Coliop is a basic GUI to write CMPL.
 
 * [SageMath](https://www.sagemath.org/): complete mathematical suite.
 
-* [Maxima (WxMaxima)](http://maxima.sourceforge.net/): algebra software.
+* [Maxima (WxMaxima)](http://maxima.sourceforge.net/): algebra software (CAS).
 
 * [Gap](http://www.gap-system.org/):  computational discrete algebra, with emphasis on computational group theory.
 
@@ -386,9 +390,13 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [Singular](http://www.singular.uni-kl.de/): CAS for polynomial computations.
 
-* [OpenTURNS](http://www.openturns.org/): uncertainty treatment and measurement.
+* [OpenSimply](https://opensimply.org/): discrete even simulation.
 
-### Design - Mechanical - Simulation
+* [TerraME](http://www.terrame.org/doku.php): spatial dynamical simulation framework.
+
+### Mechanical
+
+#### Design and machining
 
 * [Gmsh](http://gmsh.info/): designer, mesh generator and post-processor.
 
@@ -414,6 +422,16 @@ For office utilities, please, refer to the next section. Use [Hunspell](https://
 
 * [Meshlab](http://www.meshlab.net/): advance remesher.
 
+* [Paraview](https://www.paraview.org/): THE data visualization program, it is a wonderful piece of software.
+
+* [Dtk-visualization](https://gitlab.inria.fr/dtk/dtk-visualization): a lightweight Paraview alternative.
+
+* [Vislt](https://wci.llnl.gov/simulation/computer-codes/visit/): visualization software.
+
+* [3DSlicer](https://www.slicer.org/): 3D visualization software specialized in volumetrics.
+
+#### Simulation
+
 The Salome Platform
 
 * [Salome Meca](http://www.salome-platform.org/): complete engineering platform, from design, to meshing, to problem description and boundary conditions, to simulation and visualization. It is composed of smaller pieces of software which are described below.
@@ -434,11 +452,15 @@ The Salome Platform
 
 * [Agros 2D](http://www.agros2d.org/): simulator of physical problems based on the Hermes library.
 
+* [OpenSBLI](https://opensbli.github.io/): automated derivation of finite difference solvers. It may be used to solve any problem which can be written in Einstein notation.
+
+* [NEKTAR++](https://www.nektar.info/): spectral high order polynomial solver. Mainly targeted at HPC.
+
+* [NEK5000](https://nek5000.mcs.anl.gov/): spectral high order CFD solver. It aims to be the next generation of HPC CFD solver.
+
 * [MFront/TFEL](http://tfel.sourceforge.net/): code generation tool dedicated to material knowledge and its design. Has interfaces to some most libre software listed here.
 
 * [anaStruct](https://github.com/ritchie46/anaStruct): 2D structural analysis. It is scripted through Python and comes with standardized beams.
-
-* [LAMMPS](https://lammps.sandia.gov/): mulecular dynamics simulator.
 
 * [Open TELEMAC-MASCARET](http://opentelemac.org/): integrated suite of solvers for use in free-surface flows.
 
@@ -448,21 +470,17 @@ The Salome Platform
 
 * [Polyphemus](http://cerea.enpc.fr/polyphemus/): air dispersion and pollution.
 
-* [AERMOD](https://www.epa.gov/scram/air-quality-dispersion-modeling-preferred-and-recommended-models#caline): air dispersion and pollution simulator.
-
-* [Dakota](https://dakota.sandia.gov/): advance optimizer.
-
-* [Paraview](https://www.paraview.org/): THE data visualization program, it is a wonderful piece of software.
-
-* [Vislt](https://wci.llnl.gov/simulation/computer-codes/visit/): visualization software.
-
-* [3DSlicer](https://www.slicer.org/): 3D visualization software specialized in volumetrics.
-
 * **Not Open Source** [Simscale](https://www.simscale.com/): online web application, complete simulation solution which only uses libre software (mentioned above). Completely free for students.
 
----
+### Chemistry
 
-* [ITOM](https://itom.bitbucket.io/): suite for operating measurement systems.
+* [CoolProp](http://www.coolprop.org/): fluid properties library akin to RefPROP.
+
+* [LAMMPS](https://lammps.sandia.gov/): mulecular dynamics simulator.
+
+* [AERMOD](https://www.epa.gov/scram/air-quality-dispersion-modeling-preferred-and-recommended-models#caline): air dispersion and pollution simulator.
+
+*[DWSIM](http://dwsim.inforside.com.br/wiki/index.php?title=DWSIM): CAPE-OPEN simulation platform for chemical processes.
 
 ### Electronics
 
@@ -484,13 +502,17 @@ The Salome Platform
 
 * [FlatCAM](http://flatcam.org/): PCB milling.
 
-### Others
-
-* [SUMO](https://www.dlr.de/ts/en/desktopdefault.aspx/tabid-9883/16931_read-41000/): Simulation of Urban MObility, simulates vehicles, pedestrians and public transport mobility.
-
 ### Networking
 
 * [GNS3](https://gns3.com/): network simulator/analyzer.
+
+* [NS3](https://www.nsnam.org/): network simulation (as in discrete event).
+
+### General/Others
+
+* [ITOM](https://itom.bitbucket.io/): suite for operating measurement systems.
+
+* [SUMO](https://www.dlr.de/ts/en/desktopdefault.aspx/tabid-9883/16931_read-41000/): Simulation of Urban MObility, simulates vehicles, pedestrians and public transport mobility.
 
 ## Games
 
@@ -616,6 +638,18 @@ The Salome Platform
 
 Here goes a little extra section regarding some of the technologies that I quite like but are not suitable for the previous sections.
 
+### RTOS and microkernels
+
+* [FreeRTOS](https://freertos.org/): the world-wide-know libre RTOS.
+
+* [Zephyr](https://www.zephyrproject.org/): a modern and versatile RTOS, under the Linux Foundation umbrella.
+
+* [SeL4](https://sel4.systems/): a robust microkernel OS.
+
+* [RTEMS](http://rtems.com/): an open RTOS for high performance.
+
+* [NuttX](http://www.nuttx.org/): a small footprint RTOS.
+
 ### Programming languages
 
 * **C** [GCC](https://gcc.gnu.org/) or [Clang](https://clang.llvm.org/): the low level language. The grandfather of the modern world. A wonder in itself, by it's simplicity and flexibility. If an in-depth analysis of the code is required, there is [Frama-C](https://frama-c.com). A C compiler targeted to more retro/microcontroller CPUs is [Small Device C Compiler](http://sdcc.sourceforge.net/).
@@ -674,11 +708,11 @@ As a recommendation, use javascript only where necesary and sparsely.
 
 * HTTP Caching: [Varnish Cache](https://varnish-cache.org/index.html).
 
-* See: [Cloud Foundry](https://www.cloudfoundry.org/), [Terraform](https://www.terraform.io/), [Saltstack](https://www.saltstack.com/), [Kubernetes](https://kubernetes.io/), [Rancher](https://rancher.com/), .
+* See: [Cloud Foundry](https://www.cloudfoundry.org/), [Terraform](https://www.terraform.io/), [Saltstack](https://www.saltstack.com/), [Kubernetes](https://kubernetes.io/), [Rancher](https://rancher.com/).
 
 * **Static site builders:** [Zola](https://www.getzola.org/): same, but with Rust, preferred by author. [Hugo](https://gohugo.io/): great(est) static pages generator, Go based. [Hakyll](https://jaspervdj.be/hakyll/): an alternative based on Haskell.
 
-* **Extra bits, none Open Source** [DNSimple](https://dnsimple.com/): as its name implies, simple, yet complete domain acquisition service with Let's Encrypt certificates, plus they fully support open source. [Digital Ocean](https://www.digitalocean.com/): complete hosting solution, one of the easiest and complete ones. [UpCloud](https://www.upcloud.com/): another nice hosting solution. See also: [Scaleway](https://www.scaleway.com/en/), [Linode](https://www.linode.com/), [OVH](https://www.ovh.com/world/). If the Illumos route is preferred, then there is [MNX](https://mnx.io/pricing/)
+* **Extra bits, none Open Source** [DNSimple](https://dnsimple.com/): as its name implies, simple, yet complete domain acquisition service with Let's Encrypt certificates, plus they fully support open source. [Digital Ocean](https://www.digitalocean.com/): complete hosting solution, one of the easiest and complete ones. [UpCloud](https://www.upcloud.com/): another nice hosting solution. See also: [Scaleway](https://www.scaleway.com/en/), [Linode](https://www.linode.com/), [OVH](https://www.ovh.com/world/). If the Illumos route is preferred, then there is [MNX](https://mnx.io/pricing/).
 
 ### Databases
 
