@@ -19,7 +19,7 @@
 	\title{Introducción a \textrm{\LaTeX}}
 	%\subtitle{}
 	%\logo{}
-	\institute{ICAI - LinuxEC}
+	\institute{(ICAI - LinuxEC) DEP}
 	\date{\today}
 	%\subject{}
 	%\setbeamercovered{transparent}
@@ -55,7 +55,7 @@
 		\centering
 		\includegraphics[height=0.75\linewidth]{Donald-Knuth-Stanford-Computer-Science}
 		\caption{Donald Ervin Knuth. Creador de \TeX}
-		\label{fig:donald-knuth-stanford-computer-science}
+		\label{fig:donald}
 	\end{figure}
 \end{frame}
 
@@ -138,10 +138,24 @@
 	\end{columns}
 \end{frame}
 
+\begin{frame}{Buenas prácticas generales}
+	\large
+	\begin{enumerate}
+		\item Cuando algo falla, \textbf{leed el mensaje de error}
+		\item Nunca, nunca, nunca empecéis desde cero. \textbf{¡Usad plantillas!}
+		\item Sed organizados
+		\item \textbf{Haced las cosas sencillas}, si no es obvio, no lo hagas
+		\item Buscad ayuda (en mi o en los recursos mencionados)
+		\item ¡Comentad lo que hacéis! \% Comentario
+		\item \textbf{Leed la documentación}
+		\item \textbf{Usad bien el IDE.} ¡Ahorra un montón de tiempo! 
+	\end{enumerate}
+\end{frame}
+
 \section{Estructura del documento}
 
-\begin{frame}{Estructura de archivos}
-	Estructura de archivos
+\begin{frame}{Estructura de archivos para el trabajo}
+	Estructura de archivos recomendada. Es la que usa la plantilla
 	\begin{columns}
 		\begin{column}{0.4\textwidth}
 			\dirtree{%
@@ -164,18 +178,6 @@
 	\end{columns}
 \end{frame}
 
-\begin{frame}{Buenas prácticas generales}
-\large
-	\begin{enumerate}
-		\item Cuando algo falla, leed el mensaje de error
-		\item Nunca, nunca, nunca empecéis desde cero. \textbf{¡Usad plantillas!}
-		\item Sed organizados
-		\item Haced las cosas sencillas, si no es obvio, no lo hagas
-		\item Buscad ayuda (en mi o en los recursos mencionados)
-		\item ¡Comentad lo que hacéis! \% Comentario
-	\end{enumerate}
-\end{frame}
-
 \subsection{\texttt{\ documentclass y preámbulo}}
 
 \begin{frame}[fragile]{Estructura general de los comandos}
@@ -187,13 +189,13 @@
 	\end{block} \pause
 	\begin{block}{Entornos}
 		Como comandos normales, pero cuya función es más extensa y compleja; tienen la estructura: \verb|\begin{entorno}[opciones]{argumento}| \verb| content... | 
-	\verb|\end{frame}|. En IDE \texttt{Crtl + e}
+	\verb|\end{entorno}|. En IDE \texttt{Crtl + e}
 	\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Comienzo de nuestro documento}
 	\begin{block}{\textbf{\texttt{$\textbackslash$documentclass}}}
-		\underline{\textbf{Nuestra primera línea.}} Define la naturaleza de nuestro documento. Ejemplo:  \verb|\documentclass[12pt, twoside, ...]{article}|
+		\underline{\textbf{Nuestra primera línea.}} Define la naturaleza de nuestro documento. Ejemplo:  \verb|\documentclass[12pt, a4paper, ...]{book}|
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
@@ -253,61 +255,65 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 
 \subsection{Manejo del texto}
 
-\begin{frame}[fragile]{Comienzo del texto}
-	\textbf{TODO} el documento se encontrará entre \begin{verbatim}
-	\begin{document}
-	\end{document}
-	\end{verbatim}
-	Comenzamos con:
-	\begin{verbatim}
-		\begin{document}
-		\begin{titlepage} % Portada
-		\maketitle % Generación de portada automática
-		\thispagestyle{empty} % Para que no salga numerada
-		\begin{abstract}
-		Resumen inicial (abstract). Formateo automático
-		\end{abstract}
-		\end{titlepage}
-	\end{verbatim}
-\end{frame}
-
-\begin{frame}[fragile]{Cont.}
-	\begin{verbatim}
-		Cont.
-		\cleardoublepage % Nueva página e inicio en derecha
-		\pagenumbering{Roman} % Numeración romana
-		\tableofcontents % Esta estructura es un ejemplo
-		\newpage
-		\listoffigures % Estos tres comandos también se 
-		\newpage
-		\listoftables % suelen poner en el apéndice
-		\newpage
-		\listoflistings % Para código
-		\pagenumbering{arabic} % Numeración arábica
-	\end{verbatim}
-\end{frame}
-
-\begin{frame}[fragile]{Cont.}
-	Recordemos que en \LaTeX\ se puede dividir el texto. Las partes se incluyen con: \verb|\include{file}|
-	\begin{verbatim}
-		Cont.
-		% Ahora podemos importar los distintos archivos
-		\include{Cap1/cap1} % Incluimos el archivo de la
-		% carpeta Cap1. El archivo va sin extensión .tex
-		\include{Cap2/cap2} 
-		% Etcétera
-		\appendix % Iniciamos apéndice
-		\include{lo_que_sea}
-		% Incluir bibliografía (se verá después el cómo)
-	\end{verbatim}
-\end{frame}
+%\begin{frame}[fragile]{Comienzo del texto}
+%	\textbf{TODO} el documento se encontrará entre \begin{verbatim}
+%	\begin{document}
+%	\end{document}
+%	\end{verbatim}
+%	Comenzamos con:
+%	\begin{verbatim}
+%		\begin{document}
+%		\begin{titlepage} % Portada
+%		\maketitle % Generación de portada automática
+%		\thispagestyle{empty} % Para que no salga numerada
+%		\begin{abstract}
+%		Resumen inicial (abstract). Formateo automático
+%		\end{abstract}
+%		\end{titlepage}
+%	\end{verbatim}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Cont.}
+%	\begin{verbatim}
+%		Cont.
+%		\cleardoublepage % Nueva página e inicio en derecha
+%		\pagenumbering{Roman} % Numeración romana
+%		\tableofcontents % Esta estructura es un ejemplo
+%		\newpage
+%		\listoffigures % Estos tres comandos también se 
+%		\newpage
+%		\listoftables % suelen poner en el apéndice
+%		\newpage
+%		\listoflistings % Para código
+%		\pagenumbering{arabic} % Numeración arábica
+%	\end{verbatim}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Cont.}
+%	Recordemos que en \LaTeX\ se puede dividir el texto. Las partes se incluyen con: \verb|\include{file}|
+%	\begin{verbatim}
+%		Cont.
+%		% Ahora podemos importar los distintos archivos
+%		\include{Cap1/cap1} % Incluimos el archivo de la
+%		% carpeta Cap1. El archivo va sin extensión .tex
+%		\include{Cap2/cap2} 
+%		% Etcétera
+%		\appendix % Iniciamos apéndice
+%		\include{lo_que_sea}
+%		% Incluir bibliografía (se verá después el cómo)
+%	\end{verbatim}
+%\end{frame}
 
 \begin{frame}[fragile]{Seccionamiento del texto}
-	En la clase \texttt{article}, se tienen principalmente tres niveles:\\
+	En la clase \texttt{book}, se tienen principalmente tres niveles:\\
+	\verb|\chapter[short title]{title}| \\
 	\verb|\section[short title]{text}|\\
 	\verb|\subsection[short title]{text}|\\
 	\verb|\subsubsection[short title]{title}|\\
-	\texttt{[short title]} es lo que aparecería en el índice y en el encabezado. Si no se quiere numerado ni en el índice: \verb|\section*{title}|\\
+	
+	\texttt{[short title]} es lo que aparecería en el índice y en el encabezado. \\ 
+	
+	Si no se quiere numerado ni en el índice: \verb|\section*{title}|\\
 	\hrulefill\\
 	Para escribir párrafos, dejar una línea en blanco entre ellos. Para romper una línea usar \verb|\\|
 \end{frame}
@@ -467,7 +473,7 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 		\end{figure}
 		\end{verbatim}\vspace*{-1em}
 	\end{block}
-	\texttt{includegraphics} nos da opciones para el control de la altura, ancho y escala. Sirve para un buen número de formatos, incluido \texttt{.pdf}. \verb|\caption[short title]{text}| es el texto que aparece debajo de la imagen y en la \texttt{tof.} Usad el \textit{wizard} que trae el IDE.
+	\texttt{includegraphics} nos da opciones para el control de la altura, ancho y escala. Sirve para un buen número de formatos, incluido \texttt{.pdf}. \verb|\caption[short title]{text}| es el texto que aparece debajo de la imagen y en la \texttt{tof.} \textbf{Usad el \textit{wizard} que trae el IDE.}
 \end{frame}
 
 \begin{frame}[fragile]{Programas y fragmentos de código}
@@ -516,7 +522,9 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	\end{block}
 
 	\begin{block}{Referencias, citas}
-		\verb|\autoref{key}| nos generará la referencia de manera automática, tendrá en cuenta el entorno usado, sección, etc. Es del paquete \texttt{hyperref}. Ver Figura~ \ref{fig:donald-knuth-stanford-computer-science}. Ver también el paquete \texttt{cleveref}.
+		\verb|\autoref{key}| nos generará la referencia de manera automática. Tendrá en cuenta el entorno usado, sección, etc. Ver Figura \autoref{fig:donald}. \\
+		\vspace{1em}
+		La forma tradicional sería con \verb|\ref{text}|: \verb|\ref{fig:donald}|. Lo que daría solo "\ref{fig:donald}", por lo que tendríamos que indicar qué estamos referenciando.
 	\end{block}
 \end{frame}
 
@@ -526,7 +534,7 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	\hrulefill \\
 	Recordad que hay servicios bibliográficos, como \href{https://scholar.google.com/}{\textbf{Google Scholar,}} donde podemos buscar la información de las referencias. Además, todos estos servicios sacan formato \textrm{Bib\TeX.} \\
 	\hrulefill \\
-	Nota, hay varios procesadores internos de bibliografía, nosotros usaremos el más sencillo, aunque se recomienda que les echéis un ojo a \textrm{Bib\LaTeX y Biber.}
+	Nota, hay varios procesadores internos de bibliografía, nosotros usaremos el más flexible y sencillo:  \textrm{Bib\LaTeX.}
 	
 	\begin{block}{Programas}
 	\begin{description}
@@ -538,12 +546,12 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	\vspace*{-3em}
 \end{frame}
 
-\begin{frame}[fragile, allowframebreaks]{Bibliografía en \LaTeX\ uso en el documento}
+\begin{frame}[fragile, allowframebreaks]{Bibliografía en \LaTeX, uso en el documento}
 	\begin{block}{Citas}
 		Para citar una obra simplemente se hace \verb|\cite{bibid}| donde se quiera la referencia. El \texttt{bibid} es el identificador de nuestra referencia.
 	\end{block}
 
-	\begin{block}{Uso inclusión en el documento y estilos}
+	\begin{block}{Inclusión en el documento y estilos}
 		\begin{verbatim}
 		\section{Bibliografía}
 		\bibliographystyle{style} % plain, abbrv, alpha...
