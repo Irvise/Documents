@@ -24,18 +24,24 @@
 \usepackage{xcolor} % Adds more colors to the available list
 \usepackage[final]{pdfpages} % Includes pdfs directly, not as images
 \usepackage{lipsum} % Dummy text to test the design
-\usepackage[style=numeric,
+\usepackage[backend=biber,
+			style=numeric,
 			citestyle=numeric,
 			sorting=none]{biblatex}
 		% Citation configuration. We use biblatex, which is more
-        % complex, but as customizable as it
-        % gets. Please, modify this to your liking
+        % complex, but as customizable as it gets.
+        % Please, modify this to your liking.
         % IMPORTANT: this requires biber to be installed and run every time
-        % you change the .bib file!!! If you are having issues with the bibliography, please, search for how to install and run biber!
+        % you change the .bib file! To make it easier, if you are using TeXStudio, do the following:
+        % 1. Go to options. 2. Select the Build menu. 3 In standard bibliography, change bibtex to biber. 4. Profit
+        % These changes will allow the editor to detect any changes and "recompile" the files if needed.
+        % For other editors see: https://tex.stackexchange.com/questions/154751/biblatex-with-biber-configuring-my-editor-to-avoid-undefined-citations
+       	% See link for a quick introduction: https://tex.stackexchange.com/questions/26516/how-to-use-biber/34136
+        % If you are having issues with the bibliography, please, search for how to install and run biber!
         
 % Specialised packages
 
-\usepackage{algorithm2e} % To write beautiful algorithmic flows
+\usepackage{algorithm2e} % To write beautiful algorithms
 \usepackage{pgfplots} % Create native LaTeX looking plots (other backends are available)
 \usepackage{todonotes} % Graphically create TODO entries
 \usepackage{siunitx} % Write Units in accordance with the SI organization
@@ -56,7 +62,7 @@
 
 %% CUSTOM COMMANDS
 
-% Add abstract to book style
+% Add abstract environment to book style
 \newenvironment{abstract}%
 {\cleardoublepage \null \vfill \begin{center}%
 		\bfseries \abstractname \end{center}}%
@@ -98,7 +104,7 @@
 		Abstract content
 	\end{abstract}
 
-	\cleardoublepage % New page starts on the right hand side
+	\newpage
 
 	% Coment this block if you don't want a general information page
 	% Thanks and other information page
@@ -106,7 +112,7 @@
 	\vfill % Fill the page with whitespace (this is just for aesthetical reasons)
 	And other important information
 
-	\cleardoublepage
+	\cleardoublepage % New page starts on the right hand side
 	
 	\tableofcontents % Create the index
 	\listoffigures % Create index of figures
