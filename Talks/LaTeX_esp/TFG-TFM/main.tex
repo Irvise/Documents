@@ -166,7 +166,7 @@
 				.2 Cap1. 
 				.3 cap1.tex. 
 				.3 img.png. 
-				.3 pdf.pdf. 
+				.3 main.pdf. 
 				.3 \dots. 
 				.2 Cap2. 
 				.3 \dots. 
@@ -180,15 +180,15 @@
 
 \subsection{\texttt{\ documentclass y preámbulo}}
 
-\begin{frame}[fragile]{Estructura general de los comandos}
-	\begin{block}{Comando tradicional}
+\begin{frame}[fragile, allowframebreaks]{Estructura general de los comandos}
+	\begin{block}{Comando simple}
 		Comienzan con $\textbackslash$, seguido del comando. Si este comando recibe algún argumento (o algunos), estos van entre llaves. Si reciben opciones, van entre corchetes antes del argumento. Ejemplos: \\
 		\verb|\hrulefill| $\rightarrow$ \hrulefill \\
 		\verb|\textit{Hola}| $\rightarrow$ \textit{Hola} \\
 		\verb|\textcolor{blue}{azul}| $\rightarrow$ \textcolor{blue}{azul}
 	\end{block} \pause
 	\begin{block}{Entornos}
-		Como comandos normales, pero cuya función es más extensa y compleja; tienen la estructura: \verb|\begin{entorno}[opciones]{argumento}| \verb| content... | 
+		Como comandos normales, pero cuya función es más extensa y compleja; tienen la estructura: \verb|\begin{entorno}[opciones]{argumento}| \\ \verb| content... | \\ 
 	\verb|\end{entorno}|. En IDE \texttt{Crtl + e}
 	\end{block}
 \end{frame}
@@ -305,11 +305,12 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 %\end{frame}
 
 \begin{frame}[fragile]{Seccionamiento del texto}
-	En la clase \texttt{book}, se tienen principalmente tres niveles:\\
-	\verb|\chapter[short title]{title}| \\
-	\verb|\section[short title]{text}|\\
-	\verb|\subsection[short title]{text}|\\
-	\verb|\subsubsection[short title]{title}|\\
+	\begin{block}{En la clase \texttt{book}, se tienen principalmente tres niveles}
+		\verb|\chapter[short title]{title}| \\
+		\verb|\section[short title]{text}|\\
+		\verb|\subsection[short title]{text}|\\
+		-\verb|\subsubsection[short title]{title}|-
+	\end{block}
 	
 	\texttt{[short title]} es lo que aparecería en el índice y en el encabezado. \\ 
 	
@@ -534,7 +535,7 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	\hrulefill \\
 	Recordad que hay servicios bibliográficos, como \href{https://scholar.google.com/}{\textbf{Google Scholar,}} donde podemos buscar la información de las referencias. Además, todos estos servicios sacan formato \textrm{Bib\TeX.} \\
 	\hrulefill \\
-	Nota, hay varios procesadores internos de bibliografía, nosotros usaremos el más flexible y sencillo:  \textrm{Bib\LaTeX.}
+	Nota, hay varios procesadores internos de bibliografía, nosotros usaremos el más flexible y sencillo:  \textrm{Bib\LaTeX.} \\ \textbf{Comentar configuración en \TeX Studio}
 	
 	\begin{block}{Programas}
 	\begin{description}
@@ -715,7 +716,7 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 
 \begin{frame}[fragile]{Entorno equation(*)}
 	\begin{block}{La base de la estructuración}
-		\verb|\begin{equation}...\end{equation}| tiene los mismos efectos que \verb|\[...\]| sin embargo, para ecuaciones formales, importantes y largas es preferido. Da mayor claridad al código, otros entornos se pueden usar dentro suyo y permite la \textbf{referencia y numeración.} Para evitar la numeración se le pone un * al final de su declaración.
+		\verb|\begin{equation}...\end{equation}| tiene los mismos efectos que \verb|\[...\]| sin embargo, para ecuaciones formales, importantes y largas, es preferido. Da mayor claridad al código, otros entornos se pueden usar dentro suyo y permite la \textbf{referencia y numeración.} Para evitar la numeración se le pone un * al final de su declaración.
 	\end{block} \pause\small
 	\begin{block}{Ejemplo}
 		\begin{equation} \label{ec:ejemplo1}
@@ -732,7 +733,7 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 \end{frame}
 
 \begin{frame}[fragile]{Ecuaciones alineadas}
-	Existen varios entornos, todos con sus peculiaridades, pero prácticamente idénticos. Los más conocidos son \texttt{split, aligned \& align}.  \texttt{align} numera cada salto de línea por defecto.
+	Existen varios entornos, todos con sus peculiaridades, pero prácticamente idénticos. Los más conocidos son \texttt{split, aligned \& align}.  \texttt{aligned} subenumera cada salto de línea por defecto.
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\begin{equation}
@@ -755,8 +756,28 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	\end{columns}
 \end{frame}
 
+\begin{frame}[fragile]{Paréntesis, corchetes y demás puntuaciones}
+	\LaTeX\ automáticamente ajusta el tamaño de los símbolos de puntuación, \textbf{pero hay que indicárselo.} El comando es \verb|\left*...\right*|, con * siendo el símbolo.
+	\begin{block}{Ejemplo}
+		\begin{columns}
+			\begin{column}{0.27\textwidth}
+				\begin{equation*}
+					3 = \left(\frac{3}{1^{100}}\right)
+				\end{equation*}
+			\end{column}
+			\begin{column}{0.73\textwidth}
+				\begin{verbatim}
+					\begin{equation*}
+					3 = \left(\frac{3}{1^{100}}\right)
+					\end{equation*}
+				\end{verbatim}
+			\end{column}
+		\end{columns}
+	\end{block}
+	Si solo se quiere usar uno (el de apertura o cierre), el que no se desee se indicará con \verb|\left.| o \verb|\right.|
+\end{frame}
+
 \begin{frame}[fragile]{Más flexibilidad en la escritura}
-	\LaTeX\ aporta una forma elegante de incluir anotaciones en nuestras fórmulas
 	\begin{block}{Anotaciones sobre fórmulas}
 		\begin{itemize}
 			\item \verb|\overset{}{} y \underset{}{}| Nos permiten poner unos símbolos encima de otros. Ejemplo:  $A \overset{!}{=} B; A \stackrel{!}{=} B \rightarrow$ \verb|$A \overset{!}{=} B; A \stackrel{!}{=} B$|. \pause
@@ -779,31 +800,31 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Cuadros}
-	\small
-	\begin{block}{Solo ecuación}
-		\verb|\begin{equation}\boxed{f(x)=(x+a)(x+b)}\end{equation}|
-		\begin{equation}
-		\boxed{f(x)=(x+a)(x+b)}
-		\end{equation}
-	\end{block}	
-	\begin{block}{Toda la ecuación}
-		\begin{center}
-			\fbox{\begin{minipage}{0.9\textwidth}
-					\begin{equation}
-					f(x)=(x+a)(x+b)
-					\end{equation}
-			\end{minipage}}
-		\end{center}
-		\begin{verbatim}
-		\fbox{\begin{minipage}{0.9\textwidth}
-		\begin{equation}
-		f(x)=(x+a)(x+b)
-		\end{equation}
-		\end{minipage}}
-		\end{verbatim}
-	\end{block}
-\end{frame}
+%\begin{frame}[fragile]{Cuadros}
+%	\small
+%	\begin{block}{Solo ecuación}
+%		\verb|\begin{equation}\boxed{f(x)=(x+a)(x+b)}\end{equation}|
+%		\begin{equation}
+%		\boxed{f(x)=(x+a)(x+b)}
+%		\end{equation}
+%	\end{block}	
+%	\begin{block}{Toda la ecuación}
+%		\begin{center}
+%			\fbox{\begin{minipage}{0.9\textwidth}
+%					\begin{equation}
+%					f(x)=(x+a)(x+b)
+%					\end{equation}
+%			\end{minipage}}
+%		\end{center}
+%		\begin{verbatim}
+%		\fbox{\begin{minipage}{0.9\textwidth}
+%		\begin{equation}
+%		f(x)=(x+a)(x+b)
+%		\end{equation}
+%		\end{minipage}}
+%		\end{verbatim}
+%	\end{block}
+%\end{frame}
 
 \section{Resumen y otros recursos}
 
@@ -824,12 +845,12 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	Recursos que no se han mencionado pero que son de gran ayuda (dentro o fuera de TF(G,M))
 	\begin{enumerate}
 		\item \texttt{MACROS:} permiten hacer comandos especializados. Muy útil cuando se tienen estructuras repetitivas.
-		\item \texttt{Beamer:} entorno de presentaciones más usado, por ejemplo esta misma.
+		\item \texttt{Beamer:} entorno de presentaciones más usado, por ejemplo, esta misma.
 		\item \texttt{Lua\LaTeX, Xe\LaTeX:} procesadores más modernos y con más herramientas, automatización y programables.
 		\item Preprocesadores de bibliografía como \texttt{biber.}
 		\item Distintas tipografías (hay algunas preciosas).
-		\item Más paquetes que os sean de ayuda, pero tenéis los suficientes. \texttt{Scoping}
-		\item Aprended bien el editor (mi propuesta \TeX Studio).
+		\item Más paquetes que os sean de ayuda, pero tenéis los suficientes.
+		\item Aprended bien el editor (mi propuesta \href{http://www.texstudio.org/}{\TeX Studio}).
 	\end{enumerate}
 \end{frame}
 
@@ -838,7 +859,7 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	\begin{description}
 		\item[Contacto] \texttt{fernando.oleo@alu.comillas.edu}
 		\item[Plantillas] La de la universidad o la que tendréis en el mismo link que esta presentación
-		\item[Agradecimientos] \textsc{\mbox{Daniel Andrés Arcones}, \mbox{Pablo Frías Marín,} \mbox{Aurelio García Cerrada}}\\ y las asociaciones compañeras
+		\item[Thanks] \textsc{\mbox{Daniel Andrés Arcones}, \mbox{Aurelio García Cerrada} y \mbox{Pablo Frías Marín}}\\ y las asociaciones compañeras
 	\end{description}
 
 \end{frame}
