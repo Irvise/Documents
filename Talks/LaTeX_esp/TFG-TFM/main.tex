@@ -533,29 +533,11 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	\end{block}
 \end{frame}
 
-\begin{frame}[fragile, allowframebreaks]{Bibliografía, programas externos}
-	\small
-	No son necesarios para trabajar en \LaTeX\ como veremos. Pero son muy útiles para el manejo de bibliografías grandes y complicadas. Además de traer muchas herramientas de búsqueda y formato de gran ayuda. \\
-	\hrulefill \\
-	Recordad que hay servicios bibliográficos, como \href{https://scholar.google.com/}{\textbf{Google Scholar,}} donde podemos buscar la información de las referencias. Además, todos estos servicios sacan formato \textrm{Bib\TeX.} \\
-	\hrulefill \\
-	Nota, hay varios procesadores internos de bibliografía, nosotros usaremos el más flexible y sencillo:  \textrm{Bib\LaTeX.} \\ \textbf{Comentar configuración en \TeX Studio}
-	
-	\begin{block}{Programas}
-	\begin{description}
-		\item[\href{https://www.zotero.org/}{Zotero}] Multiplataforma y exporta tanto a \LaTeX\ como a Word. Todas las herramientas necesarias están incluidas excepto un motor de búsqueda con texto (puede ISBNs, DOIs, etc), aunque tiene integración con Firefox y Safari.
-		\item[\href{http://www.jabref.org/}{JavRef}] Multiplataforma y también exporta a Word. Completo y avanzado. También tiene integración con Firefox.
-		\item[\href{https://userbase.kde.org/KBibTeX}{KBibTeX}] Solo Linux. Muy simple pero sencillo de usar y flexible, además de traer varios motores de búsqueda.
-	\end{description}	
-	\end{block}
-	\vspace*{-3em}
-\end{frame}
-
 \begin{frame}[fragile, allowframebreaks]{Bibliografía en \LaTeX, uso en el documento}
 	\begin{block}{Citas}
-		Para citar una obra simplemente se hace \verb|\cite{bibid}| donde se quiera la referencia. El \texttt{bibid} es el identificador de nuestra referencia.
+		Para citar una obra simplemente se hace \verb|\cite{bibid}| donde se quiera la referencia. El \texttt{bibid} es el identificador de nuestra referencia. \textbf{Más sencillo imposible.}
 	\end{block}
-
+	
 	\begin{block}{Inclusión en el documento y estilos}
 		\begin{verbatim}
 		\section{Bibliografía}
@@ -565,16 +547,10 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 		\end{document} % si queremos terminar
 		\end{verbatim}
 	\end{block}
-
-	\begin{block}{Estructura del archivo \texttt{.bib}}
-		Todas las entradas empiezan con una @ y su identificador (\texttt{article, journal, book, etc}); esto sirve para darles formato. A continuación se abren llaves. \\
-		Entre las llaves se escribirá la información separada por comas. Lo \underline{más importante} es la primera palabra que pondremos, esa será la identificación para el comando \verb|\cite{bibid}|. A continuación rellenaremos tantos campos como necesitemos \texttt{año, título, autor, url, editor, etc}, tal y como está indicado en el ejemplo.
-	\end{block}
-	\vfill
 	
 	\small
 	\begin{block}{El archivo \texttt{.bib}}
-		El archivo \texttt{.bib,} que se recomienda que esté junto con el documento \texttt{.tex} principal, es nuestra \textit{base de datos} con las referencias. Un ejemplo sería:
+		El archivo \texttt{.bib,} se recomienda que esté junto con el documento \texttt{.tex} principal, es nuestra \textit{base de datos} con las referencias. Un ejemplo sería:
 		\vspace{-1.4em}
 		\begin{verbatim}
 		@BOOK{White201501,
@@ -592,6 +568,24 @@ Como \LaTeX\ hará un buen número de cosas automatizadas, le damos unos datos g
 	\end{block}
 	\vspace{-1.4em}
 	\normalsize
+\end{frame}
+
+\begin{frame}[fragile, allowframebreaks]{Bibliografía, programas externos}
+	\small
+	No son necesarios para trabajar en \LaTeX\ como veremos. Pero son muy útiles para el manejo de bibliografías grandes y complicadas. Además de traer muchas herramientas de búsqueda y formato de gran ayuda. \\
+	\hrulefill \\
+	Recordad que hay servicios bibliográficos, como \href{https://scholar.google.com/}{\textbf{Google Scholar,}} donde podemos buscar la información de las referencias. Además, todos estos servicios sacan formato \textrm{Bib\TeX.} \\
+	\hrulefill \\
+	Nota, hay varios procesadores internos de bibliografía, nosotros usaremos el más flexible y sencillo:  \textrm{Bib\LaTeX + biber.} \\ \texttt{Comentar configuración en \TeX Studio}
+	
+	\begin{block}{Programas}
+	\begin{description}
+		\item[\href{https://www.zotero.org/}{Zotero}] Multiplataforma y exporta tanto a \LaTeX\ como a Word. Todas las herramientas necesarias están incluidas excepto un motor de búsqueda con texto (puede ISBNs, DOIs, etc), aunque tiene integración con Firefox y Safari.
+		\item[\href{http://www.jabref.org/}{JavRef}] Multiplataforma y también exporta a Word. Completo y avanzado. También tiene integración con Firefox.
+		\item[\href{https://userbase.kde.org/KBibTeX}{KBibTeX}] Solo Linux. Muy simple pero sencillo de usar y flexible, además de traer varios motores de búsqueda.
+	\end{description}	
+	\end{block}
+	\vspace*{-3em}
 \end{frame}
 
 \section{Escritura científica}
