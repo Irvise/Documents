@@ -734,17 +734,15 @@ As a recommendation, use javascript only where necesary and sparsely.
 
 * [Matrix](https://matrix.org/blog/home/): _An open network for secure, decentralized communication._ I personally hope they get this straight and become the dominant network/system. [Diaspora*](https://diasporafoundation.org/) is another wonderful social network following the same principle.
 
-* [Wire](https://wire.com/en/): a _collaboration_ network, similar to Slack or Telegram, but much better. There is also [Mattermost](https://www.mattermost.org/), which is a lot more _enterprisy,_ so up to you.
+* [Wire](https://wire.com/en/): a _collaboration_ network, similar to Slack or Telegram, but much leaner. There is also [Mattermost](https://www.mattermost.org/), which is a lot more _enterprisy,_ so up to you.
 
-* [Mumble](https://wiki.mumble.info/wiki/Main_Page): VoIP.
-
-* [Jami](https://jami.net/): a wonderful alternative to the likes of Skype. I greatly recommend it. 
+* **VoIP:** [Mumble](https://wiki.mumble.info/wiki/Main_Page): simple and lightweight VoIP. [Jami](https://jami.net/): a wonderful alternative to the likes of Skype. Another solution which runs directly in the browser is [Jitsi](https://jitsi.org/), and it is fully feature too, which makes it even better. 
 
 * [GNU FM (Libre FM)](https://gnu.io/fm/): relative of GNU Social, but directed for music streaming.
 
 ### Project management
 
-* **Git**: [Gitea](https://gitea.io/en-US/): self-hosted Git. Similar to Github; and much lighter than [GitLab](https://about.gitlab.com/), which is a more complete solution, and it is used by major companies and projects. If the solution has to be simple and responsive, there is [Cgit](https://git.zx2c4.com/cgit/) plus [Gitolite](http://gitolite.com/gitolite/).
+* **Git**: [Gitea](https://gitea.io/en-US/): self-hosted Git. Similar to Github; and much lighter than [GitLab](https://about.gitlab.com/), which is a more complete solution, and it is used by major companies and projects. If the solution has to be simple and responsive, there is [Cgit](https://git.zx2c4.com/cgit/) plus [Gitolite](http://gitolite.com/gitolite/). Another simple yet featureful solution is [Sourcehut](https://sourcehut.org/), which is starting to be my favourite.
 
 * **Project management:** [Odoo](https://www.odoo.com/): complete ERP and CRM solution, the open-source version does not have the most advance (and usually handy) tools. [ERPNext](https://erpnext.com/): complete ERP solution. [SuiteCRM](https://suitecrm.com/): complete CRM solution.
 
